@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/ng-template" id="languageList" ng-cloak>
+    <div align="left">
+        <div>
+            <p class="header" ng-bind-html="langQst.SelectedOptions[0].LanguageHeader">
+            </p>
+        </div>
+        <div ng-repeat="opt in langQst.SelectedOptions" style="width:100%;">
+            <div ng-if="($index)%2 == 0" class="dvLanguage">
+                <div style="float: left;">
+                    <input class="radioCheck" type="radio" name="language" ng-attr-id="{{opt.OptionId +'_radio'}}" ng-model="langQst.OptionId" value="{{opt.OptionId}}" />
+                </div>
+                <div>
+                    <label for="{{opt.OptionId +'_radio'}}" style="font-family: Arial; font-size: 14px;" id="lbloption" ng-bind-html="opt.OptionText">
+                    </label>
+                </div>
+            </div>
+            <div ng-if="($index)%2 == 1 " class="dvLanguage">
+                <div style="float: left;">
+                    <input class="radioCheck" type="radio" name="language_{{$index}}" ng-attr-id="{{opt.OptionId +'_radio'}}" ng-model="langQst.OptionId" value="{{opt.OptionId}}" />
+                </div>
+                <div>
+                    <label for="language_{{$index}}" style="font-family: Arial; font-size: 14px;" ng-bind-html="opt.OptionText">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<style type="text/css">
+    .radioCheck {
+        width: 20px;
+        height: 18px;
+    }
+</style>
+
+<div ng-controller="psLanguageController" style="width: 100%; min-height: 200px;max-width: 750px;" ng-if="psPageLoad">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    }
+    <div style="padding-top: 5px;" class="content-hide" ng-class="{'content-show':showViewContent}">
+        <div id="tmpTable" style="display: block; float: left; width: 100%;">
+            <ng-include src="'languageList'"></ng-include>
+        </div>
+        <div style="text-align: center;" class="dvButton">
+            <div style="width: 100%;">
+                <button id="btnSubmit" class="button" type="button" value="Continue" style="width: 110px; margin-bottom: 25px;" ng-click="save(formValidation.$valid)">{{buttontext}}</button>
+            </div>
+            <br />
+        </div>
+    </div>
+</div>
+

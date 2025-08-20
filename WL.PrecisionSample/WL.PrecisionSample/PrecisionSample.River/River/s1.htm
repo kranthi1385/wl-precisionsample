@@ -1,0 +1,475 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+<head>
+    <title>OpinionNetwork Surveys</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Opinionetwork: market research technology, data collection" />
+    <meta name="author" content="Opinionetwork" />
+    <meta name="copyright" content="copyright 2010 - Federated Sample, LLC" />
+    <link id="lnkMainCss" rel="stylesheet" href="/css/river-main.css" type="text/css"
+        media="screen" />
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+        rel="stylesheet" type="text/css" />
+    <!-- additional styles for Feedback form modal -->
+    <!-- 
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/black-tie/jquery-ui.css" type="text/css" />
+	<link rel="stylesheet" href="css/main.css?v=3" type="text/css" />
+	-->
+<script src="/Scripts/jquery.1.7.1.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="/Scripts/knockout-2.3.0.js"></script>
+
+    <script src="/Scripts/jquery.tmpl.min.js" type="text/javascript"></script>
+
+    <script src="/Scripts/knockout.mapping-latest.debug.js" type="text/javascript"></script>
+
+    <script src="/Scripts/knockout.mapping-latest.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="https://apis.google.com/js/client:platform.js"></script>
+
+    <script type="text/javascript" src="http://connect.facebook.net/en_US/all.js"></script>
+
+    <script type="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
+    <script src="/Scripts/Pages/s1.js" type="text/javascript"></script>
+
+    <script language="javascript" type="text/javascript">
+        FB.init({
+            appId: '411622555678304',
+
+            status: true, // check login status
+            cookie: true, // enable cookies to allow the server to access the session
+            xfbml: true, // parse XFBML
+            version: 'v2.2'
+        });                            
+    </script>
+
+    <script language="javascript" type="text/javascript">
+        var fb = '';
+        function fb_login() {
+            FB.login(function(response) {
+                if (response.authResponse) {
+                    statusChangeCallback(response);
+                }
+            });
+        }
+        function getUrlVars() {
+            var Url = window.location.href.toLowerCase();
+            var vars = {};
+            var parts = Url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        function statusChangeCallback(response) {
+            acccesstoken = response.authResponse.accessToken
+            if (response.authResponse) {
+                FB.api('/me', function(response) {
+
+                    _email = response.email;
+                    if (_email == undefined || response.email == 'undefined')
+                        _email = '';
+
+                    rid = getUrlVars()["rid"];
+                    if (rid == undefined || rid == '') {
+                        rid = 14339
+                    }
+
+                    sid = getUrlVars()["sid"];
+                    if (sid == undefined) {
+                        sid = ''
+                    }
+
+                    txid = getUrlVars()["txid"];
+                    if (txid == undefined) {
+                        txid = ''
+                    }
+
+                    //Need to Save the trasnsaction ID of each survey Click/Registraion added by sandy on 2/14/2107
+                    transactionid = getUrlVars()["trans_id"]
+                    if (transactionid == undefined) {
+                        transactionid = ''
+                    }
+
+
+                    fb = 'fn=' + response.first_name + '&ln=' + response.last_name + '&g=' + response.gender + '&Email=' + _email + '&date=' +
+response.birthday + '&fid=' + response.id + '&loc=' + response.locale + '&rid=' + rid + '&sid=' + sid + '&txid=' + txid + '&trans_id='+ transactionid;
+                    if (_email != '' && _email != null && _email == undefined && response.email == 'undefined') {
+                        _eid = response.email
+                    }
+                    else {
+                        _eid = response.id
+                    }
+                    if (_email != '' && EmailExistsCheck(_email)) {
+                        SaveUserDetails(_eid);
+                    }
+                    else {
+                        $('#spnEmailErr').hide();
+                        $('#dvError').show();
+                        $('#dvError').html("Your Email in facebook is private! Please Provide Your Email Address! ");
+                    }
+
+
+                });
+
+            }
+            else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+        }
+
+        // Load the SDK asynchronously
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        } (document, 'script', 'facebook-jssdk'));
+
+        // Here we run a very simple test of the Graph API after login is
+        // successful.  See statusChangeCallback() for when this call is made.
+        function testAPI() {
+
+            console.log('Welcome!  Fetching your information.... ');
+
+        }
+        function SaveUserDetails(_email) {
+            $('#dvImgLoading').show();
+            $('#dvError').hide();
+
+            $.ajax({
+                url: '/services/RiverService.aspx?Mode=FBInsertUserDetails&' + fb,
+                timeout: 50000,
+                type: 'POST',
+                async: false,
+                data: ko.toJSON(ViewModel),
+                success: function(data) {
+
+                    if (data != null && data != '') {
+                        $('#dvImgLoading').hide();
+                        //window.location.href = '/river/s2.htm?ug=' + data.split(';')[0];
+                        window.location.href = '/River/relevant.htm?ug=' + data.split(';')[0] + '&lpage=home' + '&id=' + _email + "c=" + data.split(';')[1] + '&rid=' + rid + '&txid=' + txid;
+                    }
+                    else {
+                        $('#spnEmailErr').hide();
+                        $('#dvError').show();
+                        $('#dvError').html(' Email Address already exists!');
+
+                        $('#dvImgLoading').hide();
+                    }
+                },
+                error: function(error) {
+                    $('#dvError').hide();
+                    $('#dvImgLoading').hide();
+                }
+            });
+        }
+    </script>
+
+    <script type="text/javascript">
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+
+        function onLoadCallback() {
+            gapi.client.setApiKey('AIzaSyCehIN89XHaf_tUG_knnjmey5yh7VQwhk0'); //set your API KEY
+            gapi.client.load('plus', 'v1', function() { }); //Load Google + API
+        }
+
+        function login() {
+            var myParams = {
+                'clientid': '317236269844-r11pkrtura9hca5b1ajkn2afc9rot10i.apps.googleusercontent.com', //You need to set client id
+                'cookiepolicy': 'single_host_origin',
+                'callback': 'loginCallback', //callback function
+                'approvalprompt': 'force',
+                'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
+            };
+            gapi.auth.signIn(myParams);
+        }
+
+        function loginCallback(result) {
+            if (result['status']['signed_in']) {
+                var request = gapi.client.plus.people.get(
+        {
+            'userId': 'me'
+        });
+                request.execute(function(resp) {
+                    var email = '';
+                    if (resp['emails']) {
+                        for (i = 0; i < resp['emails'].length; i++) {
+                            if (resp['emails'][i]['type'] == 'account') {
+                                email = resp['emails'][i]['value'];
+                            }
+                        }
+                    }
+                    var str = "Name:" + resp['displayName'] + "<br>";
+                    str += "Email:" + email + "<br>";
+                    fb = 'fn=' + resp['displayName'] + '&ln=' + "" + '&g=' + "" + '&Email=' + email + '&date=' +
+"" + '&fid=' + "" + '&loc=' + "" + '&rid=' + rid + '&sid=' + sid + '&txid=' + txid + '&trans_id=' + transactionid;
+                    if (email != '' && EmailExistsCheck(email)) {
+                        SaveUserDetails(email);
+                    }
+                    else {
+                        $('#dvError').show();
+                        $('#dvError').html(' Email Address already exists!');
+                    }
+                });
+
+            }
+
+        }
+    </script>
+
+    <script type="text/javascript">
+        var EmailExistsCheck = function(_email) {
+            $('#dvImgLoading').show();
+            $.ajax({
+                url: '/services/RiverService.aspx?Mode=MemberExistence&Email=' + _email + '&rid=' + rid + '&sid=' + sid + '&txid=' + txid + '&trans_id=' + transactionid,
+                timeout: 50000,
+                datatype: 'json',
+                type: 'POST',
+                async: false,
+                data: ko.toJSON(ViewModel),
+                success: function(data) {
+                    if (data != null && data != '') {
+                        $('#dvImgLoading').hide();
+                        window.location.href = '/river/s2.htm?ug=' + data;
+                    }
+                    else {
+                        _isValid = true;
+                        $('#dvImgLoading').hide();
+                    }
+                },
+                error: function(error) {
+                    $('#dvImgLoading').hide();
+                }
+            });
+
+            return _isValid;
+        }
+    </script>
+
+</head>
+<body>
+    <center>
+        <div class="cp-bg">
+        </div>
+        <div class="dvoverly">
+        </div>
+        <div class="container_12" style="clear: both;">
+            <!-- /// begin page /// -->
+            <!-- ///////////////////////////////////////// MASTHEAD ///////////////////////////////////////// -->
+            <div id="masthead">
+                <div id="logo">
+                    <a href="/river/s1.htm">
+                        <img src="/images/on_logocopy.PNG" /></a></div>
+                <!--  <h1 id="logo2">
+                <a href="index.html">sample partner</a></h1>-->
+            </div>
+            <div class="clear">
+                <br />
+            </div>
+            <!-- ///////////////////////////////////////// CONTENT ///////////////////////////////////////// -->
+            <div id="dvSurvey">
+                <div class="clear">
+                    <br />
+                    <br />
+                </div>
+                <div id="surveyQuestionContainer" style="float: none;">
+                    <div id="surveyQuestion">
+                        <div id="dvLogin" class="dvgap" style="width: 100%;">
+                            <div class="dvSocial" style="float: left;">
+                                <a href="#" onclick="fb_login()" class="asocial">
+                                    <img id="imgFb" src="/Images/Social/fb.png" alt="" border="0" /></a>
+                            </div>
+                            <div class="dvSocial">
+                                <input id="imgGoggle" type="image" src="/Images/Social/google.png" name="image" onclick="login();" /></div>
+                            <div class="dvSocial" style="float: left;">
+                                <a id="linkedin-login-button" onclick="onLinkedInLoad()" class="asocial">
+                                    <img id="imgLinkedIn" src="/Images/Social/linkedin.png" alt="" border="0" />
+                                </a>
+                                <!--   <script type="IN/Login" data-onauth="Linkedin.onAuthCallback" data-onlogout="Linkedin.onLogoutCallback">
+        <!-- This is just  a simple trick to pass the user's data to our script
+			 without having to do another API call.
+		  -->
+                                <!-- <img src="https://dummyimage.com/1x1/F.gif" />
+                                        </script>-->
+
+                                <script src="//platform.linkedin.com/in.js" type="text/javascript"> 
+  api_key: 782o279xf3ctf9
+  onLoad: Linkedin.init  
+  
+                                </script>
+
+                                <script type="text/javascript">
+                                    function onLinkedInLoad() {
+                                        LinkedInAuth();
+                                        //IN.Event.on(IN, "auth", function() { onLinkedInLogin(); });
+
+                                        IN.Event.on(IN, "auth", function() { onLinkedInAuth(); });
+                                        IN.Event.on(IN, "logout", function() { onLinkedInLogout(); });
+                                        window.location.href;
+                                    }
+                                </script>
+
+                                <script type="text/javascript">
+                                    // 2. Runs when the JavaScript framework is loaded
+
+                                    function LinkedInAuth() {
+                                        IN.UI.Authorize().place();
+                                    }
+                                    function onLinkedInAuth() {
+
+                                        IN.API.Profile("me").fields("id,firstName,lastName,headline,emailAddress").result(displayProfiles);
+
+                                    }
+
+                                    // 2. Runs when the Profile() API call returns successfully
+                                    function displayProfiles(profiles) {
+                                        member = profiles.values[0];
+                                        //                            var mid = member.id;
+                                        _eid = member.emailAddress;
+
+                                        fb = 'fn=' + member.firstName + '&ln=' + member.lastName + '&g=' + "" + '&Email=' + member.emailAddress + '&date=' +
+"" + '&fid=' + "" + '&loc=' + "" + '&rid=' + rid + '&sid=' + sid + '&txid=' + txid + '&trans_id=' + transactionid;
+
+                                        if (_eid != '' && EmailExistsCheck(_eid)) {
+                                            SaveUserDetails(_eid);
+                                        }
+                                        else {
+                                            $('#dvError').show();
+                                            $('#dvError').html(' Email Address already exists!');
+                                        }
+
+
+                                    }
+
+                                </script>
+
+                            </div>
+                        </div>
+                        <div class="clear" style="padding-top: 10;">
+                            <br />
+                            <br />
+                        </div>
+                        <div class="dvrow">
+                            <div class="dvemail-col">
+                                <div style="widt: 100%;">
+                                    <span class="help-inline" id="spnemail" style="font-size: 18px;">Please share your email
+                                        address so we may recognize you if you return. We will never send you email, sell,
+                                        share or rent your personal information:</span>
+                                    <br />
+                                    <br />
+                                    <input type="text" id="txtEmail" class="span" placeholder="Email Address"  />
+                                     <span id="spnRegisterEmail" style="color: Red; font-size: 12px; margin-left: 10px;"
+                                                class="error1"></span>
+                                    <!-- <div class="dvhelp-line-errmsg">
+                                            <span id="spnEmailErr" style="color: Red; float: left; font-family: Verdana; font-size: 12px;
+                                                display: none;" class="error"></span>
+                                        </div>-->
+                                </div>
+                                <div>
+                                    <div id="dvError" style="color: red; float: left; font-size: 15px; display: none;">
+                                        Email Address already exists!
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="clear">
+                                    <br />
+                                    <br />
+                                </div>
+                                <div>
+                                    <input type="button" id="btnSave" value="Submit" style="width: 125px;" />
+                                </div>
+                                <div class="clear">
+                                    <br />
+                                </div>
+                                <div class="light-box">
+                                    <div style="float: left; width: 100%;">
+                                        <h2 style="float: left;">
+                                            HOW IT WORKS</h2>
+                                    </div>
+                                    <div class="row">
+                                        <div class="check">
+                                            <img src="/images/green-check.png" class="img-responsive" alt="Green Checkmark" style="vertical-align: middle;" />
+                                        </div>
+                                        <div class="benefits">
+                                            We’ll ask some profile questions so our system may select the best survey for you.</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="check">
+                                            <img src="/images/green-check.png" class="img-responsive" alt="Green Checkmark" style="vertical-align: middle;" />
+                                        </div>
+                                        <div class="benefits">
+                                            You may complete up to 10 surveys per day.
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="check">
+                                            <img src="/images/green-check.png" class="img-responsive" alt="Green Checkmark" style="vertical-align: middle;" />
+                                        </div>
+                                        <div class="benefits">
+                                            Survey Rewards are paid immediately through the partner that directed you here.</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="check">
+                                            <img src="/images/green-check.png" class="img-responsive" alt="Green Checkmark" style="vertical-align: middle;" />
+                                        </div>
+                                        <div class="benefits">
+                                            We will never sell, share or rent your information. Responses you provide are anonymous
+                                            to the survey sponsors and used for market research purposes only. You will never
+                                            be marketed to as a result of participating in an Opinionetwork survey.</div>
+                                    </div>
+                                </div>
+                                <div class="light-box">
+                                    <div style="float: left; width: 100%;">
+                                        <h2 style="float: left;">
+                                            PLAY BY THE RULES</h2>
+                                    </div>
+                                    <div class="row">
+                                        <div class="check">
+                                            <img src="/images/green-check.png" class="img-responsive" alt="Green Checkmark" />
+                                        </div>
+                                        <div class="benefits">
+                                            You must provide truthful, well considered responses to all survey questions. Participants
+                                            who misrepresent their personal profile, answer surveys with false responses or
+                                            take surveys too quickly will not receive their rewards and may be blocked from
+                                            participating in future surveys.</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="check">
+                                            <img src="/images/green-check.png" class="img-responsive" alt="Green Checkmark" />
+                                        </div>
+                                        <div class="benefits">
+                                            You must be at least 13 years old to enter and participate.</div>
+                                    </div>
+                                    <br />
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div>
+            <br />
+        </div>
+        <!-- ///////////////////////////////////////// FOOTER ///////////////////////////////////////// -->
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+        <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js'></script>
+
+    </center>
+</body>
+</html>

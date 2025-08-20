@@ -1,0 +1,592 @@
+﻿@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_bannertab.cshtml";
+}
+@using (Html.BeginForm("", "", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+}
+
+@*<style>
+        .sury_table table {
+            display:table;
+            float: none !important;
+        }
+        .overflowcontainer .my_profile_wrapper{
+            overflow-y: auto !important;
+        }
+    </style>*@
+<style>
+    .pagination {
+        display: inline-block;
+        padding-left: 0;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+
+    .pagination {
+        margin: 6px !important;
+    }
+
+        .pagination > li {
+            display: inline;
+        }
+
+            .pagination > li > a, .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                margin-left: -1px;
+                line-height: 1.42857143;
+                color: #337ab7;
+                text-decoration: none;
+                background-color: #fff;
+                border: 1px solid #ddd;
+            }
+
+            .pagination > li > a, .pagination > li > span {
+                border: none !important;
+            }
+
+            .pagination > li:first-child > a, .pagination > li:first-child > span {
+                margin-left: 0;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+
+    ul.pagination li a.active {
+        background-color: #105EAC;
+        color: white;
+    }
+</style>
+
+
+<!-- MODAL 1   -->
+<div ng-if="pgLoad">
+    <div ng-controller="ProfileController">
+        <iframe id="imgsfpixel" alt="" src="" height="1" width="1"></iframe>
+        <div class="modal-box" id="popup1">
+            <header>
+                <a class="js-modal-close close" href="#">×</a>
+                <h3>@Opinionbar.Language.Resource.mp_payment_order</h3>
+            </header>
+            <div class="modal-content">
+                <div class="modal_choice">
+                    <div class="modal-body">
+                        <h3 class="h_modal">@Opinionbar.Language.Resource.mp_your_reward</h3>
+                        <div class="float_right">
+                            <div class="icon_howitworks_myprofile icon_howitworks_getpaid icon_modal">
+                                <img src="/images/icon_getpaid.png" width="25">
+                            </div>
+                        </div>
+                        <h4 class="h_modal2">@Opinionbar.Language.Resource.mp_my_balance</h4>
+                        <div class="payment_btn">
+                            <div class="payment btn_profile bank choosebank">
+                                <div class="bank_icon"></div>@Opinionbar.Language.Resource.mp_bank_account
+                            </div>
+                            <div class="payment btn_profile paypal choosepaypal">
+                                <div class="paypal_icon"></div>@Opinionbar.Language.Resource.mp_paypal_account
+                            </div>
+                            <div class="payment btn_profile donate charity choosedonate">
+                                <div class="donate_icon" data-modal-id="popup3"></div>
+                                @Opinionbar.Language.Resource.mp_charity
+                            </div>
+                        </div>
+                    </div>
+                    <footer></footer>
+                </div>
+                <div class="donation" style="display: none;">
+                    <div class="modal-body">
+                        <h3 class="h_modal">Thank you!</h3>
+                        <div class="float_right">
+                            <div class="icon_howitworks_myprofile icon_howitworks_getpaid icon_modal">
+                                <img src="/images/icon_getpaid.png" width="25">
+                            </div>
+                        </div>
+                        <h4 class="h_modal2">You chose to donate your balance of €10,00 to a charity.</h4>
+                        <div>
+                            <p class="h_modal">Choose a charity:</p>
+                        </div>
+                        <div class="charities">
+                            <div class="kruis logo_char"></div>
+                            <div class="green logo_char"></div>
+                            <div class="wnf logo_char"></div>
+                            <div class="amnesty logo_char"></div>
+                        </div>
+                    </div>
+                    <footer>
+                        <div class="btn_modal">
+                            <div class="payment btn_profile charity confirmdonate">
+                                <div class="donate_icon"></div>Confirm donation
+                            </div>
+                            <div class="payment btn_profile change change_details choosedonate">
+                                <div class="change_icon change_icon_modal"></div>Change payment option
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <div class="confirmation" style="display: none;">
+                    <div class="modal-body">
+                        <h3 class="h_modal">@Opinionbar.Language.Resource.mp_alirght</h3>
+                        <div class="float_right">
+                            <div class="icon_howitworks_myprofile icon_howitworks_getpaid icon_modal">
+                                <img src="/images/icon_getpaid.png" width="25">
+                            </div>
+                        </div>
+                        <h4 class="h_modal2">@Opinionbar.Language.Resource.mp_payment_confirmmation</h4>
+                        <div>
+                            <p class="h_modal">@Opinionbar.Language.Resource.mp_invite_more_surveys</p>
+                        </div>
+                    </div>
+                    <footer>
+                        <div class="btn_modal ok">
+                            <div class="payment btn_profile change js-modal-close">
+                                Close
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <div class="confirmation2" style="display: none;">
+                    <div class="modal-body">
+                        <h3 class="h_modal">Thank you!</h3>
+                        <div class="float_right">
+                            <div class="icon_howitworks_myprofile icon_howitworks_getpaid icon_modal">
+                                <img src="/images/icon_getpaid.png" width="25">
+                            </div>
+                        </div>
+                        <h4 class="h_modal2">Your donation will be transferred to the charity of your choice!</h4>
+                        <div>
+                            <p class="h_modal">We will invite you for more surveys soon!</p>
+                        </div>
+                    </div>
+                    <footer>
+                        <div class="btn_modal ok">
+                            <div class="payment btn_profile change js-modal-close">
+                                Close
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        <!-- MODAL 2   -->
+        <div class="modal-box modal2" id="popup2">
+            <header>
+                <a class="js-modal-close close" href="#">×</a>
+                <h3>@Opinionbar.Language.Resource.mp_payment_history</h3>
+            </header>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3 class="h_modal">@Opinionbar.Language.Resource.mp_payments_text</h3>
+                    <div class="float_right">
+                        <div class="icon_howitworks_myprofile icon_howitworks_getpaid icon_modal">
+                            <img src="/images/icon_getpaid.png" width="25">
+                        </div>
+                    </div>
+                    <table border="0" cellpadding="5" cellspacing="5" class="modal">
+                        <thead>
+                            <tr>
+                                <th width="100">@Opinionbar.Language.Resource.mp_pay_date</th>
+                                <th>@Opinionbar.Language.Resource.mp_pay_amount</th>
+                                <th>@Opinionbar.Language.Resource.mp_pay_paid</th>
+                                <th>@Opinionbar.Language.Resource.mp_pay_status</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td width="100">01-10-2015</td>
+                            <td>€10,00</td>
+                            <td>Bank account</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr>
+                            <td width="100">13-06-2015</td>
+                            <td>€12,00</td>
+                            <td>Charity</td>
+                            <td>Processed</td>
+                        </tr>
+                        <tr>
+                            <td width="100">01-04-2015</td>
+                            <td>€14,50</td>
+                            <td>Paypal account</td>
+                            <td>Processed</td>
+                        </tr>
+                        <tr>
+                            <th>Total:</th>
+                            <th>€36,50</th>
+                        </tr>
+                    </table>
+                </div>
+                <footer>
+                    <div class="btn_modal ok">
+                        <div class="payment btn_profile change js-modal-close">
+                            Close
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <!-- MODAL 3   -->
+        <div class="modal-box modal3" id="popup3">
+            <header>
+                <a class="js-modal-close close" href="#">×</a>
+                <h3>@Opinionbar.Language.Resource.mp_delete_account</h3>
+            </header>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h3 class="h_modal">@Opinionbar.Language.Resource.mp_delete_account_msg1</h3>
+                    <div>
+                        <p class="h_modal">@Opinionbar.Language.Resource.mp_delete_account_msg2</p>
+                    </div>
+                </div>
+                <footer>
+                    <div class="btn_modal ok">
+                        <div class="payment btn_profile change delete_btn js-modal-close">
+                            @Opinionbar.Language.Resource.mp_delete_account
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <div class="overflowcontainer">
+            <div class='modal-overlay js-modal-close' id='overlay' style="display: none;"></div>
+            @*<div class="navigation_mobile">
+                    <div class="nav_item_mob nav_item_mob_active my_profile" href="/profile/index">
+                        @Opinionbar.Language.Resource.menu_profile
+                    </div>
+                    <div class="hr_mob_nav"></div>
+                    <div class="nav_item_mob home_login" href="/home/about">
+                        @Opinionbar.Language.Resource.menu_about
+                    </div>
+                    <div class="hr_mob_nav"></div>
+                    <div class="nav_item_mob contact_login" href="/home/contact">
+                        @Opinionbar.Language.Resource.menu_contact
+                    </div>
+                    <div class="hr_mob_nav"></div>
+                    <div class="nav_item_mob logout_mob">
+                        <div class="logout_icon"></div> @Opinionbar.Language.Resource.sign_out
+                    </div>
+                    <div class="hr_mob_nav"></div>
+                    <div class="nav_item_mob flag_mob"><a href='@Url.Action("language", "common")'><img src="/images/dutch_flag.png" width="25" /></a></div>
+                    <div class="hr_mob_nav"></div>
+                    <div class="header_content" style="padding: 0px;">
+                        <div class="countries_mob">
+                            <div class="country_mob">
+                                <select class="input_contact" id="survey" class="styleselect">
+                                    <option>English</option>
+                                    <option value="Survey">Nederlands</option>
+                                    <option value="Survey">Danske</option>
+                                    <option value="Survey">Deutsch</option>
+                                    <option value="Survey">Português</option>
+                                    <option value="Survey">日本人</option>
+                                    <option value="Survey">中國</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header">
+                    <div class="header_content">
+                        <div class="logo logo_home_login" ng-click="homeClick()"></div>
+                        <div class="nav_wrapper">
+                            <div class="nav_item navigation_active my_profile" ng-click="profileClick()">
+                                MY PROFILE
+                            </div>
+                            <div class="nav_item navigation_inactive home_login" ng-click="aboutClick()">
+                                ABOUT
+                            </div>
+                            <div class="nav_item navigation_inactive contact_login" ng-click="contactClick()">
+                                CONTACT
+                            </div>
+                            <div class="nav_item_flag navigation_inactive language nav_item">
+                                <a href='@Url.Action("language", "common")'><img src="/images/dutch_flag.png" width="25" /></a>
+                            </div>
+                            <div class="hamburger_icon"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="countries_wrapper">
+                    <div class="header_content" style="padding: 0px;">
+                        <div class="countries">
+                            <div class="country"><img src="/images/flag1.png" width="25"><div class="country_name">Nederlands</div></div>
+                            <div class="country">
+                                <img src="/images/flag2.png" width="25"><div class="country_name">
+                                    Danske
+                                </div>
+                            </div>
+                            <div class="country"><img src="/images/flag3.png" width="25"><div class="country_name">日本人</div></div>
+                            <div class="country"><img src="/images/flag4.png" width="25"><div class="country_name">Deutsch</div></div>
+                            <div class="country"><img src="/images/flag5.png" width="25"><div class="country_name">中國</div></div>
+                            <div class="country"><img src="/images/flag6.png" width="25"><div class="country_name">Português</div></div>
+
+                        </div>
+                    </div>
+                </div>*@
+
+
+
+            <div class="wrapper_content my_profile_wrapper">
+                <div class="container_test" style="min-height: 423px;">
+                    <div class="column_wrapper column_wrapper_profile surveys">
+                        <div class="column_full sury_table" style="overflow:auto;">
+                            <div class="tbl-sm" style="padding: 10px 40px 10px 40px;">
+                                <span ng-if="congrats" style="color:green;font-weight: bold;font-size: 17px;">{{'surveytext1'|translate}}</span>
+                                <span ng-if="thankYou" style="color:red;font-weight: bold;font-size: 17px;">{{'surveytext2'|translate}}</span>
+                                <span ng-if="sorryQuota" style="color:red;font-weight: bold;font-size: 17px;">{{'surveytext3'|translate}}</span>
+                                <span ng-if="weAreSorry" style="color:red;font-weight: bold;font-size: 17px;">{{'surveytext4'|translate}}</span>
+                                <span ng-if="youTerminated" style="color:red;font-weight: bold;font-size: 17px;">{{'surveytext5'|translate}}</span>
+                                <span ng-if="alredyParticipated" style="color:red;font-weight: bold;font-size: 17px;">{{'surveytext6'|translate}}</span>
+                                <span ng-if="thankParticipated" style="color:red;font-weight: bold;font-size: 17px;">{{'surveytext7'|translate}}</span>
+                                <span ng-if="offersNotExists" style="color:green;font-weight: bold;font-size: 17px;">{{'surveytext8'|translate}}</span>
+                                <span ng-if="prescreenerterm" style="color:green;font-weight: bold;font-size: 17px;">{{'surveytext9'|translate}}</span>
+                                <span ng-if="psoqs" style="color:green;font-weight: bold;font-size: 17px;">{{'surveytext10'|translate}}</span>
+                                <span ng-if="QQQuotaFull" style="color:green;font-weight: bold;font-size: 17px;">{{'surveytext11'|translate}}</span>
+                                <span ng-if="closedSurveyClick" style="color:green;font-weight: bold;font-size: 17px;">{{'surveytext8'|translate}}</span>
+                                <span ng-if="dOIRecruit" style="color:green;">Thank you, you have now completed step one of this process. Please follow the instructions you were given by our client and complete the process by confirming your email address or participating in the follow up interview. Once the second step is completed, you will receive your reward.</span>
+
+                            </div>
+                            <div class="tab-headcontent">
+                                <h3 class="profile_head" style="margin-left:0px;">{{'mysurveys' | translate}}</h3>
+                                <div class="float_right">
+                                    <div class="icon_howitworks_myprofile icon_howitworks_giveopinion">
+                                        <img src="/images/icon_survey.png" width="25">
+                                    </div>
+                                </div>
+                                <div class="filter subnav_wrapper" style="display: flex;margin: -42px 55px 20px 0px;justify-content: flex-end;width: auto;">
+                                    @*<span style="display:none">{{'refreshText' | translate}}</span>
+                                    <button style="padding: 10px 20px;margin: auto;border:none;background: #b7d968;color: #55851d;border-radius: 30px;outline: 0 !important;cursor:pointer;float:left;" ng-click="surveysList()">{{'refresh'|translate}}</button>*@
+                                    <div class="filter_btn subnav_item subnav_active active" id="available" style="margin-top:8px;" ng-click="surveysList()">
+                                        {{'Available' | translate}}
+                                    </div>
+                                    <div class="filter_btn subnav_item subnav_inactive" id="history" style="margin-top:8px;" ng-click="surveyHistory()">
+                                        {{'History' | translate}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="refreshrow">
+                            <span class="ng-binding">{{'refreshText' | translate}}</span>
+                                <span>
+                                     <button style="padding: 10px 20px;margin: 0px;border:none;background: #b7d968;color: #55851d;border-radius: 30px;outline: 0 !important;cursor:pointer;/* float:left; */" ng-click="surveysList()" class="ng-binding">{{'refresh'|translate}}</button>
+                                </span>
+                                 </div>
+                            <table border="0" cellpadding="15" cellspacing="0" class="surveytable parent">
+                                <tr ng-show="showSurveys && surveys.length == 0">
+                                    <td>{{'noSurveys'|translate}}.</td>
+                                </tr>
+                                <tr style="font-weight:600;background:#e8e8e8" ng-show="available && surveys.length > 0">
+                                    <td class="status">{{'surveyid'|translate}}</td>
+                                    <td class="surveyname">{{'surveyname'|translate}}</td>
+                                    <td class="reward">{{'Reward'|translate}}</td>
+                                </tr>
+                                <tr ng-if="rewHistory">
+                                    <td>{{'nohistory'|translate}}</td>
+                                </tr>
+                                <tr style="font-weight:600;background:#e8e8e8" ng-if="!rewHistory" ng-show="rewHistoryLst.length > 0">
+                                    <td class="date" style="width: 160px;">{{'date'|translate}}</td>
+                                    <td class="description" style="width: 250px;">{{'description'|translate}}</td>
+                                    <td class="direct" style="width: 50px;">{{'Direct'|translate}}</td>
+                                    <td class="redeem" style="width: 75px;">{{'redeemed'|translate}}</td>
+                                    <td class="balance" style="width: 50px;">{{'balance'|translate}}</td>
+                                    <td class="status">{{'surveyStatus'|translate}}</td>
+                                </tr>
+
+                            </table>
+                            <table border="0" cellpadding="15" cellspacing="0" class="surveytable parent">
+                                <tr class="available" ng-repeat="ms in surveys" ng-if="surveys.length > 0">
+                                    <td class="status">{{ms.ProjectId}}</td>
+                                    <td class="surveyname">{{ms.SurveyName}}</td>
+                                    <td class="surveyurl text-primary" ng-click="popup(ms.SurveyUrl)"> <a ID="Label1" class="a-r-t" href=""></a>{{'startSurvey'|translate}}</td>
+                                    <td class="reward">{{ms.RewardText}}</td>
+                                </tr>
+                                <tr></tr>
+                                <tr class="participated" style="color:#888888" ng-repeat="rh in rewHistoryLst">
+                                    <td class="date" style="text-align: left;width: 160px;">{{rh.CreateDt}}</td>
+                                    <td class="surveyname" style="width: 250px;">{{rh.Descripion}}</td>
+                                    <td class="direct" style="width: 50px;text-align: left;">{{rh.RewardAmount}}</td>
+                                    <td class="redeem" style="width: 75px;text-align: left;">{{rh.RedemptionAmount}}</td>
+                                    <td class="balance" style="width: 62px;text-align: left;">{{rh.BalanceAmount}}</td>
+                                    <td class="status">{{rh.Status | translate}}</td>
+                                </tr>
+                            </table>
+                            <section layout="row" style="float:right;" ng-show="rewHistoryLst.length > 0">
+                                <pagging-directive></pagging-directive>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="wrapper_slide profile">
+                        <div class="column_wrapper column_wrapper_profile">
+                            <div class="column1 column_left column_profile">
+                                <h3 class="profile_head">{{'My Payments' | translate}}</h3>
+                                <div class="hr_column1"></div>
+                                <div class="cell">
+                                    <div id="graph_3_3" style="height: 218px; width: inherit;"></div>
+                                </div>
+                                <div class="payout_btn">
+                                    <div class="getpaid btn_profile charity" data-modal-id="popup1">
+                                        <div class="getpaid_icon" data-modal-id="popup1"></div>@Opinionbar.Language.Resource.mp_getpaid
+                                    </div>
+                                    <div class="getpaid history btn_profile" data-modal-id="popup2">
+                                        <div class="history_icon" data-modal-id="popup2"></div>@Opinionbar.Language.Resource.mp_payment_history
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="append"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hr hr_profile"></div>
+        </div>
+    </div>
+</div>
+@*<script>
+        $(function () {
+            $('#graph_3_3').highcharts({
+                colors: ["#7DBD3B", "#1986C4", "#ff9100"],
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+
+                },
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    enabled: false,
+
+
+                },
+                plotOptions: {
+                    pie: {
+                        borderWidth: 0,
+                        allowPointSelect: false,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}<\/b>: {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                series: [{
+                    colors: ["#7DBD3B", "#D0D0D0"],
+                    type: 'pie',
+                    size: '120%',
+                    innerSize: '90%',
+                    name: 'Balance',
+                    data: [
+                        ['Earned', 10],
+                        //['To earn',   2.50],
+
+                    ]
+                }]
+
+
+
+            }, function (chart) { // on complete
+
+                chart.renderer.text('€10,-', 70, 125)
+                    .css({
+                        color: '#000',
+                        fontSize: '30px',
+                        fontWeight: 'bold',
+                        fontFamily: 'Open Sans',
+
+                    })
+                    .add();
+
+                chart.renderer.text('Balance', 70, 95)
+                    .css({
+                        color: '#999',
+                        fontSize: '20px',
+                        fontFamily: 'Open Sans',
+
+                    })
+                    .add();
+
+
+            });
+
+
+        });
+
+        $(function () {
+            $('#graph_4').highcharts({
+                colors: ["#7DBD3B", "#1986C4", "#ff9100"],
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+
+                },
+                title: {
+                    text: ''
+                },
+                tooltip: {
+                    enabled: false,
+
+
+                },
+                plotOptions: {
+                    pie: {
+                        borderWidth: 0,
+                        allowPointSelect: false,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: false,
+                            color: '#000000',
+                            connectorColor: '#000000',
+                            format: '<b>{point.name}<\/b>: {point.percentage:.1f} %'
+                        }
+                    }
+                },
+                series: [{
+                    colors: ["#0096C5", "#D0D0D0"],
+                    type: 'pie',
+                    size: '120%',
+                    innerSize: '90%',
+                    name: 'Balance',
+                    data: [
+                        ['Earned', 5],
+                        ['To earn', 5],
+
+                    ]
+                }]
+
+
+
+            }, function (chart) { // on complete
+
+                chart.renderer.text('50%', 80, 125)
+                    .css({
+                        color: '#000',
+                        fontSize: '30px',
+                        fontWeight: 'bold',
+                        fontFamily: 'Open Sans',
+
+                    })
+                    .add();
+
+                chart.renderer.text('Profile:', 77, 95)
+                    .css({
+                        color: '#999',
+                        fontSize: '20px',
+                        fontFamily: 'Open Sans',
+
+                    })
+                    .add();
+
+
+            });
+
+
+        });
+    </script>*@

@@ -1,0 +1,16 @@
+﻿{
+  "startSurvey": "mpezar encuesta",
+  "cptchaText1": "Le estamos enviando a la encuesta pero antes de ir...",
+  "cptchaText2": "Asegúrese de seguir estas simples normas para tener la seguridad de que será recompensado por esta encuesta y será invitado a participar en futuras encuestas:",
+  "cptchaText3": "1. Tómese su tiempo",
+  "cptchaText4": "Nuestros clientes con frecuencia toman decisiones multimillonarias y algunas veces de miles de millones de dólares en función de sus respuestas. Tómese su tiempo y de respuestas bien meditadas. Si le piden que de una respuesta por escrito, esfuércese y asegúrese de que su respuesta esté correctamente escrita.",
+  "cptchaText5": "2. ¡Sea honesto!",
+  "cptchaText6": "No distorsione los datos sobre su vida personal o laboral para calificar para esta encuesta. Nosotros y nuestros clientes revisamos todas las respuestas cuidadosamente y podemos detectar respuestas inconsistentes y falsas. Los participantes que hayan sido descubiertos dando respuestas falsas no recibirán recompensas por participar en esta encuesta y se les puede suspender la cuenta",
+  "cpatchaErr": "Captcha inválido",
+  "checkboxacceptance": "Se requiere la aceptación de los términos y condiciones.",
+   "privacy": "Intimidad",
+  "agree": "Estoy de acuerdo con la ",
+  "and": "y",
+  "saveMyInfo": "No venda mi información",
+  "terms_conditions": "Términos y condiciones"
+}

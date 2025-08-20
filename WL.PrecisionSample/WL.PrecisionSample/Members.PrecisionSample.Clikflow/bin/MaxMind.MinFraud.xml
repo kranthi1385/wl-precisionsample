@@ -1,0 +1,2000 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MaxMind.MinFraud</name>
+    </assembly>
+    <members>
+        <member name="T:MaxMind.MinFraud.Exception.AuthenticationException">
+            <summary>
+            This class represents an authentication error.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.AuthenticationException.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.AuthenticationException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.AuthenticationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="innerException">The underlying exception that caused this one.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.AuthenticationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+                Constructor for deserialization.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:MaxMind.MinFraud.Exception.HttpException">
+            <summary>
+                This class represents an HTTP transport error. This is not an error returned
+                by the web service itself. As such, it is a IOException instead of a
+                MinFraudException.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.HttpException.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.HttpException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">A message describing the reason why the exception was thrown.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.HttpException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">A message describing the reason why the exception was thrown.</param>
+            <param name="innerException">The underlying exception that caused this one.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.HttpException.#ctor(System.String,System.Net.HttpStatusCode,System.Uri)">
+            <summary>
+                Initializes a new instance of the <see cref="T:MaxMind.MinFraud.Exception.HttpException" /> class.
+            </summary>
+            <param name="message">A message describing the reason why the exception was thrown.</param>
+            <param name="httpStatus">The HTTP status of the response that caused the exception.</param>
+            <param name="uri">The URL queried.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.HttpException.#ctor(System.String,System.Net.HttpStatusCode,System.Uri,System.Exception)">
+            <summary>
+                Initializes a new instance of the <see cref="T:MaxMind.MinFraud.Exception.HttpException" /> class.
+            </summary>
+            <param name="message">A message describing the reason why the exception was thrown.</param>
+            <param name="httpStatus">The HTTP status of the response that caused the exception.</param>
+            <param name="uri">The URL queried.</param>
+            <param name="innerException">The underlying exception that caused this one.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.HttpException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+                Constructor for deserialization.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.HttpException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+                Method to serialize data.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Exception.HttpException.HttpStatus">
+            <summary>
+                The HTTP status code returned by the web service.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Exception.HttpException.Uri">
+            <summary>
+                The URI queried by the web service.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Exception.InsufficientFundsException">
+            <summary>
+            This class is thrown when the request fails due to insufficient funds.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.InsufficientFundsException.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.InsufficientFundsException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.InsufficientFundsException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="innerException">The underlying exception that caused this one.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.InsufficientFundsException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+                Constructor for deserialization.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:MaxMind.MinFraud.Exception.InvalidRequestException">
+            <summary>
+            This class is thrown when the web service rejected the request. Check
+            the value of <c>Code</c> for the reason code.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.InvalidRequestException.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.InvalidRequestException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">The message from the web service.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.InvalidRequestException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">The message from the web service.</param>
+            <param name="innerException">The underlying exception that caused this one.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.InvalidRequestException.#ctor(System.String,System.String,System.Uri)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">The message from the web service.</param>
+            <param name="code">The machine-readable error code.</param>
+            <param name="uri">The URI that was queried.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.InvalidRequestException.#ctor(System.String,System.String,System.Uri,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">The message from the web service.</param>
+            <param name="code">The machine-readable error code.</param>
+            <param name="uri">The URI that was queried.</param>
+            <param name="innerException">The underlying exception that caused this one.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.InvalidRequestException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+                Constructor for deserialization.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.InvalidRequestException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+                Method to serialize data.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Exception.InvalidRequestException.Code">
+            <summary>
+            The <a href="https://dev.maxmind.com/minfraud/#Errors">
+            reason code</a> for why the web service rejected the request.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Exception.InvalidRequestException.Uri">
+            <summary>
+            The URI that was used for the request.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Exception.MinFraudException">
+            <summary>
+            This class represents a non-specific error with data returned by
+            the web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.MinFraudException.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.MinFraudException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.MinFraudException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="innerException">The underlying exception that caused this one.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.MinFraudException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+                Constructor for deserialization.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:MaxMind.MinFraud.Exception.PermissionRequiredException">
+            <summary>
+            This class represents an authentication error.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.PermissionRequiredException.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.PermissionRequiredException.#ctor(System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Exception message.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.PermissionRequiredException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="message">Exception message.</param>
+            <param name="innerException">The underlying exception that caused this one.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Exception.PermissionRequiredException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+                Constructor for deserialization.
+            </summary>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.Account">
+            <summary>
+            Account related data information for the transaction being sent to the
+            web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Account.#ctor(System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="userId">A unique user ID associated with the end-user
+            in your system. If your system allows the login name for the
+            account to be changed, this should not be the login name for the
+            account, but rather should be an internal ID that does not
+            change. This is not your MaxMind account ID.</param>
+            <param name="username">The username associated with the account.
+            This is not the MD5 of username. Rather, the MD is automatically
+            generated from this string.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Account.UserId">
+            <summary>
+            A unique user ID associated with the end-user in your
+            system. If your system allows the login name for the
+            account to be changed, this should not be the login
+            name for the account, but rather should be an internal
+            ID that does not change. This is not your MaxMind user
+            ID.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Account.Username">
+            <summary>
+            The username associated with the account. This is
+            not the MD5 of username. Rather, the MD5 is automatically
+            generated from this string.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Account.UsernameMD5">
+            <summary>
+            The MD5 generated from the <c>Username</c>
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Account.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.Billing">
+            <summary>
+            The billing information for the transaction being sent to the
+            web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Billing.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="firstName">The first name of the end user as provided in their billing information.</param>
+            <param name="lastName">The last name of the end user as provided in their billing information.</param>
+            <param name="company">The company of the end user as provided in their billing information.</param>
+            <param name="address">The first line of the user’s billing address.</param>
+            <param name="address2">The second line of the user’s billing address.</param>
+            <param name="city">The city of the user’s billing address.</param>
+            <param name="region">The <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO 3166-2</a>
+            subdivision code for the user’s billing address.</param>
+            <param name="country">The two character <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
+            3166-1 alpha-2</a> country code of the user’s billing address.</param>
+            <param name="postal">The postal code of the user’s billing address.</param>
+            <param name="phoneNumber">The phone number without the country code for the user’s billing address.</param>
+            <param name="phoneCountryCode">The country code for phone number associated with the user’s billing address.</param>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.CreditCard">
+            <summary>
+            The credit card information for the transaction being sent to the
+            web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CreditCard.#ctor(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Char},System.Nullable{System.Char},System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="issuerIdNumber">The issuer ID number for the credit card.
+            This is the first 6 digits of the credit card number. It identifies
+            the issuing bank.</param>
+            <param name="last4Digits">The last four digits of the credit card
+            number.</param>
+            <param name="bankName">The name of the issuing bank as provided by
+            the end user</param>
+            <param name="bankPhoneCountryCode">The phone country code for the
+             issuing bank as provided by the end user.</param>
+            <param name="bankPhoneNumber">The phone number, without the
+            country code, for the issuing bank as provided by the end
+            user.</param>
+            <param name="avsResult">The address verification system (AVS)
+            check result, as returned to you by the credit card processor.
+            The minFraud service supports the standard AVS codes.</param>
+            <param name="cvvResult">The card verification value (CVV) code
+             as provided by the payment processor.</param>
+            <param name="token">A token uniquely identifying the card. This
+            should not be the actual credit card number.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.CreditCard.IssuerIdNumber">
+            <summary>
+            The issuer ID number for the credit card. This is the first 6
+            digits of the credit card number. It identifies the issuing bank.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.CreditCard.Last4Digits">
+            <summary>
+            The last four digits of the credit card number.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.CreditCard.BankName">
+            <summary>
+            The name of the issuing bank as provided by the end user.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.CreditCard.BankPhoneCountryCode">
+            <summary>
+            The phone country code for the issuing bank as provided by
+            the end user.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.CreditCard.BankPhoneNumber">
+            <summary>
+            The phone number, without the country code, for the
+            issuing bank as provided by the end user.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.CreditCard.AvsResult">
+            <summary>
+            The address verification system (AVS) check result, as
+            returned to you by the credit card processor. The minFraud
+            service supports the standard AVS codes.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.CreditCard.CvvResult">
+            <summary>
+            The card verification value (CVV) code as provided by the
+            payment processor.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.CreditCard.Token">
+            <summary>
+            A token uniquely identifying the card. This should not be
+            the actual credit card number.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CreditCard.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.CustomInputs">
+            <summary>
+                Custom inputs to be used in
+                <a href="https://www.maxmind.com/en/minfraud-interactive/#/custom-rules">Custom Rules</a>.
+                In order to use custom inputs, you must set them up from your account portal.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CustomInputs.#ctor">
+            <summary>
+                This is only to be used by the Builder.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.CustomInputs.Inputs">
+            <summary>
+                The custom inputs to be sent to the web service.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.CustomInputs.Builder">
+            <summary>
+            Builder class for <code>CustomInputs</code> objects.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CustomInputs.Builder.GetEnumerator">
+            <summary>
+                Returns an enumerator that iterates through the inputs.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CustomInputs.Builder.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+                Returns an enumerator that iterates through the inputs.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CustomInputs.Builder.Build">
+            <summary>
+                Build the <code>CustomInputs</code> object.
+            </summary>
+            <returns>The constructed <code>CustomInputs</code> object.</returns>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CustomInputs.Builder.Add(System.String,System.Int32)">
+            <summary>
+                Add an int as a numeric custom input.
+            </summary>
+            <param name="key">The key for the numeric input defined in your account portal.</param>
+            <param name="value">The input value.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CustomInputs.Builder.Add(System.String,System.Int64)">
+            <summary>
+                Add a long as a numeric custom input.
+            </summary>
+            <param name="key">The key for the numeric input defined in your account portal.</param>
+            <param name="value">
+                The input. The value must be between -10^13 and 10^13,
+                exclusive.
+            </param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CustomInputs.Builder.Add(System.String,System.Single)">
+            <summary>
+                Add a float as a numeric custom input.
+            </summary>
+            <param name="key">The key for the numeric input defined in your account portal.</param>
+            <param name="value">
+                The input value. The value must be between -10^13 and 10^13,
+                exclusive.
+            </param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CustomInputs.Builder.Add(System.String,System.Double)">
+            <summary>
+                Add a double as a numeric custom input.
+            </summary>
+            <param name="key">The key for the numeric input defined in your account portal.</param>
+            <param name="value">
+                The input value. The value must be between -10^13 and 10^13,
+                exclusive.
+            </param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CustomInputs.Builder.Add(System.String,System.String)">
+            <summary>
+                Add a custom input string.
+            </summary>
+            <param name="key">The key for the string input defined in your account portal.</param>
+            <param name="value">
+                The input value. The string length must be less than or equal to 255
+                characters and the string must not contain a newline character.
+            </param>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.CustomInputs.Builder.Add(System.String,System.Boolean)">
+            <summary>
+                Add a boolean custom input.
+            </summary>
+            <param name="key">The key for the boolean input defined in your account portal.</param>
+            <param name="value">The input value.</param>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.Device">
+            <summary>
+            The device information for the transaction being sent to the
+            web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Device.#ctor(System.Net.IPAddress,System.String,System.String,System.Nullable{System.Double},System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="ipAddress">The IP address associated with the device
+            used by the customer in the transaction.</param>
+            <param name="userAgent">The HTTP “User-Agent” header of the
+            browser used in the transaction.</param>
+            <param name="acceptLanguage">The HTTP “Accept-Language” header of
+            the device used in the transaction.</param>
+            <param name="sessionAge">The number of seconds between the
+            creation of the user's session and the time of the transaction.
+            Note that sessionAge is not the duration of the current visit, but
+            the time since the start of the first visit.</param>
+            <param name="sessionId">A string up to 255 characters in length.
+            This is an ID that uniquely identifies a visitor's session on the
+            site.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Device.IPAddress">
+            <summary>
+            The IP address associated with the device used by the customer
+            in the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Device.UserAgent">
+            <summary>
+            The HTTP “User-Agent” header of the browser used in the
+            transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Device.AcceptLanguage">
+            <summary>
+            The HTTP “Accept-Language” header of the device used in the
+            transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Device.SessionAge">
+            <summary>
+            The number of seconds between the creation of the user's
+            session and the time of the transaction. Note that 
+            sessionAge is not the duration of the current visit, but 
+            the time since the start of the first visit.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Device.SessionId">
+            <summary>
+            A string up to 255 characters in length. This is an ID that
+            uniquely identifies a visitor's session on the site.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Device.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.Email">
+            <summary>
+            The email information for the transaction being sent to the
+            web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Email.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="address">The user's email address. This will be
+            converted into an MD5 before being sent to the web service.
+            </param>
+            <param name="domain">The domain of the email address used in the
+            transaction. If <c>address</c> is passed to the constructor
+            and <c>domain</c> is not, the domain will be automatically
+            set from the address.</param>
+            <param name="hashAddress">By default, the <c>address</c> will
+            be sent in plain text. If <c>hashAddress</c> is set to true,
+            the address will instead be sent as an MD5 hash.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Email.AddressMD5">
+            <summary>
+            The MD5 generated from the email address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Email.Address">
+            <summary>
+            The email address used in the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Email.RequestAddress">
+            <summary>
+                The address value that will be sent in the request.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Email.Domain">
+            <summary>
+            The domain of the email address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Email.HashAddress">
+            <summary>
+            By default, the <c>address</c> will  be sent in plain text. If 
+            this is set to true, the address will instead be sent as an MD5
+            hash.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Email.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.EventType">
+            <summary>
+            The enumerated event types supported by the web service.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.Event">
+            <summary>
+            Event information for the transaction being sent to the
+            web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Event.#ctor(System.String,System.String,System.Nullable{System.DateTimeOffset},System.Nullable{MaxMind.MinFraud.Request.EventType})">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="transactionId">Your internal ID for the transaction.
+            We can use this to locate a specific transaction in our logs, and
+            it will also show up in email alerts and notifications from us to
+            you.</param>
+            <param name="shopId">Your internal ID for the shop, affiliate, or
+            merchant this order is coming from. Required for minFraud users
+            who are resellers, payment providers, gateways and affiliate
+            networks.</param>
+            <param name="time">The date and time the event occurred. If this
+            field is not in the request, the current time will be used.</param>
+            <param name="type">The type of event being scored.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Event.TransactionId">
+            <summary>
+            Your internal ID for the transaction. We can use this to locate a
+            specific transaction in our logs, and it will also show up in email
+            alerts and notifications from us to you.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Event.ShopId">
+            <summary>
+            Your internal ID for the shop, affiliate, or merchant this order is
+            coming from. Required for minFraud users who are resellers, payment
+            providers, gateways and affiliate networks.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Event.Time">
+            <summary>
+            The date and time the event occurred.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Event.Type">
+            <summary>
+            The type of event being scored.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Event.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.Location">
+            <summary>
+            The location information for the transaction being sent to the
+            web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Location.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="firstName">The first name of the end user as provided in their address information.</param>
+            <param name="lastName">The last name of the end user as provided in their address information.</param>
+            <param name="company">The company of the end user as provided in their address information.</param>
+            <param name="address">The first line of the user’s address.</param>
+            <param name="address2">The second line of the user’s address.</param>
+            <param name="city">The city of the user’s address.</param>
+            <param name="region">The <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO 3166-2</a>
+            subdivision code for the user’s address.</param>
+            <param name="country">The two character <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
+            3166-1 alpha-2</a> country code of the user’s address.</param>
+            <param name="postal">The postal code of the user’s address.</param>
+            <param name="phoneNumber">The phone number without the country code for the user’s address.</param>
+            <param name="phoneCountryCode">The country code for phone number associated with the user’s address.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Location.FirstName">
+            <summary>
+            The first name associated with the address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Location.LastName">
+            <summary>
+            The last name associated with the address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Location.Company">
+            <summary>
+            The company name associated with the address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Location.Address">
+            <summary>
+            The first line of the address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Location.Address2">
+            <summary>
+            The second line of the address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Location.City">
+            <summary>
+            The city associated with the address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Location.Region">
+            <summary>
+            The ISO 3166-2 subdivision code for the region associated
+            with the address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Location.Country">
+            <summary>
+            The ISO 3166-1 alpha-2 country code for the country
+            associated with the address (e.g., "US")
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Location.Postal">
+            <summary>
+            The postal code for associated with the address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Location.PhoneNumber">
+            <summary>
+            The phone country code for the phone number associated with the address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Location.PhoneCountryCode">
+            <summary>
+            The phone number, without the country code, associated with the address.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Location.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.Order">
+            <summary>
+            The order information for the transaction being sent to the
+            web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Order.#ctor(System.Nullable{System.Decimal},System.String,System.String,System.String,System.String,System.Uri,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="amount">The total order amount for the transaction.</param>
+            <param name="currency">The ISO 4217 currency code for the currency
+            used in the transaction.</param>
+            <param name="discountCode">The discount code applied to the
+            transaction. If multiple discount codes were used, please separate
+            them with a comma.</param>
+            <param name="affiliateId">The ID of the affiliate where the order is
+            coming from.</param>
+            <param name="subaffiliateId">The ID of the sub-affiliate where the
+            order is coming from.</param>
+            <param name="referrerUri">The URI of the referring site for this
+            order.</param>
+            <param name="isGift">Whether order was marked as a gift by the
+            purchaser.</param>
+            <param name="hasGiftMessage">Whether the purchaser included a gift
+            message.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Order.Amount">
+            <summary>
+            The total order amount for the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Order.Currency">
+            <summary>
+            The ISO 4217 currency code for the currency used in the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Order.DiscountCode">
+            <summary>
+            The discount code applied to the transaction. If multiple discount
+            codes were used, please separate them with a comma.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Order.AffiliateId">
+            <summary>
+            The ID of the affiliate where the order is coming from.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Order.SubaffiliateId">
+            <summary>
+            The ID of the sub-affiliate where the order is coming from.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Order.ReferrerUri">
+            <summary>
+            The URI of the referring site for this order.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Order.IsGift">
+            <summary>
+            Whether order was marked as a gift by the purchaser.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Order.HasGiftMessage">
+            <summary>
+            Whether the purchaser included a gift message.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Order.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.PaymentProcessor">
+            <summary>
+            Enumerated payment processors supported by the web service.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.Payment">
+            <summary>
+            The payment information for the transaction being sent to the
+            web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Payment.#ctor(System.Nullable{MaxMind.MinFraud.Request.PaymentProcessor},System.Nullable{System.Boolean},System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="processor">The payment processor used for the
+            transaction.</param>
+            <param name="wasAuthorized">The authorization outcome from the
+            payment processor. If the transaction has not yet been approved
+            or denied, do not include this field.</param>
+            <param name="declineCode">The decline code as provided by your
+            payment processor. If the transaction was not declined, do not
+            include this field.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Payment.Processor">
+            <summary>
+            The payment processor used for the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Payment.WasAuthorized">
+            <summary>
+            The authorization outcome from the payment processor. If the
+            transaction has not yet been approved or denied, do not include
+            this field.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Payment.DeclineCode">
+            <summary>
+            The decline code as provided by your payment processor. If the
+            transaction was not declined, do not include this field.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Payment.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.ShippingDeliverySpeed">
+            <summary>
+            Enumeration of shipping speeds supported by minFraud.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.Shipping">
+            <summary>
+            The shipping information for the transaction being sent to the
+            web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Shipping.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{MaxMind.MinFraud.Request.ShippingDeliverySpeed})">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="firstName">The first name of the end user as provided in their shipping information.</param>
+            <param name="lastName">The last name of the end user as provided in their shipping information.</param>
+            <param name="company">The company of the end user as provided in their shipping information.</param>
+            <param name="address">The first line of the user’s shipping address.</param>
+            <param name="address2">The second line of the user’s shipping address.</param>
+            <param name="city">The city of the user’s shipping address.</param>
+            <param name="region">The <a href="http://en.wikipedia.org/wiki/ISO_3166-2">ISO 3166-2</a>
+            subdivision code for the user’s shipping address.</param>
+            <param name="country">The two character <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO
+            3166-1 alpha-2</a> country code of the user’s shipping address.</param>
+            <param name="postal">The postal code of the user’s shipping address.</param>
+            <param name="phoneNumber">The phone number without the country code for the user’s shipping address.</param>
+            <param name="phoneCountryCode">The country code for phone number associated with the user’s shipping address.</param>
+            <param name="deliverySpeed">The shipping delivery speed for the order.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Shipping.DeliverySpeed">
+            <summary>
+            The shipping delivery speed for the order.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Shipping.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.ShoppingCartItem">
+            <summary>
+            Information for an item in the shopping cart for the transaction
+            being sent to the web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.ShoppingCartItem.#ctor(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Decimal})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="category">The category of the item.</param>
+            <param name="itemId">Your internal ID for the item.</param>
+            <param name="quantity">The quantity of the item in the shopping cart.
+            This must be positive</param>
+            <param name="price">The price of the item in the shopping cart. This
+            should be the same currency as the order currency.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.ShoppingCartItem.Category">
+            <summary>
+            The category of the item.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.ShoppingCartItem.ItemId">
+            <summary>
+            Your internal ID for the item.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.ShoppingCartItem.Quantity">
+            <summary>
+            The quantity of the item in the shopping cart.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.ShoppingCartItem.Price">
+            <summary>
+            The per-unit price of the item in the shopping cart. This should
+            use the same currency as the order currency.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.ShoppingCartItem.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.Transaction">
+            <summary>
+                The transaction to be sent to the web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Transaction.#ctor(MaxMind.MinFraud.Request.Device,MaxMind.MinFraud.Request.Account,MaxMind.MinFraud.Request.Billing,MaxMind.MinFraud.Request.CreditCard,MaxMind.MinFraud.Request.CustomInputs,MaxMind.MinFraud.Request.Email,MaxMind.MinFraud.Request.Event,MaxMind.MinFraud.Request.Order,MaxMind.MinFraud.Request.Payment,MaxMind.MinFraud.Request.Shipping,System.Collections.Generic.IList{MaxMind.MinFraud.Request.ShoppingCartItem})">
+            <summary>
+                Constructor. See
+                <a href="https://dev.maxmind.com/minfraud/#Request_Body">
+                    the minFraud documentation
+                </a>
+                for a general overview of the request sent to the web
+                service.
+            </summary>
+            <param name="device">Information about the device used in the transaction.</param>
+            <param name="account">Information about the account used in the transaction.</param>
+            <param name="billing">Billing information used in the transaction.</param>
+            <param name="creditCard">Information about the credit card used in the transaction.</param>
+            <param name="customInputs">Custom inputs as configured on your account portal.</param>
+            <param name="email">Information about the email used in the transaction.</param>
+            <param name="userEvent">Details about the event such as the time.</param>
+            <param name="order">Details about the order.</param>
+            <param name="payment">Information about the payment processing.</param>
+            <param name="shipping">Shipping information used in the transaction.</param>
+            <param name="shoppingCart">List of shopping items in the transaction.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Transaction.Account">
+            <summary>
+                Account information for the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Transaction.Billing">
+            <summary>
+                Information about the account used in the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Transaction.CreditCard">
+            <summary>
+                Information about the credit card used in the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Transaction.CustomInputs">
+            <summary>
+                Custom inputs as configured on your account portal.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Transaction.Device">
+            <summary>
+                Information about the device used in the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Transaction.Email">
+            <summary>
+                Information about the email used in the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Transaction.Event">
+            <summary>
+                Details about the event such as the time.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Transaction.Order">
+            <summary>
+                Details about the order.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Transaction.Payment">
+            <summary>
+                Information about the payment processing.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Transaction.Shipping">
+            <summary>
+                Shipping information used in the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.Transaction.ShoppingCart">
+            <summary>
+                List of shopping items in the transaction.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.Transaction.ToString">
+            <summary>
+                Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.TransactionReportTag">
+            <summary>
+            Enumerated transaction report tags supported by the web service.
+            </summary>
+        </member>
+        <member name="F:MaxMind.MinFraud.Request.TransactionReportTag.NotFraud">
+            <summary>
+            The transaction was not fraudulent.
+            </summary>
+        </member>
+        <member name="F:MaxMind.MinFraud.Request.TransactionReportTag.SuspectedFraud">
+            <summary>
+            You suspect the transaction is fraudulent but you have not
+            received a chargeback.
+            </summary>
+        </member>
+        <member name="F:MaxMind.MinFraud.Request.TransactionReportTag.SpamOrAbuse">
+            <summary>
+            The transaction is spam or abuse but you have not received a
+            chargeback.
+            </summary>
+        </member>
+        <member name="F:MaxMind.MinFraud.Request.TransactionReportTag.Chargeback">
+            <summary>
+            There was a chargeback on this transaction.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Request.TransactionReport">
+            <summary>
+            The transaction information for a report you would like to file with
+            MaxMind.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.TransactionReport.#ctor(System.Net.IPAddress,MaxMind.MinFraud.Request.TransactionReportTag,System.String,System.String,System.Nullable{System.Guid},System.String,System.String)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="ipAddress">The IP address reported to MaxMind for the
+                transaction.</param>
+            <param name="tag">The <c>TransactionReportTag</c> indicating the
+                type of report being made.</param>
+            <param name="chargebackCode">A string which is provided by your 
+                payment processor indicating <a href="https://en.wikipedia.org/wiki/Chargeback#Reason_codes">
+                the reason for the chargeback</a>.</param>
+            <param name="maxmindId">A unique eight character string identifying
+                a minFraud Standard or Premium request. These IDs are returned
+                in the <c>maxmindID</c> field of a response for a successful
+                minFraud request. This field is not required, but you are
+                encouraged to provide it, if possible.</param>
+            <param name="minfraudId">A UUID that identifies a minFraud Score,
+                minFraud Insights, or minFraud Factors request. This ID is
+                returned at <c>/id</c> in the response. This field is not
+                required, but you are encouraged to provide it if the request
+                was made to one of these services.</param>
+            <param name="notes">Your notes on the fraud tag associated with the
+                transaction. We manually review many reported transactions to
+                improve our scoring for you so any additional details to help
+                us understand context are helpful.</param>
+            <param name="transactionId">The transaction ID you originally passed
+                to minFraud. This field is not required, but you are encouraged
+                to provide it or the transaction's <c>>maxmindId</c> or
+                <c>minfraudId</c>.</param>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.TransactionReport.IPAddress">
+            <summary>
+            The IP address reported to MaxMind for the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.TransactionReport.Tag">
+            <summary>
+            The <c>TransactionReportTag</c> indicating the type of report
+            being made.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.TransactionReport.ChargebackCode">
+            <summary>
+            A string which is provided by your payment processor indicating
+            <a href="https://en.wikipedia.org/wiki/Chargeback#Reason_codes">
+            the reason for the chargeback</a>.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.TransactionReport.MaxMindId">
+            <summary>
+            A unique eight character string identifying a minFraud Standard or
+            Premium request. These IDs are returned in the <c>maxmindID</c>
+            field of a response for a successful minFraud request. This field
+            is not required, but you are encouraged to provide it, if possible.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.TransactionReport.MinFraudId">
+            <summary>
+            A UUID that identifies a minFraud Score, minFraud Insights, or
+            minFraud Factors request. This ID is returned at <c>/id</c> in the
+            response. This field is not required, but you are encouraged to
+            provide it if the request was made to one of these services.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.TransactionReport.Notes">
+            <summary>
+            Your notes on the fraud tag associated with the transaction. We
+            manually review many reported transactions to improve our scoring
+            for you so any additional details to help us understand context
+            are helpful.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Request.TransactionReport.TransactionId">
+            <summary>
+            The transaction ID you originally passed to minFraud. This field
+            is not required, but you are encouraged to provide it or the
+            transaction's <c>>maxmindId</c> or <c>minfraudId</c>.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Request.TransactionReport.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.Address">
+            <summary>
+            General address response data.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Address.IsInIPCountry">
+            <summary>
+            This property is <c>true</c> if the address is in the
+            IP country. The property is <c>false</c> when the address is not in the IP
+            country. If the address could not be parsed or was not provided or if the
+            IP address could not be geolocated, the property will be <c>null</c>.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Address.IsPostalInCity">
+            <summary>
+            This property is <c>true</c> if the postal code
+            provided with the address is in the city for the address. The property is
+            <c>false</c> when the postal code is not in the city. If the address was
+            not provided or could not be parsed, the property will be <c>null</c>.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Address.Latitude">
+            <summary>
+            The latitude associated with the address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Address.Longitude">
+            <summary>
+            The longitude associated with the address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Address.DistanceToIPLocation">
+            <summary>
+            The distance in kilometers from the address to the IP location.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.Address.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.BillingAddress">
+            <summary>
+            Information about the billing address.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.CreditCard">
+            <summary>
+            Information about the credit card based on the issuer ID number.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.CreditCard.Brand">
+            <summary>
+            The credit card brand.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.CreditCard.Country">
+            <summary>
+            The two letter <a href="http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">
+            ISO 3166-1 alpha-2</a> country code associated with the location
+            of the majority of customers using this credit card as determined
+            by their billing address. In cases where the location of customers
+            is highly mixed, this defaults to the country of the bank issuing
+            the card.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.CreditCard.IsBusiness">
+            <summary>
+            This property is <c>true</c> if the card is a business card.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.CreditCard.IsIssuedInBillingAddressCountry">
+            <summary>
+            This field is <c>true</c> if the country of the billing address
+            matches the country of the majority of customers using that IIN.
+            In cases where the location of customers is highly mixed, the
+            match is to the country of the bank issuing the card.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.CreditCard.IsPrepaid">
+            <summary>
+            This property is <c>true</c> if the card is a prepaid card.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.CreditCard.IsVirtual">
+            <summary>
+            This property is <c>true</c> if the card is a virtual card.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.CreditCard.Issuer">
+            <summary>
+            An object containing information about the credit card issuer.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.CreditCard.Type">
+            <summary>
+            The credit card type.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.CreditCard.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.Device">
+            <summary>
+            This object contains information about the device that MaxMind
+            believes is associated with the IP address passed in the request.
+            In order to receive device output from minFraud Insights or
+            minFraud Factors, you must be using the
+            <see href="https://dev.maxmind.com/minfraud/device/">Device
+            Tracking Add-on</see>.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Device.Confidence">
+            <summary>
+            A number representing the confidence that the <c>DeviceId</c>
+            refers to a unique device as opposed to a cluster of similar
+            devices. A confidence of 0.01 indicates very low confidence that
+            the device is unique, whereas 99 indicates very high confidence.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Device.Id">
+            <summary>
+            A UUID that MaxMind uses for the device associated with this IP
+            address. Note that many devices cannot be uniquely identified
+            because they are too common (for example, all iPhones of a given
+            model and OS release). In these cases, the minFraud service will
+            simply not return a UUID for that device.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Device.LastSeen">
+            <summary>
+            The date and time of the last sighting of the device.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Device.LocalTime">
+            <summary>
+            The local date and time of the transaction in the time zone of
+            the device. This is determined by using the UTC offset associated
+            with the device. This is an RFC 3339 date-time
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.Device.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.Disposition">
+            <summary>
+            This object contains the disposition set by custom rules.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Disposition.Action">
+            <summary>
+            The action to take on the transaction as defined by your custom
+            rules. The current set of values are "accept", "manual_review",
+            and "reject". If you do not have custom rules set up, <c>null</c>
+            will be returned.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Disposition.Reason">
+            <summary>
+            The reason for the action. The current possible values are
+            "custom_rule", "block_list", and "default". If you do not have
+            custom rules set up, <c>null</c> will be returned.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.Disposition.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.Email">
+            <summary>
+            This object contains information about the email address passed in the request.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Email.Domain">
+            <summary>
+            An object containing information about the email address domain.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Email.FirstSeen">
+            <summary>
+            The date the email address was first seen by MaxMind.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Email.IsDisposable">
+            <summary>
+            This property incidates whether the email is from a disposable
+            email provider. The value will be <c>null</c> if no email address
+            or email domain was passed as an input.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Email.IsFree">
+            <summary>
+            This property is true if MaxMind believes that this email is hosted by a free
+            email provider such as Gmail or Yahoo! Mail.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Email.IsHighRisk">
+            <summary>
+            This property is true if MaxMind believes that this email is likely to be used
+             for fraud. Note that this is also factored into the overall risk_score in the
+            response as well.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.Email.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.EmailDomain">
+            <summary>
+            This object contains information about the email address domain passed
+            in the request.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.EmailDomain.FirstSeen">
+            <summary>
+            The date the email address domain was first seen by MaxMind.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.EmailDomain.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.Factors">
+            <summary>
+            Model for Insights response.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Factors.Subscores">
+            <summary>
+            An object containing GeoIP2 and minFraud Insights information about
+            the IP address.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.Factors.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.GeoIP2Country">
+            <summary>
+            A subclass of the GeoIP2 Country model with minFraud-specific
+            additions.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.GeoIP2Country.IsHighRisk">
+            <summary>
+            This is <c>true</c> if the IP country is high risk.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.GeoIP2Country.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.GeoIP2Location">
+            <summary>
+            A subclass of the GeoIP2 Location model with minFraud-specific
+            additions.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.GeoIP2Location.LocalTime">
+            <summary>
+            The date and time of the transaction in the time
+            zone associated with the IP address.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.GeoIP2Location.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.IIPAddress">
+            <summary>
+            An interface for IP address risk classes.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.IIPAddress.Risk">
+            <summary>
+            The risk associated with the IP address. The value ranges from 0.01
+            to 99. A higher score indicates a higher risk.
+            </summary>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.Insights">
+            <summary>
+            Model for Insights response.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Insights.IPAddress">
+            <summary>
+            An object containing GeoIP2 and minFraud Insights information about
+            the IP address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Insights.CreditCard">
+            <summary>
+            An object containing minFraud data about the credit card used in
+            the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Insights.Device">
+            <summary>
+            This object contains information about the device that MaxMind
+            believes is associated with the IP address passed in the request.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Insights.Email">
+            <summary>
+            This object contains information about the email address passed in
+             the request.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Insights.ShippingAddress">
+            <summary>
+            An object containing minFraud data related to the shipping address
+             used in the transaction.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Insights.BillingAddress">
+            <summary>
+            An object containing minFraud data related to the billing address
+            used in the transaction.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.Insights.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.IPAddress">
+            <summary>
+            Model for minFraud GeoIP2 Insights data.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.IPAddress.Country">
+            <summary>
+            Country object for the requested IP address. This record represents the
+            country where MaxMind believes the IP is located.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.IPAddress.Location">
+            <summary>
+            Location object for the requested IP address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.IPAddress.MaxMind">
+            <summary>
+            This property is not provided by minFraud.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.IPAddress.Risk">
+            <summary>
+            The risk associated with the IP address. The value ranges from 0.01
+            to 99. A higher score indicates a higher risk.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.IPAddress.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.Issuer">
+            <summary>
+            Model for the credit card issuer data from minFraud.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Issuer.Name">
+            <summary>
+            The name of the bank which issued the credit card.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Issuer.MatchesProvidedName">
+            <summary>
+            This property is <c>true</c> if the name matches the name
+            provided in the request for the card issuer. It is <c>false</c>
+            if the name does not match. The property is <c>null</c> if
+            either no name or no issuer ID number (IIN) was provided in the
+            request or if MaxMind does not have a name associated with the IIN.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Issuer.PhoneNumber">
+            <summary>
+            The phone number of the bank which issued the credit card. In some
+            cases the phone number we return may be out of date.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Issuer.MatchesProvidedPhoneNumber">
+            <summary>
+            This property is <c>true</c> if the phone number matches
+            the number provided in the request for the card issuer. It is
+            <c>false</c> if the number does not match. It is
+            <c>null</c> if either no phone number or no issuer ID
+            number(IIN) was provided in the request or if MaxMind does not
+            have a phone number associated with the IIN.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.Issuer.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.Score">
+            <summary>
+            Model class for Score response.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Score.Disposition">
+            <summary>
+            This object contains information about the disposition set by
+            custom rules.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Score.FundsRemaining">
+            <summary>
+            The approximate US dollar value of the funds remaining on your
+            MaxMind account.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Score.Id">
+            <summary>
+            This is a UUID that identifies the minFraud request. Please use
+            this ID in support requests to MaxMind so that we can easily
+            identify a particular request.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Score.IPAddress">
+            <summary>
+            An object containing information about the IP address's risk.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Score.QueriesRemaining">
+            <summary>
+            The approximate number of queries remaining for this service
+            before your account runs out of funds.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Score.RiskScore">
+            <summary>
+            This property contains the risk score, from 0.01 to 99. A
+            higher score indicates a higher risk of fraud.For example, a score of 20
+            indicates a 20% chance that a transaction is fraudulent.We never return a
+            risk score of 0, since all transactions have the possibility of being
+            fraudulent.Likewise we never return a risk score of 100.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Score.Warnings">
+            <summary>
+            This list contains objects detailing issues with the request that
+            was sent such as invalid or unknown inputs. It is highly
+            recommended that you check this array for issues when integrating
+            the web service.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.Score.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.ScoreIPAddress">
+            <summary>
+            The IP addresses risk.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.ScoreIPAddress.Risk">
+            <summary>
+            The risk associated with the IP address. The value ranges from 0.01
+            to 99. A higher score indicates a higher risk.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.ScoreIPAddress.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.ShippingAddress">
+            <summary>
+            Information about the shipping address.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.ShippingAddress.IsHighRisk">
+            <summary>
+            This property is <c>true</c> if the shipping address is in
+            the IP country. The property is <c>false</c> when the address
+            is not in the IP country. If the shipping address could not be
+            parsed or was not provided or the IP address could not be
+            geolocated, then the property is <c>null</c>.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.ShippingAddress.DistanceToBillingAddress">
+            <summary>
+            The distance in kilometers from the shipping address to billing
+            address.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.ShippingAddress.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.Subscores">
+            <summary>
+            This class contains subscores for many of the individual components that are
+            used to calculate the overall risk score.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.AvsResult">
+            <summary>
+            The risk associated with the AVS result. If present, this is a
+            value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.BillingAddress">
+            <summary>
+            The risk associated with the billing address. If present, this is
+            a value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.BillingAddressDistanceToIPLocation">
+            <summary>
+            The risk associated with the distance between the billing address
+            and the location for the given IP address. If present, this is a
+            value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.Browser">
+            <summary>
+            The risk associated with the browser attributes such as the
+            User-Agent and Accept-Language. If present, this is a value in the
+            range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.Chargeback">
+            <summary>
+            Individualized risk of chargeback for the given IP address on
+            your account and shop ID. This is only available to users sending
+            chargeback data to MaxMind. If present, this is a value in the
+            range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.Country">
+            <summary>
+            The risk associated with the country the transaction originated
+            from. If present, this is a value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.CountryMismatch">
+            <summary>
+            The risk associated with the combination of IP country, card
+            issuer country, billing country, and shipping country. If present,
+            this is a value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.CvvResult">
+            <summary>
+            The risk associated with the CVV result. If present, this is a
+            value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.Device">
+            <summary>
+            The risk associated with the device. If present, this is a value
+            in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.EmailAddress">
+            <summary>
+            The risk associated with the particular email address. If
+            present, this is a value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.EmailDomain">
+            <summary>
+            The general risk associated with the email domain. If present,
+            this is a value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.EmailLocalPart">
+            <summary>
+            The risk associated with the email address local part (the part of
+            the email address before the @ symbol). If present, this is a
+            value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.EmailTenure">
+            <summary>
+            The risk associated with the issuer ID number on the email
+            domain. If present, this is a value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.IPTenure">
+            <summary>
+            The risk associated with the issuer ID number on the IP address.
+            If present, this is a value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.IssuerIdNumber">
+            <summary>
+            The risk associated with the particular issuer ID number (IIN)
+            given the billing location and the history of usage of the IIN on
+            your account and shop ID. If present, this is a value in the range
+            0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.OrderAmount">
+            <summary>
+            The risk associated with the particular order amount for your
+            account and shop ID. If present, this is a value in the range
+            0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.PhoneNumber">
+            <summary>
+            The risk associated with the particular phone number. If present,
+            this is a value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.ShippingAddress">
+            <summary>
+            The risk associated with the shipping address. If present, this is
+            a value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.ShippingAddressDistanceToIPLocation">
+            <summary>
+            The risk associated with the distance between the shipping address
+            and the location for the given IP address. If present, this is a
+            value in the range 0.01 to 99.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Subscores.TimeOfDay">
+            <summary>
+            The risk associated with the local time of day of the transaction
+            in the IP address location. If present, this is a value in the range
+            0.01 to 99.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.Subscores.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.Response.Warning">
+            <summary>
+            A warning returned by the web service.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Warning.Code">
+             <summary>
+             This value is a machine-readable code identifying the
+             warning. See the <a href="https://dev.maxmind.com/minfraud/#Warning">
+             web service documentation</a> for the current list of of warning
+              codes.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Warning.Message">
+            <summary>
+            This property provides a human-readable explanation of the
+            warning. The description may change at any time and should not be
+            matched against.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.Response.Warning.InputPointer">
+            <summary>
+            A JSON Pointer to the input field that the warning is associated with.
+            For instance, if the warning was about the billing city, this would be
+            <c>/billing/city</c>. If it was for the price in the second shopping
+            cart item, it would be <c>/shopping_cart/1/price</c>.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.Response.Warning.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.NetworkConverter">
+            <summary>
+            A JsonConverter for MaxMind.Db.Network.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.NetworkConverter.Write(System.Text.Json.Utf8JsonWriter,MaxMind.Db.Network,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Reads a JSON value.
+            </summary>
+            <param name="writer"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:MaxMind.MinFraud.NetworkConverter.Read(System.Text.Json.Utf8JsonReader@,System.Type,System.Text.Json.JsonSerializerOptions)">
+            <summary>
+            Writes a JSON value.
+            </summary>
+            <param name="reader"></param>
+            <param name="typeToConvert"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MaxMind.MinFraud.WebServiceClient">
+            <summary>
+            Client for querying the minFraud Score and Insights web services.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.WebServiceClient.#ctor(System.Int32,System.String,System.Collections.Generic.IEnumerable{System.String},System.String,System.Nullable{System.TimeSpan},System.Net.Http.HttpMessageHandler)">
+            <summary>
+            Constructor for minFraud web service client.
+            </summary>
+            <param name="accountId">Your MaxMind account ID.</param>
+            <param name="licenseKey">Your MaxMind license key.</param>
+            <param name="locales">A list of locale codes to use for name property.</param>
+            <param name="host">The host to use when connecting to the web service.</param>
+            <param name="timeout">The timeout to use for the request.</param>
+            <param name="httpMessageHandler">Handler to use in request. The handler will be disposed.</param>
+        </member>
+        <member name="M:MaxMind.MinFraud.WebServiceClient.FactorsAsync(MaxMind.MinFraud.Request.Transaction)">
+            <summary>
+            Asynchronously query Factors endpoint with transaction data
+            </summary>
+            <param name="transaction">Object containing the transaction data
+            to be sent to the minFraud web service.</param>
+            <returns>Task that produces an object modeling the minFraud
+            Factors response data</returns>
+        </member>
+        <member name="M:MaxMind.MinFraud.WebServiceClient.InsightsAsync(MaxMind.MinFraud.Request.Transaction)">
+            <summary>
+            Asynchronously query Insights endpoint with transaction data
+            </summary>
+            <param name="transaction">Object containing the transaction data
+            to be sent to the minFraud web service.</param>
+            <returns>Task that produces an object modeling the minFraud
+            Insights response data</returns>
+        </member>
+        <member name="M:MaxMind.MinFraud.WebServiceClient.ScoreAsync(MaxMind.MinFraud.Request.Transaction)">
+            <summary>
+            Asynchronously query Score endpoint with transaction data
+            </summary>
+            <param name="transaction">Object containing the transaction data
+            to be sent to the minFraud web service.</param>
+            <returns>Task that produces an object modeling the minFraud Score
+            response data</returns>
+        </member>
+        <member name="M:MaxMind.MinFraud.WebServiceClient.ReportAsync(MaxMind.MinFraud.Request.TransactionReport)">
+            <summary>
+            Asynchronously query the minFraud Report Transaction API.
+            </summary>
+            <remarks>
+            Reporting transactions to MaxMind helps us detect about 10-50% more
+            fraud and reduce false positives for you.
+            </remarks>
+            <param name="report">The transaction report you would like to send.</param>
+            <returns>The Task on which to await. The web service returns no data and
+            this API will throw an exception if there is an error.</returns>
+        </member>
+        <member name="M:MaxMind.MinFraud.WebServiceClient.Dispose">
+            <summary>
+            Dispose of the underlying HttpClient.
+            </summary>
+        </member>
+        <member name="M:MaxMind.MinFraud.WebServiceClient.Dispose(System.Boolean)">
+            <summary>
+            Dispose of the underlying HttpClient.
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:MaxMind.MinFraud.WebServiceClientOptions">
+            <summary>
+            Options class for WebServiceClient.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.WebServiceClientOptions.AccountId">
+            <summary>
+            Your MaxMind account ID.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.WebServiceClientOptions.LicenseKey">
+            <summary>
+            Your MaxMind license key.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.WebServiceClientOptions.Locales">
+            <summary>
+            List of locale codes to use in name property from most preferred to least preferred.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.WebServiceClientOptions.Timeout">
+            <summary>
+            The timeout to use for the request.
+            </summary>
+        </member>
+        <member name="P:MaxMind.MinFraud.WebServiceClientOptions.Host">
+            <summary>
+            The host to use when accessing the service.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+                Reserved to be used by the compiler for tracking metadata.
+                This class should not be used by developers in source code.
+            </summary>
+            <remarks>
+                This definition is provided by the <i>IsExternalInit</i> NuGet package (https://www.nuget.org/packages/IsExternalInit).
+                Please see https://github.com/manuelroemer/IsExternalInit for more information.
+            </remarks>
+        </member>
+    </members>
+</doc>

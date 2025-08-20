@@ -1,0 +1,83 @@
+﻿.wrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.main {
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.text-danger {
+    color: red;
+}
+
+.clear {
+    clear: both;
+}
+
+h1 {
+    font-size: 28px;
+    text-align: center;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.regheader {
+    min-height: 36px;
+}
+
+.mem_log {
+    width: 480px;
+    direction: block;
+    height: 80px;
+    float: right; /* margin-top: 10px;*/
+    line-height: 28px;
+}
+
+#tdMemberLogin {
+    width: 35%;
+}
+
+#tdUserDeatsils {
+    width: 50%;
+}
+
+#tdSUbmit {
+    width: 15%;
+}
+
+#aPortuguese {
+    padding-right: 0px;
+}
+
+.Container {
+    min-height: 750px;
+}
+
+.copy {
+    width: 1024px;
+    float: left;
+    margin: 34px 0 0;
+    font-size: 14px;
+    color: #7b8285;
+}
+
+@media only screen and (max-width: 699px) and (min-width: 600px) {
+    .wrapper {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .main {
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+    }
+}

@@ -1,0 +1,17 @@
+2023-08-28 20:06:25.9546|FATAL|onerrorLogger|{"msg":"Uncaught Exception","errorMsg":"Script error.","url":"","line number":0,"column":0}
+2023-08-28 20:13:23.6463|FATAL|onerrorLogger|{"msg":"Uncaught Exception","errorMsg":"Script error.","url":"","line number":0,"column":0}
+2023-08-28 23:27:51.2622|ERROR|Members.PrecisionSample.Clikflow.Filters.LoggerAttribute|/reg/GetQuestion?uig=b094cf7e-1379-4474-bac2-5e29e01cd206&ug=06e0a162-0f0c-48b8-a4db-04cafb836616&pid=379170&tid=4141723&usid=1422159267&cid=491|http://dev.affiliate.clickflow.com/reg/GetQuestion?uig=b094cf7e-1379-4474-bac2-5e29e01cd206&ug=06e0a162-0f0c-48b8-a4db-04cafb836616&pid=379170&tid=4141723&usid=1422159267&cid=491||System.Data.SqlClient.SqlException (0x80131904): A connection was successfully established with the server, but then an error occurred during the login process. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.) ---> System.ComponentModel.Win32Exception (0x80004005): An existing connection was forcibly closed by the remote host
+   at Members.PrecisionSample.Components.Data_Layer.UserDataServices.GetConnectionString(String host, Nullable`1 Rid, Nullable`1 ClientId) in D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Components\Data Layer\UserDataServices.cs:line 1675
+   at Members.PrecisionSample.Components.Data_Layer.ProfileQuestionDataLayer.GetQuestion(Guid Uig, Guid Ug, Int32 ProjectId, Int32 TargetId, Int32 UserId, Int32 ClientId) in D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Components\Data Layer\ProfileQuestionDataLayer.cs:line 35
+   at Members.PrecisionSample.Components.Business_Layer.ProfileQuestionBusinessService.GetQuestion(Guid Uig, Guid Ug, Int32 ProjectId, Int32 TargetId, Int32 UserId, Int32 cid) in D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Components\Business Layer\ProfileQuestionBusinessService.cs:line 24
+   at Members.PrecisionSample.Clikflow.Controllers.regController.GetQuestion(Guid uig, Guid ug, Int32 pid, Int32 tid, Int32 usid, Int32 cid) in D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Clikflow\Controllers\regController.cs:line 41
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+ClientConnectionId:1b0dea23-cc48-417e-99a3-2e16b3427f53
+Error Number:10054,State:0,Class:20

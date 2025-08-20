@@ -1,0 +1,15 @@
+2024-02-15 22:09:07.8173|FATAL|Members.PrecisionSample.Prescreener.Filters.LoggerAttribute|/prs/getquestions?ug=dbe57d77-5444-435a-a3cb-23b950ec8bea&cid=491&uig=2cecbaee-a895-4a9e-bdb1-b3a1b5095faf&lngId=0|http://dev.prs.com/prs/getquestions?ug=dbe57d77-5444-435a-a3cb-23b950ec8bea&cid=491&uig=2cecbaee-a895-4a9e-bdb1-b3a1b5095faf&lngId=0||System.Data.SqlClient.SqlException (0x80131904): Execution Timeout Expired.  The timeout period elapsed prior to completion of the operation or the server is not responding. ---> System.ComponentModel.Win32Exception (0x80004005): The wait operation timed out
+   at Members.PrecisionSample.Components.Data_Layer.PrescreenerDataServices.GetQuestions(Guid UserGuid, Int32 ClientId, Guid UserInvitationGuid, String Xml, String QueryName, Int32 LanguageId, Int32 QId, Int32 SortOrder, String Type, Int32 GDPRValue) in D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Components\Data Layer\PrescreenerDataServices.cs:line 515
+   at Members.PrecisionSample.Components.Data_Layer.PrescreenerDataServices.GetPSQuestions(Guid UserGuid, Int32 ClientId, Int32 LanguageId, Guid UserInvitationGuid) in D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Components\Data Layer\PrescreenerDataServices.cs:line 536
+   at Members.PrecisionSample.Components.Business_Layer.PrescreenerManager.GetPSQuestions(Guid UserGuid, Int32 ClientId, Int32 LanguageId, Guid UserInvitationGuid) in D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Components\Business Layer\PrescreenerManager.cs:line 65
+   at Members.PrecisionSample.Prescreener.Controllers.PrsController.GetQuestions(Guid ug, Int32 cid, Guid uig, Int32 lngId) in D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Prescreener\Controllers\PrsController.cs:line 203
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+ClientConnectionId:9f6ed46e-0565-4cd9-b7c4-9794a740ac58
+Error Number:-2,State:0,Class:11

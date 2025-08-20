@@ -1,0 +1,12 @@
+.container {
+	width: 1170px;
+}
+.navbar-fixed-top .container {
+	width: 1170px;
+}
+.navbar-fixed-bottom .container {
+	width: 1170px;
+}
+.span12 {
+	width: 1170px;
+}

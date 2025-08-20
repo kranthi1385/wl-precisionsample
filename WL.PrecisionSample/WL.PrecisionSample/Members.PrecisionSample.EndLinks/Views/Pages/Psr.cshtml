@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+}
+
+@if (@ViewBag.IsPixel)
+{
+    <script type="text/javascript">
+        setTimeout(function () {
+            debugger;
+            window.location.href = "@ViewBag.PixelUrl";
+        }, 5000);
+    </script>
+}
+
+<body ng-cloak >
+    <center>
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+        }
+        
+        <div style="padding-left: 40px; font-size: 12px; background-color: #F5F5F5;padding: 10px; overflow: hidden; border: solid 1px #CACACA; width: 700px;">
+            <table>
+                <tr>
+                    <td align="left" style="width: 600px;">
+                        <table style="width: 600px;">
+                            <tr>
+                                <td align="left" style="width: 600px;">
+                                    <img src="http://dev.affiliate.sdl.com/Images/opinionnetwork_logo.png" style="border-width:0px;"/>
+                                    @*<img src="~/Images/opinionnetwork_logo.png style="border-width:0px;"" />*@
+                                    <br />
+                                    <br />
+                                    <div>
+                                        <table>
+                                            <tr>
+                                                <td align="left" style="width:700px;font-size: 17px;">
+                                                    @ViewBag.Message
+                                                    <br />
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+                
+        </div>
+
+    </center>
+</body>

@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "~/Views/Shared/_bannertab.cshtml";
+}
+
+@using (Html.BeginForm("", "", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+}
+<div ng-if="pgLoad">
+    <div ng-controller="accountController">
+        <div class="wrapper_content my_profile_wrapper" style="min-height: 423px; height: 3358.67px;">
+            <div class="container_test" style="min-height: 423px;">
+                <div class="column_wrapper column_wrapper_profile surveys">
+                    <div class="column_full sury_table" style="overflow:auto;">
+                        <div class="tbl-sm" style="padding: 10px 40px 10px 40px;margin-left:75px;" ng-if="user.LanguageId==36">
+                            <span style="color:green;">U heeft uw beloning succesvol ingewisseld. Uw inwisseling wordt binnen 2 tot 3 minuten geverifieerd en goedgekeurd.</span>
+                        </div>
+                        <div class="tbl-sm" style="padding: 10px 40px 10px 40px;margin-left:75px;" ng-if="user.LanguageId==35">
+                            <span style="color:green;">Link Has been Expired. Please do confirm with in 2 Hours</span>
+                        </div>
+                        <div class="tbl-sm" style="padding: 10px 40px 10px 40px;margin-left:75px;" ng-if="user.LanguageId==51">
+                            <span style="color:green;">Link ist abgelaufen. Bitte bestätigen Sie mit in 2 Stunden</span>
+                        </div>
+                        <div class="tbl-sm" style="padding: 10px 40px 10px 40px;margin-left:75px;" ng-if="user.LanguageId==35">
+                            <span style="color:green;">链接已过期。请在2小时内确认</span>
+                        </div>
+                        <div class="tbl-sm" style="padding: 10px 40px 10px 40px;margin-left:75px;" ng-if="user.LanguageId==44">
+                            <span style="color:green;">Le lien a expiré. Veuillez confirmer avec dans 2 heures</span>
+                        </div>
+                        <div class="tbl-sm" style="padding: 10px 40px 10px 40px;margin-left:75px;" ng-if="user.LanguageId==69">
+                            <span style="color:green;">Il collegamento è scaduto. Si prega di confermare entro 2 ore</span>
+                        </div>
+                        <div class="tbl-sm" style="padding: 10px 40px 10px 40px;margin-left:75px;" ng-if="user.LanguageId==35">
+                            <span style="color:green;">リンクの有効期限が切れました。 2時間以内にご確認ください</span>
+                        </div>
+                        <div class="tbl-sm" style="padding: 10px 40px 10px 40px;margin-left:75px;" ng-if="user.LanguageId==35">
+                            <span style="color:green;">링크가 만료되었습니다. 2 시간 내에 확인하십시오</span>
+                        </div>
+                        <div class="tbl-sm" style="padding: 10px 40px 10px 40px;margin-left:75px;" ng-if="user.LanguageId==111">
+                            <span style="color:green;">O link expirou. Por favor, confirme com em 2 horas</span>
+                        </div>
+                        <div class="tbl-sm" style="padding: 10px 40px 10px 40px;margin-left:75px;" ng-if="user.LanguageId==120">
+                            <span style="color:green;">Ссылка истекла. Пожалуйста, подтвердите через 2 часа</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

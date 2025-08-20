@@ -1,0 +1,100 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/rzslider.min.css" />
+<link href="~/Content/prequestion.css" rel="stylesheet" />
+
+
+
+
+<div id="dvSurveyQuestions" ng-controller="userPsQuestionsController" ng-if="psPageLoad" ng-cloak>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    }
+    <form name="formValidation" novalidate>
+        <div id="surveyQuestion" ng-show="isShowQuestions">
+            <div class="pre-question-panel">
+                @*<div id="dvImageLoading">
+                    </div>*@
+
+                <div class="pre-question-img">
+                    <img src="~/Images/question-img.png" />
+                </div>
+
+                <div id="dvQuestions" class="pre-question-list" style="font-size:13px;">
+                    <div class="body1">
+                        <div id="tmpTable" ng-repeat="question in questions">
+                            @*   <div template-directive question_typeid="{{question.QuestionTypeId}}" ></div>*@
+                            <div ng-if="question.ChildQuestionList == null">
+                                <template-directive question-type-id="{{question.QuestionTypeId}}"></template-directive>
+
+                            </div>
+                            <div ng-if="question.ChildQuestionList.length !=null ">
+                                <div ng-if="question.QuestionTypeId != 13 ">
+                                    <template-directive question-type-id="{{question.ChildQuestionList[0].QuestionTypeId}}"></template-directive>
+                                </div>
+                                <div ng-if="question.QuestionTypeId == 13 ">
+                                    <template-directive question-type-id="{{question.QuestionTypeId}}"></template-directive>
+                                </div>
+                            </div>
+                            <div ng-style="{'margin-top':question.QuestionId == 573? '120px':'0px' }" ng-if="(question.QuestionId == 1638 || question.QuestionId == 573 || question.QuestionId == 580 || question.QuestionId == 850 || question.QuestionId == 4667 || question.QuestionId == 5099 || question.QuestionId == 139) && (cid == 337 || cid == 491)">
+                                <input id="radio1" style="float: left;min-height: 18px;cursor: pointer;text-align: center;margin-left: 8px;word-break:break-word;margin-top: 15px;" type="radio" name="radio" value="1" ng-model="gdprRadio" ng-click="gdprChange(1)" required />
+                                <div style="display:flex;padding-left: 8px">
+                                    <label>{{gdprvalidate1}}</label>
+                                </div>
+                                <input id="radio2" style="float: left;min-height: 18px;cursor: pointer;text-align: center;margin-left: 8px;word-break:break-word;margin-top: 15px;" type="radio" name="radio" value="2" ng-model="gdprRadio" ng-click="gdprChange(2)" required />
+                                <div style="display:flex;padding-left: 8px">
+                                    <label>{{gdprvalidate2}}</label>
+                                </div>
+
+                            </div>
+                            <div ng-style="{'margin-top':question.QuestionId == 573? '120px':'0px' }" ng-if="(question.QuestionId == 1638 || question.QuestionId == 573 || question.QuestionId == 580 || question.QuestionId == 850 || question.QuestionId == 4667 || question.QuestionId == 5099 || question.QuestionId == 139) &&
+                                 cid != 337 && cid != 491 && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid ==550 || conid ==559 || conid ==564 || conid ==565 || conid ==572 || conid ==575 || conid ==590 || conid ==596 || conid ==599 || conid ==613 || conid ==618 || conid ==619 || conid ==620 || conid ==628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 || conid ==673 || conid ==693 || conid ==694 || conid ==700 || conid ==706)">
+                                <input id="radio1" style="float: left;min-height: 18px;cursor: pointer;text-align: center;margin-left: 8px;word-break:break-word;margin-top: 15px;" type="radio" name="radio" value="1" ng-model="gdprRadio" ng-click="gdprChange(1)" required />
+                                <div style="display:flex;padding-left: 8px">
+                                    <label>I grant consent to Precision Sample to process my response to this question to determine if I qualify for this survey and I do not grant consent to Precision Sample to store this data.</label>
+                                </div>
+                                <input id="radio2" style="float: left;min-height: 18px;cursor: pointer;text-align: center;margin-left: 8px;word-break:break-word;margin-top: 15px;" type="radio" name="radio" value="2" ng-model="gdprRadio" ng-click="gdprChange(2)" required />
+                                <div style="display:flex;padding-left: 8px">
+                                    <label>I grant consent to Precision Sample to process my response to this question to determine if I qualify for this survey and I grant consent to Precision Sample to store this data to invite me to surveys in the future that are relevant to my background.</label>
+                                </div>
+
+                            </div>
+                            <span ng-if="gdprValidations" style="color: red">Please select the level of consent granted to Precision Sample for the processing of your personal data</span>
+                        </div>
+                    </div>
+
+                    <div class="footerblock">
+                        <div style="text-align: center; padding: 10px;">
+                            <span id="spnErrorMessage" align="left" style="color: Red; display: none; font-size: 15px"></span>
+                        </div>
+                        <div class="pre-question-btn">
+                            <button id="btnSubmit" class="button" type="button" value="Continue"
+                                    ng-click="save(formValidation.$valid)"
+                                    ng-disabled="isButtonDisabled">
+                                {{buttontext}}
+                            </button>
+
+                        </div>
+                        <div style="margin: 30px;" ng-if="questionId != 1638 && questionId != 573 && questionId != 580 && questionId != 850 && questionId != 4667 && questionId != 5099 && questionId != 139 && (cid == 337 || cid == 491)">
+                            {{gdprvalidate4}}
+                        </div>
+                        <div style="margin: 30px;" ng-if="questionId != 1638 && questionId != 573 && questionId != 580 && questionId != 850 && questionId != 4667 && questionId != 5099 && questionId != 139 && cid != 337 && cid != 491 &&
+                             (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid ==550 || conid ==559 || conid ==564 || conid ==565 || conid ==572 || conid ==575 || conid ==590 || conid ==596 || conid ==599 || conid ==613 || conid ==618 || conid ==619 || conid ==620 || conid ==628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 || conid ==673 || conid ==693 || conid ==694 || conid ==700 || conid ==706)">
+                            {{gdprvalidate5}}
+                        </div>
+                        @*<code>formValidation.input.$valid = {{formValidation.input.$valid}}</code><br>
+                            <code>formValidation.input.$error = {{formValidation.input.$error}}</code><br>
+                            <code>formValidation.$valid = {{formValidation.$valid}}</code><br>
+                            <code>formValidation.$error.required = {{!!formValidation.$error.required}}</code><br>*@
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

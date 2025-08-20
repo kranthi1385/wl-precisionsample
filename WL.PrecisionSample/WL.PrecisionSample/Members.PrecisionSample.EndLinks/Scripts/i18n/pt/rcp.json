@@ -1,0 +1,16 @@
+﻿{
+  "startSurvey": "Iniciar pesquisa",
+  "cptchaText1": "Estaremos encaminhando você para a pesquisa em seguida, mas antes...",
+  "cptchaText2": "Siga estritamente essas regras simples para assegurar que será recompensado por essa pesquisa e convidado para novas pesquisas:",
+  "cptchaText3": "1. Dedique o seu tempo",
+  "cptchaText4": "Os nossos clientes estão frequentemente fazendo decisões que envolvem milhões ou até bilhões de dólares tendo como base as suas respostas. Dedique um tempo para pensar bem nas suas respostas. Quando pedirem para dar uma resposta por escrito, inclua um conteúdo significativo e assegure que a sua ortografia está correta.",
+  "cptchaText5": "2. Seja honesto!",
+  "cptchaText6": "Não declare dados pessoais ou profissionais falsos para se qualificar para essa pesquisa. Nós e nossos clientes reveremos todas as respostas e seremos capazes de observar respostas inconsistentes e inverdadeiras. Os participantes que declararam informações falsas não receberão a recompensa por participar nessa pesquisa e a sua conta poderá ser suspensa.",
+  "cpatchaErr": "Captcha inválido.",
+  "checkboxacceptance": "Aceitação de Termos e Condições é necessária.",
+   "privacy": "Privacidade",
+  "agree": "Estou de acordo com ",
+  "and": "e",
+  "saveMyInfo": "Não vender minhas informações",
+  "terms_conditions": "termos e Condições"
+}

@@ -1,0 +1,197 @@
+﻿@model Members.PrecisionSample.Components.Entities.RecaptchaClientModel
+@{
+    Layout = null;
+    ViewBag.Title = "Opinionetwork";
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <script src="~/Scripts/pages/recaptcha.js" type="text/javascript"></script>
+    <style type="text/css">
+        body {
+            color: black !important;
+            font-family: Lucida Sans Console, Verdana, Tahoma, Arial, Verdana, sans-serif;
+            font-size: 13px;
+            line-height: 1.42857143; /* background-color: #abd7fe; */
+        }
+
+        #dvContent {
+            padding: 26px;
+            overflow: hidden;
+            max-width: 550px;
+            /*min-height: 100%;*/
+            background-color: White;
+            margin: auto;
+            text-align: justify;
+            -webkit-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+            -moz-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+            box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+        }
+
+
+        h3, h4 {
+            color: #000000; /*#752E5C*/
+            margin-bottom: 0px;
+        }
+
+        p {
+            margin: 0px 0px 0px 20px;
+        }
+
+        #dvMessage {
+            margin-top: 30px;
+        }
+    </style>
+    @if (@Model.CaptchaClient == 1)
+    {
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
+    }
+    else if (@Model.CaptchaClient == 2)
+    {
+        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    }
+    else
+    {
+        <script src="https://www.google.com/recaptcha/api.js?hl=@ViewBag.UserLanguage" async defer></script>
+        @*<script src="https://www.google.com/recaptcha/enterprise.js?render=@Model.ClientSiteKey" async defer></script>*@
+        <!-- Your code -->
+    }
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        var Url = window.location.href.toLowerCase();
+        var vars = {};
+        var parts = Url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+            vars[key] = value;
+        });
+        var memberID = vars;
+
+
+
+        (function () {
+            var js = document.createElement('script');
+            js.src = '//gwiqcdn.globalwebindex.net/gwiq/gwiq.js';
+            js.type = 'text/javascript';
+            js.async = 'true';
+            js.onload = js.onreadystatechange = function () {
+
+                var rs = this.readyState;
+                if (rs && rs != 'complete' && rs != 'loaded') return;
+                try {
+                    gwiq.asyncjs("cid=c0063&memberID=" + memberID["ug"]);
+                } catch (e) { }
+            };
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(js, s);
+        })();
+    </script>
+</head>
+
+<body ng-app="endLinksApp" ng-cloak>
+    <iframe id="mymathtag" frameborder="0" style="width:0px;height:0px;"></iframe>
+    <iframe id="myframe" frameborder="0" style="width:0px;height:0px;"></iframe>
+    <iframe id="resonate" frameborder="0" style="width:0px;height:0px;"></iframe>
+    <iframe id="liveramp" frameborder="0" style="width:0px;height:0px;"></iframe>
+    <iframe id="tapad" frameborder="0" style="width:0px;height:0px;"></iframe>
+    <img id="imgvoiceFive1" border="0" width="0" height="0" alt="comesocre" />
+    <img id="imgvoiceFive2" border="0" width="0" height="0" alt="comesocre" />
+    <img id="drawbridge" border="0" width="0" height="0" alt="drawbridge" />
+    <div id="dvContent" ng-controller="captchaCntrl">
+        <div id="dvMessage">
+            <h3>{{'cptchaText1'|translate}}</h3>
+            <h3>{{'cptchaText2'|translate}}</h3>
+            <div>
+                <h3>{{'cptchaText3'|translate}}</h3>
+                <p>{{'cptchaText4'|translate}}</p>
+            </div>
+            <div><h3>{{'cptchaText5'|translate}}</h3></div>
+            <p>{{'cptchaText6'|translate}}</p>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <input type="hidden" id="captchaError" name="captchaError" ng-click="CaptchaErrorLog()" value="" />
+                @using (Html.BeginForm("interstitial", "e", new { ug = @ViewBag.ug, uig = @ViewBag.uig, re = "", re1 = "", cid = @ViewBag.cid, cc = @ViewBag.UserLanguage, fc = @ViewBag.fc}, FormMethod.Post, null))
+                {
+                    @Html.AntiForgeryToken()
+                    if (@Model.CaptchaClient == 1)
+                    {
+                        <div class="cf-turnstile" data-sitekey="@Model.ClientSiteKey" data-theme="light" data-callback="onSubmit" data-error-callback="onError"></div>
+                    }
+                    if (@Model.CaptchaClient == 2)
+                    {
+                        <div class="h-captcha" data-sitekey="@Model.ClientSiteKey" data-callback="onSubmit" data-error-callback="onError"></div>
+                    }
+                    if (@Model.CaptchaClient == 3)
+                    {
+                        <div class="g-recaptcha" data-sitekey="@Model.ClientSiteKey" data-callback="onSubmit"></div>
+                    }
+                    <br />
+
+                    <input type="hidden" id="recaptchaId" name="captchaId" value="@Model.CaptchaClient" />
+
+
+                    <div>
+
+                        @if (@ViewBag.fc == "y")  //If the Member has pariticapitng the Survey First time.
+                        {
+                            <input type="checkbox" id="gdprtermsandconditions" value="True" name="gdprtermsandconditions">
+                            <label for="gdprtermsandconditions">{{'agree'|translate}}<a href="#" style="color: Blue;" ng-click="termsClick();">{{'terms_conditions'|translate}}</a> {{'and'|translate}} <a href="#" style="color: Blue;" ng-click="privacyClick();">{{'privacy'|translate}}</a> {{'and'|translate}} <a href="#" onclick="window.open('https://opinionetwork.com/login/dns', 'donotsellinfo', 'height=600,width=600,scrollbars=yes'); return false" style="color: Blue;display:none;">{{'saveMyInfo'|translate}}</a></label>
+                        }
+                    </div>
+                    <br />
+                    <div id="dvSubmitButton">
+                        @*#752E5C*@
+                        <input type="submit" id="captchatrack" value="{{'startSurvey'| translate}}" style="background-color:#105EAC;color:white;width:100px;border-right:2px;height:30px;" />
+                    </div>
+                    <span class="text-danger" style="color:red;" ng-show="@ViewBag.AcceptanceMsg">{{'checkboxacceptance'| translate}}</span>
+                    <span class="text-danger" style="color:red;" ng-show="@ViewBag.errMsg">{{'cpatchaErr'| translate}}</span>
+                }
+            </div>
+
+        </div>
+    </div>
+    <script>
+        const mybutton = document.getElementById("captchatrack");
+            mybutton.disabled = true;
+            mybutton.style.display = 'none';
+
+        
+        
+        
+        function onSubmit(token){
+            mybutton.disabled = false;
+            mybutton.style.display = 'block';
+        }
+        function onError(error) {
+            var errorInput = document.getElementById("captchaError");
+            errorInput.value = error;
+            errorInput.click();
+        }
+        
+        @*mybutton.addEventListener("click", function (e) {
+            e.preventDefault();
+            mybutton.disabled = true;
+            if(@Model.CaptchaClient == 3){
+                grecaptcha.enterprise.ready(function () {
+                    grecaptcha.enterprise.execute("@Model.ClientSiteKey",{ action: 'submit' }).then(function (token) {
+                        document.getElementById('recaptchaToken').value = token;
+                        var formsubmit = document.getElementsByTagName('form')[0]
+                        formsubmit.submit();
+                            
+                    });
+                });
+            }
+            else {
+                    var formsubmit = document.getElementsByTagName('form')[0]
+                    formsubmit.submit();
+            }
+              
+            });*@
+        
+    </script>
+    @Html.Raw(JSNLog.JavascriptLogging.Configure())
+</body>

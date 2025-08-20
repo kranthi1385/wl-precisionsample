@@ -1,0 +1,16 @@
+﻿{
+  "surveytext1": "Grattis! Du har slutfört denna undersökning och kommer att få din belöning inom cirka två veckor. Se nedan för andra undersökningar du har blivit inbjuden till.",
+  "surveytext2": "Tack för att du deltog! Tyvärr uppfyllde du inte kraven för denna undersökning. Se nedan för andra undersökningar du har blivit inbjuden till.",
+  "surveytext3": "Tyvärr! Deltagarkvoten för denna undersökning är fylld. Se nedan för andra undersökningar du har blivit inbjuden till.",
+  "surveytext4": "Tyvärr, det verkar som att du redan har deltagit i denna undersökning.",
+  "surveytext5": "Du har blivit avvisad från denna undersökning eftersom våra kunder har identifierat dig som en lågkvalitetsdeltagare. Detta innebär att du antingen har slutfört undersökningen för snabbt eller gett vårdslösa svar. Ditt konto kommer att stängas efter två (2) lågkvalitativa svar.",
+  "surveytext6": "Du har redan deltagit i denna undersökning.",
+  "surveytext7": "Tack för att du deltog! Tyvärr är undersökningen du försöker delta i stängd. Se nedan för undersökningar som är tillgängliga just nu.",
+  "surveytext8": "Tack för att du deltog! Tyvärr är undersökningen du försöker delta i stängd eller så har du redan deltagit i den. Se nedan för undersökningar som är tillgängliga just nu.",
+  "surveytext9": "Tack för att du deltog, men tyvärr uppfyllde du inte kraven. Här är en liten belöning på $0.10 för denna undersökning, och vi hoppas att du får full belöning för nästa undersökning. Fortsätt delta i våra undersökningar.",
+  "surveytext10": "Tack för att du deltog, men tyvärr uppfyllde du inte kraven. Här är en liten belöning på $0.10 för denna undersökning, och vi hoppas att du får full belöning för nästa undersökning. Fortsätt delta i våra undersökningar.",
+  "surveytext11": "Tack för att du deltog, men tyvärr uppfyllde du inte kraven. Här är en liten belöning på $0.10 för denna undersökning, och vi hoppas att du får full belöning för nästa undersökning."
+     "best_fit": "Bästa passform",
+    "survey_length": "Undersökningslängd",
+    "sort_by": "Sortera efter"
+}

@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="width:100%;max-width:750px;margin:auto;" ng-if="psPageLoad" ng-cloak>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    }
+    <div class="container_12" id="dvContainer" style="position:relative;display:none;margin-bottom:10px;" ng-class="{'is_showpage_content':psPageLoad}">
+        <div ng-controller="messageController">
+            <div id="dvRepContainer" align="center" ng-if="isShowQuestions">
+                <div id="dvmessage" style="font-family: Verdana; font-size: 16px;">
+                    <div id="dvFailureMessage" style="margin-top: 15px; display: block;" ng-if="internalMemberMsg">
+                        <p class="pmessage" style="text-align: left; font-family: 'PT Sans Narrow' , sans-serif; color: black">
+                            {{thankutext}}
+
+                            <br />
+
+                        </p>
+                        <div style="width: 95%;">
+                            <!--margin-left: 20px;-->
+                            <div style="float: left;">
+                                <table style="width: 100%;">
+                                    <tr>
+                                        <td><span class="pmessage" style="text-align: left; font-family: 'PT Sans Narrow' , sans-serif; color: black">{{SurveyName}}</span></td>
+                                        <td>:</td>
+                                        <td>
+                                            <span class="pmessage" style="text-align: left; font-family: 'PT Sans Narrow' , sans-serif; color: #37a4e2; font-size: 19px;" id="spnsurveyname">
+                                                {{surveyName}}  <br />
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="pmessage" style="text-align: left; font-family: 'PT Sans Narrow' , sans-serif; color: black">
+                                                {{SurveyLength}}<br />
+                                            </span>
+                                        </td>
+                                        <td>:</td>
+                                        <td>
+                                            <span class="pmessage" style="text-align: left; font-family: 'PT Sans Narrow' , sans-serif; color: #37a4e2; font-size: 19px;" id="spnsurveylength">
+                                                {{surveyLength}} <br />
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="pmessage" style="text-align: left; font-family: 'PT Sans Narrow' , sans-serif; color: black">{{SurveyReward}}</span></td>
+                                        <td>:</td>
+                                        <td>
+                                            <span class="pmessage" style="text-align: left; font-family: 'PT Sans Narrow' , sans-serif; color: #37a4e2; font-size: 19px;" id="spnreward">{{surveyCompleteReward}}</span>
+                                        </td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <br />
+                        <div style="margin-left: 20px; width: 100%;float:left;"><span class="pmessage" style="float: left; width: 78%;"><span style="text-align: left; font-family: 'PT Sans Narrow' , sans-serif; color: black" id="spnexptExternalMember">{{takethisSurvey}}</span></span></div>
+                        <br />
+                    </div>
+                    <div id="dvExternalMemberMsg" ng-if="externalMemberMsg">
+                        <p class="pmessage" style="text-align: left; font-family: 'PT Sans Narrow' , sans-serif; color: black">
+                            {{qualifySurvey}}
+                            
+                            <br />
+                        </p>
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <br />
+                        <input type="button" class="button" id="btnClose" value="{{close}}" style="background-color: #9B6093; margin-right: 30px; float: right;" ng-if="externalMemberMsg" ng-click="close()" />
+                        <input type="button" class="button" id="btnNoSuccess" value="{{nothanku}}" style="background-color: #9B6093; margin-right: 30px; float: left;" ng-if="internalMemberMsg" ng-click="noThanks()" />
+                        <form action="" name="formendpage" method="post">
+                            <div class="dvbtngap">
+                            </div>
+                            <input type="hidden" name="ButtonNo" value="Yes" />
+                            <input type="button" class="button" id="btnYesSuccess" value="{{yestakeme}}" style="width: 199px; background-color: #9B6093; float: right;" ng-if="internalMemberMsg" ng-click="successClick()" />
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

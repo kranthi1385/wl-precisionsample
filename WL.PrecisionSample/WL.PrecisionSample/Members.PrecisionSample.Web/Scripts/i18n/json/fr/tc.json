@@ -1,0 +1,16 @@
+﻿{
+  "DoNotSellMyInfo1": "Vous pouvez utiliser ce formulaire pour envoyer une demande d'opposition à la vente de vos données personnelles, de suppression de vos données personnelles, ou pour prendre connaissance des données personnelles que nous collectons, divulguons ou vendons, conformément au California Consumer Privacy Act (CCPA) et au Règlement Général sur la Protection des Données (RGPD). Bien que nous n'ayons l'obligation de proposer cette option et ce service qu'aux membres résidant en Californie ou dans l'Union européenne, nous répondrons aux demandes de tous les membres, quel que soit leur État ou leur pays.",
+  "DoNotSellMyInfo2": "Prénom",
+  "DoNotSellMyInfo3": "Nom",
+  "DoNotSellMyInfo4": "Adresse e-mail d'inscription",
+  "DoNotSellMyInfo5": "Site Precision Sample de participation",
+  "DoNotSellMyInfo6": "Type de demande",
+  "DoNotSellMyInfo7": "Demande de suppression de mes données personnelles",
+  "DoNotSellMyInfo8": "Demande d'opposition à la vente de mes données personnelles",
+  "DoNotSellMyInfo9": "Demande d'informations sur mes données personnelles",
+  "DoNotSellMyInfo10": "Autre demande relative à la gestion du compte ou à la confidentialité",
+  "Submit": "Soumettre",
+  "required": "Obligatoire",
+  "invalidCaptcha": "Captcha invalide",
+  "notvalidemail": "Courriel non valide"
+}

@@ -1,0 +1,491 @@
+﻿@{
+    Layout = "~/Views/Shared/_WlLayout.cshtml";
+}
+<link href="~/Content/oslanding/foundation.css" rel="stylesheet" />
+<link rel="stylesheet" href="/AffiliateLading/oslanding/css/app.css" />
+<body id="body1">
+    <div id="body-bg">
+        <div id="myModal" class="reveal-modal [expand, xlarge, large, medium, small]">
+            @*<div class="twelve columns" style="margin-top: 8px;">
+                    <div class="row">
+                        <div class="twelve mobile-twelve columns">
+                            <input type="text" id="txtUsname" name="user" class="twelve" placeholder="Username" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelve mobile-twelve columns">
+                            <input type="password" id="txtPwd" name="password" class="twelve" placeholder="Password" />
+                            <label id="lblerr" style="color: Red;">
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelve mobile-twelve columns">
+                            <center>
+                                <a href="#">
+                                    <img src="/Images/OpinionSquad/like.JPG" class="like-box-image" />
+                                </a>
+                            </center>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelve mobile-twelve columns">
+                            <center>
+                                <input type="button" value="GO" onclick="Login();return false;" class="radius small button" />
+                            </center>
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+        <div class="top-bar">
+            <div class="row">
+                <div class="four columns" id="lgo">
+                    <ul>
+                        <!-- Title Area -->
+                        <li class="name">
+                            <h1>
+                                <a href="#">
+                                    <img src="~/Images/OpinionSquad/logo.png" />
+                                </a>
+                            </h1>
+                        </li>
+                    </ul>
+                </div>
+                <div class="four columns like-box">
+
+                    <img src="~/Images/OpinionSquad/like.JPG" style="margin: 30px 50px;" />
+                </div>
+                <div class="four columns" id="signin_but">
+                    <a href="#" class="radius button" data-reveal-id="myModal">Sign In</a>
+                </div>
+
+                <div class="four columns" style="margin-top: 8px;" id="signin_form">
+                    <form class="loginform" novalidate name="userLoginValidations">
+                        <div class="row">
+                            <div class="five mobile-one columns">
+                                <label class="right inline">
+                                    Username:
+                                </label>
+                            </div>
+                            <div class="seven mobile-three columns">
+                                <input type="text" ID="txtLoginUsername" name="userName" class="twelve" ng-model="loginDetails.EmailAddress" required>
+                                <span ng-show="userLoginValidations.userName.$error.required && showLoginError" class="req">Required</span>
+                                <span class="span-err-msg" ng-show="userLoginValidations.userName.$error.email">Invalid Email Formate</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="five mobile-one columns">
+                                <label class="right inline">
+                                    Password:
+                                </label>
+                            </div>
+                            <div class="seven mobile-three columns">
+                                <input type="password" ID="txtLoginPassword" name="uPassword" class="twelve" ng-model="loginDetails.Password" required>
+                                <span ng-show="userLoginValidations.uPassword.$invalid && showLoginError" class="req">Required</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="nine mobile-one columns">
+                              
+                                <a href="/login/ForgotPsw" class="forgot-ps">Forgot Password?</a><br />
+                            </div>
+                            <div class="two mobile-three columns" style="float: right; padding: 0px; margin-right: 7px;
+                                line-height: 0px;">
+                                @*<button ID="btnLogin"
+                                    Text="GO" class="radius small button" OnClick="btnLogin_OnClick" />*@
+                                <button type="submit" class="radius small button" ng-click="userLoginClick(userLoginValidations.$valid)">GO</button>
+                            </div>
+                            <span class="error text-danger" ng-show="isShowLoginFailErrmsg" style="display: inline-block;float:left;color: #f10d08;">Wrong username/password. Try again.</span>
+                        </div>
+                        <div style="float: right">
+                            <label ID="lblValidation" CssClass="rfv"></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="eight columns" style="padding: 0px;">
+                <div id="featured" align="center">
+                    <div id="join-the-squad">
+                        <img src="~/Images/OpinionSquad/jointhesquad.png" width="550" height="227" />
+                    </div>
+                </div>
+                <div class="row" style="margin-top: -18px">
+                    <div id="main-bg">
+                        <center>
+                            <img src="~/Images/OpinionSquad/main.PNG" />
+                        </center>
+                        <div id="survey">
+                            <img src="~/Images/OpinionSquad/survey.png" />
+                        </div>
+                    </div>
+                    <div class="twelve columns">
+                        <div class="the-form" id="the-form2" style="">
+                            <h3 align="center">
+                                Join <span style="color: #4b9ea8; font-style: italic;"></span>today and get paid
+                                for your valuable opinions.
+                            </h3>
+                            <h3 align="center">
+                                <strong>SIGN UP HERE</strong> <span style="color: #2ba800; font-style: italic;">FREE</span>
+                            </h3>
+                            <div class="the-fields">
+                                <div class="row">
+                                    <div class="twelve mobile-twelve columns">
+                                        <input id="txtfirstname" type="text" name="first_name2" placeholder="First Name" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="twelve mobile-twelve columns">
+                                        <input id="txtlstname" type="text" name="last_name2" placeholder="Last Name" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="twelve mobile-twelve columns">
+                                        <input id="txtemail" type="email" name="email2" placeholder="Email" />
+                                    </div>
+                                    <label id="lblemessage" style="color: Red;">
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <div class="twelve mobile-twelve columns">
+                                        <img ID="Image1" ImageUrl="/Rg/cp.aspx" Width="280px" Height="25px" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="twelve mobile-twelve columns">
+                                        <input id="txtAcsscode" type="text" name="ecode2" placeholder="Enter Above Code" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="twelve mobile-twelve columns">
+                                        <select name="gender2" id="ddlGender2" tabindex="15">
+                                            <option value="" selected>Gender</option>
+                                            <option value="M">Male</option>
+                                            <option value="F">Female</option>
+                                            <option value="N">Non-Binary</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="twelve mobile-twelve columns">
+                                        <select name="country2" id="countrySelect2">
+                                            <option value="-1"></option>
+                                            <option value="231">United States of America</option>
+                                            <option value="38">Canada</option>
+                                            <option value="229">United Kingdom</option>
+                                            <option value="15">Australia</option>
+                                            <option value="57">Germany</option>
+                                            <option value="75">France</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="twelve columns">
+                                        <label id="lblerrmsg" style="color: Red;">
+                                        </label>
+                                        <center>
+                                            <input type="button" value="start now" class="submit2" onclick="EmailCheck();return false;" />
+                                        </center>
+                                    </div>
+                                    <div class="twelve columns" style="margin-top: 10px">
+                                        <center>
+                                            <small>
+                                                By signing up, I agree to the Terms of Use and Privacy Policy and agree to
+                                                receive additional survey, market research and other relevant offers from OpinionSquad.com
+                                            </small>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="four columns" style="padding: 0px;">
+                <div class="the-form" id="the-form">
+                    <div class="form">
+                        <div class="mtit">
+                            <h3 align="center">
+                                Join <span style="color: #4b9ea8; font-style: italic;">
+                                    <img style="position: relative; top: 5px;" src="/Images/OpinionSquad/small-logo.png">
+                                </span>
+                                today and get paid for your valuable opinions.
+                            </h3>
+                            <h3 align="center">
+                                <strong>SIGN UP HERE</strong> <span style="color: #ff6800; font-style: italic;">FREE</span>
+                            </h3>
+                        </div>
+                        <div class="stit">
+                            <img src="~/Images/OpinionSquad/signuphere.png" width="394" height="162" alt="signup here" />
+                        </div>
+                        <UpdatePanel ID="reguppnl">
+                            <ContentTemplate>
+                                <div class="the-fields">
+                                    <form class="survey-signup-form" novalidate name="loginForm">
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    First Name:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <input type="text" id="txtFirstName" class="form-control" ng-model="user.FirstName" name="firstName" required>
+                                                <span ng-show="loginForm.firstName.$invalid && isRegErrMsg" class="req">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    Last Name:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <input type="text" id="txtLastName" class="form-control" ng-model="user.LastName" name="lastName" required>
+                                                <span ng-show="loginForm.lastName.$invalid && isRegErrMsg" class="req">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    Email Address:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <input type="email" id="txtEmailAddress" class="form-control" ng-model="user.EmailAddress" name="email" ng-blur="validateEmail()" required>
+                                                <span class="error text-danger" ng-show="loginForm.email.$error.email">{{'notValidEmail'|translate}}</span>
+                                                <span ng-show="loginForm.email.$error.required && isRegErrMsg" class="req">{{'required'|translate}}</span>
+                                                <span ng-show="emailXVerify==1 ||emailXVerify==0 " ng-class="{'text-danger':emailXVerify==0,'text-success':emailXVerify==1}">{{xVerifyMessage}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    Address 1:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <input type="text" id="txtAddress1" name="address1" class="form-control" ng-model="user.Address1" required>
+                                                <span class="req" ng-show="loginForm.address1.$invalid &&isRegErrMsg">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    Address 2:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <input type="text" id="txtAddress2" class="form-control" ng-model="user.Address2">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    Country:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <select id="ddlCountry" ng-model="user.CountryId" name="country" style="width:185px" ng-options="con.CountryId as con.CountryName for con in countries" ng-change="countryByStates(user.CountryId)" required>
+                                                    <option value="">----Select----</option>
+                                                </select>
+                                                <span class="req" ng-show="loginForm.country.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                                <span class="req" ng-show="user.CountryId ==0 && isRegErrMsg">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row" ng-if="states.length != 0">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    State/Province:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <select id="ddlStates" ng-model="user.StateId" name="state" ng-options="st.StateId as st.StateName for st in states" style="width:185px" required>
+                                                    <option value=""></option>
+                                                </select>
+                                                <span class="req" ng-show="loginForm.state.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                                <span class="req" ng-show="user.StateId == 0 && isRegErrMsg">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    City:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <input type="text" id="txtCity" class="form-control" ng-model="user.City" name="city" required>
+                                                <span class="req" ng-show="loginForm.city.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    Zip/Postal Code:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <input type="text" id="txtZipCode" class="form-control" ng-model="user.ZipCode" name="zipCode" required>
+                                                <span class="req" ng-show="loginForm.zipCode.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    Gender:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <select id="ddlGender" ng-model="user.Gender" name="gender" required ng-change="optIntelligenceCheck()" style="width:185px">
+                                                    <option value=""></option>
+                                                    <option value="M">Male</option>
+                                                    <option value="F">Female</option>
+                                                    <option value="N">Non-Binary</option>
+                                                </select>
+                                                <span class="req" ng-show="loginForm.gender.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    Birth Date:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <select id="ddlMonth" ng-model="user.Month" name="month" required ng-click="optIntelligenceCheck()" style="width: 30%; display: inline-block;" TabIndex="16">
+                                                    <option value=""></option>
+                                                    <option value="01">Jan</option>
+                                                    <option value="02">Feb</option>
+                                                    <option value="03">Mar</option>
+                                                    <option value="04">Apr</option>
+                                                    <option value="05">May</option>
+                                                    <option value="06">Jun</option>
+                                                    <option value="07">Jul</option>
+                                                    <option value="08">Aug</option>
+                                                    <option value="09">Sep</option>
+                                                    <option value="10">Oct</option>
+                                                    <option value="11">Nov</option>
+                                                    <option value="12">Dec</option>
+                                                </select>
+                                                <select id="ddlDay" ng-model="user.Day" name="day" required ng-click="optIntelligenceCheck()" style="width: 30%; display: inline-block;" TabIndex="17">
+                                                    <option value=""></option>
+                                                    <option value="01">1</option>
+                                                    <option value="02">2</option>
+                                                    <option value="03">3</option>
+                                                    <option value="04">4</option>
+                                                    <option value="05">5</option>
+                                                    <option value="06">6</option>
+                                                    <option value="07">7</option>
+                                                    <option value="08">8</option>
+                                                    <option value="09">9</option>
+                                                    <option value="10">10</option>
+                                                    <option value="11">11</option>
+                                                    <option value="12">12</option>
+                                                    <option value="13">13</option>
+                                                    <option value="14">14</option>
+                                                    <option value="15">15</option>
+                                                    <option value="16">16</option>
+                                                    <option value="17">17</option>
+                                                    <option value="18">18</option>
+                                                    <option value="19">19</option>
+                                                    <option value="20">20</option>
+                                                    <option value="21">21</option>
+                                                    <option value="22">22</option>
+                                                    <option value="23">23</option>
+                                                    <option value="24">24</option>
+                                                    <option value="25">25</option>
+                                                    <option value="26">26</option>
+                                                    <option value="27">27</option>
+                                                    <option value="28">28</option>
+                                                    <option value="29">29</option>
+                                                    <option value="30">30</option>
+                                                    <option value="31">31</option>
+
+                                                </select>
+
+                                                <select id="ddlYear" ng-model="user.Year" name="year" ng-options="y.key as y.value for y in year" required ng-click="optIntelligenceCheck()" style="width: 35%; display: inline-block;">
+                                                    <option value=""></option>
+                                                </select>
+                                                <span class="req" ng-show="loginForm.year.$invalid && isRegErrMsg" style="margin-left:16px;">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    Ethnicity:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <select id="ddlEthnicity" ng-model="user.EthnicityId" name="ethnicity" ng-options="ec.EthnicityId as ec.EthnicityType for ec in ethnicityLst" style="width:185px"
+                                                        required>
+                                                    <option value=""></option>
+                                                </select>
+                                                <span class="req" ng-show="loginForm.ethnicity.$invalid  && isRegErrMsg">{{'required'|translate}}</span>
+                                                <span class="req" ng-show="user.EthnicityId ==0 && isRegErrMsg">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="four mobile-one columns ">
+                                                <label class="right inline">
+                                                    Password:
+                                                </label>
+                                            </div>
+                                            <div class="eight mobile-three columns">
+                                                <input type="password" id="txtPassword" class="form-control" ng-model="user.Password" name="password" required>
+                                                <span class="req" ng-show="loginForm.password.$invalid && isRegErrMsg">Required</span>
+                                            </div>
+                                        </div>
+                                        <div class="recaptcha">
+                                            <div vc-recaptcha key="'6LetblorAAAAAMH3OWFI3rtURCyE4SGpXp9gkfk1'" on-success="setResponse(response)" size="normal"></div>
+                                            <span class="text-danger" ng-show="captchaErr">Invalid captcha selection.</span>
+                                        </div>
+                                       
+                                    </form>
+                                </div>
+                                <!-- <div class="clear"></div> -->
+                                @*<table cellspacing="0" border="0" style="width: 100%; margin: 0px 0 5px 0; font-size: 10pt;
+                                                background-color: Transparent; border-color: Transparent;">
+                                        <tr>
+                                            <td style="padding: 0 0 0 18px; vertical-align: top;">
+                                                <img ID="imgRegister" class="submit" AlternateText=""
+                                                     ImageUrl="~/Images/OpinionSquad/start-button.png" ValidationGroup="register" OnClick="btnGo_Click" />
+                                            </td>
+                                        </tr>
+                                    </table>*@
+                                <input type="image" id="imgNext" src="/Images/OpinionSquad/start-button.png" alt="Opinion Squad" ng-click="submit(loginForm.$valid)" />
+                                <small style="text-align: center; font: normal 10px Arial, Helvetica, sans-serif;
+                                            color: #3b504e; float: left; width: 300px; padding: 8px 10px 10px;">
+                                    By signing up,
+                                    I agree to the Terms of Use and Privacy Policy and agree to receive additional
+                                    survey, market research and other relevant offers from OpinionSquad.com
+                                </small>
+                    </div>
+                    <div style="clear: both">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="spacer">
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footer" style="max-width: 990px; margin: 0 auto;">
+            <div class="twelve mobile-twelve columns centered">
+                <p class="copy-right">
+                    &copy; Copyright 2022 OpinionSquad.com
+                </p>
+                <span class="footerlinks">
+                    <a id="aTC" style="cursor: pointer;" ng-click="termsClick('/WidgetTerms.html')">Terms</a> | <a id="aPP" style="cursor: pointer;" ng-click="privacyClick()">Privacy</a> | <a id="aAboutUs" style="cursor: pointer;" ng-click="aboutClick()">About Us</a> | <a id="cntctus" style="cursor: pointer;" ng-click="contactClick()">Contact Us</a> | <a href="/wl/sm">FAQ</a> | <a href="javascript:;" ng-click="doNotSellMyInfo()">Do Not Sell My Info</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angularval")
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="~/Scripts/pages/login.js"></script>
+</body>
+

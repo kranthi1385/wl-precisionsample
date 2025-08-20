@@ -1,0 +1,23 @@
+﻿{
+   "blddwln": "Refer-A-Friend",
+  "facebookText": "Use Twitter and Facebook below to tell your followers about",
+  "facebookText1": "and we'll automatically add them to your Downline when they sign up!",
+  "friendsJoin": "Invite your friends and family to join Opinionbar! Enter their first name and email below and we’ll send them an email on your behalf inviting them to join!",
+  "inviteFriends": "To invite your friends into",
+  "sendEmailText": ", enter their first name and email addresses below. We will send an email on your behalf, inviting them to join",
+  "ipadEntriesText": "and make money; for them and iPad Giveaway entries for you!",
+  "firstName": "First Name:",
+  "emailAddress": "Email Address:",
+  "accessCode": "Access Code",
+  "textBelow": "Enter this code in textbox below",
+  "invalidAccessCode": "Invalid AccessCode",
+  "enterAccessCode": "Enter Access Code*",
+  "inviteFriend": "INVITE MY FRIENDS",
+  "required": "Required",
+  "filldata": "Please fill valid data",
+  "onlyletters": "Please enter only letters",
+  "invsucc": "Member Invited Sucessfully.",
+  "memberInvitedSucessfully": "Member Invited Successfully",
+  "invitationFailed": "Invitation Failed",
+  "pleasegiveatleastoneemailaddress": "Please give atleast one email address" 
+}

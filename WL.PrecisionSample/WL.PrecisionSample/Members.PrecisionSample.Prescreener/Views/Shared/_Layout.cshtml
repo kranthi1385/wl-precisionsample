@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="icon" type="image/png" href="/Images/opinionnetwork_logo_35.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/pages/customServices.js"></script>
+    @*<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />*@
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/loading-bar.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/psquestion.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .error {
+            color: red;
+            margin: 7px 0px 0px 4px;
+            /* padding-top: 55px; */
+            display: inline-block;
+        }
+    </style>
+</head>
+<body ng-cloak>
+    <div id="dvSurveyQuestions">
+        <div class="header" ng-if="isShowOrgLogo">
+            <img alt="" id="ctl00_supplierImage" class="header-logo" ng-src="{{orgLogo}}" />
+        </div>
+        <div class="header" ng-if="cidd == 450">
+            <img alt="" id="ctl00_supplierImage" class="header-logo" ng-src="/images/conversant.png" style="width:213px;height:50px;"/>
+        </div>
+        <div class="header" ng-if="cidd == 491">
+            <img alt="" id="ctl00_supplierImage" class="header-logo" ng-src="/images/logo_opinionbar2x.png" style="width:213px;height:50px;" />
+        </div>
+        @RenderBody()
+    </div>
+    <div class="dvFooter" ng-show="isShowFooter" style="max-width: 800px;font-size:14px;" ng-controller="footerController">
+        <div class="pre-footer">
+            <div class="copyright-img">
+                <div style="font-size: 12px;line-height: 1;">{{powerby}}</div>
+                <img src="/images/opinionnetwork_logo.png" alt="" style="width: 150px; padding: 5px;" />
+            </div>
+            <div class="copyright-block">
+                <p>{{footertex}} <a href="#" ng-click="privacyClick()">{{privacy}}</a>  </p>
+            </div>
+        </div>
+    </div>
+
+
+    @*<div class="dvFooter" ng-show="isShowFooter">
+            <div style="width: 100%; float: left;">
+                <div style="margin: auto;" align="center">
+                    <img id="imgFooterImage" src="/images/footer.gif" align="middle" style="border-width: 0px; border-style: None;" alt="" />
+                </div>
+                <div align="center" style="width: 74%; float: left; font-size: 13px; margin-top: 10px;">
+                    <div style="float: right;">
+                        <span style="float: left;">&nbsp;&nbsp;Copyright <span id="spnYear"></span>&#169; Precision Sample, LLC.</span>
+                        <span>&nbsp;&nbsp;All rights reserved. <a style="text-decoration: underline; cursor: pointer;"><span id="spnprivacy">Privacy Policy</span></a></span>
+                    </div>
+                </div>
+                <div style="width: 19%; float: right;">
+                    <span style="font-size: 13px;">Powered By</span>
+                    <img src="/images/opinionnetwork_logo.png" alt="" style="width: 150px; padding: 5px;" />
+                </div>
+            </div>
+        </div>*@
+    <div class="preloader" loader>
+        <loading-directive>
+        </loading-directive>
+    </div>
+    @Html.Raw(JSNLog.JavascriptLogging.Configure())
+    @*<script data-main="/Scripts/pages/config" src="/Scripts/require.js"></script>*@
+    <script>document.write("<script  type='text/javascript' src='/Scripts/require.js'  data-main='/Scripts/pages/config.js?v=" + 1 + "' ><\/script>");</script>
+    <script>document.write("<script  type='text/javascript' src='/Scripts/pages/ps/lang.js?v=" + 1 + "' ><\/script>");</script>
+
+    @*<script src="~/Scripts/pages/ps/lang.js" type="text/javascript"></script>*@
+</body>
+</html>

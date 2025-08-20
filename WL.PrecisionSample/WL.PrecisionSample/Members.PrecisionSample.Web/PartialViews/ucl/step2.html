@@ -1,0 +1,179 @@
+﻿
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'firstName'|translate}}</label>
+    <div class="col-sm-8">
+        <input type="text" id="txtFirstName" class="form-control" ng-model="user.FirstName" name="firstName" required>
+        <span ng-show="loginForm.firstName.$invalid && isRegErrMsg" class="text-danger">{{'required'|translate}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'lastName'|translate}}</label>
+    <div class="col-sm-8">
+        <input type="text" id="txtLastName" class="form-control" ng-model="user.LastName" name="lastName" required>
+        <span ng-show="loginForm.lastName.$invalid && isRegErrMsg" class="text-danger">{{'required'|translate}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'emailAddress'|translate}}</label>
+    <div class="col-sm-8">
+        <input type="email" id="txtEmail" class="form-control" ng-model="user.EmailAddress" name="email" ng-blur="validateEmail()" required>
+        <span class="error text-danger" ng-show="loginForm.email.$error.email">{{'notValidEmail'|translate}}</span>
+        <span ng-show="loginForm.email.$error.required && isRegErrMsg" class="text-danger">{{'required'|translate}}</span>
+        <span ng-show="emailXVerify==1 ||emailXVerify==0 " ng-class="{'text-danger':emailXVerify==0,'text-success':emailXVerify==1}">{{xVerifyMessage}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'address1'|translate}}</label>
+    <div class="col-sm-8">
+        <input type="text" id="txtAddress1" name="address1" class="form-control" ng-model="user.Address1" required>
+        <span class="error text-danger" ng-show="loginForm.address1.$invalid &&isRegErrMsg">{{'required'|translate}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'address2'|translate}}</label>
+    <div class="col-sm-8">
+        <input type="text" id="txtAddress2" class="form-control" ng-model="user.Address2">
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'country'|translate}}</label>
+    <div class="col-sm-8">
+        <select class="form-control txt-box" id="ddlCountry" ng-model="user.CountryId" name="country" ng-options="con.CountryId as con.CountryName for con in countries" ng-change="countryByStates(user.CountryId)" required>
+            <option value="">-{{'select'|translate}}-</option>
+        </select>
+        <span class="error text-danger" ng-show="loginForm.country.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+        <span class="error text-danger" ng-show="user.CountryId ==0 && isRegErrMsg">{{'required'|translate}}</span>
+    </div>
+</div>
+<div class="form-group" ng-if="states.length != 0">
+    <label class="col-sm-4 control-label">{{'stateProvince'|translate}}</label>
+    <div class="col-sm-8">
+        <select class="form-control txt-box" id="ddlStates" ng-model="user.StateId" name="state" ng-options="st.StateId as st.StateName for st in states" required>
+            <option value="">-{{'select'|translate}}-</option>
+        </select>
+        <span class="error text-danger" ng-show="loginForm.state.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+        <span class="error text-danger" ng-show="user.StateId == 0 && isRegErrMsg">{{'required'|translate}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'city'|translate}}</label>
+    <div class="col-sm-8">
+        <input type="text" id="txtCity" class="form-control" ng-model="user.City" name="city" required>
+        <span class="error text-danger" ng-show="loginForm.city.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'zipPostalCode'|translate}} </label>
+    <div class="col-sm-8">
+        <input type="text" id="txtZipCode" class="form-control" ng-model="user.ZipCode" name="zipCode" required>
+        <span class="error text-danger" ng-show="loginForm.zipCode.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'mobilePhone'|translate}} ({{'optional'|translate}})</label>
+    <div class="col-sm-8">
+        <input type="text" id="txtPhoneNumber" class="form-control" ng-model="user.PhoneNumber">
+
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'gender'|translate}}</label>
+    <div class="col-sm-8">
+        <select class="form-control" id="ddlGender" ng-model="user.Gender" name="gender" required ng-change="optIntelligenceCheck()">
+            <option value="">-{{'select'|translate}}-</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="N">Non-Binary</option>
+        </select>
+        <span class="error text-danger" ng-show="loginForm.gender.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'birthDate'|translate}}</label>
+    <div class="col-sm-8">
+        <div class="row">
+            <div class="col-md-4">
+                <select class="form-control padding-zero" id="ddlMonth" ng-model="user.Month" name="month" required ng-click="optIntelligenceCheck()">
+                    <option value="">-MM-</option>
+                    <option value="01">Jan</option>
+                    <option value="02">Feb</option>
+                    <option value="03">Mar</option>
+                    <option value="04">Apr</option>
+                    <option value="05">May</option>
+                    <option value="06">Jun</option>
+                    <option value="07">Jul</option>
+                    <option value="08">Aug</option>
+                    <option value="09">Sep</option>
+                    <option value="10">Oct</option>
+                    <option value="11">Nov</option>
+                    <option value="12">Dec</option>
+                </select>
+
+            </div>
+            <div class="col-md-4">
+                <select class="form-control padding-zero" id="ddlDay" ng-model="user.Day" name="day" required ng-click="optIntelligenceCheck()">
+                    <option value="">-DD-</option>
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="04">4</option>
+                    <option value="05">5</option>
+                    <option value="06">6</option>
+                    <option value="07">7</option>
+                    <option value="08">8</option>
+                    <option value="09">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select class="form-control padding-zero" id="ddlYear" ng-model="user.Year" name="year" ng-options="y.key as y.value for y in year" required ng-click="optIntelligenceCheck()">
+                    <option value="">-YY-</option>
+                </select>
+            </div>
+            <span class="error text-danger" ng-show="loginForm.year.$invalid && isRegErrMsg" style="margin-left:16px;">{{'required'|translate}}</span>
+        </div>
+    </div>
+</div>
+<div class="form-group" ng-if="user.CountryId != 505 && user.CountryId != 512 && user.CountryId != 525 && user.CountryId != 545 && user.CountryId != 548 && user.CountryId != 549 && user.CountryId !=550 && user.CountryId !=559 && user.CountryId !=564 && user.CountryId !=565 && user.CountryId !=572 && user.CountryId !=575 && user.CountryId !=590 && user.CountryId !=596 && user.CountryId !=599 && user.CountryId !=613 && user.CountryId !=618 && user.CountryId !=619 && user.CountryId !=620 && user.CountryId !=628 && user.CountryId != 647 && user.CountryId != 657 && user.CountryId != 668 && user.CountryId != 669 &&
+                         user.CountryId !=673 && user.CountryId !=693 && user.CountryId !=694 && user.CountryId !=700 && user.CountryId !=706">
+    <label class="col-sm-4 control-label">{{'ethnicity'|translate}}</label>
+    <div class="col-sm-8">
+        <select class="form-control" id="ddlEthnicity" ng-model="user.EthnicityId" name="ethnicity" ng-options="ec.EthnicityId as ec.EthnicityType for ec in ethnicityLst" required>
+            <option value="">-{{'select'|translate}}-</option>
+        </select>
+        <span class="error text-danger" ng-show="loginForm.ethnicity.$invalid  && isRegErrMsg">{{'required'|translate}}</span>
+        <span class="error text-danger" ng-show="user.EthnicityId ==0 && isRegErrMsg">{{'required'|translate}}</span>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-sm-4 control-label">{{'password'|translate}}</label>
+    <div class="col-sm-8">
+        <input type="password" id="txtPassword" class="form-control" ng-model="user.Password" name="password" required>
+        <span class="error text-danger" ng-show="loginForm.password.$invalid && isRegErrMsg">Required</span>
+    </div>
+</div>
+<input type="hidden" id="hfShow" value="0" />
+
+

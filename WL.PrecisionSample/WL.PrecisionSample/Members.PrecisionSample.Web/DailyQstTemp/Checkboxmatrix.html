@@ -1,0 +1,48 @@
+﻿<script type="text/ng-template" id="CheckboxWithMatrix">
+    <div align="left" class="questionback" style="clear: both;">
+        <span class="question" id="lblQuestiontext" ng-bind-html="question.QuestionText | unsafe"></span>
+    </div>
+    <div ng-repeat="chql in question.ChildQuestionList">
+        <div ng-if="$index == 0">
+            <div class="grid_floating_header" width="100%">
+                <div class="question_martix" style="min-height: 30px;">
+                    <div style="width: 25%;" class="grid_question">
+                    </div>
+                    <div ng-repeat="opl in chql.OptionList" style="font-size: 14px;">
+                        <div style="width: 10%;" class="grid_column">{{opl.OptionText}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="question_martix">
+            <div class="optiontext grid_question_opt" style="text-align: left;width:25%;" ng-attr-id="{{chql.QuestionId+'_optnc' }}">
+                <span ng-bind-html="chql.QuestionText"></span>
+            </div>
+            <div class="optiontext" ng-repeat="op in chql.OptionList">
+                <div style="width: 10%;" class="grid_column" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_dvmain'}}" ng-class="{input_onm:op.IsChecked == true}">
+
+                    <div class="grid_matrix_checkbox" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_dvcheckbox'}}" ng-class="{input_on:op.IsChecked == true}" ng-click="checkboxClick(chql,op)">
+                    </div>
+
+                    <div class="grid_span_holder">
+                        <span class="grid_span" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_chkDiv'}}" ng-click="checkboxClick(chql,op)">{{op.OptionText}}</span>
+                    </div>
+                    <input type="checkbox" style="display: none; float: left" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_checkbox'}}"
+                           ng-model="op.IsChecked" name="{{chql.QuestionId+ '_checkbox'}}" value="{{op.optionId}}" ng-required="chql.SubChildOptions.length==0" />
+                </div>
+            </div>
+        </div>
+        <div style="width: 100%; float: left;">
+            <span ng-show="submitValidations && formValidation[chql.QuestionId+'_checkbox'].$error.required" style="color: red;width:100%;float:left;font-size:12px;">Please Answer the queston</span>
+        </div>
+    </div>
+</script>
+
+<div style="width: 100%;">
+    <div>
+        <div ng-controller="checkboxwithmatrixController">
+            <ng-include src="'CheckboxWithMatrix'"></ng-include>
+        </div>
+    </div>
+</div>
+

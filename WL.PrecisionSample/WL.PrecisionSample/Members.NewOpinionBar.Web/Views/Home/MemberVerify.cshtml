@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_bannertab.cshtml";
+}
+
+@using (Html.BeginForm("", "", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+}
+<div class="wrapper_content my_profile_wrapper" style="min-height: 423px; height: 3358.67px;">
+    <div class="container_test" style="min-height: 423px;">
+        <div class="column_wrapper column_wrapper_profile surveys">
+            <div class="column_full sury_table" style="overflow:auto;">
+                <div class="tbl-sm" style="padding: 10px 40px 10px 40px;margin-left:75px;">
+                    <span style="color:green;">@ViewBag.Msg</span>
+                    <span style="color:red;">@ViewBag.ErrorMsg</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

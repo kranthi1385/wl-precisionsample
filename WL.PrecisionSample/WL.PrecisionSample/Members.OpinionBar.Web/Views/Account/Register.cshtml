@@ -1,0 +1,84 @@
+﻿@model Members.OpinionBar.Components.Entities.User
+@{
+    ViewBag.Title = "OPLogin";
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opinionbar - Give your opinion and get paid</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/selectboxit.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="sign_up_div_bg" id="sign_up_div_bg" style="display:inline-block;">
+        <div class="sign_up_div">
+            <h2>Create your account</h2>
+            <div class="email">
+                @using (Html.BeginForm("SignUp", "Account", FormMethod.Post, new { @class = "form-horizontal register-form", enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+                    <div class="column1">
+                        @Html.TextBoxFor(m => m.FirstName, new { placeholder = "FirstName" })
+                        @Html.ValidationMessageFor(m => m.FirstName)
+                        <br>
+                        @Html.TextBoxFor(m => m.LastName, new { placeholder = "LastName" })
+                        @Html.ValidationMessageFor(m => m.LastName)
+                    </div>
+                    @*<div class="column1">
+                        @Html.TextBoxFor(m => m.Password, new { placeholder = "Choose password" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                        <br>
+                        @Html.TextBoxFor(m => m.ConfirmPassword, new { placeholder = "Password Verification" })
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword)*@
+                        @*<input name="password" placeholder="Choose password" type="password"><br>
+                            <input name="password" placeholder="Password verification" type="password">*@
+                        @*<div class="sign_in_options" style="margin-top: 5px;">
+                            <div>
+                                at least 6 characters
+                            </div>
+                        </div>
+                    </div>*@
+                    <div class="column1 padding_mobile">
+                        @*@Html.TextBoxFor(m => m.EmailAddress, new { placeholder = "E-Mail" })
+                        @Html.ValidationMessageFor(m => m.EmailAddress)*@
+                        @*<input name="e-mail" placeholder="E-mail" type="email"><br>*@
+                        <button type="submit" class="sign_up_now_btn">
+                            <img src="images/icon_signup_btn.png" style="float:left; margin-top: -1px;" width="22">
+                            Create account
+                        </button>
+                        @*<div class="sign_up_now_btn">
+                                <img src="images/icon_signup_btn.png" style="float:left; margin-top: -1px;" width="22">
+                                Create account
+                            </div>*@
+                    </div>
+                }
+            </div>
+            <div class="centerwrapper2">
+                <div class="line">
+                    <div class="h5">
+                        <span>Or</span>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_wrapper_fb">
+                <div class="centerwrapper3">
+                    <a href="@Url.Action("Facebook", "Account")">
+                        <div class="fb_btn font_bold sign_up_fb">
+                            <div class="sign_up_fb_icon"></div>Sign up via Facebook
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    @Scripts.Render("~/Scripts/Pages/selectboxit.js")
+    @Scripts.Render("~/Scripts/Pages/functions.js")
+</body>

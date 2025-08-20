@@ -1,0 +1,710 @@
+/* ----------------------- Precision Sample ------------------------
+
+01 DEFAULTS
+02 STRUCTURE
+03 NAVIGATION
+04 LINKS
+05 TYPOGRAPHY
+06 LISTS
+07 IMAGES
+08 FORMS
+09 NOTES
+
+*/
+
+
+/* ----------------------- 01 DEFAULTS  ------------------------ */
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url('../../Images/bg1.jpg');
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-position: center top;
+}
+
+#login
+{
+    background-color: #b4b6a9;
+    font-size: 0.8em;
+}
+
+hr
+{
+    border: 0 #ccc solid;
+    border-top-width: 1px;
+    clear: both;
+    height: 0;
+}
+
+
+/* -- COLOR -- */
+
+/*
+
+	lightblue: #7b1270
+	darkblue: #002635
+
+	*/
+
+
+/* ----------------------- 02 STRUCTURE   ------------------------ */
+
+#wrapper
+{
+}
+
+.container_12
+{
+    /* 	background: url(../img/12_col.gif) repeat-y; 	margin-bottom: 20px; 	*/
+}
+
+#masthead
+{
+    width: 960px;
+    height: 132px;
+}
+
+#logo {
+    width: 195px;
+    height: 90px;
+    background: transparent url('../../Images/opinionnetwork_logo.png') no-repeat;
+    display: block;
+    float: left;
+    margin-left: 30px !important;
+}
+#logo2 {
+    /* background: url('../../Images/samplepartnerlogo.png') no-repeat scroll 0 0 transparent; */
+    display: block;
+    float: right;
+    height: 90px;
+    margin-right: 32px !important;
+    width: 166px;
+}
+#logo a
+{
+    display: block;
+}
+#logo2 a
+{
+    display: block;
+}
+
+#logoSmall
+{
+    width: 69px;
+    height: 51px;
+    background: url(../images/logo-small.png) no-repeat;
+    float: right;
+}
+
+#login
+{
+    float: left;
+    margin: 10px 10px 0 0;
+}
+
+#admin
+{
+    background-color: #002635;
+    height: 36px;
+    font-size: 1.2em;
+    padding: 8px;
+    float: right;
+}
+
+/*
+#feedbackFormContainer {
+	background-color: white;
+	width: 500px;
+	height: 400px;
+	padding: 24px;
+	}
+*/
+
+.textContainer
+{
+    padding: 30px 270px 30px 30px;
+}
+
+.backgroundWhite
+{
+    background-color: #fff;
+}
+
+#footer
+{
+    margin-top: 2em;
+    margin-bottom: 1em;
+    padding: 0 20px;
+}
+
+#pageNotFound
+{
+    height: 600px;
+}
+
+
+/* -- SPLASH -- */
+
+
+#messageContainer
+{
+    background-color: transparent;
+    height: 136px;
+    left: 234px;
+    padding: 12px;
+    position: absolute;
+    top: 10px;
+    width: 220px;
+}
+
+#splashDistance
+{
+    width: 1px;
+    height: 50%;
+    margin-bottom: 225px; /* half of container's height */
+    float: left;
+}
+
+#splashContainer
+{
+    margin: 50px auto 0 auto; /*position: relative;*/ /* puts container in front of distance */
+    width: 730px;
+    height: 201px; /*clear: left;*/
+}
+
+
+/* -- SPACING -- */
+
+ol, ul
+{
+}
+
+li
+{
+}
+
+p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset
+{
+    margin-bottom: 0;
+}
+
+
+/* -- FLOAT-CLEARING RULES -- */
+
+.separator
+{
+    clear: both;
+}
+
+.separatorInvisible
+{
+    clear: both;
+    height: 1px;
+}
+
+.clearFix:after
+{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+
+/* ----------------------- 03 NAVIGATION  ------------------------ */
+
+
+/*
+#navigation {
+	}
+
+#navigation a {
+	}
+	
+#navigation a:hover {
+	}
+
+#navigation a:visited {
+	}
+
+#navigation ul {
+	}
+
+#navigation li {
+	}
+*/
+
+/* ----------------------- 04 LINKS  ------------------------ */
+
+a
+{
+    color: #810e74;
+    text-decoration: none;
+}
+
+a:link
+{
+}
+
+a:visited
+{
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+a:focus
+{
+    outline: 1px dotted;
+}
+
+a:active
+{
+}
+
+
+#admin a
+{
+    color: #fff;
+    text-decoration: none;
+}
+
+#admin a:hover
+{
+    text-decoration: underline;
+}
+
+
+#buttonNext
+{
+    background: url(../images/button-Next.png) no-repeat transparent;
+    width: 78px;
+    height: 78px;
+    float: right;
+}
+
+
+/* feedback */
+
+#buttonFeedback
+{
+    background: transparent url(../images/button-Feedback.png) no-repeat;
+    width: 32px;
+    height: 116px;
+    float: left;
+}
+
+#feedbackButtonContainer
+{
+    position: absolute;
+    top: 180px;
+    right: 0;
+}
+
+
+/* footer */
+
+#footer a
+{
+    color: #b4b6a9;
+    text-decoration: underline;
+}
+
+#footer a:hover
+{
+    color: #5c5c5c;
+}
+
+
+
+/* ----------------------- 05 TYPOGRAPHY  ------------------------ */
+
+html
+{
+    font-size: 100%;
+}
+
+body
+{
+    font-family: "Trebuchet MS" ,Arial,Helvetica,sans-serif;
+    font-size: 62.5%;
+    text-align: left;
+    letter-spacing: -0.04em;
+    color: #2b373b;
+}
+
+
+/* -- HEADINGS -- */
+
+h1, h2, h3, h4, h5, h6
+{
+    font-weight: normal;
+}
+
+h2, h3, h4, h5, h6
+{
+    margin: 0;
+    padding: 10px;
+}
+
+h1
+{
+    font-size: 8.0em;
+    line-height: inherit;
+    margin-top: 1.0em;
+    margin-bottom: 0.2em;
+}
+
+#masthead h1
+{
+    text-indent: -10000px;
+    margin: 5px 0 0;
+}
+
+h2
+{
+    font-size: 3.2em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+h3
+{
+    font-size: 1.8em;
+    line-height: 2.0em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 1.4em;
+}
+
+h4
+{
+    font-size: 1.6em;
+}
+
+h5
+{
+    font-size: 1.2em;
+    line-height: 1.4em;
+    text-transform: uppercase;
+    color: #39c9ff;
+    text-decoration: underline;
+}
+
+#messageContainer h5
+{
+    color: #313131;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+h5#messageTime
+{
+}
+
+
+h6
+{
+    font-size: 0.9em;
+}
+
+
+
+/* -- TEXT -- */
+
+p
+{
+    font-size: 1.4em;
+    line-height: 1.7em;
+    padding: 10px 10px 0 10px;
+    color: #787878;
+}
+
+
+#messageContainer
+{
+    font-size: 1.9em;
+    font-weight: bold;
+    color: #7d7d7d;
+}
+
+#footer p
+{
+    font-size: 1.5em;
+    line-height: 1.5em;
+    color: #313131;
+    text-align: center;
+}
+
+p.leadText
+{
+    font-size: 1.6em;
+    line-height: 1.9em;
+    font-weight: bold;
+}
+
+p.tinyText
+{
+    font-size: 1em;
+    line-height: 1.3em;
+    font-family: "Lucida Grande" , Arial, sans-serif;
+    color: #b7b7b7;
+}
+
+p.indentText
+{
+    padding: 12px;
+    padding-left: 60px;
+}
+
+
+/* ----------------------- 06 LISTS  ------------------------ */
+
+ul
+{
+}
+
+
+
+/* ----------------------- 07 IMAGES  ------------------------ */
+
+a img
+{
+}
+
+.box-12 img
+{
+    float: right;
+}
+
+#footer img
+{
+    display: block;
+    margin-left: 428px;
+}
+
+
+/* ----------------------- 09 FORMS  ------------------------ */
+
+
+/* survey form styles */
+
+fieldset
+{
+}
+
+input
+{
+    margin-right: 1em;
+    width: 395px;
+}
+
+form p
+{
+    color: #000;
+    font-size: 1.6em;
+    font-weight: normal; /* 	background-color: #ededed; 	*/
+    padding: 6px;
+    line-height: 1.6em;
+}
+
+p#selectedAnswer
+{
+    /* 		background-color: #7b1270; 		*/
+}
+
+#radioLarge input
+{
+}
+
+
+#survey {
+    width: 916px;
+    margin: 2em;
+    height: 410px;
+    background-attachment: scroll;
+    background-color: transparent;
+    background-image: url('../../Images/bg-survey-middle.png');
+    background-repeat: repeat-y;
+    background-position: center bottom;
+}
+
+h3.surveyHeader {
+    background: url('../../Images/bg-survey-top.png') no-repeat scroll 0 0 transparent;
+    height: 13px;
+    width: 916px;
+}
+
+#surveyQuestionContainer
+{
+    width: 42%;
+    float: left;
+    margin-left: 2em;
+}
+
+#surveyAnswerContainer
+{
+    width: 52%;
+    float: left;
+}
+
+
+p.surveyQuestion
+{
+    font-size: 3.2em;
+    font-weight: bold;
+    line-height: 1.2em;
+    color: #787878;
+}
+
+p.surveyInstruction
+{
+    font-size: 1.3em;
+    color: #787878;
+}
+
+select
+{
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px #999 solid;
+}
+
+#surveyAnswerContainer
+{
+}
+
+#surveyControlsContainer
+{
+    /*background: url("../img/bg-survey-bottom.png") no-repeat scroll 0 100% transparent;*/
+    height: 100px;
+    position: relative;
+    top: 75px;
+}
+
+#surveyControlsInnerContainer
+{
+    width: 860px;
+    margin-left: 24px;
+}
+
+#progressbar
+{
+    float: left;
+    width: 740px;
+    height: 18px;
+    background-color: #ededed;
+    margin-top: 30px;
+}
+
+
+
+
+/* feedback form styles */
+
+#modalform
+{
+    background: #7b1270;
+    margin: 120px auto;
+    width: 420px;
+    height: 500px;
+}
+
+#modalform p
+{
+    font-size: 1.4em;
+    line-height: 1.8em;
+    margin-bottom: 1.0em;
+}
+
+#modalform input
+{
+    font-size: 2.0em;
+    padding: 6px;
+    width: 240px;
+    height: 24px;
+    float: right;
+}
+
+#modalform textarea
+{
+    padding: 6px;
+    width: 240px;
+    height: 200px;
+    float: right;
+    margin-top: 1em;
+}
+
+input.submit-button
+{
+}
+
+
+/* ----------------------------------------------------------------------------
+  * Styles for the jQuery-UI dialog widget contained form
+  *
+  * ------------------------------------------------------------------------  */
+
+/*
+    .ui-widget-overlay {
+    	background: #aaaaaa url(../img/ui-bg_highlight-hard_40_aaaaaa_1x100.png) 50% top repeat-x;
+    	opacity: .90;
+    	filter: Alpha (Opacity=80);
+    	}
+    	
+    .ui-dialog {
+    	display: none;
+    	}
+
+    .ui-dialog {
+            background: rgb(237,237,237);
+            font: 11px verdana, arial, sans-serif;
+    }
+    .ui-dialog .ui-dialog-titlebar  {
+            font: small-caps bold 24px Georgia, Times, serif;
+    }
+    .ui-dialog h3,
+    .ui-dialog div {
+            border-top:1px solid rgb(247,247,247);
+            border-bottom:1px solid rgb(212,212,212);
+            padding:8px 0 12px 10px;
+    }
+    .ui-dialog h3 {
+            font: 18px Georgia, Times, serif;
+            margin: 0;
+    }
+
+    .ui-dialog select,
+    .ui-dialog textarea,
+    .ui-dialog input {
+            width:76%;
+            display: block;
+    }    
+
+    .ui-dialog #rating input,
+    .ui-dialog #rating label {
+            display: inline;
+            width:auto;
+    }
+    .ui-dialog .puForm div:last-child {
+        border-bottom:none;
+    }
+    .ui-dialog .puForm h3:first-child {
+        border-top:none;
+    }
+*/
+
+
+/* ----------------------- 08 NOTES  ------------------------ */
+
+

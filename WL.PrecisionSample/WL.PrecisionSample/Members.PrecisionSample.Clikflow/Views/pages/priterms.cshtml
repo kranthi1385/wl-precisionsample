@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+<link href="~/Content/priterms.css" rel="stylesheet" />
+<style>
+    .container {
+        max-width: 100%;
+        min-height: 99%;
+        background: #FFF;
+        margin: 0 auto;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        position: relative;
+    }
+
+    .footerblock {
+        margin-bottom: 0px;
+        bottom: 0;
+        display: table;
+        font-size: 10px;
+        width: 100%;
+    }
+
+    .button1 {
+        color: white;
+        background: #5357c1;
+        border-radius: 5px;
+        padding: 8px 40px;
+        border: 0px;
+        float: none;
+        margin-left: 40px;
+        /*margin-right: auto;*/
+        margin-bottom: 20px;
+        width: auto;
+        display: inline-block;
+    }
+
+    .header {
+        padding: 10px;
+    }
+
+    .header-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .Para1 {
+        padding: 10px;
+    }
+
+    .Para1-text {
+        width: 100%;
+        max-width: 100%;
+        font-size: 16px;
+        /* Add other styles for the text as needed */
+    }
+</style>
+<div ng-if="pgLoad" ng-cloak>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    }
+    <div id="pri_container" style="visibility:hidden" ng-controller="priTermsController">
+        <form novalidate name="bsFormValidation">
+            <div align="left" style="width:100%;">
+                <div class="container" id="dvQuestions">
+                    <div class="header" ng-if="isShowLogo">
+                        <img src="/images/opinionnetwork_logo.png" alt="" style="width: 150px;">
+                    </div>
+                    <div class="header">
+                        <img ng-src="{{orgDetails.OrgLogo}}" alt="" class="header-img">
+                    </div>
+                    <div class="Para1">
+                        <p class="Para1-text">{{'gdprPara1'|translate}} </p>
+                    </div>
+                    <div class="Para1">
+                        <input type="checkbox" id="gdprtermsandconditions" value="True" ng-model="gdprTerms" name="gdprtermsandconditions">
+                        <label for="gdprtermsandconditions">{{'gdprPara2'|translate}} <a href="#" style="text-decoration: underline;" ng-click="terms();">{{'gdprPara3'|translate}}</a></label>
+                    </div>
+                    <div class="Para1">
+                        <span class="Para1-text">{{'gdprPara4'|translate}}<a href="#" style="text-decoration: underline;" ng-click="privacy();"> {{'gdprPara5'|translate}}</a></span>
+                    </div>
+                    <span ng-if="gdprErrorMsg" style="color: red; padding: 10px;">{{'gdprPara6'|translate}}</span>
+                    <div class="footerblock" id="buttonSaveandCancel" style="display: table;">
+                        <div style="text-align: center; padding: 10px;">
+                            <span id="spnErrorMessage" align="left" style="color: red; display: none; font-family: helvetica, arial; font-size: 14px"></span>
+                        </div>
+                        <div class="pre-question-btn">
+                            <input id="btnSubmit" class="button1" type="button" style="font-size: 14px;" value="{{'Continue'|translate}}" ng-click="gdprClick()">
+                        </div>
+                    </div>
+                </div>
+                <div class="poweredby">
+                    <div class="row" style="margin: 0px;margin-top:10px;">
+                        <div class="col-sm-10">
+                            <div class="form-group text-left">
+                                <span>&nbsp;&nbsp;{{'Copyright'|translate}} <span>{{year}}</span>&#169; Precision Sample, LLC </span>
+                                <span>
+                                    &nbsp;&nbsp;{{'rights'|translate}} <a style="text-decoration: underline; cursor: pointer; white-space: nowrap;"><span id="spnprivacy" ng-click="privacy()">{{'privacyy'|translate}}</span></a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="row">
+                                <div class="form-group text-center">
+                                    <span style="font-size: 13px;">{{'power'|translate}}</span>
+                                </div>
+                                <div class="form-group text-center">
+                                    <img src="/images/opinionnetwork_logo.png" alt="" style="width: 150px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

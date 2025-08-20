@@ -1,0 +1,16 @@
+﻿{
+  "surveytext1": "Gratulerer! Du har fullført denne undersøkelsen og vil motta belønningen din om omtrent to uker. Se nedenfor for andre undersøkelser du har blitt invitert til.",
+  "surveytext2": "Takk for at du deltok! Dessverre oppfylte du ikke kravene for denne undersøkelsen. Se nedenfor for andre undersøkelser du har blitt invitert til.",
+  "surveytext3": "Beklager! Deltakerkvoten for denne undersøkelsen er fylt opp. Se nedenfor for andre undersøkelser du har blitt invitert til.",
+  "surveytext4": "Beklager, det ser ut som du allerede har deltatt i denne undersøkelsen.",
+  "surveytext5": "Du er blitt avvist fra denne undersøkelsen fordi våre kunder har identifisert deg som en lavkvalitetsdeltaker. Dette betyr at du enten har fullført undersøkelsen for raskt eller gitt uaktsomme svar. Kontoen din vil bli stengt etter to (2) lavkvalitets svar.",
+  "surveytext6": "Du har allerede deltatt i denne undersøkelsen.",
+  "surveytext7": "Takk for at du deltok! Dessverre er undersøkelsen du prøver å delta i, stengt. Se nedenfor for undersøkelser som er tilgjengelige akkurat nå.",
+  "surveytext8": "Takk for at du deltok! Dessverre er undersøkelsen du prøver å delta i, stengt eller du har allerede deltatt i den. Se nedenfor for undersøkelser som er tilgjengelige akkurat nå.",
+  "surveytext9": "Takk for at du deltok, men dessverre oppfylte du ikke kravene. Her er en liten belønning på $0.10 for denne undersøkelsen, og vi håper du får full belønning for neste undersøkelse. Fortsett å delta i undersøkelsene våre.",
+  "surveytext10": "Takk for at du deltok, men dessverre oppfylte du ikke kravene. Her er en liten belønning på $0.10 for denne undersøkelsen, og vi håper du får full belønning for neste undersøkelse. Fortsett å delta i undersøkelsene våre.",
+  "surveytext11": "Takk for at du deltok, men dessverre oppfylte du ikke kravene. Her er en liten belønning på $0.10 for denne undersøkelsen, og vi håper du får full belønning for neste undersøkelse."
+   "best_fit": "Beste passform",
+    "survey_length": "Undersøkelseslengde",
+    "sort_by": "Sorter etter"
+}
