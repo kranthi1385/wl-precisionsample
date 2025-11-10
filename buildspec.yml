@@ -10,6 +10,6 @@ phases:
       - msbuild WL.PrecisionSample.sln /p:Configuration=Release
 artifacts:
   files:
-    - '**/*'
+    - '**/bin/Release/**/*'
   discard-paths: yes
-  base-directory: 'Members.PrecisionSample.Web/bin/Release'
+  base-directory: '.'
