@@ -1,0 +1,130 @@
+﻿/* CSS Document */
+
+.paidsurveys-body {
+    font-size: 14px;
+    font-weight: 400;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+th {
+    text-align: left;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+.paidsurveys-list table{
+    display: table;
+}
+.status-col {
+    width: 125px;
+}
+
+.paidsurveys-list h3{
+    font-size: 16px;
+    color: #333;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-default {
+    border-color: #ddd;
+}
+.panel-default>.panel-heading {
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+.panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+}
+.panel-body {
+    padding: 15px;
+}
+
+.paidsurveys-body .logo_ml{
+    margin: 20px 10px;
+    float: right;
+    width: 280px;
+}
+.paidsurveys-body p{
+    font-size: 13px;
+    font-weight: 400;
+}
+.paidsurveys-body a{
+    color: #337ab7;
+}
+
+
+/*  */
+.inner-header{
+    background-color: rgba(184, 39, 43, 0.9) !important;
+}
+.submunu-row { position: absolute; top:70px; background: #9c2b2e; left: 0; width: 100%; }
+.submunu-row a { display: inline-block; padding: 11px 10px; line-height: normal; color: #fff; font-size: 12px; text-decoration: none; font-weight: 500; }
+.submunu-row .header_content { padding: 0; }
+.nav_item { font-weight: 400; font-size: 14px; }
+
+
+/* ssss */
+
+.clearfix {
+    clear: both;
+}
+
+.app-header .header_content{
+    padding: 0;
+}
+.app-header .navlogo{
+    display: inline-block;
+    width: 135px;
+}
+.app-header .navlogo img {
+    max-width: 100%;
+}
+.app-header .nav_wrapper {
+    margin-top: 0;
+}
+table.box td {
+    width: 25%;
+}
+table.box td {
+    text-align: left;
+    padding: 0 0 0 20px;
+    margin: 0; 
+    line-height: 2.2em;
+}
+
+
+img.thumbright {
+    position: relative;
+    float: right;
+    margin: 0px 0px 10px 10px;
+}
+
+
+

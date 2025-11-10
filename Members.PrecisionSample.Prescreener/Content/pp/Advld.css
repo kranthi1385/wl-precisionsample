@@ -1,0 +1,205 @@
+﻿ <style>
+	
+  /* Styles for the label and input element */
+  .question {
+    clear: both;
+    padding-top: 0px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    color: #777777;
+    font-size: 1.1em;
+    line-height: 1.5em;
+  }
+
+  #text1 {
+    width: 240px;
+    height: 34px;
+    /* margin-bottom: 6px; */
+    margin-left: 50px;
+    /* font-style: italic; */
+    padding: 3px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    margin-left: 50px;
+    background-repeat: repeat-x;
+    border: 1px solid #d1c7ac;
+    width: 230px;
+    color: #333333;
+  }
+
+  /* Media query for small screens */
+  @media screen and (max-width: 600px) {
+    .question {
+      font-size: 0.9em;
+      line-height: 1.2em;
+    }
+    #text1 {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+    #CountryId1 {
+    width: 210px;
+    height: 38px;
+    /* margin-bottom: 6px; */
+    margin-left: 60px;
+    /* font-style: italic; */
+    padding: 3px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    background-repeat: repeat-x;
+    border: 1px solid #d1c7ac;
+    width: 230px;
+    color: #333333;
+	padding: 6px 15px;
+  }
+
+  /* Media query for small screens */
+  @media screen and (max-width: 600px) {
+    .question {
+      font-size: 0.9em;
+      line-height: 1.2em;
+    }
+    #CountryId1 {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+  #StateId {
+    width: 210px;
+    height: 38px;
+    /* margin-bottom: 6px; */
+    margin-left: 77px;
+    /* font-style: italic; */
+    padding: 3px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    background-repeat: repeat-x;
+    border: 1px solid #d1c7ac;
+    width: 230px;
+    color: #333333;
+	padding: 6px 15px;
+  }
+
+  /* Media query for small screens */
+  @media screen and (max-width: 600px) {
+    .question {
+      font-size: 0.9em;
+      line-height: 1.2em;
+    }
+    #StateId {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+  #text2 {
+    width: 240px;
+    height: 34px;
+    /* margin-bottom: 6px; */
+    margin-left: 50px;
+    /* font-style: italic; */
+    padding: 3px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    margin-left: 84px;
+    background-repeat: repeat-x;
+    border: 1px solid #d1c7ac;
+    width: 230px;
+    color: #333333;
+  }
+
+  /* Media query for small screens */
+  @media screen and (max-width: 600px) {
+    .question {
+      font-size: 0.9em;
+      line-height: 1.2em;
+    }
+    #text2 {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+  #text3 {
+    width: 240px;
+    height: 34px;
+    /* margin-bottom: 6px; */
+    margin-left: 50px;
+    /* font-style: italic; */
+    padding: 3px;
+    margin-right: 4px;
+    margin-bottom: 8px;
+    margin-left: 4px;
+    background-repeat: repeat-x;
+    border: 1px solid #d1c7ac;
+    width: 230px;
+    color: #333333;
+  }
+
+  /* Media query for small screens */
+  @media screen and (max-width: 600px) {
+    .question {
+      font-size: 0.9em;
+      line-height: 1.2em;
+    }
+    #text3 {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom: 16px;
+    }
+  }
+
+        #tmpTable1 {
+            /* max-height: 350px; */
+            /* overflow: auto; */
+        }
+
+        #tmpTable1 {
+            padding: 1em 2em 6em;
+            padding: 15px 30px;
+            min-height: 150px;
+        }
+
+        body {
+            /* background: #fdf5f5; */
+            background-repeat: repeat-x;
+            background-position: center -56px;
+            position: relative;
+            margin: auto;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.5em;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            height: 100%;
+        }
+
+        .copyright-block {
+            display: inline-block;
+            vertical-align: middle;
+            float: inherit;
+        }
+.pre-question-btn button {
+    background: #5357c1;
+    border-radius: 5px;
+    padding: 7px 27px;
+    border: 0px;
+    float: none;
+    margin-left: 30px;
+    width: auto;
+    display: inline-block;
+}
+    </style>

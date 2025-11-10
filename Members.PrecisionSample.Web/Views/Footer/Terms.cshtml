@@ -1,0 +1,336 @@
+﻿
+@{
+    Layout = null;
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+</head>
+<body ng-app="footerApp" style="overflow-y: scroll;">
+    @Html.AntiForgeryToken()
+    <div id="dvterms" ng-controller="termsController">
+        <table style="font-family: Verdana; font-size: small;">
+            <tr>
+                <td align="left">
+                    <b style="font-size: large;">
+                        {{'termsOfUse' | translate}}
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <p>
+                        {{'first_para' | translate}} {{orgDetails.OrgName}}{{'first_para1' | translate}} (the "Site"), you (“User,” or if a registered user, “Member”){{'first_para2' | translate}}
+                    </p>
+                    <label class="orgname">
+                    </label>
+                    <p>{{'second_para' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Des_of_Ser' | translate}}</b>
+                    <br />
+                    <p>{{'Des_Service' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Regon_Site' | translate}}</b>
+                    <br />
+                    <p>{{'Registration_para1' | translate}}</p>
+                    <br />
+                    <p>{{'Registration_para2' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Use_of_site' | translate}}</b>
+                    <br />
+                    <p>{{'Use_Site_para1' | translate}} {{orgDetails.OrgName}} {{'Use_Site_para11' | translate}}</p>
+                    <label class="orgname">
+                    </label>
+                    <br />
+                    <a style="color: Blue; text-decoration: underline;">{{orgDetails.Emailaddress}}</a>.
+                    <br />
+                    <p>{{'Use_Site_para12' | translate}}</p>
+                    <br />
+                    <br />
+                    <p>{{'Use_Site_para13' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Third_party' | translate}}</b>
+                    <br />
+                    <p>{{'Third_party_para' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'privacy' | translate}}</b>
+                    <br />
+                    <p>
+                        {{'Privacy1' | translate}}<a href="/login/p" style="color: Blue; text-decoration: underline;">Privacy Statement.</a>{{'Privacy2' | translate}}
+                    </p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Rewards' | translate}}</b>
+                    <br />
+                    <p>{{'Rewards1' | translate}} {{orgDetails.OrgName}} {{'Rewards2' | translate}} {{orgDetails.OrgName}} {{'Rewards3' | translate}} </p>
+                    <label class="orgname">
+                    </label>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'MemCond' | translate}}</b>
+                    <br />
+                    <p>{{'nottouse' | translate}}</p>{{orgDetails.OrgName}} to:
+                    <label class="orgname">
+                    </label>
+                    <p>
+                        {{'lst1' | translate}}
+                    </p>
+                    <p>{{'list2' | translate}}</p>
+                    <p>{{'list3' | translate}}</p>
+                    <p>{{'list4' | translate}}</p>
+                    <p>
+                        {{'list5' | translate}}{{orgName}}{{'lst21' | translate}}{{orgName}}{{'lst22' | translate}}
+                    </p>
+                    <p>{{'list23' | translate}} {{orgDetails.OrgName}};</p>
+                    <p>
+                        {{'lst6' | translate}} {{orgDetails.OrgName}},{{'lst61' | translate}} {{orgDetails.OrgName}};
+                    </p>
+                    <label class="orgname">
+                    </label>
+                    <p>
+                        {{'lst7' | translate}}
+                    </p>
+
+                    <p>
+                        {{'list8' | translate}} {{orgDetails.OrgName}} {{'last8' | translate}}
+                    </p>
+                    <label class="orgname">
+                    </label>
+                    <p>
+                        {{'list9' | translate}} {{orgDetails.OrgName}} {{'lst81' | translate}}
+                    </p>
+                    <label class="orgname">
+                    </label>
+                    <p>{{'lastpara1' | translate}} {{orgDetails.OrgName}} {{'lastpara2' | translate}} {{orgDetails.OrgName}} {{'lastpara3' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Termination' | translate}}</b>
+                    <br />
+                    <p>{{'Ter1' | translate}}</p>
+                    <p>{{'ter2' | translate}} {{orgDetails.OrgName}} {{'Ter21' | translate}} {{orgDetails.OrgName}} {{'Ter22' | translate}}</p>
+                    <p>{{'ter23' | translate}} {{orgDetails.OrgName}}. {{orgDetails.OrgName}} {{'Ter31' | translate}} {{orgDetails.OrgName}} {{'Ter32' | translate}} {{orgDetails.OrgName}} {{'Ter32' | translate}}</p>
+                    <label class="orgname">
+                    </label>
+                    <br />
+                </td>
+            </tr>
+            @*<tr>
+                    <td align="left">
+                        <b>{{'personalInfo' | translate}}</b>
+                        <br />
+                        <br />
+                        <p>{{'reasonableSecurity' | translate}}</p>
+                        <br />
+                        <br />
+                        <p>1. {{'terminateMembership' | translate}}</p>
+                        <br />
+                        <br />
+                        <p>2. {{'memberAgreement' | translate}}</p>
+                        <br />
+                        <br />
+                    </td>
+                </tr>*@
+            <tr>
+                <td align="left">
+                    <b>{{'Warn' | translate}}</b>
+                    <br />
+                    <p>{{'Warnpara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Online' | translate}}</b>
+                    <br />
+                    <p>{{'Onlinepara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Disclaimer' | translate}}</b>
+                    <br />
+                    <p>{{'Disclaimerpara1' | translate}} {{orgDetails.OrgName}} {{'Disclaimerpara2' | translate}} "{{orgDetails.OrgName}} {{'parites' | translate}}") {{'Disclaimerpara3' | translate}}"AS IS" AND "AS AVAILABLE" {{'Disclaimerpara8' | translate}} {{orgDetails.OrgName}} {{'Disclaimerpara4' | translate}} {{orgDetails.OrgName}} {{'Disclaimerpara5' | translate}} {{orgDetails.OrgName}} {{'Disclaimerpara6' | translate}} {{orgDetails.OrgName}} {{'Disclaimerpara7' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Indemnification' | translate}}</b>
+                    <br />
+                    <p>{{'Indemnificationpara' | translate}} {{orgDetails.OrgName}} {{'Indemnificationpara1' | translate}} {{orgDetails.OrgName}}{{'Indemnificationpara2' | translate}} </p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Feedback' | translate}}User Feedback.</b>
+                    <br />
+                    <p>{{'Feedbackpara' | translate}} {{orgDetails.OrgName}}{{'Feedbackpara1' | translate}} {{orgDetails.OrgName}}{{'Feedbackpara2' | translate}} {{orgDetails.OrgName}}{{'Feedbackpara3' | translate}},</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Exclusions' | translate}}</b>
+                    <br />
+                    <p>{{'Exclusionspara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Intellectual' | translate}}</b>
+                    <br />
+                    <p>{{'Intellectualpara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Additional' | translate}}</b>
+                    <br />
+                    <p>{{'Additionalpara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Email' | translate}}</b>
+                    <br />
+                    <p>{{'Emailpara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Thirdparty' | translate}}</b>
+                    <br />
+                    <p>{{'Thirdpartypara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Assignment' | translate}}</b>
+                    <br />
+                    <p>{{'Assignmentpara' | translate}}</p>
+                    <label class="orgname">
+                    </label>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Notices' | translate}}</b>
+                    <br />
+                    <p>{{'Noticespara1' | translate}} {{orgDetails.OrgName}}{{'Noticespara2' | translate}} {{orgDetails.OrgName}}{{'Noticespara3' | translate}} {{orgDetails.OrgName}}{{'Noticespara4' | translate}} {{orgDetails.OrgName}}{{'Noticespara5' | translate}}  </p>
+                    <br />
+                    <p>{{'Noticespara6' | translate}} {{orgDetails.OrgName}}{{'Noticespara7' | translate}} {{orgDetails.OrgName}}{{'Noticespara8' | translate}} </p>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Noticecalifornia' | translate}}</b>
+                    <br />
+                    <p>{{'Noticecaliforniapara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'DisputeResolution' | translate}}</b>
+                    <br />
+                    <p>{{'DisputeResolutionpara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'GoverningLaws' | translate}}</b>
+                    <br />
+                    <p>{{'GoverningLawspara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'CompLaw' | translate}}</b>
+                    <br />
+                    <p>{{'CompLawpara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'Misleagalterms' | translate}}</b>
+                    <br />
+                    <p>{{'Misleagaltermspara' | translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'AdditionalQuestions' | translate}}</b>
+                    <br />
+                    {{'AdditionalQuestionspara' | translate}}<b style="color: Blue;
+                        text-decoration: underline;">
+                        {{orgDetails.Emailaddress}}.
+                    </b><br />
+                    {{'AdditionalQuestionspara1' | translate}}
+                    Precision Sample, LLC<br />
+                    3461 Ringsby Court
+                    <br />
+                    Suite 240
+                    <br />
+                    Denver, CO 80216,
+                    <br />
+                    Ph:720.766.5106<br />
+                    <br />
+                </td>
+            </tr>
+        </table>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script src="~/Scripts/pages/footer/tc.js" type="text/javascript"></script>
+</body>

@@ -1,0 +1,101 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>GM Marketplace Insider</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<script src="~/Scripts/angular-cookies.min.js"></script>
+<script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+<script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+<script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+<link href="~/Content/mrktplace/app.css" rel="stylesheet" />
+<link href="~/Content/mrktplace/media.css" rel="stylesheet" />
+
+<body ng-app="loginApp" ng-controller="loginCtrl">
+    @Html.AntiForgeryToken()
+    <div class="banner_bg">
+        <header class="header-top">
+            <div class="container">
+
+
+                <div class="logo-bar space_holder logo-aside">
+
+                    <a href="javascript:;" class="logo-icon"><img src="/images/General-Motors-logo.png" alt=""></a>
+                    <h4 class="logo-title">&nbsp;marketplace insider</h4>
+                </div>
+
+
+                <form class="login-form" novalidate name="userLoginValidations">
+                    <div class="login-form">
+                        <div class="forminline">
+                            <label class="form-label">email address</label>
+                            <input type="email" class="form-control" name="userName" tabindex="1" ng-pattern="EmailAddress" ng-model="loginDetails.EmailAddress" required>
+                            <span ng-show="userLoginValidations.userName.$error.required && showLoginError" class="text-danger">Required</span>
+                            <span class="text-danger" ng-show="userLoginValidations.userName.$error.email">Invalid Email Formate</span>
+                        </div>
+                        <div class="forminline">
+                            <label class="form-label">password</label>
+                            <a href="/login/ForgotPsw" tabindex="4" class="forgot-pwd">forgot password?</a>
+                            <input type="password" class="form-control" name="uPassword" tabindex="2" ng-model="loginDetails.Password" required />
+                            <span ng-show="userLoginValidations.uPassword.$invalid && showLoginError" class="text-danger">Required</span>
+                        </div>
+                        <button class="btn-login btn-go" type="submit" tabindex="3" ng-click="userLoginClick(userLoginValidations.$valid)">Go</button>
+                        <span class="error text-danger" ng-show="isShowLoginFailErrmsg" style="display: inline-block;width: 62%;float:left;">Wrong username/password. Try again.</span>
+                    </div>
+                </form>
+                <div class="clear"></div>
+                <div class="marketplace"><img src="~/Images/MarketPlaces/img_mp.png" alt=""></div>
+
+            </div>
+        </header>
+
+        <section class="content-body">
+            <div class="container">
+                <div class="head-group top-margin">
+                    <h3 class="h3">Marketplace Insider:</h3>
+                    <h2 class="h2">Get rewarded!</h2>
+                </div>
+                <div class="get-rewards">
+                    <h3 class="title">Get rewarded for every survey you take! </h3>
+                </div>
+                <div class="insider-row">
+                    <div class="cols">
+                        <div class="cards">
+                            <h4 class="title">be an insider!</h4>
+                            <div class="card-img">
+                                <p class="card-label" style="padding-top:5px;margin-top:5px;">
+                                    Be the first to get a sneak peak
+                                    on upcoming GM innovations
+                                </p>
+                                <img src="~/Images/MarketPlaces/img_insider.png" alt="" style="margin-top:30px;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cols pull-right">
+                        <div class="cards">
+                            <h4 class="title">be heard!</h4>
+                            <div class="card-img">
+                                <p class="card-label" style="padding-top:5px;margin-top:5px;">
+                                    Your input will shape
+                                    GM products of the future
+                                </p>
+                                <img src="~/Images/MarketPlaces/img_heard.png" alt="" style="margin-top:45px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links"><a href="" ng-click="termsClick('/WidgetTerms.html')">Terms and Conditions</a>  |  <a href="" ng-click="privacyClick()">Privacy Policy</a> | <a href="" ng-click="doNotSellMyInfo()">Do Not Sell My Info</a> </div>
+            </div>
+        </section>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="~/Scripts/pages/login.js"></script>
+</body>
+

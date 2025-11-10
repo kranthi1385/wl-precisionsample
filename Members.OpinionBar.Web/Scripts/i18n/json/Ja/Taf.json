@@ -1,0 +1,27 @@
+﻿{
+  "blddwln": "お友だち紹介",
+  "facebookText": "以下のTwitterとFacebookを使用して、フォロワーに次のことを伝えます",
+  "facebookText1": "サインアップすると自動的にダウンラインに追加されます！",
+  "friendsJoin": "お友達やご家族をOpinionbarに招待してください！下に名前とメールアドレスを入力してください。参加するよう招待するメールを送信します。",
+  "inviteFriends": "友達を招待する",
+  "sendEmailText": ", 下に名とメールアドレスを入力してください。私たちはあなたに代わってメールを送信し、彼らを参加に招待します",
+  "ipadEntriesText": "そしてお金を稼ぐ。それらとあなたのためのiPadのプレゼントのエントリのために！",
+  "firstName": "ファーストネーム：",
+  "emailAddress": "電子メールアドレス：",
+  "accessCode": "アクセスコード",
+  "textBelow": "以下のテキストボックスにこのコードを入力してください",
+  "invalidAccessCode": "無効なAccessCode",
+  "enterAccessCode": "アクセスコードを入力*",
+  "inviteFriend": "友達を招待",
+  "required": "必須",
+  "filldata": "有効なデータを入力してください",
+  "onlyletters": "文字のみを入力してください",
+  "invsucc": "メンバーが招待されました。",
+  "memberInvitedSucessfully": "メンバーが招待されました",
+  "invitationFailed": "招待できませんでした",
+  "pleasegiveatleastoneemailaddress": "少なくとも1つのメールアドレスを入力してください"
+}
+
+
+
+

@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/main/mrResponsive.css" rel="stylesheet" />
+<link href="~/Content/main/msResponsive.css" rel="stylesheet" />
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    }
+    <div ng-if="pgLoad">
+        <div class="row survey-continer" ng-controller="surveyPController">
+            <div class="col-md-12 m-t-35 ">
+                <span class="spn-surveys pull-left"><b class="txt-surveys">{{'Survey History'|translate}}</b></span>
+            </div>
+            <hr class="hr-style" />
+            <div class="rew-gird-dv center-text border-3" style="width:90%;">
+                <table class="table">
+                    <tr ng-show="!suvHisLst.length">
+                        <td>
+                            No history available at this time.
+                        </td>
+                    </tr>
+                    <thead ng-show="suvHisLst.length > 0">
+                        <tr class="rew-tr">
+                            <th> Date </th>
+                            <th> Survey # </th>
+                            <th> Survey Name </th>
+                            <th> Reward Amount</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr ng-class-even="'tr-bg'" ng-repeat="rhd in suvHisLst" ng-class="{even:$even,odd:$odd}">
+                            <td align="left" scope="col">{{rhd.ClickDt}}</td>
+                            <td align="left" scope="col">{{rhd.SurveyId}}</td>
+                            <td align="left" scope="col">{{rhd.SurveyName}}</td>
+                            <td align="left" scope="col">{{rhd.SurveyReward}} </td>
+                            <td align="left" scope="col">{{rhd.SurveyStatus}} </td>
+                        </tr>
+                    </thead>
+
+                </table>
+                <section layout="row">
+                    <pagging-directive></pagging-directive>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>

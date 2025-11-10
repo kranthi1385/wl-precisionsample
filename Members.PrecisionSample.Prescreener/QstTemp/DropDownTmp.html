@@ -1,0 +1,51 @@
+﻿<script type="text/ng-template" id="DropdownTemplate">
+    <div align="left" class="questionback" style="clear: both;">
+        <span class="question" id="lblQuestiontext" ng-bind-html="question.QuestionText | unsafe"></span>
+    </div>
+    <div ng-if="question.QuestionTypeId == '2'">
+        <div class="form-group" ng-class="{true: 'error'}[submitValidations && formValidation.ddlQuestionGroup.$invalid]">
+            <div align="left" style="padding-top: 9px; padding-bottom: 10px; max-width:380px;" class="max-select-dropdown">
+                <select class="selectdropdown" name="{{question.QuestionId+ '_' + 'ddlQuestionGroup' }}" ng-attr-id="{{question.QuestionId}}" ng-model="question.ChqOptionId" ng-options="option.OptionId as option.OptionText for option in question.OptionList" ng-change="selectionChanged(question,question.ChqOptionId)" required>
+                    <option value="">-- Select --</option>
+                </select>
+            </div>
+            <span ng-show="submitValidations && formValidation[question.QuestionId+ '_' + 'ddlQuestionGroup'].$error.required" class="errors" style="color: red;">{{ errorMessage }}</span>
+        </div>
+        <div ng-if="question.QuestionId != 573">
+            <div ng-repeat="question in question.SelectedChildQuestionList track by question.QuestionId">
+                <ng-include src="'DropdownTemplate'"></ng-include>
+            </div>
+        </div>
+        <div ng-if="question.QuestionId == 573">
+            <div ng-repeat="question in question.SelectedChildQuestionList track by question.QuestionId">
+                <ng-include src="'VerticalDropdownTemplate'"></ng-include>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="VerticalDropdownTemplate">
+    <div style="width:26%;float:left;">
+        <div align="left" class="questionback" style="clear: both;">
+            <span class="question" id="lblQuestiontext" ng-bind-html="question.QuestionText | unsafe"></span>
+        </div>
+        <div ng-if="question.QuestionTypeId == '2'">
+            <div class="form-group" ng-class="{true: 'error'}[submitValidations && formValidation.ddlQuestionGroup.$invalid]">
+                <div align="left" style="padding-top: 9px; padding-bottom: 10px; max-width:380px;" class="max-select-dropdown">
+                    <select class="selectdropdown" name="{{question.QuestionId+ '_' + 'ddlQuestionGroup' }}" ng-attr-id="{{question.QuestionId}}" ng-model="question.ChqOptionId" ng-options="option.OptionId as option.OptionText for option in question.OptionList" ng-change="selectionChanged(question,question.ChqOptionId)" required>
+                        <option value="">-- Select --</option>
+                    </select>
+                </div>
+                <span ng-show="submitValidations && formValidation[question.QuestionId+ '_' + 'ddlQuestionGroup'].$error.required" class="errors" style="color: red;">Required</span>
+            </div>
+        </div>
+    </div>
+</script>
+<div style="width: 100%;">
+    <div>
+        <div ng-controller="ddlController">
+            <ng-include src="'DropdownTemplate'"></ng-include>
+        </div>
+    </div>
+</div>
+

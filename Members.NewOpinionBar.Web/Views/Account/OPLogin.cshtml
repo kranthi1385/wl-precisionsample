@@ -1,0 +1,444 @@
+﻿@model Members.OpinionBar.Components.Entities.User
+
+@{
+    Layout = "~/Views/Shared/OPLogin.cshtml";
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <style>
+        .subshow {
+            display: block;
+        }
+
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+            margin-bottom: .5rem;
+            font-family: system-ui;
+            font-weight: 500;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        a:hover, button {
+            text-decoration: none;
+            outline: none;
+            outline-offset: inherit;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: none;
+            font-size: 14px;
+            color: #333;
+        }
+
+        header {
+            background-color: #fff;
+            height: 80px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        }
+
+        .logo {
+            text-decoration: none;
+        }
+
+        .mainbody {
+            min-height: 360px;
+            background: transparent url('../images/Opinion-Header.png') no-repeat;
+            background-size: contain;
+            background-color: #030306;
+        }
+
+        .mainbody1 {
+            height: 100%;
+            background: transparent url('../images/Opinion-Header.png') no-repeat;
+            background-size: cover;
+            background-color: #030306;
+            background-position: center;
+        }
+
+        .signup_body {
+            padding: 2.8rem;
+            background-color: #F7F7F7;
+            min-height: 340px;
+        }
+
+        .head-txt-group h2 {
+            font-weight: 300;
+            /* font-family: Roboto, Arial, Helvetica, sans-serif; */
+        }
+
+        .head-txt-group * {
+            color: #fff;
+        }
+
+        .head-txt-group {
+            padding-top: 40px;
+            padding-bottom: 20px;
+        }
+
+        .subscription_logos img {
+            /*max-height: 40px;
+            height: auto;
+            width: auto;*/
+            margin: 11px 20px;
+        }
+
+        .medai-sec {
+            font-family: Roboto, Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+
+        .py-4 {
+            padding-top: 4.5rem !important;
+            padding-bottom: 1.5rem !important;
+        }
+
+        .py {
+            text-align: center;
+        }
+
+        .sign-up {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .subscription_logos {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            border-radius: 0;
+        }
+
+        .btn-danger {
+            --bs-btn-bg: #A71718;
+            --bs-btn-border-color: #A71718;
+        }
+
+        .text-white {
+            text-align: center;
+            font-family: Roboto, Arial, Helvetica, sans-serif;
+            font-size: 18px;
+        }
+
+        .getstarted {
+            max-width: 450px;
+            margin: auto;
+            position: relative;
+            margin-top: -80px;
+            /* padding-top:50px;
+        padding-bottom: 10px; */
+        }
+
+        .signup_header {
+            background-color: #A71718;
+            padding: 1rem 2rem;
+            height: 120px;
+            display: flex;
+            width: 100%;
+            align-items: center;
+        }
+
+        .sign_btn {
+            text-align: center;
+        }
+
+        footer {
+            background: #040404;
+            margin-top: 10px;
+        }
+
+            footer a {
+                text-decoration: none;
+            }
+
+        .footer-logo p {
+            font-size: 11px;
+            color: #999;
+            margin-top: 15px;
+        }
+
+        .footer-links {
+            text-align: right;
+        }
+
+        footer .social-link {
+            padding: 0px 0 10px;
+        }
+
+        .main {
+            min-height: 750px;
+        }
+
+        .form-select {
+            font-weight: bold;
+        }
+
+        .placeholder {
+            font-weight: bold;
+            color: black;
+            opacity: 1;
+        }
+
+
+        .recaptcha-wrapper {
+            height: 70px;
+            overflow: hidden;
+            background-color: #F9F9F9;
+            border-radius: 3px;
+            box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.08);
+            -webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.08);
+            -moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.08);
+            height: 70px;
+            position: relative;
+            margin-top: 17px;
+            border: 1px solid #d3d3d3;
+            color: #000;
+            margin-bottom: 17px;
+            width: 360px;
+        }
+
+        .recaptcha-info {
+            background-size: 32px;
+            height: 32px;
+            margin: 0 13px 0 13px;
+            position: absolute;
+            right: 8px;
+            top: 9px;
+            width: 32px;
+            background-image: url(https://www.gstatic.com/recaptcha/api2/logo_48.png);
+            background-repeat: no-repeat;
+        }
+
+        .rc-anchor-logo-text {
+            color: #9b9b9b;
+            cursor: default;
+            font-family: Roboto,helvetica,arial,sans-serif;
+            font-size: 10px;
+            font-weight: 400;
+            line-height: 10px;
+            margin-top: 5px;
+            text-align: center;
+            position: absolute;
+            right: 10px;
+            top: 37px;
+        }
+
+        .rc-anchor-checkbox-label {
+            font-family: Roboto,helvetica,arial,sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 17px;
+            left: 50px;
+            top: 26px;
+            position: absolute;
+            color: rgb(242, 15, 15);
+            text-align: center;
+        }
+
+        .rc-anchor .rc-anchor-normal .rc-anchor-light {
+            border: none;
+        }
+
+        .rc-anchor-pt {
+            color: #9b9b9b;
+            font-family: Roboto,helvetica,arial,sans-serif;
+            font-size: 8px;
+            font-weight: 400;
+            right: 10px;
+            top: 53px;
+            position: absolute;
+        }
+
+
+
+        .g-recaptcha {
+            width: 41px;
+            /* border: 1px solid red; */
+            height: 38px;
+            overflow: hidden;
+            float: left;
+            margin-top: 16px;
+            margin-left: 6px;
+        }
+
+        .mb-2 {
+            margin-bottom: 10px;
+        }
+
+        .sign_up_now_btn {
+            /*width:278px;
+        padding:7px 7px;
+        border-radius:30px;
+        background:#b7d968;
+        text-align:center;
+        color:#55851d;
+        font-weight:400;
+        cursor:pointer;
+        margin-top:3px;*/
+            width: 270px;
+            padding: 7px 7px;
+            border-radius: 30px;
+            background: #A71718;
+            text-align: center;
+            color: white;
+            font-weight: 400;
+            cursor: pointer;
+            margin-top: 3px;
+            border: none;
+            font-size: 16px;
+            margin-left: 38px;
+        }
+
+        .font {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body ng-app="loginApp" ng-controller="loginCtrl">
+    <div class="main">
+        <header class="d-flex align-items-center">
+            <div class="container">
+                <a href="#" class="logo"> <img src="~/images/OB_Logo.png" alt="" height="62px"></a>
+            </div>
+        </header>
+        <form name="userLoginForm" novalidate>
+            @Html.AntiForgeryToken()
+            <section class="mainbody">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="head-txt-group">
+                                <h2>Paying for Netflix is <span>so</span> 2022 </h2>
+                                <p>
+                                    Join Opinionbar today and get your favorite tv or music subscription for FREE when you
+                                    complete just 5 surveys per month. Choose your favorite, take a few surveys and BOOM,
+                                    one
+                                    less bill on your credit card each month!
+                                </p>
+                                <div class="subscription_logos">
+                                    <img src="~/images/Logo-Netflix.png" alt="">
+                                    <img src="~/images/Logo-Apple-Music.png" alt="">
+                                    <img src="~/images/Logo-AppleTV.png" alt="">
+                                    <img src="~/images/Spotify-Logo.png" alt="">
+                                </div>
+                                <div class="subscription_logos">
+                                    <img src="~/Images/logo_xbox_live_gold.png" alt="" style="max-height: 40px;">
+                                    <img src="~/Images/logo_EA_Play.svg" alt="" style="max-height: 40px;">
+                                    <img src="~/Images/logo_ps_plus-removebg-preview.png" alt="" style="max-height: 50px;width: 20%;">
+                                    @*<img src="~/images/Logo-Hulu.png" alt="">
+                                        <img src="~/images/Logo-Sling.png" alt="">
+                                        <img src="~/images/Logo-Disney.png" alt="">
+                                        <img src="~/images/Logo-Peacock.png" alt="">
+                                        <img src="~/images/logo-hbo-max.png" alt="">
+                                        <img src="~/images/Logo-YouTube.png" alt="">*@
+                                </div>
+                            </div><br><br><br>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="getstarted">
+                                <div class="signup_header">
+                                    <h6 class="text-white">
+                                        Share your opinion & get free entertainment, simple as that. And
+                                        no
+                                        spam, Promise!
+                                    </h6>
+                                </div>
+                                <div class="signup_body">
+                                    <div class="signup_form">
+                                        <p class="sign-up">Sign-up and get started now!</p>
+                                        <div class="mb-2">
+
+                                            <input type="email" name="email" class="form-control" placeholder="Email" ng-model="loginDetails.EmailAddress" ng-required="true">
+                                            <span class="error text-danger" ng-show="userLoginForm.userEmail.$error.email">{{'Not Valid Email' | translate}}!</span>
+                                            <span class="text-danger" ng-show="userLoginForm.email.$error.required && showLoginError" style="font-style: italic;display: block;">{{'Required'|translate}}</span>
+                                        </div>
+                                        <div class="mb-2">
+                                            <input type="password" class="form-control" placeholder="Password" name="password" ng-model="loginDetails.Password" ng-required="true">
+                                            <span class="text-danger" ng-show="userLoginForm.password.$error.required && showLoginError" style="font-style: italic;display: block;">{{'Required'|translate}}</span>
+                                        </div>
+                                        <div class="form-body">
+                                            <div class="g-recaptcha"
+                                                 data-sitekey="6LdOScMUAAAAAN37B5hXC_48jRl54XaCG2t9iJQ_" style="width:360px;height:78px;margin-bottom:10px;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="sign_btn col">
+                                            <button type="button" class="btn btn-danger px-5" ng-click="userLoginClick(userLoginForm.$valid)">Sign In</button>
+                                        </div>
+
+                                        <div class="sign_btn col">
+
+                                            <button type="button" class="btn btn-danger px-5" ng-click="signupClick()">Sign Up</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>
+        <div class="medai-sec">
+            <div class="container py-4">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="flex-shrink-0">
+                        <img src="~/images/noun_achievement.png" alt="...">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        We will never sell, share or rent your information. Responses you provide are anonymous to the
+                        survey sponsors and used for market research purposes only. You will never be marketed to as a
+                        result of Joining Opinionbar or participating in one of our surveys or client interviews.
+                    </div>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                    <div class="flex-shrink-0">
+                        <img src="~/images/noun_achievement.png" alt="...">
+                    </div>
+                    <div class="flex-grow-1 ms-3">
+                        You must be at least 13 years old to participate in our surveys and join.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="py">
+        <div class="container py-4 ">
+            <span class="text-white pe-5 d-inline-block">©2022 MetrixLab</span>
+            <a href="https://www.opinionbar.com/Footer/Privacy" target="_blank" class="text-muted mx-4"> Privacy Policy </a>
+            <a href="https://www.opinionbar.com/Footer/TC" target="_blank" class="text-muted mx-4"> Terms & Conditions </a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script type="text/javascript" src="~/Scripts/services/translationService.js?v=5"></script>
+    <script type="text/javascript" src="~/Scripts/main/login.js?v=6"></script>
+</body>
+</html>

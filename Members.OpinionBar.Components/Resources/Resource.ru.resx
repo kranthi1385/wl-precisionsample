@@ -1,0 +1,768 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="about_msg" xml:space="preserve">
+    <value>
+Компании, которые хотят ваше мнение</value>
+    <comment>About</comment>
+  </data>
+  <data name="about_us" xml:space="preserve">
+    <value>О нас</value>
+  </data>
+  <data name="atleast6letters" xml:space="preserve">
+    <value>не менее 6 символов</value>
+    <comment>Login</comment>
+  </data>
+  <data name="back_to_signin" xml:space="preserve">
+    <value>Вернуться к оглавлению</value>
+    <comment>Login</comment>
+  </data>
+  <data name="bankaccount" xml:space="preserve">
+    <value>банковский счет</value>
+  </data>
+  <data name="banner1_giveyouropinion" xml:space="preserve">
+    <value>Дайте свое мнение и заплатите</value>
+    <comment>Login</comment>
+  </data>
+  <data name="banner1_small_nospam" xml:space="preserve">
+    <value>И никакого спама ... Обещали!</value>
+    <comment>Login</comment>
+  </data>
+  <data name="breach_terms" xml:space="preserve">
+    <value>Нарушение условий</value>
+  </data>
+  <data name="breach_terms_msg" xml:space="preserve">
+    <value>Если OpinionBar имеет разумное мнение о том, что произошло реальное или потенциальное нарушение письма или намерения условий, OpinionBar оставляет за собой право немедленно или временно отложить или прекратить предоставление Услуг, предоставленных OpinionBar, заблокировать запрещенные действия или предпринимать любые другие действия, которые он считает целесообразными. Пользователи, которые нарушают эти ТЕРМИНЫ, могут также стать уголовно или гражданскими. OpinionBar может передать любых исполнителей в гражданские или уголовные органы для судебного преследования и будет полностью сотрудничать с властями в отношении расследований предполагаемых гражданских или уголовных преступлений.</value>
+  </data>
+  <data name="choose_country" xml:space="preserve">
+    <value>Выберите вашу страну</value>
+  </data>
+  <data name="choose_password" xml:space="preserve">
+    <value>Выберите пароль</value>
+    <comment>Login</comment>
+  </data>
+  <data name="choose_password_error_msg" xml:space="preserve">
+    <value>Поле Пароль требуется</value>
+    <comment>Login</comment>
+  </data>
+  <data name="cn_choose_country" xml:space="preserve">
+    <value>Выберите страну…</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="cn_choose_survey" xml:space="preserve">
+    <value>Выберите опрос ...</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="cn_feeback_msg" xml:space="preserve">
+    <value>Сообщение</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="cn_full_name" xml:space="preserve">
+    <value>Полное имя</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="cn_send_msg" xml:space="preserve">
+    <value>Отправить сообщение</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="contact_header" xml:space="preserve">
+    <value>Свяжитесь с нами</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="content_msg" xml:space="preserve">
+    <value>OpinionBar не несет ответственности за содержание сторон (например, веб-сайты, рекламные ролики, куки, объявления, теги, программное обеспечение) или продукты третьих лиц, которых вы посещаете в качестве участника опроса, независимо от того, разрешено ли это законодательством об авторском праве, торговой тайне, клевете , неприкосновенность частной жизни и непристойность или иное. &lt;/br&gt; 
+Вы понимаете, что, став членом Группы и иногда участвуя в опросах, вам может потребоваться просмотреть содержание, которое может быть оскорбительным или неуместным или нарушать право собственности на третью сторону. Вы единственный, кто несет ответственность за разумные попытки защитить нежелательный материал. Ни при каких обстоятельствах «OpinionBar» не несет ответственности за содержание любого просматриваемого, отправленного по почте или иным образом полученного в результате вашего участия в опросе независимо от его происхождения. &lt;/br&gt; 
+OpinionBar может принять меры в качестве OpinionBar, если он сочтет это необходимым, и считает, что он или его филиалы, поставщики, партнеры по каналам или клиенты могут стать ответственными, включая, но не ограничиваясь, удаление контента и / или немедленное прекращение вашего членства, если ваше поведение не соответствует букве или духу этих условий. &lt;/br&gt;</value>
+  </data>
+  <data name="create_your_account" xml:space="preserve">
+    <value>Создать аккаунт</value>
+    <comment>Login</comment>
+  </data>
+  <data name="creat_account" xml:space="preserve">
+    <value>
+Регистрация</value>
+    <comment>Login</comment>
+  </data>
+  <data name="dec_privacy" xml:space="preserve">
+    <value>Декларация конфиденциальности</value>
+  </data>
+  <data name="dec_privacy_msg" xml:space="preserve">
+    <value>Принимая ТЕРМИНЫ, вы явно принимаете публикацию OpinionBar и используете свои личные данные, как описано в действующей тогда &lt;/ br&gt; декларации о конфиденциальности OpinionBar.</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Электронная почта</value>
+    <comment>Login</comment>
+  </data>
+  <data name="email_error_msg1" xml:space="preserve">
+    <value>Неверный адрес электронной почты.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="email_error_msg2" xml:space="preserve">
+    <value>Поле Адрес электронной почты требуется</value>
+    <comment>Login</comment>
+  </data>
+  <data name="expiry_ account" xml:space="preserve">
+    <value>Истечение срока действия учетной записи</value>
+  </data>
+  <data name="expiry_ account_msg" xml:space="preserve">
+    <value>Если вы не принимаете активного участия в панели OpinionBar - если вы не отвечаете на какие-либо запросы по электронной почте или участвуете в расследовании - на срок более одного месяца, OpinionBar имеет право закрыть свою учетную запись и любой остаток в ваша учетная запись будет считаться «не полученной» и истечет. &lt;/br&gt; </value>
+  </data>
+  <data name="first_name" xml:space="preserve">
+    <value>Имя</value>
+    <comment>Login</comment>
+  </data>
+  <data name="first_name_error_msg" xml:space="preserve">
+    <value>Требуется поле «Имя»</value>
+    <comment>Login</comment>
+  </data>
+  <data name="footer_copyright 2015" xml:space="preserve">
+    <value>Авторские права</value>
+    <comment>Login</comment>
+  </data>
+  <data name="footer_more_abt_opbar" xml:space="preserve">
+    <value>Подробнее о OpinionBar</value>
+    <comment>Login</comment>
+  </data>
+  <data name="footer_privacy" xml:space="preserve">
+    <value>Конфиденциальность</value>
+    <comment>Login</comment>
+  </data>
+  <data name="footer_terms&amp;conditions" xml:space="preserve">
+    <value>Условия и положения</value>
+    <comment>Login</comment>
+  </data>
+  <data name="forgot_psw" xml:space="preserve">
+    <value>Забыли пароль?</value>
+    <comment>Login</comment>
+  </data>
+  <data name="forgot_psw_msg" xml:space="preserve">
+    <value>Генеральная</value>
+    <comment>Login</comment>
+  </data>
+  <data name="forgot_your_psw" xml:space="preserve">
+    <value>ТЕРМИНЫ создаются и оформляются в соответствии с законодательством Нидерландов, поскольку они применяются к контрактам, заключенным голландскими жителями. Если какое-либо условие (ы) в УСЛОВИЯХ / не соответствует закону, будет составлено условие (ы), которое будет максимально близко к намерениям сторон. Другие положения настоящего Соглашения останутся в полной мере применимыми. Если OpinionBar не может исполнить или принудить права или положения в УСЛОВИЯХ, это не означает, что ТЕРМИНЫ отклонили такое право или положение, если это не было подтверждено и одобрено в письменной форме OpinionBar. Вы и OpinionBar согласны с тем, что причина или действие, вытекающие из этих ТЕРМИНОВ или Услуг, или в отношении этих Услуг, должны быть приняты в течение одного (1) года с момента основания или действия, в противном случае такая причина или действие будут окончательно завершены. Заголовки абзацев в этих ТЕРМИНАх присутствуют только для удобства сторон и не имеют юридической или договорной значимости. Эти условия заключают полное соглашение между вами и OpinionBar в отношении того, что обсуждалось здесь, и заменить любые предыдущие и текущие устные или письменные соглашения. Вам не разрешается передавать это соглашение кому-либо еще.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="general" xml:space="preserve">
+    <value>Получайте деньги!</value>
+  </data>
+  <data name="general_msg" xml:space="preserve">
+    <value>Выберите оплату или поддержку благотворительности по вашему выбору</value>
+  </data>
+  <data name="get_paid" xml:space="preserve">
+    <value>Получайте деньги!</value>
+    <comment>Login</comment>
+  </data>
+  <data name="get_paid_msg" xml:space="preserve">
+    <value>Выберите оплату или поддержку благотворительности по вашему выбору</value>
+    <comment>Login</comment>
+  </data>
+  <data name="give_your_opinion" xml:space="preserve">
+    <value>Ваше мнение</value>
+    <comment>Login</comment>
+  </data>
+  <data name="give_your_opinion_msg" xml:space="preserve">
+    <value>Поделитесь своим мнением в наших онлайн-опросах и помогите компаниям улучшить свою продукцию</value>
+    <comment>Login</comment>
+  </data>
+  <data name="how_it_works" xml:space="preserve">
+    <value>Как это работает</value>
+    <comment>Login</comment>
+  </data>
+  <data name="last_name" xml:space="preserve">
+    <value>Фамилия</value>
+    <comment>Login</comment>
+  </data>
+  <data name="last_name_error_msg" xml:space="preserve">
+    <value>Поле Фамилия обязательнакомпонентов.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="limitation_ guarantees" xml:space="preserve">
+    <value>Ограничение ответственности</value>
+  </data>
+  <data name="limitation_ guarantees_msg" xml:space="preserve">
+    <value>Ни в коем случае не может быть OpinionBar, его филиалы, поставщики, партнеры по каналам или клиенты несут ответственность за любой ущерб, включая, но не ограничиваясь прямым, косвенным и дополнительным ущербом или косвенными убытками либо на основании гарантии, контракта, незаконных действий или другого юридического теории и независимо от того, информирован ли он о возможности такого ущерба. Общая ответственность OpinionBar, его филиалов, поставщиков, партнеров по каналам или клиентов в результате или в отношении этого соглашения (независимо от типа действия или требования, например контракта, гарантии, незаконных действий, строгой ответственности, небрежности, неправомерного поведения, мошенничества или другие юридические положения) ограничено до 5000. В юрисдикциях, где применимое законодательство не допускает исключения или ограничения дополнительных или косвенных потерь, это исключение и ограничение недействительны.</value>
+  </data>
+  <data name="limitation_liability" xml:space="preserve">
+    <value>Ограничение ответственности</value>
+  </data>
+  <data name="limitation_liability_msg" xml:space="preserve">
+    <value>Мы приглашаем членов сообщества участвовать в онлайн-опросах. Они могут делать это из-за комфорта своего дома или из того места, где они выбирают. И им платят за то, что они тратят время, чтобы рассказать брендам, что они думают. &lt;/br&gt; </value>
+  </data>
+  <data name="menu_about" xml:space="preserve">
+    <value>ОКОЛО</value>
+    <comment>Login</comment>
+  </data>
+  <data name="menu_contact" xml:space="preserve">
+    <value>CONTACT</value>
+    <comment>Login</comment>
+  </data>
+  <data name="menu_profile" xml:space="preserve">
+    <value>
+МОЙ ПРОФАЙЛ</value>
+    <comment>Login</comment>
+  </data>
+  <data name="mp_address" xml:space="preserve">
+    <value>Адрес:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_alirght" xml:space="preserve">
+    <value>Хорошо!</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_avaliable" xml:space="preserve">
+    <value>Доступный</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_balance" xml:space="preserve">
+    <value>Баланс</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_bank_account" xml:space="preserve">
+    <value>На мой банковский счет</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_change" xml:space="preserve">
+    <value>#NAME?</value>
+  </data>
+  <data name="mp_change_pay_option" xml:space="preserve">
+    <value>Изменить способ оплаты</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_charity" xml:space="preserve">
+    <value>На благотворительность по моему выбору</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_choose_pay_bal" xml:space="preserve">
+    <value>Вы решили оплатить остаток</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_city" xml:space="preserve">
+    <value>Город:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_close" xml:space="preserve">
+    <value>Закрыть</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_confirm_payment" xml:space="preserve">
+    <value>Подтвердить платеж</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_country" xml:space="preserve">
+    <value>Страна:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_deatails_tab" xml:space="preserve">
+    <value>Мои детали</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_delete_account" xml:space="preserve">
+    <value>Удалить аккаунт</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_delete_account_msg1" xml:space="preserve">
+    <value>Ты уверен?</value>
+  </data>
+  <data name="mp_delete_account_msg2" xml:space="preserve">
+    <value>Вы действительно хотите удалить свою учетную запись? Вы не сможете восстановить свою учетную запись позже. Ваш оставшийся баланс будет потерян.</value>
+  </data>
+  <data name="mp_details_correct" xml:space="preserve">
+    <value>Правильны ли эти платежные реквизиты?</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_dob" xml:space="preserve">
+    <value>Дата рождения:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_getpaid" xml:space="preserve">
+    <value>Получить оплату</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_history" xml:space="preserve">
+    <value>история</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_iban_number" xml:space="preserve">
+    <value>Номер IBAN:</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_invite_more_surveys" xml:space="preserve">
+    <value>Мы скоро пригласим вас на дополнительные опросы!</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_my_balance" xml:space="preserve">
+    <value>Пожалуйста, оплатите мой баланс в размере € 10,00:</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_name" xml:space="preserve">
+    <value>Имя:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_password" xml:space="preserve">
+    <value>Пароль:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_payer_name" xml:space="preserve">
+    <value>Имя получателя:</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_payments_text" xml:space="preserve">
+    <value>Ваши платежи:</value>
+    <comment>My details payment history</comment>
+  </data>
+  <data name="mp_payment_confirmmation" xml:space="preserve">
+    <value>Ваш платеж будет переведен на ваш счет в первую неделю следующего месяца!</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_payment_history" xml:space="preserve">
+    <value>История платежей</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_payment_order" xml:space="preserve">
+    <value>Платежное поручение</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_payment_text" xml:space="preserve">
+    <value>Мои платежи</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_paypal_account" xml:space="preserve">
+    <value>На мой счет PayPal</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_pay_amount" xml:space="preserve">
+    <value>Количество:</value>
+    <comment>My details payment history</comment>
+  </data>
+  <data name="mp_pay_date" xml:space="preserve">
+    <value>Дата:</value>
+    <comment>My details payment history</comment>
+  </data>
+  <data name="mp_pay_paid" xml:space="preserve">
+    <value>Уделяется:</value>
+    <comment>My details payment history</comment>
+  </data>
+  <data name="mp_pay_status" xml:space="preserve">
+    <value>Положение дел:</value>
+  </data>
+  <data name="mp_pay_total" xml:space="preserve">
+    <value>Всего:</value>
+    <comment>My details payment history</comment>
+  </data>
+  <data name="mp_personal_info" xml:space="preserve">
+    <value>Личная информация</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_profile" xml:space="preserve">
+    <value>Профиль</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_profile_text" xml:space="preserve">
+    <value>Завершение следующего опроса профиля «Название опроса» приведет к полноте вашего профиля до 60%</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_save" xml:space="preserve">
+    <value>Сохранить</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_start_survey" xml:space="preserve">
+    <value>Начало опроса</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_survey_tab" xml:space="preserve">
+    <value>Мои опросы</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_totla_earned" xml:space="preserve">
+    <value>Вы уже заработали</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_to_bank_account" xml:space="preserve">
+    <value>на ваш банковский счет:</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_welcome" xml:space="preserve">
+    <value>добро пожаловать</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_your_reward" xml:space="preserve">
+    <value>Ваша награда!</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_zip" xml:space="preserve">
+    <value>Почтовый индекс:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mr_abt_op" xml:space="preserve">
+    <value>Подробнее о OpinionBar</value>
+  </data>
+  <data name="m_abt_msg" xml:space="preserve">
+    <value>Мы начали в 1999 году проводить опросы о веб-сайтах. Сегодня наши члены насчитывают сотни тысяч человек, и каждый месяц их спрашивают по широкому кругу вопросов, в том числе о веб-сайтах, продуктах, рекламных объявлениях и услугах. &lt;/br&gt;</value>
+  </data>
+  <data name="opbar_fortune _companies" xml:space="preserve">
+    <value>Компании из списка Fortune 500!</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opbar_fortune _companies_msg" xml:space="preserve">
+    <value>Мы работаем вместе с компаниями из списка Fortune 500 со всего мира.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opbar_make_your_voice" xml:space="preserve">
+    <value>Мы слышим ваш голос!</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opbar_make_your_voice_msg" xml:space="preserve">
+    <value>С OpinionBar миллионы людей выражают свое мнение каждый год и сообщают крупным организациям, что они думают о своих продуктах, услугах, веб-сайтах и ​​рекламе.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opbar_privacy" xml:space="preserve">
+    <value>Конфиденциальность!</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opbar_privacy_msg" xml:space="preserve">
+    <value>OpinionBar ценит конфиденциальность ваших личных данных. Вот почему опросы анонимны, мы никогда не передаем личные данные третьим сторонам, а ваши данные защищены SSL.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opinionbar" xml:space="preserve">
+    <value>OpinionBar</value>
+    <comment>Login</comment>
+  </data>
+  <data name="password_length_error_msg" xml:space="preserve">
+    <value>Пароль должен быть не менее 6 символов.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="password_verifcation" xml:space="preserve">
+    <value>Проверка пароля</value>
+    <comment>Login</comment>
+  </data>
+  <data name="password_verifcation_error_msg" xml:space="preserve">
+    <value>Пароль и пароль подтверждения не совпадают.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="paypal" xml:space="preserve">
+    <value>PayPal</value>
+  </data>
+  <data name="paypalaccount" xml:space="preserve">
+    <value>счет PayPal</value>
+  </data>
+  <data name="privacy_ans1" xml:space="preserve">
+    <value>Ответы, которые вы даете в наших опросах, исследованиях и на нашем веб-сайте, будут рассматриваться как анонимные, если только и только если вы не дали свое конкретное согласие на обратное. В относительно немногих случаях, когда мы просим вас предоставить разрешение на передачу данных в форме, которая позволяет вам лично идентифицироваться, мы будем следить за тем, чтобы информация использовалась только для указанных целей. Мы не будем отправлять вам незапрошенные коммерческие письма и не передавать ваши адреса электронной почты другим лицам для этой цели. Однако практически все опросы проводятся анонимно: ваше имя, адрес и данные электронной почты никогда не передаются другим компаниям или лицам. Это касается всех участников наших опросов и исследований, а также является юридическим требованием для каждого опроса.</value>
+  </data>
+  <data name="privacy_ans2" xml:space="preserve">
+    <value>Эта политика конфиденциальности распространяется на всех лиц, которые участвуют или участвовали в исследованиях OpinionBar / MetrixLab: 1. Участники, зарегистрированные в форме регистрации OpinionBar.com. 2. Участники, набранные по приглашению на сторонних сайтах. 3. Участники, которые приглашаются через базу данных CRM, предоставленную клиентом. 4. Участники, которые были набраны наград по выбору людей, организованных OpinionBar. 5. Участники, которые участвовали в опросах в любой другой форме, чем указано выше.</value>
+  </data>
+  <data name="privacy_ans3" xml:space="preserve">
+    <value>Информация, такая как ваше имя, адрес, ip-адрес, адрес электронной почты, платежная информация, номер телефона и дата рождения, классифицируется как «узнаваемая личная информация», потому что эта информация может использоваться для косвенного или прямого опознавания вас. Эта информация защищена в силу нашей политики конфиденциальности. Мы никогда не будем давать, продавать, сдавать в аренду или торговать узнаваемой личной информацией третьему лицу или передавать эту информацию третьей стороне.</value>
+  </data>
+  <data name="privacy_ans4" xml:space="preserve">
+    <value>Опросы всегда анонимны: ваше имя, адрес и данные электронной почты никогда не передаются другим компаниям или лицам. Это касается участников наших исследований и опросов и юридически требуется для каждого опроса. &lt;/br&gt; 
+Информация, которая может быть отслежена конкретному человеку, никогда не будет использоваться для целей, не связанных с исследованиями, таких как прямой маркетинг, создание списков адресов, кредитный рейтинг, сбор денег или другие маркетинговые мероприятия, связанные с этими отдельными респондентами. &lt;/br&gt; 
+Мы проводим наши исследования с большим уважением к вашей конфиденциальности. Ни при каких обстоятельствах MetrixLab не будет предоставлять, продавать, сдавать в аренду или торговать узнаваемой личной информацией о наших участниках третьим лицам или передавать эту информацию третьим лицам.</value>
+  </data>
+  <data name="privacy_ans5" xml:space="preserve">
+    <value>Сайт OpinionBar защищен от потери, неправильного использования и редактирования информации, которую мы управляем. Это включает такие меры, как брандмауэры, скремблирование данных, шифрование SSL (RC4 128 бит), прокси приложений, технология мониторинга и адаптивный анализ сетевого трафика для отслеживания любого злоупотребления нашей сетью и ее содержимого. Веб-сайт и программное обеспечение OpinionBar взаимодействуют с нашей базой данных с использованием SSL-протокола, тем самым гарантируя, что третьи стороны не смогут читать или редактировать какие-либо данные.</value>
+  </data>
+  <data name="privacy_ans6" xml:space="preserve">
+    <value>Вы всегда можете посетить наш сайт и изменить свой профиль. Обратите внимание: вам будет предложено указать свой адрес электронной почты и пароль, если вы хотите просмотреть, изменить или заменить свой профиль.</value>
+  </data>
+  <data name="privacy_ans7" xml:space="preserve">
+    <value>Вы можете прекратить свое участие на странице Unsubscribe (www.opinionbar.com/unsubscribe.aspx). Вам будет отправлено электронное письмо, чтобы подтвердить отмену вашей учетной записи в целях безопасности.</value>
+  </data>
+  <data name="privacy_ans8" xml:space="preserve">
+    <value>Если мы решим изменить нашу политику конфиденциальности, мы опубликуем эти изменения на нашей домашней странице или отправим нашим пользователям электронное письмо с изменениями, чтобы наши пользователи всегда знали, какую информацию мы собираем, как мы ее используем, и при каких обстоятельствах мы можем публиковать это Информация.</value>
+  </data>
+  <data name="privacy_ans9" xml:space="preserve">
+    <value>Все исследования, проводимые в Интернете, подчиняются правилам и инициативам Международного международного кодекса маркетинга и социальных исследований ICC / ESOMAR (плюс Европейское руководство по защите данных и любое другое соответствующее национальное или международное законодательство). &lt;/ BR&gt;
+Исследование рынка должно всегда уважать права респондентов и других пользователей Интернета. Он должен быть выполнен таким образом, который является приемлемым для всех участников и широкой общественности, и он должен соблюдать национальное и международное саморегулирование. Исследователи должны избегать принятия мер, которые могут нанести ущерб репутации или повлиять на доверие людей в исследованиях в Интернете. &lt;/ BR&gt;
+Посетите сайт www.esomar.org для получения дополнительной информации о ESOMAR и Международном кодексе маркетинга и социальных исследований ICC / ESOMAR. &lt;/ BR&gt;
+Европейское руководство по защите данных
+Руководство Европейского парламента и Совета ЕС в отношении защиты физических лиц в отношении обработки персональных данных и их свободного распространения.</value>
+  </data>
+  <data name="privacy_msg" xml:space="preserve">
+    <value>OpinionBar является инициативой цифрового исследовательского агентства MetrixLab. MetrixLab (OpinionBar) собирает информацию с единственной целью исследования рынка. &lt;/br&gt;
+Исследование рынка - это сбор и интерпретация информации от потребителей, компаний и общества. Собранная разведка используется путем ввода в эксплуатацию клиентов / компаний для принятия более разумных решений в отношении маркетинга, разработки продуктов и общества. Ваше участие в опросах OpinionBar помогает компаниям разрабатывать и совершенствовать веб-сайты, продукты и услуги. &lt;/br&gt;
+Мы ценим вашу конфиденциальность и сохраняем ваши личные данные. Вот почему все наши опросы анонимны. Мы никогда не передаем личные данные третьим лицам. И ваши данные защищены SSL, который обеспечивает безопасную связь через компьютерную сеть. требование больше о типе сбора. &lt;/ br&gt;
+Мы проводим наши исследования с большим уважением к вашей конфиденциальности. Ни при каких обстоятельствах мы не предоставляем, не продаем и не арендуем узнаваемую информацию о наших членах третьей стороне. Мы также не будем торговать или делиться такой информацией с третьей стороной.</value>
+  </data>
+  <data name="privacy_qn1" xml:space="preserve">
+    <value>Как OpinionBar обрабатывает мои данные?</value>
+  </data>
+  <data name="privacy_qn2" xml:space="preserve">
+    <value>К кому относится это заявление о конфиденциальности?</value>
+  </data>
+  <data name="privacy_qn3" xml:space="preserve">
+    <value>Какую информацию мы собираем от участников?</value>
+  </data>
+  <data name="privacy_qn4" xml:space="preserve">
+    <value>Как мы будем использовать эту информацию?</value>
+  </data>
+  <data name="privacy_qn5" xml:space="preserve">
+    <value>Какую защиту мы используем для защиты информации?</value>
+  </data>
+  <data name="privacy_qn6" xml:space="preserve">
+    <value>Как вы можете получить доступ к своим личным данным?</value>
+  </data>
+  <data name="privacy_qn7" xml:space="preserve">
+    <value>Как вы можете прекратить свое участие?</value>
+  </data>
+  <data name="privacy_qn8" xml:space="preserve">
+    <value>Как мы информируем вас об изменениях в политике конфиденциальности?</value>
+  </data>
+  <data name="privacy_qn9" xml:space="preserve">
+    <value>Организации и правила, которым мы соответствуем.</value>
+  </data>
+  <data name="prohibited_list_1" xml:space="preserve">
+    <value>Не отправлять третьим лицам третьим лицам или иным образом публиковать информацию об опросах, включая, но не ограничиваясь, заданные вопросы, ответ на вопросы, характер опроса или содержание в любых опросах, в которых вы участвовали, сайты, которые вы посетили, или продукты, которые вы испытали во время вашего участия в опросе. Авторское право на все содержание, вопросы и ответы принадлежит OpinionBar.</value>
+  </data>
+  <data name="prohibited_list_10" xml:space="preserve">
+    <value>Не использовать «автоответчики», «отменить-боты» или аналогичные механизмы, которые только генерируют сетевой трафик или нарушают группы новостей или электронную почту.</value>
+  </data>
+  <data name="prohibited_list_11" xml:space="preserve">
+    <value>Никогда не отправлять нежелательные письма или рекламные объявления.</value>
+  </data>
+  <data name="prohibited_list_12" xml:space="preserve">
+    <value>Не отправлять ложные или вводящие в заблуждение предложения продуктов, бизнеса или услуг или: Не передавать незапрашиваемые электронные письма или рекламные объявления с использованием серверов OpinionBar. &lt;/br&gt;</value>
+  </data>
+  <data name="prohibited_list_13" xml:space="preserve">
+    <value>Чтобы третьи лица не заполнили ваши опросы для вас</value>
+  </data>
+  <data name="prohibited_list_14" xml:space="preserve">
+    <value>Не использовать программное обеспечение или механизм, который автоматически генерирует ответы в наших опросах</value>
+  </data>
+  <data name="prohibited_list_15" xml:space="preserve">
+    <value>Не перерегистрироваться в OpinionBar, как только ваша учетная запись будет удалена из-за нарушения наших Условий использования</value>
+  </data>
+  <data name="prohibited_list_2" xml:space="preserve">
+    <value>Не давать вводящую в заблуждение или ложную информацию во время регистрации или в ваших ответах в ходе опроса.</value>
+  </data>
+  <data name="prohibited_list_3" xml:space="preserve">
+    <value>Не публиковать вводящую в заблуждение или ложную информацию относительно OpinionBar или его опросов.</value>
+  </data>
+  <data name="prohibited_list_4" xml:space="preserve">
+    <value>Не поощрять третьи стороны не давать неверную или ложную информацию OpinionBar в качестве части, если процесс регистрации.</value>
+  </data>
+  <data name="prohibited_list_5" xml:space="preserve">
+    <value>Не требовать вознаграждений за опросы, которые вы не выполнили добросовестно.</value>
+  </data>
+  <data name="prohibited_list_6" xml:space="preserve">
+    <value>Не использовать и не отправлять какие-либо материалы, защищенные авторским правом, товарным знаком, торговой тайной, патентами или другими правами интеллектуальной собственности без предварительного получения соответствующего разрешения. &lt;/br&gt;</value>
+  </data>
+  <data name="prohibited_list_7" xml:space="preserve">
+    <value>Никогда не отправлять электронную передачу темы сообщения, частично или полностью, из того, что происходит из Сервисов или проходит через них.</value>
+  </data>
+  <data name="prohibited_list_8" xml:space="preserve">
+    <value>Никогда не угрожать, не приставать, не дискредитировать, не смущать и не огорчать другого человека или группу.</value>
+  </data>
+  <data name="prohibited_list_9" xml:space="preserve">
+    <value>Никогда не отправлять компьютерные вирусы, черви или другое программное обеспечение с целью повреждения или изменения компьютерной системы.</value>
+  </data>
+  <data name="prohibited_use_msg" xml:space="preserve">
+    <value>В качестве члена группы вы соглашаетесь использовать Услуги только в юридических целях. Запрещается использование Услуг в отношении отправки, распространения, сбора или сохранения данных или материалов, которые противоречат закону или другим нормам. Вы также соглашаетесь: &lt;/br&gt;</value>
+  </data>
+  <data name="rememberme" xml:space="preserve">
+    <value>Запомни меня</value>
+    <comment>Login</comment>
+  </data>
+  <data name="request_link" xml:space="preserve">
+    <value>Запросить ссылку</value>
+    <comment>Login</comment>
+  </data>
+  <data name="resp_of_usr" xml:space="preserve">
+    <value>Обязанности пользователя</value>
+  </data>
+  <data name="resp_of_usr_msg" xml:space="preserve">
+    <value>Вы соглашаетесь предоставить OpinionBar правильные и полные данные регистрации и постоянно обновлять эти данные. Вы соглашаетесь не регистрироваться в качестве члена группы по нескольким наименованиям, никогда не участвовать в одном опросе дважды, передавать свои кредиты на банковский счет, отличный от вашего, или получить более одного пароля любым способом. Если вы этого не сделаете, вы нарушите эти УСЛОВИЯ. &lt;/br&gt; 
+Вы заявляете, что не являетесь партнером, акционером или сотрудником компании, предлагающей программное обеспечение или услуги, включая веб-технологии или другие технологии, для качественного или количественного проведения маркетинговых исследований с точки зрения клиента, потенциального клиента, сотрудника, получателя или других целевых аудиторий («Участник OpinionBar»). Кроме того, вы заявляете, что не являетесь членом (международного) Общества исследований рынка. &lt;/br&gt; 
+Зарегистрировавшись, чтобы стать членом группы, вы получите имя пользователя и пароль. Вы несете ответственность за то, чтобы ваши данные учетной записи и пароль были безопасными. Вы не можете сообщать другим о своем пароле. Вы несете полную ответственность за любые действия, выполняемые через вашу учетную запись. Вы соглашаетесь немедленно сообщать OpinionBar в случае несанкционированного использования вашей учетной записи или любого другого нарушения безопасности, о котором вы знаете или подозреваете. &lt;/br&gt; 
+Чтобы иметь возможность участвовать в некоторых опросах веб-сайтов, вы должны скачать программное обеспечение OpinionBar, доступное на нашем веб-сайте. Вы соглашаетесь с тем, что программное обеспечение Opinion поставляется вам AS IS и что OpinionBar не несет ответственности за то, что вы загрузили или используете программное обеспечение. &lt;/br&gt; 
+OpinionBar может отправить вас в качестве члена Исследовательской комиссии приглашение по электронной почте («приглашение») для участия в одном или нескольких опросах. Если вы решите принять участие в опросе, вы должны сделать все возможное, чтобы завершить его, насколько это возможно. OpinionBar рассмотрит ваши результаты, чтобы убедиться, что вы завершили опрос и ответили на вопросы таким образом, чтобы OpinionBar считал себя удовлетворительным. Если OpinionBar содержит ваши ответы в собранных результатах, которые будут предоставлены клиенту, который купил опрос, OpinionBar предоставит вам вознаграждение, которое было предложено вам в Приглашении. Однако, если OpinionBar не включает ваши ответы в собранные результаты, которые будут предоставлены клиенту, потому что мы определили, что это не удовлетворительно; вы не получите награду, или полученная награда будет возвращена. &lt;/br&gt;</value>
+  </data>
+  <data name="safeguarding" xml:space="preserve">
+    <value>Обеспечение безопасности</value>
+  </data>
+  <data name="safeguarding_msg" xml:space="preserve">
+    <value>Вы соглашаетесь защищать OpinionBar, его филиалы, поставщиков, партнеров по каналам и клиентам от любых требований и требований, включая судебные издержки, третьими лицами в результате использования вашей учетной записи, любого содержимого, которое вы можете отправлять, отправлять, отправлять или передавать в качестве члена Группы, ваше нарушение ТЕРМИНЫ или ваше нарушение прав любой третьей стороны.</value>
+  </data>
+  <data name="signin" xml:space="preserve">
+    <value>войти в систему</value>
+    <comment>Login</comment>
+  </data>
+  <data name="signin_error_msg" xml:space="preserve">
+    <value>Неправильный адрес электронной почты или пароль</value>
+    <comment>Login</comment>
+  </data>
+  <data name="signin_facebook" xml:space="preserve">
+    <value>Войти через Facebook</value>
+    <comment>Login</comment>
+  </data>
+  <data name="signin_your_acount" xml:space="preserve">
+    <value>Войдите в свою учетную запись</value>
+    <comment>Login</comment>
+  </data>
+  <data name="signup_free" xml:space="preserve">
+    <value>Подпишитесь бесплатно</value>
+    <comment>Login</comment>
+  </data>
+  <data name="signup_free_msg" xml:space="preserve">
+    <value>Создайте свою бесплатную учетную запись OpinionBar сегодня и присоединяйтесь к нашему онлайн-сообществу.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="sign_out" xml:space="preserve">
+    <value>выход</value>
+  </data>
+  <data name="srvy_shd_fun" xml:space="preserve">
+    <value>Мы считаем, что обзоры должны быть интересными!</value>
+  </data>
+  <data name="srvy_shd_fun_msg" xml:space="preserve">
+    <value>В качестве члена нашего сообщества вам будет предложено участвовать во всех видах опросов. Мы считаем, что они должны быть интересными и / или забавными для вас, насколько это возможно. В конце концов, если вам нравится завершать их, мы достигаем лучших ответов и более качественных данных. По этой причине мы часто используем игровые и веселые упражнения, чтобы определить, что участники действительно думают о веб-сайтах или рекламных объявлениях, например, у вас также будет возможность тестировать продукты дома (и хранить их большую часть времени).</value>
+  </data>
+  <data name="sys_network_sec" xml:space="preserve">
+    <value>Безопасность системы и сети</value>
+  </data>
+  <data name="sys_network_sec_msg" xml:space="preserve">
+    <value>Нарушения системы или сетевой безопасности Сервисов или веб-сайта, который вы посещаете в ходе опроса, запрещены и могут заставить вас стать объектом уголовного или гражданского права. OpinionBar будет расследовать любые нарушения безопасности и может информировать соответствующие полицейские службы, если подозреваются какие-либо нарушения. Вам не разрешено избегать аутентификации или безопасности хостов, сетей, сетевых компонентов или учетных записей, чтобы получить доступ к данным, учетным записям или системам, для которых вы не получили прямого разрешения. Вам не разрешается препятствовать или пытаться помешать другим интернет-пользователям, хостам, системам или сетям, если вы не получили прямого разрешения на это.</value>
+  </data>
+  <data name="tc_content" xml:space="preserve">
+    <value> содержание</value>
+  </data>
+  <data name="tc_msg" xml:space="preserve">
+    <value>OpinionBar проводит опросы, используя членов Исследовательской группы OpinionBar («Исследовательская группа»). Условия, положения и руководящие принципы, которые связаны с тем, чтобы стать членом Исследовательской комиссии и использовать Службы OpinionBar, Программное обеспечение OpinionBar и связанные с ними услуги («Услуги»), которые предоставляются членам Исследовательской комиссии ( «Члены группы») изложены в этих условиях для участия в Исследовательской комиссии OpinionBar. ( "УСЛОВИЯ"). &lt;/br&gt; 
+Участвуя в маркетинговом исследовании OpinionBar, вы соглашаетесь соблюдать условия, положения и рекомендации, изложенные в этих ТЕРМИНАХ. &lt;/br&gt; 
+Обратите внимание, что OpinionBar может изменить эти УСЛОВИЯ в любое время без предварительного уведомления и что такие изменения вступают в силу в день, когда такие измененные УСЛОВИЯ становятся доступными на веб-сайте OpinionBar по адресу http://www.OpinionBar.com. Ваше участие в опросе после того, как такие изменения вступили в силу, означает, что вы принимаете все изменения. &lt;/br&gt; 
+Участие в опросах и членстве в OpinionBar является бесплатным и открытым для всех в возрасте от 14 лет и старше, которые согласны с нашими УСЛОВИЯМИ. &lt;/br&gt;</value>
+  </data>
+  <data name="tc_prohibited_use" xml:space="preserve">
+    <value>Запрещенное использование</value>
+  </data>
+  <data name="termination" xml:space="preserve">
+    <value>прекращение</value>
+  </data>
+  <data name="termination_msg" xml:space="preserve">
+    <value>Вы можете прекратить свою учетную запись в любое время, посетив страницу завершения своей учетной записи или отправить письмо с вашим именем, адресом, датой рождения, адресом электронной почты и подписью: MetrixLab BV, Wilhelminakade 312, 3072 AR, Роттердам, Нидерланды. Прекращение действия вашей учетной записи произойдет в течение разумного срока после получения уведомления о прекращении действия OpinionBar. &lt;/br&gt; 
+OpinionBar оставляет за собой право ограничивать Сервисы для пользователей и время от времени и в соответствии со своим собственным суждением с объявлением или без него и с или без причин немедленно лишает доступ к Услугам и может удалить все реквизиты счета, кредиты и другой контент. &lt; / ш&gt; 
+Вы или OpinionBar можете прекратить действие учетной записи в любое время. Это ваш единственный и исключительный способ справиться с любым недовольством Услугами, условиями и условиями в УСЛОВИЯХ, которые могут время от времени меняться, или другими политиками и методами. OpinionBar может корректировать или изменять.</value>
+  </data>
+  <data name="we_thn-rewd" xml:space="preserve">
+    <value>Мы думаем, что вы должны быть вознаграждены!</value>
+  </data>
+  <data name="we_thn-rewd_msg" xml:space="preserve">
+    <value>Мы зачислим ваш счет в размере от 1,00 евро до 10,00 евро за каждый выполненный вами опрос. Вы можете запросить платеж, как только ваш баланс достигнет минимального порога в 10,00 евро. Вы можете сами получить деньги или пожертвовать их одной из благотворительных организаций, поддерживаемых OpinionBar. В отличие от других онлайн-опросов, мы вознаграждаем вас деньгами, а не ваучерами. Это ваши деньги, и поэтому вы должны быть свободны тратить их, но вы выбираете ..</value>
+  </data>
+</root>

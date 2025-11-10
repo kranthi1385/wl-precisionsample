@@ -1,0 +1,183 @@
+﻿
+@{
+    Layout = null;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script src="~/Scripts/translate-pluggable-loader.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <title>Cookie Statement</title>
+</head>
+<body ng-app="footerApp">
+    @Html.AntiForgeryToken()
+    <div id="dvprivacy" ng-controller="cookiestController">
+        <table style="font-family: Verdana; font-size: small;">
+            <tr>
+                <td align="center">
+                    <b style="font-size: large;">
+                        {{'ParaHeader' | translate}}
+                    </b><br />
+                    <span>Precision Sample Inc. and Metrixlab B.V.</span><br />
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'para1' | translate}}</b>
+                    <p>
+                        {{'para2' | translate}}<b>{{'para3' | translate}}</b> <a href="https://www.opinionbar.com/">https://www.opinionbar.com/</a>. {{'para4' | translate}}
+                    </p><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'para5' | translate}}</b>
+                    <p>
+                        {{'para6' | translate}}
+                    </p><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'para7' | translate}}</b><br /><br />
+                    <b style="text-decoration:underline">
+                        {{'para8' | translate}}
+                    </b><br />
+                    <p>{{'para9'|translate}}</p><br />
+                    <style>
+                        .grid {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                    </style>
+                    <table class="grid">
+                        <tr class="grid">
+                            <th class="grid">{{'para10'|translate}}</th>
+                            <th class="grid">{{'para11'|translate}}</th>
+                            <th class="grid">{{'para12'|translate}}</th>
+                            <th class="grid">{{'para13'|translate}}</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="grid" style="font-size:small;">__cf_bm</td>
+                            <td class="grid" style="font-size:small;">{{'para14'|translate}}</td>
+                            <td class="grid" style="font-size:small;">{{'para15'|translate}}</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:small;"><b>OpinionBar</b></td>
+                            <td class="grid" style="font-size:small;">ASP.NET_SessionId</td>
+                            <td class="grid" style="font-size:small;">{{'para16'|translate}}</td>
+                            <td class="grid" style="font-size:small;">{{'para17'|translate}}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="grid" style="font-size:small;">__RequestVerificationToken</td>
+                            <td class="grid" style="font-size:small;">{{'para18'|translate}}</td>
+                            <td class="grid" style="font-size:small;">{{'para17'|translate}}</td>
+                        </tr>
+                    </table><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b style="text-decoration:underline">
+                        {{'para19' | translate}}
+                    </b><br />
+                    <p>{{'para20'|translate}} <a href="#" onclick="window.open('/Footer/cookiesettings', 'Cookie Settings', 'height=800,width=800,scrollbars=yes'); return false">Cookie Settings</a></p><br />
+                    <style>
+                        .grid {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                    </style>
+                    <table class="grid">
+                        <tr class="grid">
+                            <th class="grid">{{'para10'|translate}}</th>
+                            <th class="grid">{{'para21'|translate}}</th>
+                            <th class="grid">{{'para12'|translate}}</th>
+                            <th class="grid">{{'para13'|translate}}</th>
+                        </tr>
+                        <tr class="grid">
+                            <td style="font-size:small;"><b>OpinionBar</b></td>
+                            <td class="grid" style="font-size:small;">_gcl_au <br />_ga_16KTRLFVQ3 <br />_ga</td>
+                            <td class="grid" style="font-size:small;">{{'para22'|translate}}</td>
+                            <td class="grid" style="font-size:small;">{{'para23'|translate}}</td>
+                        </tr>
+                    </table><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b style="text-decoration:underline">
+                        {{'para24' | translate}}
+                    </b><br />
+                    <p>{{'para25'|translate}} <a href="#" onclick="window.open('/Footer/cookiesettings', 'Cookie Settings', 'height=800,width=800,scrollbars=yes'); return false">Cookie Settings</a></p><br />
+                    <style>
+                        .grid {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                    </style>
+                    <table class="grid">
+                        <tr class="grid">
+                            <th class="grid">{{'para10'|translate}}</th>
+                            <th class="grid">{{'para11'|translate}}</th>
+                            <th class="grid">{{'para12'|translate}}</th>
+                            <th class="grid">{{'para13'|translate}}</th>
+                        </tr>
+                        <tr class="grid">
+                            <td style="font-size:small;"><b>OpinionBar</b></td>
+                            <td class="grid" style="font-size:small;">_fbp</td>
+                            <td class="grid" style="font-size:small;">{{'para26'|translate}}</td>
+                            <td class="grid" style="font-size:small;">{{'para27'|translate}}</td>
+                        </tr>
+                        <tr class="grid">
+                            <td style="font-size:small;"><b>{{'para28'|translate}}</b> {{'para29'|translate}}</td>
+                            <td class="grid" style="font-size:small;">fr</td>
+                            <td class="grid" style="font-size:small;">{{'para30'|translate}}</td>
+                            <td class="grid" style="font-size:small;">{{'para27'|translate}}</td>
+                        </tr>
+                    </table><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'para31' | translate}}</b>
+                    <p>
+                        {{'para32' | translate}}
+                    </p>
+                    <p>{{'para33' | translate}}</p><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'para34' | translate}}</b>
+                    <p>
+                        {{'para35' | translate}}
+                    </p><br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        <div><b>{{'precisionSample'|translate}}</b><span style="float:right;"><b>{{'metrixLabBV'|translate}}</b></span><br /></div>
+                        <div>{{'ringsby'|translate}}<span style="float:right;">{{'wilhelminakade'|translate}}</span><br /></div>
+                        <div>{{'suite'|translate}}<span style="float:right;">{{'rotterdam'|translate}}</span><br /></div>
+                        {{'denver'|translate}}<br />
+                        <div>Tel:+1 720-766-5106<span style="float:right;">Tel: +31 10 2030700</span><br /></div>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/services/CookieTranslation.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script src="~/Scripts/main/footer/tc.js" type="text/javascript"></script>
+</body>

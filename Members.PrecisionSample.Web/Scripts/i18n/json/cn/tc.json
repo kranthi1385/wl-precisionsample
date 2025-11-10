@@ -1,0 +1,16 @@
+﻿{
+  "DoNotSellMyInfo1": "依据《加州消费者隐私保护法》（CCPA）和《通用数据保护条例》（GDPR）规定，您可以使用此表格提出请求，要求停止出售您的个人信息、删除您的个人信息，或知悉我们收集、公布或出售了哪些个人信息。 虽然仅加利福尼亚州和欧盟地区要求为本地区会员提供此选项和服务，但我们会尊重所有州和国家的会员请求。",
+  "DoNotSellMyInfo2": "名字",
+  "DoNotSellMyInfo3": "姓氏",
+  "DoNotSellMyInfo4": "加入会员时使用的电子邮箱",
+  "DoNotSellMyInfo5": "您参与的Precision Sample网点",
+  "DoNotSellMyInfo6": "请求类型",
+  "DoNotSellMyInfo7": "请求删除我的个人信息",
+  "DoNotSellMyInfo8": "请求停止出售我的个人信息",
+  "DoNotSellMyInfo9": "请求知悉我的个人信息",
+  "DoNotSellMyInfo10": "其他个人隐私或账户管理请求",
+  "Submit": "提交",
+  "required": "需要",
+  "invalidCaptcha": "無效輸入",
+  "notvalidemail": "無效的電子郵件"
+}

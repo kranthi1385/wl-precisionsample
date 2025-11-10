@@ -1,0 +1,27 @@
+﻿{
+  "blddwln": "Parrainez-un-ami",
+  "facebookText": "Utilisez Twitter et Facebook ci-dessous pour informer vos abonnés",
+  "facebookText1": "et nous les ajouterons automatiquement à votre descendance lors de leur inscription!",
+  "friendsJoin": "Invitez vos amis et votre famille à rejoindre Opinionbar! Saisissez leur prénom et leur e-mail ci-dessous et nous leur enverrons un e-mail en votre nom les invitant à se joindre à nous!",
+  "inviteFriends": "Pour inviter vos amis à",
+  "sendEmailText": ", entrez leur prénom et leur adresse e-mail ci-dessous. Nous enverrons un e-mail en votre nom, les invitant à rejoindre",
+  "ipadEntriesText": "et faire de l'argent; pour eux et des entrées iPad Giveaway pour vous!",
+  "firstName": "Prénom:",
+  "emailAddress": "Adresse e-mail:",
+  "accessCode": "Code d'accès",
+  "textBelow": "Entrez ce code dans la zone de texte ci-dessous",
+  "invalidAccessCode": "Code d'accès invalide",
+  "enterAccessCode": "Entrez le code d'accès *",
+  "inviteFriend": "INVITEZ MES AMIS",
+  "required": "Champs obligatoires",
+  "filldata": "Veuillez remplir des données valides",
+  "onlyletters": "Veuillez saisir uniquement des lettres",
+  "invsucc": "Le membre a été invité avec succès.",
+  "memberInvitedSucessfully": "Membre invité avec succès",
+  "invitationFailed": "Échec de l'invitation",
+  "pleasegiveatleastoneemailaddress": "Veuillez donner au moins une adresse e-mail"
+}
+
+
+
+

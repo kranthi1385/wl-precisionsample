@@ -1,0 +1,115 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>rel</title>
+    @*<script type="text/javascript" id="cleanid_script_id" src="https://idsuite.navigatorsurveys.com/cleanid-v3.current.min.js" data-key="34ef4d14-bb81-ecea-dcd2-9a8f090ece82"></script>*@
+    <script src="~/Scripts/iframresizer.js" type="text/javascript"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script src="~/Scripts/translate-pluggable-loader.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <script type="text/javascript" src="~/Scripts/services/translationService.js"></script>
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3" />
+    <meta name="robots" content="nofollow" />
+    <link href="~/Content/loading-bar.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/iframresizer.js" type="text/javascript"></script>
+    <script src="https://js.verisoul.ai/prod/bundle.js" verisoul-project-id="be0e3932-c860-4b71-927b-8a2e8b7941dc"></script>
+    @*<script src="https://www.ipqscdn.com/api/*/eQN8AtqlOm74ZSNbmGKCaTDyyZaS1tFqdPBIn1ADM6Qp8GObALIELx35stQVoBMRXYKVXxCaIJkn8pFGivyYOrNQFn32GWkwnqbyvHT2z61imMDxaLh10wf7So51cFvWH4nyJncXgDsGXGrxOObXoTXlRUJH1osapuFtV5vCYFUMuVQ6h0B41NH3pWnj6puCFJtbDT9en43Leu47ZUEmabwwKMXrPrmKHLLXrrj8jopvE4ycdDYwtTTz1F5QEjym/learn.js" crossorigin="anonymous"></script>*@
+    @*<noscript><img src="https://www.ipqscdn.com/api/*/eQN8AtqlOm74ZSNbmGKCaTDyyZaS1tFqdPBIn1ADM6Qp8GObALIELx35stQVoBMRXYKVXxCaIJkn8pFGivyYOrNQFn32GWkwnqbyvHT2z61imMDxaLh10wf7So51cFvWH4nyJncXgDsGXGrxOObXoTXlRUJH1osapuFtV5vCYFUMuVQ6h0B41NH3pWnj6puCFJtbDT9en43Leu47ZUEmabwwKMXrPrmKHLLXrrj8jopvE4ycdDYwtTTz1F5QEjym/pixel.png" /></noscript>*@
+    <script>
+        getUrlVars = function () {
+            var Url = window.location.href.toLowerCase();
+            var vars = {};
+            var parts = Url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        var ug = getUrlVars()["ug"];
+        var cid = getUrlVars()["cid"];
+        var usid = getUrlVars()["id"];
+        if (usid == undefined) {
+            usid = '';
+        }
+        if (ug == undefined) {
+            ug = '';
+        }
+        if (cid == undefined) {
+            cid = '';
+        }
+        // Optional tracking variables that can be used to pass data and subIDs.
+        // Please set any new variables to track here: https://www.ipqualityscore.com/user/settings#variables
+        // Must be manually added to <noscript> <img> tag above such as: ...pixel.png?userID=123&transactionID=11
+        // Strongly suggested to pass "email" and "userID" for better device tracking and performance
+        // Parse the value in the transactionID field from the URL
+        if (typeof Startup !== "undefined") {
+            // Startup.Store('transactionID', uid);
+            Startup.Store('userID', usid);
+            // Startup.Store('campaignID', pid);
+            Startup.Store('publisherID', cid);
+        }
+
+        if (typeof Startup !== "undefined") {
+            Startup.AfterResult(function (result) {
+                var ipqsJson = JSON.stringify(result);
+                // redirect or perform business logic if Fraud Score is >= recommended value of 90
+                localStorage.setItem('ipqsJson', ipqsJson);
+            });
+
+            Startup.AfterFailure(function (reason) {
+                // user has blocked the second JavaScript call
+                // can redirect or perform other business logic if JS is not loaded
+                // window.location.href = "";
+            });
+        }
+
+        if (typeof Startup === "undefined") {
+            // user has blocked the initial JavaScript call
+            // can redirect or perform other business logic if JS is not loaded
+            // window.location.href = "";
+        }
+    </script>
+</head>
+<body ng-app="relApp">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    }
+    <div class="preloader" loader=loader>
+        <loading-directive>
+        </loading-directive>
+    </div>
+    @*<div ng-controller="relController" ng-init="relevantInitialize()">*@
+    <div ng-controller="relController">
+        <input type="hidden" name="ClientID" id="ClientID" />
+        <input type="hidden" name="PanelistID" id="PanelistID" />
+        <input type="hidden" name="SurveyID" id="SurveyID" />
+        <input type="hidden" name="GeoCodes" id="GeoCodes" />
+        <input type="hidden" name="TimePeriod" id="TimePeriod" />
+        <input type="hidden" name="RVIDCompleted" id="RVIDCompleted" value="0" />
+        <input type="hidden" name="VID" id="VID" value="" />
+        <input type="hidden" name="RequestCSOData" id="RequestCSOData" value="" />
+    </div>
+    @*<script type="text/javascript" src="https://d3op16id4dloxg.cloudfront.net/RelevantID4.js"></script>*@
+    <!-- /container -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angularval")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/pages/partner/rel.js">
+    </script>
+</body>
+</html>

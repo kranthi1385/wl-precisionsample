@@ -1,0 +1,458 @@
+﻿
+
+html, body {
+    height: 100%;
+}
+
+
+.center {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    font-family: Verdana;
+    font-size: 11pt;
+}
+
+.grid_column {
+    float: left;
+    min-height: 18px;
+    cursor: pointer;
+    text-align: center;
+    margin-left: 8px;
+    word-break: break-word;
+}
+
+.grid_radio {
+    margin: auto;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #212529;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    border-bottom-right-radius: 9px;
+    border-bottom-left-radius: 9px;
+    background-color: #F7F7F7;
+    background-image: url(/images/radio.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 6px 6px;
+}
+
+@media (min-width:760px) {
+    #surveyContainer {
+        margin: 9px;
+        min-height: 410px;
+        background-attachment: scroll;
+        background-color: transparent;
+        background-repeat: repeat-y;
+        background-position: center bottom;
+        margin-top: 24px;
+    }
+
+    #surveyQuestionListContainer {
+        float: left;
+        width: 100%;
+    }
+
+    .light-box {
+        margin: 40px 0;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    #dvSurveyQuestions {
+        max-width: 850px;
+        height: auto;
+        margin: 1em;
+        background: rgba(0, 0, 0,0.7);
+        opacity: 0.999;
+        border-radius: 5px;
+        padding: 20px;
+        padding-top: 15px;
+        text-align: center;
+        font-size: 14px;
+        padding-bottom: 0px;
+    }
+
+    h3.surveyHeader {
+        background: none;
+        height: 3px;
+        width: 916px;
+    }
+
+    #masthead {
+        width: 850px;
+        height: 99px;
+    }
+
+    .wrapper {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .left {
+        width: 50%;
+        float: left;
+    }
+
+    .right {
+        width: 50%;
+        float: left;
+    }
+
+    . dvMultiselect {
+        margin-top: 50px;
+    }
+
+    .mobile {
+        display: inline;
+    }
+
+    .web {
+        display: none;
+    }
+
+    .grid_column {
+        float: left;
+        min-height: 18px;
+        cursor: pointer;
+        text-align: center;
+        margin-left: 8px;
+        word-break: break-word;
+    }
+
+    .grid_radio {
+        margin: auto;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #212529;
+        border-top-left-radius: 9px;
+        border-top-right-radius: 9px;
+        border-bottom-right-radius: 9px;
+        border-bottom-left-radius: 9px;
+        background-color: #F7F7F7;
+        background-image: url(/images/radio.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 6px 6px;
+    }
+
+    .single_radio {
+        display: inline;
+        padding-left: 8px;
+        font-size: 14px;
+    }
+
+    .grid_checkbox {
+        /*margin: auto;*/
+        width: 14px;
+        height: 14px;
+        border: 1px solid #CCC;
+        background-color: #F7F7F7;
+        background-image: url(/images/checkbox.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px 12px;
+    }
+
+    .grid_matrix_checkbox {
+        margin: auto;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #CCC;
+        background-color: #F7F7F7;
+        background-image: url(/images/checkbox.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 12px 12px;
+    }
+
+    .grid_span_holder {
+        display: none;
+        width: 100%;
+        height: 100%;
+    }
+
+    .grid_span {
+        padding: 8px 4px;
+        display: table-cell;
+        line-height: normal;
+        vertical-align: middle;
+    }
+
+    .grid_floating_header {
+        background-color: #fff;
+        position: relative;
+    }
+
+    .grid_question {
+        min-height: 18px;
+        float: left;
+    }
+
+    .input_on {
+        background-color: green !important;
+        border-color: #0d5b94 !important;
+        color: #FFFFFF !important;
+    }
+
+    .grid_question_opt {
+        min-height: 18px;
+        float: left;
+        word-break: break-word;
+        width: 40%;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .grid_question_optmatrix {
+        min-height: 18px;
+        float: left;
+        word-break: break-word;
+        width: 34%;
+        font-weight: normal;
+        font-size: 15px;
+    }
+
+    .grid_question_optmatrix_new {
+        min-height: 18px;
+        float: left;
+        word-break: break-word;
+        width: 60%;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .container {
+        width: 768px;
+        min-height: 99%;
+        background: #FFF;
+        margin: 0 auto;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        position: relative;
+    }
+
+    .grid_header {
+        margin: 10px 36px;
+        min-height: 18px;
+        float: left;
+    }
+
+    .question_martix {
+        /*margin: 0px 28px 10px 28px;*/
+        padding: 4px;
+        overflow: auto;
+        float: left;
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .dvspan {
+        width: 86%;
+    }
+
+    .pagecontextborder {
+        border-color: #ffffff;
+        border-style: solid;
+        border-width: 1px;
+        min-height: 600px;
+    }
+
+    .dvChkbox {
+        width: 100%;
+        float: left;
+        padding-bottom: 4px;
+    }
+
+    .spnopttxt {
+        width: 89%;
+    }
+}
+@media (max-width:767px) {
+    .mobileradiobutton{
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap:wrap;
+    }
+    .mobileradiobutton .grid_column{
+        margin: 10px 10px 20px !important;
+    }
+      .restable .optiontext{
+            margin-top:20px;
+            float:none !important;
+            width:100% !important;
+        }
+}
+@media (max-width:760px) {
+    #surveyContainer {
+        margin: 9px;
+        min-height: 410px;
+        background-attachment: scroll;
+        background-color: transparent;
+        background-repeat: repeat-y;
+        background-position: center bottom;
+        margin-top: 24px;
+    }
+
+    #surveyQuestionListContainer {
+        float: left;
+        width: 100%;
+    }
+
+    .light-box {
+        margin: 40px 0;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    #dvSurveyQuestions {
+        max-width: 850px;
+        height: auto;
+        margin: 1em;
+        background: rgba(0, 0, 0,0.7);
+        opacity: 0.999;
+        border-radius: 5px;
+        padding: 20px;
+        padding-top: 15px;
+        text-align: center;
+        font-size: 14px;
+        padding-bottom: 0px;
+    }
+
+    h3.surveyHeader {
+        background: none;
+        height: 3px; /*width: 916px;*/
+    }
+
+    #masthead {
+        height: 99px;
+    }
+
+    .wrapper {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .grid_warning {
+        text-align: center;
+        width: auto;
+    }
+
+    .grid_floating_header {
+        display: none;
+    }
+
+    .grid_question {
+        width: 100% !important;
+        margin: 6px 0 10px 0;
+        float: none;
+    }
+
+    .grid_column {
+        width: 136px !important;
+        margin: 8px auto !important;
+        background-color: #428BCA;
+        border-radius: 6px;
+        box-shadow: 0px -3px 0px 0px rgba(0,0,0,0.15) inset;
+        float: none;
+        width: 136px;
+    }
+
+    .grid_span {
+        padding: 8px 4px;
+        display: table-cell;
+        line-height: normal;
+        vertical-align: middle;
+    }
+
+    .grid_radio {
+        display: none;
+    }
+
+    .single_radio {
+        display: none;
+    }
+
+    .grid_checkbox {
+        display: none;
+    }
+
+    .grid_checkbox {
+        display: none !important;
+    }
+
+    .grid_span_holder {
+        display: table;
+        margin: 0 auto;
+    }
+
+    .radio_grid_input {
+        display: block;
+        margin: auto;
+        width: 102px !important;
+    }
+
+    .grid_question_opt {
+        margin: 6px 0 10px 0;
+        float: none;
+        word-break: break-word;
+        width: 100%;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    .dvMultiselect {
+        margin-top: 70px;
+    }
+
+    .non_mobile_input {
+        display: none;
+    }
+
+    .input_onm {
+        background-color: green !important;
+        border-color: #0d5b94 !important;
+        color: #FFFFFF !important;
+    }
+
+    .dvspan {
+        width: 86%;
+    }
+
+    .dvChkbox {
+        width: 100%;
+        float: left;
+    }
+
+    .validationspqs {
+        display: none;
+    }
+
+    .grid_question_optmatrix {
+        min-height: 18px;
+        float: left;
+        word-break: break-word;
+        width: 100%;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    .grid_question_optmatrix_new {
+        min-height: 18px;
+        float: left;
+        word-break: break-word;
+        width: 100%;
+        font-weight: bold;
+        font-size: 15px;
+    }
+}

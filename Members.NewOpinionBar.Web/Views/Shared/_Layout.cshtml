@@ -1,0 +1,226 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opinionbar - Give your opinion and get paid</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=@ViewBag.recaptchalangCode" async defer></script>
+    <script src="https://www.offerfwd.net/oi/joi.js"></script>
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <link ng-href="~/Content/loading-bar.css" rel="stylesheet" type="text/css" />
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    @using (Html.BeginForm())
+            {
+        @Html.AntiForgeryToken()
+    }
+    <div ng-controller="bannerrController" ng-init="getUserData()">
+        <div class="navigation_mobile">
+            <div class="nav_item_mob home" ng-click="aboutClick()">
+                {{'about'|translate}}
+            </div>
+            <div class="hr_mob_nav"></div>
+            <div class="nav_item_mob home" ng-click="contactClick()">{{'contactUs'|translate}}</div>
+            <div class="hr_mob_nav"></div>
+            <div class="nav_item_mob flag_mob"><a href='/common/language'><img ng-src="{{flagimg}}" width="25" /></a></div>
+            <div class="hr_mob_nav"></div>
+        </div>
+
+        <div class="header">
+            <div class="header_content">
+                <div class="logo logo_home"></div>
+                <div class="nav_wrapper">
+                    <div class="navigation_mobile">
+                        <div class="nav_item_mob nav_item_mob_active my_profile" href="/profile/index">
+                            @Opinionbar.Language.Resource.menu_profile
+                        </div>
+                        <div class="hr_mob_nav"></div>
+                        <div class="nav_item_mob home_login" href="/home/about">
+                            @Opinionbar.Language.Resource.menu_about
+                        </div>
+                        <div class="hr_mob_nav"></div>
+                        <div class="nav_item_mob contact_login" href="/home/contact">
+                            @Opinionbar.Language.Resource.menu_contact
+                        </div>
+                        <div class="hr_mob_nav"></div>
+                        <div class="nav_item_mob logout_mob">
+                            <div class="logout_icon"></div> @Opinionbar.Language.Resource.sign_out
+                        </div>
+                        <div class="hr_mob_nav"></div>
+                        <div class="nav_item_mob flag_mob"><a href='/common/language'> <img ng-src="{{flagimg}}" width="25" /></a></div>
+                        <div class="hr_mob_nav"></div>
+                        <div class="header_content" style="padding: 0px;">
+                            <div class="countries_mob">
+                                <div class="country_mob">
+                                    <select class="input_contact" id="survey" class="styleselect">
+                                        <option>English</option>
+                                        <option value="Survey">Nederlands</option>
+                                        <option value="Survey">Danske</option>
+                                        <option value="Survey">Deutsch</option>
+                                        <option value="Survey">Português</option>
+                                        <option value="Survey">日本人</option>
+                                        <option value="Survey">中國</option>
+
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="header">
+                        <div class="header_content">
+                            <div class="logo logo_home_login" ng-click="homeClick()"></div>
+                            <div class="nav_wrapper">
+                                <div class="nav_item navigation_inactive my_profile" ng-hide="hidebar" ng-click="homeClick()">
+                                    {{'myprofile'|translate}}
+                                </div>
+                                <div class="nav_item navigation_inactive home_login" ng-click="aboutClick()">
+                                    {{'about'|translate}}
+                                </div>
+                                <div class="nav_item navigation_inactive contact_login" ng-click="contactClick()">
+                                    {{'contactUs'|translate}}
+                                </div>
+                                <div class="nav_item navigation_inactive contact_login">
+                                    <a href="#" onclick="window.open('https://www.opinionbar.com/Login/HelpDesk?v=4','faq', 'height=600,width=600,scrollbars=yes'); return false" style="color:#fff;text-decoration: none;">{{'faq'|translate}}</a>
+                                </div>
+                                @*<div class="nav_item navigation_inactive contact_login" ng-click="termsClick()">
+                                        TERMS
+                                    </div>
+                                    <div class="nav_item navigation_inactive contact_login" ng-click="privacyClick()">
+                                        PRIVACY
+                                    </div>*@
+                                <div class="nav_item_flag navigation_inactive language nav_item">
+                                    <a href='/common/language'><img ng-src="{{flagimg}}" width="25" /></a>
+                                </div>
+                                <div class="hamburger_icon"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="countries_wrapper">
+                        <div class="header_content" style="padding: 0px;">
+                            <div class="countries">
+                                <div class="country"><img src="/images/flag1.png" width="25"><div class="country_name">Nederlands</div></div>
+                                <div class="country">
+                                    <img src="/images/flag2.png" width="25"><div class="country_name">
+                                        Danske
+                                    </div>
+                                </div>
+                                <div class="country"><img src="/images/flag3.png" width="25"><div class="country_name">日本人</div></div>
+                                <div class="country"><img src="/images/flag4.png" width="25"><div class="country_name">Deutsch</div></div>
+                                <div class="country"><img src="/images/flag5.png" width="25"><div class="country_name">中國</div></div>
+                                <div class="country"><img src="/images/flag6.png" width="25"><div class="country_name">Português</div></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="countries_wrapper">
+            <div class="header_content" style="padding: 0px;">
+                <div class="countries">
+                    <div class="country"><img src="/images/flag1.png" width="25"><div class="country_name">Nederlands</div></div>
+                    <div class="country">
+                        <img src="/images/flag2.png" width="25"><div class="country_name">
+                            Danske
+                        </div>
+                    </div>
+                    <div class="country"><img src="/images/flag3.png" width="25"><div class="country_name">日本人</div></div>
+                    <div class="country"><img src="/images/flag4.png" width="25"><div class="country_name">Deutsch</div></div>
+                    <div class="country"><img src="/images/flag5.png" width="25"><div class="country_name">中國</div></div>
+                    <div class="country"><img src="/images/flag6.png" width="25"><div class="country_name">Português</div></div>
+
+                </div>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="banner_content">
+                <div class="slogan">
+                    <div class="h1">
+                        {{'giveyouropinion' | translate}}
+                    </div>
+                    <div class="h3 font_normal">
+                        {{'nospam' | translate}}
+                    </div>
+                </div>
+                @if (@ViewBag.IsShowLogIn == 1)
+            {
+                    <div class="btn_wrapper_banner">
+                        <div class="centerwrapper">
+                            <div class="btn_banner font_bold sign_up_email">
+                                <div class="sign_up_email_icon"></div>
+                                @Opinionbar.Language.Resource.create_your_account
+                            </div>
+                            <div class="btn_banner font_bold sign_in">
+                                <div class="sign_in_icon"></div>
+                                @Opinionbar.Language.Resource.signin_your_acount
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+
+
+    @RenderBody()
+
+
+    <div class="footer" ng-controller="footerController">
+        <span style="margin-left: 235px;display: flex;">© {{'copyRights'|translate}} <a href="http://www.metrixlab.com" style="cursor:pointer;color: #888;" target="_blank" class="metrixlab">MetrixLab<br></a></span>
+        <div class="nav_footer_wrapper">
+            <div class="nav_footer_item more_about">
+                <a class="footer" href="" ng-click="aboutClick()">{{'footer_more_abt_opbar'|translate}}</a>
+            </div>
+            @*<div class="nav_footer_item terms">
+                    <a class="footer" href="" ng-click="doNotSellMyInfo()"> {{'saveMyInfo'|translate}}</a>
+                </div>*@
+            <div class="nav_footer_item privacy">
+                <a class="footer" href="" ng-click="privacyClick()">{{'privacy'|translate}}</a>
+            </div>
+            <div class="nav_footer_item terms">
+                <a class="footer" href="" ng-click="termsClick()"> {{'terms_conditions'|translate}}</a>
+            </div>
+        </div>
+        <div class="nav_footer_mobile">
+            <div class="nav_footer_item more_about">
+                <a class="footer" href="" ng-click="aboutClick()">{{'footer_more_abt_opbar'|translate}}</a>
+            </div>
+            <div class="nav_footer_item privacy">
+                <a class="footer" href="" ng-click="privacyClick()">{{'privacy'|translate}}</a>
+            </div>
+            <div class="nav_footer_item terms">
+                <a class="footer" href="" ng-click="doNotSellMyInfo()"> {{'saveMyInfo'|translate}}</a>
+            </div>
+            <div class="nav_footer_item terms">
+                <a class="footer" href="" ng-click="termsClick()"> {{'terms_conditions'|translate}}</a>
+            </div>
+        </div>
+    </div>
+    <div class="preloader" loader>
+        <div class="loader"></div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/pages/functions.js")
+    @Scripts.Render("~/Scripts/pages/links.js")
+    <script src="/Scripts/pages/script.js"></script>
+    <script src="/Scripts/pages/links.js"></script>
+    <script src="/Scripts/pages/scrollnav.js"></script>
+
+    <script>document.write("<script  type='text/javascript' src='/Scripts/require.js'  data-main='/Scripts/services/config.js?v=" + 4 + "' ><\/script>");</script>
+</body>
+</html>

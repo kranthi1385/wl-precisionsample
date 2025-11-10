@@ -1,0 +1,226 @@
+ @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500,700');
+
+body, html {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+}
+
+* {
+	font-family: 'Raleway', sans-serif;
+}
+.link-a {
+	padding: 3px 0;
+}
+.link-a i {
+	position: relative;
+	top: 0px;
+	vertical-align: top;
+	font-size: 11px;
+	color: #bbb;
+}
+.link-a a {
+	font-size: 14px;
+	color: #1c83f3;
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 5px;
+}
+.header-bg {
+	background: #000 url("../../Images/ResearchWorldWide/banner-bg.jpg") no-repeat center/cover;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.radius-0 {
+	border-radius: 0;
+}
+.login-card {
+	background-color: #34af6d;
+}
+.login-card * {
+	color: #fff;
+}
+.login-card label {
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 11px;
+}
+.login-card .form-group {
+	position: relative;
+}
+.forgot-pwd {
+	position: absolute;
+	top: 3px;
+	right: 15px;
+	z-index: 1;
+	font-size: 10px;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	text-decoration: none !important;
+}
+.banner-headline {
+	padding-top: 60px;
+}
+.head-title {
+	color: #FFFFFF;
+	font-size: 3rem;
+	line-height: 1;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.head-p {
+	font-size: 1.5rem;
+	color: #fff;
+	padding-top: 5px;
+	margin-bottom: 0;
+}
+.btn-apply {
+	font-size: 2.1rem;
+	color: #FFFFFF;
+	width: 305px;
+	padding: 1rem;
+	font-weight: 500;
+	font-family: Helvetica, Arial, "sans-serif";
+	letter-spacing: 2px;
+}
+.btn-danger {
+	background-color: #ff6d02;
+	border-color: #ff6d02;
+}
+.btn-danger:hover {
+	color: #fff;
+	background-color: #ce600f;
+	border-color: #ce600f;
+}
+.row-cols {
+	background-color: #FFF;
+	padding-top: 20px;
+}
+.cols-pos {
+	position: relative;
+	z-index: 2;
+}
+.row-rewards {
+	background-color: #ebebeb;
+	min-height: 180px;
+	position: relative;
+	padding-top: 100px;
+	margin-top: -60px;
+}
+.title-success {
+	color: #34af6d;
+}
+.title-primary {
+	color: #021f60;
+}
+.row-cols .card-text {
+	font-size: 1.2rem;
+	line-height: 1.8;
+}
+.rewards-c {
+	padding: 20px 0 40px;
+	text-align: center;
+}
+.clients-logo {
+	padding: 5px;
+}
+.c-logo {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.c-logo img {
+	max-width: 100%;
+	height: auto;
+}
+.foot-links {
+	text-align: right;
+}
+.foot-links a {
+	font-size: 12px;
+	font-weight: 700;
+	color: #627fb8;
+	text-decoration: none !important;
+}
+footer {
+	background-color: #021f60;
+	padding: 5px;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 992px) {
+.container {
+	max-width: 960px;
+}
+}
+
+@media (min-width: 1200px) {
+.container {
+	max-width: 1000px;
+}
+.header-bg {
+	height: 395px;
+	background: #000 url("../../Images/ResearchWorldWide/banner-bg.jpg") no-repeat center/cover;
+	padding-top: 30px;
+	padding-bottom: 0px;
+}
+}
+
+@media (max-width: 991px) {
+.head-title br {
+	display: none;
+}
+.head-p {
+	padding-bottom: 20px;
+}
+}
+
+@media (max-width: 768px) {
+.card-deck .card {
+	flex: 100%;
+	-ms-flex: 100%;
+	margin-bottom: 10px;
+}
+.row-cols {
+	background-color: #f9f7f7;
+	padding-top: 25px;
+}
+.logo {
+	text-align: center;
+	margin-bottom: 20px;
+}
+}
+
+@media (max-width: 640px) {
+.head-title {
+	font-size: 2rem;
+}
+.card-deck .card {
+	flex: 100%;
+	-ms-flex: 100%;
+}
+.foot-links {
+	text-align: center;
+}
+.c-logo {
+	width: 48%;
+}
+}

@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opinionbar - Give your opinion and get paid</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+
+        })(window, document, 'script', 'dataLayer', 'GTM-N9DDS62');</script>
+    <!-- End Google Tag Manager -->
+    <script>
+        fbq('track', 'CompleteRegistration');
+    </script>
+    <script>
+        // trigger an outbound click event
+        var click_id = AnyTrack('CompleteRegistration');
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js?v=1"></script>
+    <script src="https://www.google.com/recaptcha/api.js?hl=@ViewBag.recaptchalangCode" async defer></script>
+    <script src="https://www.offerfwd.net/oi/joi.js"></script>
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <link href="/Content/selectboxit_copy.css" rel="stylesheet">
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    <link ng-href="~/Content/loading-bar.css" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/selectboxit.css" rel="stylesheet" />
+    <link href="~/Content/modal.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm())
+            {
+        @Html.AntiForgeryToken()
+    }
+    <div ng-controller="bannerrController">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9DDS62"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <div class="navigation_mobile" ng-init="getUserData()">
+            @*@if (@ViewBag.SelectedMenu == "about" || @ViewBag.SelectedMenu == "contact")
+                {
+                    <div class="nav_item_mob  my_profile">
+                        @Opinionbar.Language.Resource.menu_profile
+                    </div>
+                    <div class="hr_mob_nav"></div>
+                }*@
+            <div class="nav_item_mob home" ng-click="aboutClick()">
+                {{'about'|translate}}
+            </div>
+            <div class="hr_mob_nav"></div>
+            <div class="nav_item_mob home" ng-click="contactClick()">{{'contactUs'|translate}}</div>
+            <div class="hr_mob_nav"></div>
+            <!-- <div class="nav_item_mob flag_mob"><a href='/common/language'><img src="~/images/flag_usa.png" width="25" /></a></div> -->
+            <div class="nav_item language navigation_inactive"
+                 ng-mouseenter="showDropdown = true"
+                 ng-mouseleave="showDropdown = false">
+                <span href="javascript:void(0);" class="language-selector">
+                    {{'Language'|translate}}
+                </span>
+                <div class="list_language" ng-show="showDropdown">
+                    <ul>
+                        <li ng-repeat="lang in EUCountryCode | orderBy :'LangName'"
+                            ng-click="selectLanaguage($index, lang)">
+                            <bold href="javascript:;" rel="nofollow">
+                                {{lang.LangName}}
+                            </bold>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- <div class="hr_mob_nav"></div> -->
+            <!-- <div class="header_content" style="padding: 0px;"> -->
+            <!-- <div class="countries_mob"> -->
+            <!-- <div class="country_mob"> -->
+            <!-- <select class="input_contact" id="survey" class="styleselect"> -->
+            <!-- <option>English</option> -->
+            <!-- <option value="Survey">Nederlands</option> -->
+            <!-- <option value="Survey">Danske</option> -->
+            <!-- <option value="Survey">Deutsch</option> -->
+            <!-- <option value="Survey">Português</option> -->
+            <!-- <option value="Survey">日本人</option> -->
+            <!-- <option value="Survey">中國</option> -->
+            <!-- </select> -->
+            <!-- </div> -->
+            <!-- </div> -->
+            <!-- </div> -->
+        </div>
+
+        <div class="header">
+            <div class="header_content">
+                <div class="logo logo_home"></div>
+                <div class="nav_wrapper">
+                    <div class="navigation_mobile">
+                        <div class="nav_item_mob nav_item_mob_active my_profile" href="/profile/index">
+                            @Opinionbar.Language.Resource.menu_profile
+                        </div>
+                        <div class="hr_mob_nav"></div>
+                        <div class="nav_item_mob home_login" href="/home/about">
+                            @Opinionbar.Language.Resource.menu_about
+                        </div>
+                        <div class="hr_mob_nav"></div>
+                        <div class="nav_item_mob contact_login" href="/home/contact">
+                            @Opinionbar.Language.Resource.menu_contact
+                        </div>
+                        <div class="hr_mob_nav"></div>
+                        <div class="nav_item_mob logout_mob">
+                            <div class="logout_icon"></div>
+                            <div class="btn_banner logout" ng-click="submit()">
+                                <div class="logout_icon"></div>{{'logout' | translate}}
+                            </div>
+                        </div>
+                        <div class="hr_mob_nav"></div>
+                        <div class="nav_item_mob flag_mob"><a href='/common/language'><img src="/images/dutch_flag.png" width="25" /></a></div>
+                        <div class="hr_mob_nav"></div>
+                    </div>
+
+                    <div class="header">
+                        <div class="header_content">
+                            <div class="logo logo_home_login" ng-click="homeClick()"></div>
+                            <div class="nav_wrapper">
+                                <div class="nav_item navigation_inactive my_profile" style="margin-right:-19px;" ng-click="homeClick()">
+                                    {{ 'myprofile' | translate }}
+                                </div>
+                                <div class="nav_item navigation_inactive home_login" ng-click="aboutClick()">
+                                    {{ 'about' | translate }}
+                                </div>
+                                <div class="nav_item navigation_inactive contact_login" ng-click="contactClick()">
+                                    {{ 'contactUs' | translate }}
+                                </div>
+                                <div class="nav_item navigation_inactive contact_login">
+                                    <a href="#"
+                                       onclick="window.open('https://opinionbar.com/Login/HelpDesk?v=4', 'faq', 'height=600,width=600,scrollbars=yes'); return false;"
+                                       style="color: #fff; text-decoration: none;">
+                                        {{ 'faq' | translate }}
+                                    </a>
+                                </div>
+
+
+                                <!-- <div class="nav_item_flag navigation_inactive language nav_item"> -->
+                                <!-- <a href="/common/language"> -->
+                                <!-- <img ng-src="{{flagimg}}" alt="Language Flag" width="25" /> -->
+                                <!-- </a> -->
+                                <!-- </div> -->
+                                <div class="nav_item language navigation_inactive"
+                                     ng-mouseenter="showDropdown = true"
+                                     ng-mouseleave="showDropdown = false">
+                                    <span href="javascript:void(0);" class="language-selector">
+                                        {{'Language'|translate}}
+                                    </span>
+                                    <div class="list_language" ng-show="showDropdown">
+                                        <ul>
+                                            <li ng-repeat="lang in EUCountryCode | orderBy :'LangName'"
+                                                ng-click="selectLanaguage($index, lang)">
+                                                <bold href="javascript:;" rel="nofollow">
+                                                    {{lang.LangName}}
+                                                </bold>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                                @*<div class="btn_wrapper_banner_logout">*@
+                                @*<div class="profile_center">*@
+                                <div class="nav_item navigation_inactive contact_login" ng-click="submit()">
+                                    <div class="logout_icon"></div>
+                                    {{ 'logout' | translate }}
+                                </div>
+                                @*</div>*@
+                                @*</div>*@
+
+                                <!-- Hamburger Menu Icon -->
+                                <div class="hamburger_icon"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="countries_wrapper">
+                        <div class="header_content" style="padding: 0px;">
+                            <div class="countries">
+                                <div class="country"><img src="/images/flag1.png" width="25"><div class="country_name">Nederlands</div></div>
+                                <div class="country">
+                                    <img src="/images/flag2.png" width="25"><div class="country_name">
+                                        Danske
+                                    </div>
+                                </div>
+                                <div class="country"><img src="/images/flag3.png" width="25"><div class="country_name">日本人</div></div>
+                                <div class="country"><img src="/images/flag4.png" width="25"><div class="country_name">Deutsch</div></div>
+                                <div class="country"><img src="/images/flag5.png" width="25"><div class="country_name">中國</div></div>
+                                <div class="country"><img src="/images/flag6.png" width="25"><div class="country_name">Português</div></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="countries_wrapper">
+            <div class="header_content" style="padding: 0px;">
+                <div class="countries">
+                    <div class="country"><img src="/images/flag1.png" width="25"><div class="country_name">Nederlands</div></div>
+                    <div class="country">
+                        <img src="/images/flag2.png" width="25"><div class="country_name">
+                            Danske
+                        </div>
+                    </div>
+                    <div class="country"><img src="/images/flag3.png" width="25"><div class="country_name">日本人</div></div>
+                    <div class="country"><img src="/images/flag4.png" width="25"><div class="country_name">Deutsch</div></div>
+                    <div class="country"><img src="/images/flag5.png" width="25"><div class="country_name">中國</div></div>
+                    <div class="country"><img src="/images/flag6.png" width="25"><div class="country_name">Português</div></div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="banner_myprofile">
+            <div class="banner_content">
+                <div class="welcome_message">
+                    <div class="welcome_message_text">
+                        <span class="title">{{'welcome' | translate}}</span> <span class="title"> &nbsp;{{user.FirstName}}</span><br>
+                        <span class="subtitle" ng-if="userRewardsInfo.AccountBalance != undefined">
+                            {{'earnmsg' | translate}}
+                            <span ng-if="user.CountryId==231">{{userRewardsInfo.CurrencyNotation}}{{userRewardsInfo.AccountBalanceLocalCurrency}} </span>
+                            <span ng-if="user.CountryId==229">{{userRewardsInfo.CurrencyNotation}}{{userRewardsInfo.AccountBalanceLocalCurrency}} </span>
+                            <span ng-if="user.CountryId!=231 && user.CountryId!=229">{{userRewardsInfo.CurrencyNotation}}{{userRewardsInfo.AccountBalanceLocalCurrency}}</span>
+                        </span>
+                        <span class="subtitle" ng-if="userRewardsInfo.AccountBalance == undefined">
+                            {{'earnmsg' | translate}}
+                            <span ng-if="user.CountryId==231">$0.00 </span>
+                            <span ng-if="user.CountryId==229">£0.00 </span>
+                            <span ng-if="user.CountryId!=231 && user.CountryId!=229">€0.00 </span>
+                        </span>
+
+                    </div>
+                </div>
+                @*<div class="btn_wrapper_banner_logout">
+                        <div class="profile_center">
+                            <div class="btn_banner logout" ng-click="submit()">
+                                <div class="logout_icon"></div>{{'logout' | translate}}
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+        <div class="subnav_banner">
+            <div class="subnav_content">
+
+                <div class="subnav_wrapper_two">
+                    <ul class="tabnav-list">
+
+                        <li ng-class="{'active': tabActive == 'surveys',}">
+                            <a id="surveys_nav" href="/Ms/Surveys" class="aspan" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                <span class="aspan">{{'surveys' | translate}}</span>
+                            </a>
+                        </li>
+                        <li ng-class="{'active': tabActive == 'rewards',}">
+                            <a id="rewards_nav" href="/mr/Rewards" class="aspan" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                <span class="aspan">{{'rewards' | translate}}</span>
+                            </a>
+                        </li>
+                        <li ng-class="{'active': tabActive == 'downline',}">
+                            <a id="rewards_nav" href="/rf/downline" class="aspan" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                <span class="aspan">{{'ReferAFriend' | translate}}</span>
+                            </a>
+                        </li>
+                        <li ng-class="{'active': tabActive == 'obprofile',}">
+                            <a id="myaccount_nav" href="/pr/OBProfile" class="aspan" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                <span class="aspan">{{'Profile' | translate}}</span>
+                            </a>
+                        </li>
+                        <li ng-class="{'active': tabActive == 'account',}">
+                            <a id="myaccount_nav" href="/ep/Account" class="aspan" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                <span class="aspan">{{'myAccount' | translate}}</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @RenderBody()
+    <div class="footer footer_end" ng-controller="footerController">
+        <span style="margin-left: 200px;display: flex;">© {{'copyRights'|translate}}{{currentYear}}  <a href="https://www.precisionsample.com" style="cursor:pointer;color: #888;margin-left:3px;" target="_blank" class="metrixlab"> PrecisionSample<br></a></span>
+        <div class="nav_footer_wrapper">
+            <div class="nav_footer_item more_about">
+                <a class="footer" style="margin-left: -35px;" ng-click="aboutClick()">{{'footer_more_abt_opbar'|translate}}</a>
+            </div>
+            <div class="nav_footer_item terms">
+                <a class="footer" href="" ng-click="doNotSellMyInfo()"> {{'saveMyInfo'|translate}}</a>
+            </div>
+            <div class="nav_footer_item privacy">
+                <a class="footer" href="" ng-click="privacyClick()">{{'privacy'|translate}}</a>
+            </div>
+            <div class="nav_footer_item terms">
+                <a class="footer" href="" ng-click="termsClick()"> {{'terms_conditions'|translate}}</a>
+            </div>
+        </div>
+        <div class="nav_footer_mobile">
+            <div class="nav_footer_item more_about">
+                <a class="footer" style="margin-left: -35px;" href="" ng-click="aboutClick()">{{'footer_more_abt_opbar'|translate}}</a>
+            </div>
+            <div class="nav_footer_item privacy">
+                <a class="footer" href="" ng-click="privacyClick()">{{'privacy'|translate}}</a>
+            </div>
+            <div class="nav_footer_item terms">
+                <a class="footer" href="" ng-click="termsClick()"> {{'terms_conditions'|translate}}</a>
+            </div>
+        </div>
+    </div>
+    <div class="preloader" loader>
+        <div class="loader"></div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/pages/functions.js")
+    @Scripts.Render("~/Scripts/pages/links.js")
+    <script src="/Scripts/pages/script.js"></script>
+    <script src="/Scripts/pages/links.js"></script>
+    <script src="/Scripts/pages/scrollnav.js"></script>
+    <script src="/Scripts/highcharts/highcharts.js" type="text/javascript"></script>
+    <script>document.write("<script  type='text/javascript' src='/Scripts/require.js'  data-main='/Scripts/services/config.js?v=" + 20 + "' ><\/script>");</script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".tabnav-list li").click(function () {
+                $(this).addClass('active');
+                if ($('.tabnav-list li').hasClass('active')) {
+                    $('.tabnav-list li').removeClass('active');
+                    $(this).addClass('active');
+                }
+            });
+
+        });
+    </script>
+
+
+</body>
+</html>

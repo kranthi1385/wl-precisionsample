@@ -1,0 +1,131 @@
+﻿
+@{
+    Layout = null;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <link href="~/Content/default.css" rel="stylesheet" />
+    <link href="~/Content/reset.css" rel="stylesheet" />
+</head>
+
+<body ng-app="footerApp" style="margin-top:0px;background: url(~/Images/bg.jpg) repeat-x #abd7fe;">
+    @Html.AntiForgeryToken()
+    <div id="container" style="padding-left: 55px;" ng-controller="cancelAccCntrl">
+        <div id="header">
+            <img ng-src="{{orgDetails.OrgLogo}}" style="margin-top: 30px;" />
+        </div>
+        <div style="display: block; width: 800px;margin-top:50px; font-size: 12px; background-color: #FFFFFF; padding: 10px; overflow: hidden; border: solid 1px #CACACA;">
+            <table cellspacing="0" cellpadding="0" width="750" border="0">
+                <tbody align="left">
+                    <tr>
+                        <td valign="top" width="350">
+                            <font>
+                                <font color="#0376bf"><b>{{'text1' | translate}}</b></font>
+                                <br />
+                                <br />
+                                {{'text2' | translate}}
+                                <b>{{'text3' | translate}}</b>.<br />
+                                <br />
+                                {{'text4' | translate}}&nbsp;<a href="javascript:" ng-click="contactClick()" id="ancsurveycontact" style="color: #b2b2b2;">{{'text5' | translate}}</a>&nbsp;{{'text6' | translate}}
+                                <br />
+                            </font>
+                        </td>
+                        <td width="20">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <div style="clear: both; margin: 30px 0; overflow: hidden;">
+                                <table cellspacing="0" cellpadding="0" style="display: block; font-size: 12px; background-color: #F5F5F5; padding: 10px; overflow: hidden; border: solid 1px #CACACA; width: 370px;"
+                                       border="0">
+                                    <tr>
+                                        <td colspan="2" style="padding-left: 5px; padding-bottom: 10px;">
+                                            <span id="ctl00_cphMain_Label1" style="color: #0376BF; font-family: arial; font-size: Medium; font-weight: bold;">{{'text7' | translate}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right" style="width: 85px;">
+                                            <font face="verdana, arial, helvetica" size="2"><b>&nbsp;{{'text8' | translate}}</b></font>
+                                        </td>
+                                        <td align="left">
+                                            <input type="email" name="email" />
+                                            <br />
+                                        </td>
+                                    </tr>
+                                    <tr style="height: 5px;">
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">
+                                            <b>{{'text9' | translate}}&nbsp;</b>
+                                        </td>
+                                        <td align="left">
+                                            <input type="password" name="password" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" colspan="2" style="padding-top: 20px; padding-left: 100px;">
+                                            <button ID="imgSubmit" ng-click="cancelAccount()" Text="Submit" class="btn btn-default" style="font-size: 13px;background-color: #FCFCFC;border: 1px solid #c9c9c9;
+                                                    border-radius: 5px;padding: 9px;font-weight: bold;color: #63a10e;width: 140px;">
+                                                Submit
+                                            </button>
+                                            <br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table cellspacing="0" cellpadding="0" width="800" border="0">
+                <tr>
+                    <td>
+                        <font face="verdana,arial,helvetica" size="2">
+                            <br />
+                            {{'text10' | translate}}&nbsp;<b>{{'text17' | translate}}</b>&nbsp;{{'text18' | translate}}&nbsp;<b>{{'text19' | translate}}</b>&nbsp;{{'text20' | translate}}<a id="cma" href="/wl/s4mstep1"
+                                                                                                                                                                                             style="font-size: large; text-decoration: underline; color: #1E91CB;">{{'text11' | translate}}</a>
+                            <br />
+                        </font>
+                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0" cellpadding="0" width="800" border="0">
+                <tbody align="left">
+                    <tr>
+                        <td>
+                            <font face="verdana, arial, helvetica" size="2">
+                                <b>
+                                    <br />
+                                    {{'text12' | translate}}
+                                </b>{{'text21' | translate}}&nbsp;<b>{{'text22' | translate}}</b>&nbsp;{{'text23' | translate}}&nbsp;<b>{{'text24' | translate}}</b>&nbsp;{{'text25' | translate}}
+                                {{orgDetails.OrgName}} .{{'text13' | translate}}<br />
+                                <br />
+                                {{'text14' | translate}}
+                                {{orgDetails.OrgName}} {{'text15' | translate}} {{orgDetails.OrgName}} {{'text16' | translate}}<br />
+                            </font>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+        </div>
+        <img src="~/Images/main/border.gif" style="margin-top: 20px;" />
+        <footer class="footer text-center" style="padding-top: 15px;font-size: 9px;text-align: center;color: #b2b2b2;margin-bottom: 126px;margin-right: 45px;">
+            © Copyright 2014-2021 {{orgDetails.OrgName}} | <a href="javascript:;" ng-click="termsClick()"> Terms</a> | <a href="" ng-click="privacyClick()">Privacy</a> | <a href="javascript:;" ng-click="contactClick()">Contact Us</a> | <a href="javascript:;" ng-click="aboutClick()">About Us</a> |
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script src="~/Scripts/pages/footer/tc.js" type="text/javascript"></script>
+</body>
+

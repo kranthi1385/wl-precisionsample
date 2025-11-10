@@ -1,0 +1,70 @@
+2025-07-30 16:42:49.4910 | HYLT777-GNJ5HX3 | 33896 | w3wp | Fatal |  | | | Members.OpinionBar.Web.Filters.LoggerAttribute | /Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null|http://dev.op.ps.com/Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null||System.NullReferenceException: Object reference not set to an instance of an object.
+   at Members.OpinionBar.Web.Controllers.LoginController.GetUserDataEmail(String EmailAddress, String token) in F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Web\Controllers\LoginController.cs:line 43
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+2025-07-30 16:43:39.6078 | HYLT777-GNJ5HX3 | 33896 | w3wp | Fatal |  | | | Members.OpinionBar.Web.Filters.LoggerAttribute | /Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null|http://dev.op.ps.com/Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null||System.NullReferenceException: Object reference not set to an instance of an object.
+   at Members.OpinionBar.Web.Controllers.LoginController.GetUserDataEmail(String EmailAddress, String token) in F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Web\Controllers\LoginController.cs:line 43
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+2025-07-30 16:44:11.0857 | HYLT777-GNJ5HX3 | 33896 | w3wp | Fatal |  | | | Members.OpinionBar.Web.Filters.LoggerAttribute | /Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null|http://dev.op.ps.com/Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null||System.NullReferenceException: Object reference not set to an instance of an object.
+   at Members.OpinionBar.Web.Controllers.LoginController.GetUserDataEmail(String EmailAddress, String token) in F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Web\Controllers\LoginController.cs:line 43
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+2025-07-30 16:45:22.9877 | HYLT777-GNJ5HX3 | 33896 | w3wp | Fatal |  | | | Members.OpinionBar.Web.Filters.LoggerAttribute | /Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null|http://dev.op.ps.com/Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null||System.NullReferenceException: Object reference not set to an instance of an object.
+   at Members.OpinionBar.Web.Controllers.LoginController.GetUserDataEmail(String EmailAddress, String token) in F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Web\Controllers\LoginController.cs:line 50
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+2025-07-30 16:47:22.9003 | HYLT777-GNJ5HX3 | 33896 | w3wp | Fatal |  | | | Members.OpinionBar.Web.Filters.LoggerAttribute | /Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null|http://dev.op.ps.com/Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null||System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Members.OpinionBar.Web.Controllers.LoginController.GetUserDataEmail(String EmailAddress, String token) in F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Web\Controllers\LoginController.cs:line 51
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+2025-07-30 16:48:10.2542 | HYLT777-GNJ5HX3 | 33896 | w3wp | Fatal |  | | | Members.OpinionBar.Web.Filters.LoggerAttribute | /Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null|http://dev.op.ps.com/Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null||System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Members.OpinionBar.Web.Controllers.LoginController.GetUserDataEmail(String EmailAddress, String token) in F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Web\Controllers\LoginController.cs:line 51
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+2025-07-30 16:50:14.0235 | HYLT777-GNJ5HX3 | 33896 | w3wp | Fatal |  | | | Members.OpinionBar.Web.Filters.LoggerAttribute | /Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null|http://dev.op.ps.com/Login/GetUserDataEmail?EmailAddress=saiv17567@gmail.com&token=null||System.IndexOutOfRangeException: Index was outside the bounds of the array.
+   at Members.OpinionBar.Web.Controllers.LoginController.GetUserDataEmail(String EmailAddress, String token) in F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Web\Controllers\LoginController.cs:line 51
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()

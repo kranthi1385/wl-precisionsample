@@ -1,0 +1,169 @@
+﻿@model  Members.PrecisionSample.Components.Entities.Surveys
+@{
+    Layout = null;
+    ViewBag.Title = "ReachCollective";
+}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+
+        var ug = getUrlVars()["ug"];
+        if (ug == undefined) {
+            ug = '';
+        }
+
+        var usg = getUrlVars()["usg"];
+        if (usg == undefined) {
+            usg = '';
+        }
+
+        uig = getUrlVars()["uig"];
+        if (uig == undefined) {
+            uig = '';
+        }
+        var pid = getUrlVars()["pid"];
+        if (pid == undefined) {
+            pid = '';
+        }
+
+        var cid = getUrlVars()["cid"];
+        if (cid == undefined) {
+            cid = '';
+        }
+
+        function takeme() {
+
+            var url = "@Html.Raw(@ViewBag.SurveyUrl)";
+            //url = url.toString().replace("&amp;", "&");
+            //url = url.toString().replace("&amp;", "&");
+            //url = url.toString().replace("&amp;", "&");
+            //url = url.toString().replace("&amp;", "&");
+            //url = url.toString().replace("&amp;", "&");
+            //url = url.toString().replace("&amp;", "&");
+            //url = url.toString().replace("&amp;", "&");
+            var orgDetails = "@Model.orgInformation";
+            orgInfo = orgDetails.split(';');
+            if (parseInt(orgInfo[2]) == 1) {
+                window.location.href = orgInfo[0] + '/partner/end?ug=' + ug + '&uig=' + uig + '&usg=' + usg + '&pid=' + pid + '&cid=' + cid;
+            }
+            else {
+                if (url != '' && url != undefined) {
+                    //Redirect the Member to Next top 1 Survey Click page URL.
+                    window.location.href = url + '&osid=' + uig;
+                }
+                else {
+
+                    if (parseInt(orgInfo[3]) == -1 || parseInt(orgInfo[3]) == 1 || parseInt(orgInfo[3]) == 3) {
+                        window.location.href = orgInfo[0] + '/ms/surveys?ug=' + ug + '&uig=' + uig + '&usg=' + usg + '&pid=' + pid + '&cid=' + cid;
+                    }
+                    else {
+                        window.location.href = orgInfo[0] + '/partner/end?ug=' + ug + '&uig=' + uig + '&usg=' + usg + '&pid=' + pid + '&cid=' + cid;
+                    }
+
+                }
+            }
+        }
+
+        function thankyou() {
+            var orgInfo = [];
+            var orgDetails = "@Model.orgInformation";
+            orgInfo = orgDetails.split(';');
+            //standalone partner  redirect to
+            if (parseInt(orgInfo[3]) == -1 || parseInt(orgInfo[3]) == 1 || parseInt(orgInfo[3]) == 3) {
+                window.location.href = orgInfo[0] + '/ms/surveys?ug=' + ug + '&uig=' + uig + '&usg=' + usg + '&pid=' + pid + '&cid=' + cid;
+            }
+            else {
+                window.location.href = orgInfo[0] + '/partner/end?ug=' + ug + '&uig=' + uig + '&usg=' + usg + '&pid=' + pid + '&cid=' + cid;
+            }
+
+        }
+    </script>
+    <style type="text/css">
+        body {
+            color: black !important;
+            font-family: Lucida Sans Console, Verdana, Tahoma, Arial, Verdana, sans-serif;
+            font-size: 13px;
+            line-height: 1.42857143; /* background-color: #abd7fe; */
+        }
+
+        #dvContent {
+            padding: 26px;
+            overflow: hidden;
+            max-width: 770px;
+            background-color: White;
+            margin: auto;
+            text-align: justify;
+            -webkit-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+            -moz-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+            box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+        }
+
+        h1.hidden {
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+<body ng-app="endLinksApp" ng-cloak>
+   @using (Html.BeginForm())
+            {
+    @Html.AntiForgeryToken()
+   }
+    <div style="margin-top:15px;width:100%;">
+        <div ng-controller="tasController" id="dvContent">
+            <div class="form-group col-md-12 col-lg-12">
+                <img src="@ViewBag.PartnerLogo" />
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12 col-lg-12">
+                    <p>
+                        {{'tas1'|translate}}:<br />
+                    </p>
+                </div>
+                <div class="form-group col-md-12 col-lg-12">
+                    <label class="control-label">{{'tas2'|translate}}:</label>
+                    @Model.SurveyName
+                </div>
+                <div class="form-group col-md-12 col-lg-12">
+                    <label class="control-label">{{'tas3'|translate}}:</label>
+                    @Model.SurveyLength&nbsp;mins
+                </div>
+                <div class="form-group col-md-12 col-lg-12" ng-if="orgID != 665">
+                    <label class="control-label">{{'tas4'|translate}}:</label>
+                    @Model.RewardText
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12 col-lg-12">
+                    <p>{{'tas5'|translate}} </p>
+                </div>
+            </div>
+            <div class="row" style="display:flex;">
+                <div class="form-group col-md-12 col-lg-6" >
+                    <input type="button" class="btn btn-primary" id="btnTakeAnotherSurvey" onclick="takeme();" value="{{'tas6'|translate}}" />
+                    <input class="pull-right btn btn-dark" type="button" onclick="thankyou();" style="margin-top:0px;" value="{{'tas7'|translate}}">
+                </div>
+                @*<div class="form-group col-md-12 col-lg-6">
+                    <button class="pull-right btn btn-dark" type="submit" onclick="thankyou();" style="margin-top:0px;">No! Thank You!</button>
+                </div>*@
+            </div>
+
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angularval")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/pages/recaptcha.js" type="text/javascript"></script>
+</body>

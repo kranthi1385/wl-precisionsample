@@ -1,0 +1,100 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/main/msResponsive.css" rel="stylesheet" />
+<div>
+    @using (Html.BeginForm("", "", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+    }
+    <div ng-if="pgLoad">
+        <div class="row survey-continer" ng-controller="MsController">
+            <div class="col-md-12 m-t-35 ">
+                <span class="spn-surveys pull-left"><b class="txt-surveys">{{'currentSurveys'|translate}}</b></span>
+            </div>
+            <hr class="hr-style" />
+            <div class="tbl-sm" style="padding: 10px 40px 10px 40px;">
+                <span ng-if="congrats" style="color:green;">Congratulations!  You’ve successfully completed this survey and will receive your reward payment in approximately 2 weeks.  Check below for additional surveys you’ve been invited to.</span>
+                <span ng-if="thankYou" style="color:red;">Thank you for participating!  Unfortunately you didn’t qualify to complete this survey.  Check below for additional surveys you’ve been invited to.</span>
+                <span ng-if="sorryQuota" style="color:red;">Sorry! the Quota for this survey was full.  Check below for additional surveys you’ve been invited to.</span>
+                <span ng-if="weAreSorry" style="color:red;">We're sorry, it appears you have already participated in this survey</span>
+                <span ng-if="youTerminated" style="color:red;">You have been terminated from this survey because our client identified you as a poor quality respondent. This means that you either took the survey too quickly or were not providing well considered responses. Your account will be deactivated after two (2) poor quality terminations.</span>
+                <span ng-if="alredyParticipated" style="color:red;">You have already participated in this survey.</span>
+                <span ng-if="thankParticipated" style="color:red;">Thank you for participating!  Unfortunately the survey you're attempting to access has been closed. Please see below for currently available surveys.</span>
+                <span ng-if="offersNotExists" style="color:green;">Thank you for participating!  Unfortunately the survey you're attempting to access has been closed or you previously participated.  Please see below for currently available surveys.</span>
+                <span ng-if="prescreenerterm" style="color:green;">Thanks for participating, but unfortunately you did not qualify. Here is a small reward of $0.10 for this survey, and hoping to earn full reward for next survey. Continue participating in our surveys.</span>
+                <span ng-if="psoqs" style="color:green;">Thanks for participating, but unfortunately you did not qualify. Here is a small reward of $0.10 for this survey, and hoping to earn full reward for next survey. Continue participating in our surveys.</span>
+                 <span ng-if="QQQuotaFull" style="color:green;">Thanks for participating, but unfortunately you did not qualify. Here is a small reward of $0.10 for this survey, and hoping to earn full reward for next survey. Continue participating in our surveys.</span>
+                <span ng-if="dOIRecruit" style="color:green;">Thank you, you have now completed step one of this process. Please follow the instructions you were given by our client and complete the process by confirming your email address or participating in the follow up interview. Once the second step is completed, you will receive your reward.</span>
+            </div>
+            <div class="pull-right div-refresh-btn">
+                @*<input class="refresh-btn" type="submit" name="imgbtnRefresh" value="Refresh" id="imgbtnRefresh">*@
+                <button ng-if="showSurveys" class="refresh-btn" type="submit" ng-click="refreshSurveys()">{{'refresh'|translate}}</button>
+            </div>
+            <br />
+            <br />
+            <table ng-if="!showSurveys">
+                <tbody>
+                    <tr>
+                        <td>
+                            No available surveys at this time.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="tbl-Main tbl-main-1" border="0" cellspacing="0" style="width:94%;" ng-if="showSurveys">
+                <tr>
+                    <td class="p-l-0 ">
+                        <table ng-if="message != 1" cellspacing="0" border="0" style="width:100%;">
+                            <tr ng-class-even="'tr-bg'" ng-repeat="ms in surveys">
+                                <td>
+                                    <table class="table-bb" style="width:100%;">
+                                        <tr ng-if="ms.OrgId!=385">
+                                            <td class="td-box">
+                                                <span id="lblprjId" class="label-sm" text="ProjectId">{{ms.ProjectId}}</span>&nbsp-&nbsp
+                                                <a href="" id="lblSurveyName" class="a-t-r" ng-click="popup(ms.SurveyUrl)">{{ms.SurveyName}}</a>&nbsp;
+                                                (&nbsp;<label id="Label5" Font-Names="Verdana" text="SurveyLength"></label>
+                                                {{ms.SurveyLength}} {{'minutes'|translate}}&nbsp;)
+                                                <br />
+
+                                                {{'completethissurveytodayandearn'|translate}} ${{ms.MemberReward | number:2}}<label id="Label3" Font-Names="Verdana" text="RewardValue"></label>&nbsp;
+                                                <label ForeColor="#1E91CB" Font-Names="Verdana" text="Status"></label>
+                                                <a ID="Label1" class="a-r-t" href="" ng-click="popup(ms.SurveyUrl)">{{'clickHereToStart'|translate}}</a>
+                                            </td>
+                                            <td class="td-earn">
+                                                <span id="Label7" class="txt-earn" Text="YOU EARN">{{'youEarn'|translate}}</span><br />
+                                                <span id="Label4" class="txt-symbol" Text="$">$</span><span id="Label2" class="txt-value" Text="RewardValue">{{ms.MemberReward |number:2}}</span>
+                                            </td>
+                                        </tr>
+
+
+                                        <tr ng-if="ms.OrgId==385">
+                                            <td class="td-box">
+                                                <span id="lblprjId" class="label-sm" text="ProjectId">{{ms.ProjectId}}</span>&nbsp-&nbsp
+                                                <a href="" id="lblSurveyName" class="a-t-r" ng-click="popup(ms.SurveyUrl)">{{ms.SurveyName}}</a>&nbsp;
+                                                (&nbsp;<label id="Label5" Font-Names="Verdana" text="SurveyLength"></label>
+                                                {{ms.SurveyLength}} {{'minutes'|translate}}&nbsp;)
+                                                <br />
+
+                                                {{'completethissurveytodayandearn'|translate}} {{ms.RewardText}}<label id="Label3" Font-Names="Verdana" text="RewardValue"></label>&nbsp;
+                                                <label ForeColor="#1E91CB" Font-Names="Verdana" text="Status"></label>
+                                                <a ID="Label1" class="a-r-t" href="" ng-click="popup(ms.SurveyUrl)">{{'clickHereToStart'|translate}}</a>
+                                            </td>
+                                            <td class="td-earn">
+                                                <span id="Label7" class="txt-earn" Text="YOU EARN">{{'youEarn'|translate}}</span><br />
+                                                <span id="Label2" class="txt-value" Text="RewardValue">{{ms.RewardText}}</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

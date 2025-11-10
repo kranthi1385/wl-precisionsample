@@ -1,0 +1,36 @@
+﻿<script type="text/ng-template" id="TextBoxTemplate"> 
+     <div align="left" class="questionback" style="clear: both;">
+        <span class="question" id="lblQuestiontext" ng-bind-html="question.QuestionText | unsafe"></span>
+    </div>
+
+    <div>
+        <div ng-if="question.QuestionTypeId == '1'">
+            <div style="padding-top: 9px; padding-bottom: 10px;" class="form-group" ng-class="{true: 'error'}[submitValidations && formValidation.txtboxlist.$invalid]">
+                <input type="text" class="txtbox" name="{{question.QuestionId+ '_' + 'txtbox'}}" ng-attr-id="{{question.QuestionId + '_text'}}" ng-model="question.OptionText" style="width: 210px; height: 38px;" required />
+            </div>
+        </div>
+        <div ng-if="question.QuestionTypeId == '9'">
+            <div style="padding-top: 9px; padding-bottom: 10px;" class="form-group" ng-class="{true: 'error'}[submitValidations && formValidation.txtboxlist.$invalid]">
+                <textarea rows="3" cols="20" class="txtbox" name="{{question.QuestionId+ '_' + 'txtbox'}}" ng-attr-id="{{question.QuestionId + '_text'}}" ng-model="question.OptionText" required></textarea>
+            </div>
+
+        </div>
+        <div ng-if="question.QuestionTypeId == '10'">
+            <div style="padding-top: 9px; padding-bottom: 10px;" class="form-group" ng-class="{true: 'error'}[submitValidations && formValidation.txtboxlist.$invalid]">
+                <textarea rows="4" cols="30" class="txtbox" name="{{question.QuestionId+ '_' + 'txtbox'}}" ng-attr-id="{{question.QuestionId + '_text'}}" ng-model="question.OptionText" required></textarea>
+            </div>
+
+        </div>
+        <div style="width: 100%;float:left;">
+            <span ng-show="submitValidations && formValidation[question.QuestionId+ '_' + 'txtbox'].$error.required" style="color: red;" class="error">Please Answer the queston</span>
+        </div>
+    </div>
+</script>
+<div style="width: 100%;">
+    <div>
+        <div ng-controller="textBoxController">
+            <ng-include src="'TextBoxTemplate'"></ng-include>
+        </div>
+    </div>
+
+</div>

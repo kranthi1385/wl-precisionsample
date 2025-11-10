@@ -1,0 +1,379 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_WlLayout.cshtml";
+}
+@*<link href="~/Content/s4m/css/Step1.css" rel="stylesheet" />*@
+<link href="~/Content/s4m/css/s4mstyle.css" rel="stylesheet" />
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+<html>
+<head>
+    <script src="https://www.offerfwd.net/oi/joi.js"></script>
+    <style type="text/css">
+        .oiInputBox label {
+            font: 12px/30px Verdana, Geneva, sans-serif;
+            float: none !important;
+            padding: 0 0 0 0 !important;
+            width: 30px !important;
+            text-align: right;
+            display: inline-block !important;
+            margin: 0 0 0 0 !important;
+        }
+
+        .cqtable_internal, .cqtable_internal b, .validInput, .cqtable span, .cqtable font {
+            color: white !important;
+            font-size: 12px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="Form1" name="userInput" novalidate>
+        <div id="wrapper">
+            <div id="slogan2">
+            </div>
+            <div id="rewards">
+                Rewards >><img src="~/Images/S4mLanding/f.png" alt="" width="41" height="40" class="alignright1" /><img src="~/Images/S4mLanding/pay.png" alt="" width="65" height="40" class="alignright1" />
+            </div>
+            <div class="clearfix">
+            </div>
+            <div id="main">
+                <div id="header2">
+                    <div id="logo">
+                    </div>
+                    <img src="~/Images/S4mLanding/header.jpg" width="459" height="266"
+                         alt="" /><div id="yelbox2">
+                        <ul class="check">
+                            <li class="one">
+                                <div>
+                                    Complete the additional information on <strong>the form to the right >></strong>
+                                </div>
+                            </li>
+                            <li class="two">
+                                <div>
+                                    Click <strong>“Submit”</strong> once you have entered all of the information.
+                                </div>
+                            </li>
+                            <li class="three">
+                                <div>
+                                    You will be <strong>granted access</strong> and on your way to start taking surveys.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="topform2">
+                    <div id="form-top2">
+                    </div>
+
+                    <div id="form">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label>
+                                        First Name:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="text" id="txtFirstName" style="font-size: 13px;" name="firstName" ng-model="user.FirstName" required />
+                                    <span ng-show="userInput.firstName.$invalid && isRegErrMsg" class="text-danger txt-req">{{'required'|translate}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Last Name:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="text" id="txtLastName" style="font-size: 13px;" ng-model="user.LastName" name="lastName" required>
+                                    <span ng-show="userInput.lastName.$invalid && isRegErrMsg" class="text-danger txt-req">{{'required'|translate}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Email:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="email" id="txtEmailAddress" style="font-size: 13px;" ng-model="user.EmailAddress" name="email" tooltipText="Please make sure your email address is correct or you won't have access to SurveyDownLine!" ng-blur="validateEmail()" required />
+                                    <span style="display: inline-block;" class="error text-danger txt-req" ng-show="userInput.email.$error.email">{{'notValidEmail'|translate}}</span>
+                                    <span ng-show="userInput.email.$error.required && isRegErrMsg" class="text-danger">{{'required' | translate}}</span>
+                                    <span style="display: inline-block;" class="text-danger" ng-show="emailXVerify==1 ||emailXVerify==0 " ng-class="{'text-danger':emailXVerify==0,'text-success':emailXVerify==1}">{{xVerifyMessage}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Address 1:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="text" id="txtAddress1" style="font-size: 13px;" name="address1" ng-model="user.Address1" required>
+                                    <span ng-show="userInput.address1.$invalid && isRegErrMsg" class="text-danger txt-req">{{'required'|translate}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Address 2:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="text" id="txtAddress2" style="font-size: 13px;" ng-model="user.Address2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Country:
+                                    </label>
+                                </td>
+                                <td>
+                                    <select style="width: 208px;font-size: 13px;" id="ddlCountry" ng-model="user.CountryId" name="country" ng-options="con.CountryId as con.CountryName for con in countries" ng-change="countryByStates(user.CountryId)" required></select>
+                                    <span class="text-danger txt-req" ng-show="userInput.country.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                    <span class="error text-danger" ng-show="user.CountryId ==0 && isRegErrMsg">{{'required'|translate}}</span>
+                                </td>
+                            </tr>
+                            <tr ng-if="states.length != 0">
+                                <td>
+                                    <label>
+                                        State/Province:
+                                    </label>
+                                </td>
+                                <td>
+                                    <select style="width:208px;font-size: 13px;" name="state" id="state" ng-options="st.StateId as st.StateName for st in states" ng-model="user.StateId" required></select>
+                                    <span class="text-danger txt-req" ng-show="userInput.state.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                    <span class="error text-danger" ng-show="user.StateId ==0 && isRegErrMsg">{{'required'|translate}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        City:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="text" id="txtCity" style="font-size: 13px;" ng-model="user.City" name="city" required>
+                                    <span class="error text-danger txt-req" ng-show="userInput.city.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Zip/Postal Code:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="text" id="txtZipCode" style="font-size: 13px;" ng-model="user.ZipCode" name="zipCode" required>
+                                    <span class="text-danger txt-req" ng-show="userInput.zipCode.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Mobile Phone:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="text" id="txtmobilePhone" style="font-size: 13px;" ng-model="user.MobilePhone">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Gender:
+                                    </label>
+                                </td>
+                                <td>
+                                    <select id="ddlGender" ng-model="user.Gender" style="width: 208px;font-size: 13px;" name="gender" required ng-change="optIntelligenceCheck()">
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                        <option value="N">Non-Binary</option>
+                                    </select>
+                                    <span class="text-danger txt-req" ng-show="userInput.gender.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Birth Date:
+                                    </label>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td style="vertical-align: top;font-size: 13px;">
+                                                    <select id="ddlMonth" ng-model="user.Month" name="month" required ng-click="optIntelligenceCheck()">
+                                                        <option value="01">{{'Jan'|translate}}</option>
+                                                        <option value="02">{{'Feb'|translate}}</option>
+                                                        <option value="03">{{'Mar'|translate}}</option>
+                                                        <option value="04">{{'Apr'|translate}}</option>
+                                                        <option value="05">{{'May'|translate}}</option>
+                                                        <option value="06">{{'Jun'|translate}}</option>
+                                                        <option value="07">{{'Jul'|translate}}</option>
+                                                        <option value="08">{{'Aug'|translate}}</option>
+                                                        <option value="09">{{'Sep'|translate}}</option>
+                                                        <option value="10">{{'Oct'|translate}}</option>
+                                                        <option value="11">{{'Nov'|translate}}</option>
+                                                        <option value="12">{{'Dec'|translate}}</option>
+                                                    </select>
+                                                </td>
+                                                <td style="vertical-align: top;color: white;">
+                                                    &nbsp;/
+                                                </td>
+                                                <td style="vertical-align: top;font-size: 13px;">
+                                                    <select id="ddlDay" style="width: 60px;" ng-model="user.Day" name="day" required ng-click="optIntelligenceCheck()">
+                                                        <option value="01">1</option>
+                                                        <option value="02">2</option>
+                                                        <option value="03">3</option>
+                                                        <option value="04">4</option>
+                                                        <option value="05">5</option>
+                                                        <option value="06">6</option>
+                                                        <option value="07">7</option>
+                                                        <option value="08">8</option>
+                                                        <option value="09">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                        <option value="14">14</option>
+                                                        <option value="15">15</option>
+                                                        <option value="16">16</option>
+                                                        <option value="17">17</option>
+                                                        <option value="18">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                        <option value="21">21</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                        <option value="24">24</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
+                                                        <option value="28">28</option>
+                                                        <option value="29">29</option>
+                                                        <option value="30">30</option>
+                                                        <option value="31">31</option>
+                                                    </select>
+                                                </td>
+                                                <td style="vertical-align: top;color: white;">
+                                                    &nbsp;/
+                                                </td>
+                                                <td style="vertical-align: top;font-size: 13px;">
+                                                    <select id="ddlYear" ng-model="user.Year" name="year" convert-to-number required ng-click="optIntelligenceCheck()">
+                                                        <option ng-repeat="y in year" value="{{y.key}}">{{y.value}}</option>
+                                                    </select>
+                                                    <span class="text-danger  txt-req spn-yy-err" ng-show="(userInput.month.$invalid ||userInput.day.$invalid||userInput.year.$invalid)  && isRegErrMsg">{{'required'|translate}}</span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="clear">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr ng-if="user.CountryId != 505 && user.CountryId != 512 && user.CountryId != 525 && user.CountryId != 545 && user.CountryId != 548 && user.CountryId != 549 && user.CountryId !=550 && user.CountryId !=559 && user.CountryId !=564 && user.CountryId !=565 && user.CountryId !=572 && user.CountryId !=575 && user.CountryId !=590 && user.CountryId !=596 && user.CountryId !=599 && user.CountryId !=613 && user.CountryId !=618 && user.CountryId !=619 && user.CountryId !=620 && user.CountryId !=628 && user.CountryId != 647 && user.CountryId != 657 && user.CountryId != 668 && user.CountryId != 669 &&
+                         user.CountryId !=673 && user.CountryId !=693 && user.CountryId !=694 && user.CountryId !=700 && user.CountryId !=706">
+                                <td>
+                                    <label>
+                                        Ethnicity:
+                                    </label>
+                                </td>
+                                <td>
+                                    <select id="ddlEthnicity" name="ethnicity" ng-model="user.EthnicityId" style="width:208px;font-size: 13px;" required>
+                                        <option ng-repeat="ec in ethnicityLst" value="{{ec.EthnicityId}}">{{ec.EthnicityType}}</option>
+                                    </select>
+                                    <span class="text-danger" ng-show="userInput.ethnicity.$invalid  && isRegErrMsg">{{'required'|translate}}</span>
+                                    <span class="error text-danger" ng-show="user.EthnicityId ==0 && isRegErrMsg">{{'required'|translate}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>
+                                        Password:
+                                    </label>
+                                </td>
+                                <td>
+                                    <input type="password" id="txtPassword" style="font-size: 13px;" name="password" ng-model="user.Password" required>
+                                    <span class="text-danger" ng-show="userInput.password.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                    <span class="text-danger" ng-show="userInput.password.$error.minlength">Minimum of 6 Characters</span>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <div style="margin-left: 35px;">
+                            <div>
+                                <div vc-recaptcha key="'6LetblorAAAAAMH3OWFI3rtURCyE4SGpXp9gkfk1'" on-success="setResponse(response)" size="normal"></div>
+                                <span class="text-danger" ng-show="captchaErr">Invalid captcha selection.</span>
+                            </div>
+                        </div>
+                        <div id="divShow" class="form-group" style="display:none;font-size:12px;color:white;">
+                            <div style="margin-left: 10px; padding-left: 10px; text-align:justify;">
+                                <br />
+                                <b>{{'goodnews'|translate}}! </b>{{'basenonDemographics'| translate}}.<br /><br />
+                                <div id="offers" oi-pid="14376727" class="form-group" style="vertical-align:left;">
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <table cellspacing="0" style="width: 100%;">
+                            @*<tr>
+                                    <td align="left">
+                                        <div id="divShow" style="display: none; padding: 3px;font:12px;color:white;">
+                                            <div style="color: white; font-size: 14px; text-align: justify; padding: 2px 4px 2px 4px;">
+                                                <div>
+                                                    <b>Good news!</b> Based on your demographics, you have qualified for these survey
+                                                    panels. Check next to each panel you are interested in learning more about. You'll
+                                                    have access to your first survey after joining.<br />
+                                                    <input type="hidden" name="oi_sid" id="hfoi_sid" value="" />
+                                                    <input type="hidden" name="OI_FORM_IDENTIFIER" value="" />
+                                                    <input type="hidden" name="OI_button" value="0" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="divTurbo" style="display: none;">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="float: left;">
+                                        <label ID="lblMessage" ForeColor="Red"></label>
+                                    </td>
+                                </tr>*@
+                            <tr>
+                                <td class="dvTc" style="padding: 6px;">
+                                    <input style="display: inline-block;position:absolute; height: 10px; padding: 0; vertical-align: top; width: 10px;margin-top: 5px;" name="agree" type="checkbox" value="agre" ng-model="user.agree" required>
+                                    <label style="display: inline-block; line-height: normal; margin: 0;margin-left:14px; padding-top: 2px; text-align: left; width: 89%; font-size: 12px; cursor: default;" class="ng-binding">
+                                        I agree to the <a href="" style="color: white;text-decoration: underline;" ng-click="termsClick()" class="ng-binding">Terms & Conditions</a> and to receive additional survey, market research and other relevant emails from Precision Sample.<br />  
+                                        I understand that my personal data will be processed as described in the <a href="" style="color: white;text-decoration: underline;" ng-click="privacyClick()" class="ng-binding">Privacy Notice</a>
+                                    </label>
+                                    <span ng-show="userInput.agree.$invalid && isRegErrMsg" class="text-danger">{{'required'|translate}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center; vertical-align: top;">
+                                    <img src="~/Images/S4mLanding/submit1.png" id="imgNext" style="margin-top:30px;cursor:pointer;" ng-click="submit(userInput.$valid)" />
+                                </td>
+                            </tr>
+                            @*<tr>
+                                <td align="left" style="font-size: 8pt; color: Gray; padding: 6px;">
+                                    By signing up, I agree to the Terms of Use and Privacy Policy and agree to receive
+                                    additional survey, market research and other relevant offers from Surveys4Moms.com
+                                </td>
+                            </tr>*@
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <div class="botmenu" style="margin-left: 28%;">
+                © Copyright 2014-2022 {{orgDetails.OrgName}} | <a href="" ng-click="termsClick('/WidgetTerms.html')"> Terms</a> | <a href="" ng-click="privacyClick()">Privacy</a> | <a href="" ng-click="contactClick()">Contact Us</a> | <a href="" ng-click="aboutClick()">About Us</a> | <a href="/wl/sm">Site Map</a> | <a href="javascript:;" ng-click="doNotSellMyInfo()">Do Not Sell My Info</a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

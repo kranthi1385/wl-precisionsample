@@ -1,0 +1,196 @@
+﻿<div class="row" ng-controller="accountController">
+    <div class="body-bg dv-account">
+        <div class="div-title">
+            <span><b>{{'editProfile'|translate}}</b></span>
+        </div>
+        <hr class="hr-style" />
+        <div>
+            <form class="form-horizontal" name="userForm">
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'firstName'|translate}} *
+                    </div>
+                    <input type="text" id="txtFirstName" class="form-control" ng-model="user.FirstName" name="firstName" required>
+                    <span ng-show="userForm.firstName.$invalid && !userForm.firstName.$pristine" class="text-danger txt-req">{{'required'|translate}}</span>
+                </div>
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'lastName'|translate}} *
+                    </div>
+                    <input type="text" id="txtLastName" class="form-control" ng-model="user.LastName" name="lastName" required>
+                    <span ng-show="userForm.lastName.$invalid && !userForm.lastName.$pristine" class="text-danger txt-req">{{'required'|translate}}</span>
+                </div>
+
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'emailAddress'|translate}} *
+                    </div>
+                    <input type="email" id="txtEmailAddress" class="form-control" ng-model="user.EmailAddress" name="email" required>
+                    <!--<span ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="text-danger">Required</span>-->
+                    <span class="error text-danger txt-req" ng-show="userForm.$error.email">{{'notValidEmail'|translate}}</span>
+                </div>
+
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'address1'|translate}} *
+                    </div>
+                    <input type="text" id="txtAddress1" class="form-control" ng-model="user.Address1" required>
+                    <span class="error text-danger" ng-show="userForm.address1.$invalid && !userForm.address1.$pristine">{{'required'|translate}}</span>
+                </div>
+
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'address2'|translate}}
+                    </div>
+                    <input type="text" id="txtAddress2" class="form-control" ng-model="user.Address2">
+                </div>
+
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'country'|translate}} *
+                    </div>
+                    <select class="form-control txt-box" id="CountryId" ng-model="user.CountryId" name="country" ng-change="countryByStates(user.CountryId)" convert-to-number required>
+                        <option value="">{{'select'|translate}}</option>
+                        <option value="231">{{'unitedstatesofamerica'|translate}}</option>
+                        <option value="38">{{'canada'|translate}} </option>
+                        <option value="229">{{'unitedkingdom'|translate}}</option>
+                        <option value="15"> {{'australia'|translate}}</option>
+                    </select>
+                    <span class="error text-danger txt-req" ng-show="userForm.country.$invalid && !userForm.country.$pristine">{{'required'|translate}}</span>
+                </div>
+
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'stateProvince'|translate}} *
+                    </div>
+                    <select class="form-control txt-box" id="ddlStates" ng-model="user.StateId" name="state" ng-options="st.StateId as st.StateName for st in states" required>
+                        <option value="">{{'select'|translate}}</option>
+                    </select>
+                    <span class="error text-danger txt-req" ng-show="userForm.state.$invalid && !userForm.state.$pristine">{{'required'|translate}}</span>
+                </div>
+
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'city'|translate}} *
+                    </div>
+                    <input type="text" id="txtCity" class="form-control" ng-model="user.City" name="city" required>
+                    <span class="error text-danger txt-req" ng-show="userForm.city.$invalid && !userForm.city.$pristine">{{'required'|translate}}</span>
+                </div>
+
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'zipPostalCode'|translate}}
+                    </div>
+                    <input type="text" id="txtZipCode" class="form-control" ng-model="user.ZipCode" name="zipCode" required>
+                    <span class="error text-danger txt-req" ng-show="userForm.zipCode.$invalid && !userForm.zipCode.$pristine">{{'required'|translate}}</span>
+                </div>
+
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'phoneNumber'|translate}}
+                    </div>
+                    <input type="text" id="txtPhoneNumber" class="form-control" ng-model="user.PhoneNumber">
+                </div>
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'gender'|translate}} *
+                    </div>
+                    <select class="form-control" id="ddlGender" ng-model="user.Gender" name="gender" required>
+                        <option value="">{{'select'|translate}}</option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                        <option value="N">Non-Binary</option>
+                    </select>
+                    <span class="error text-danger txt-req" ng-show="userForm.gender.$invalid && !userForm.gender.$pristine">{{'required'|translate}}</span>
+                </div>
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'dOB'|translate}} *
+                    </div>
+                    <div class="row">
+                        <select class="form-control padding-zero ddl-mm" id="ddlMonth" ng-model="user.Month" name="month" required>
+                            <option value="">-MM-</option>
+                            <option value="01">{{'jan'|translate}}</option>
+                            <option value="02">{{'feb'|translate}}</option>
+                            <option value="03">{{'mar'|translate}}</option>
+                            <option value="04">{{'apr'|translate}}</option>
+                            <option value="05">{{'may'|translate}}</option>
+                            <option value="06">{{'jun'|translate}}</option>
+                            <option value="07">{{'jul'|translate}}</option>
+                            <option value="08">{{'aug'|translate}}</option>
+                            <option value="09">{{'sep'|translate}}</option>
+                            <option value="10">{{'oct'|translate}}</option>
+                            <option value="11">{{'nov'|translate}}</option>
+                            <option value="12">{{'dec'|translate}}</option>
+                        </select>
+                        <select class="form-control padding-zero ddl-dd" id="ddlDay" ng-model="user.Day" name="day" required>
+                            <option value="">-DD-</option>
+                            <option value="01">1</option>
+                            <option value="02">2</option>
+                            <option value="03">3</option>
+                            <option value="04">4</option>
+                            <option value="05">5</option>
+                            <option value="06">6</option>
+                            <option value="07">7</option>
+                            <option value="08">8</option>
+                            <option value="09">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+                      
+                        <select class="form-control y-width ddl-yy" id="ddlYear" ng-model="user.Year" name="year" convert-to-number required>
+                            <option value="">-YY-</option>
+                            <option ng-repeat="y in year" value="{{y.key}}">{{y.value}}</option>
+                        </select>
+                        <span class="error text-danger  txt-req spn-yy-err" ng-show="(userForm.month.$invalid ||userForm.day.$invalid||userForm.year.$invalid)  && (!userForm.month.$pristine||!userForm.day.$pristine || !userForm.year.$pristine)">{{'required'|translate}}</span>
+                    </div>
+                </div>
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'ethnicity'|translate}}*
+                    </div>
+                    <select class="form-control" id="ddlEthnicity" ng-model="user.EthnicityId" name="ethnicity" convert-to-number required>
+                        <option value="">{{'select'|translate}}</option>
+                        <option ng-repeat="ec in ethnicityLst" value="{{ec.EthnicityId}}">{{ec.EthnicityType}}</option>
+                    </select>
+                    <span class="error text-danger txt-req" ng-show="userForm.ethnicity.$invalid  && !userForm.ethnicity.$pristine">{{'required'|translate}}</span>
+                </div>
+                <div class="form-group col-sm-8 text-box">
+                    <div class="col-md-2">
+                        {{'newPassword'|translate}}*
+                    </div>
+                    <input type="password" id="txtPassword" class="form-control" name="password" ng-model="user.Password" required>
+                    <span class="error text-danger txt-req" ng-show="userForm.password.$invalid && !userForm.password.$pristine">{{'required'|translate}}</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-10  col-sm-8">
+                        <div class="col-md-offset-4 dv-buttons">
+                            <button type="submit" id="imgbutton" class="btn btn-default" ng-disabled="userForm.$invalid" ImageAlign="Middle" ng-click="submit()">{{'submit'|translate}}</button>
+                            <button id="imgbtnCancel" class="btn btn-default" ng-disabled="userForm.$invalid" ImageAlign="Middle" ng-click="cancel()">{{'deleteMyAccount'|translate}}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,622 @@
+﻿@model Members.PrecisionSample.Components.Entities.MemberEntity
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script src="~/Scripts/translate-pluggable-loader.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <script type="text/javascript" src="~/Scripts/services/translationService.js"></script>
+    <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.3" />
+    <meta name="robots" content="nofollow" />
+    <link href="~/Content/loading-bar.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/iframresizer.js" type="text/javascript"></script>
+    @Styles.Render("~/Content/css")
+
+    <script type="text/javascript">
+        function popup(url) {
+            var width = 700;
+            var height = 700;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var params = 'width=' + width + ', height=' + height;
+            params += ', top=' + top + ', left=' + left;
+            params += ', directories=no';
+            params += ', location=no';
+            params += ', menubar=no';
+            params += ', resizable=no';
+            params += ', scrollbars=yes';
+            params += ', status=no';
+            params += ', toolbar=no';
+            newwin = window.open(url, 'windowname5', params);
+            if (window.focus) { newwin.focus() }
+            return false;
+        }
+
+
+    </script>
+
+    <style type="text/css">
+        .validation-summary-errors {
+            color: red !important;
+        }
+
+            .validation-summary-errors ul {
+                clear: both;
+                list-style: none;
+                padding: 0px 0px 0px 12px;
+            }
+
+        .padding-zero {
+            padding: 6px 3px;
+        }
+
+        body {
+            font-family: Verdana;
+        }
+
+        .help-inline {
+            display: inline-block;
+            vertical-align: middle;
+            padding-left: 5px;
+            min-width: 97%;
+            text-align: left;
+            font-family: Verdana;
+            font-size: 12px;
+        }
+
+        .span {
+            width: 210px;
+            margin-bottom: 7px;
+            font-family: Verdana;
+            font-size: 12px;
+        }
+
+        .spanddl {
+            width: 214px;
+            margin-bottom: 7px;
+            font-family: Verdana;
+            font-size: 12px;
+        }
+
+        #border {
+            border: solid 1px #CACACA;
+            overflow: hidden;
+            max-width: 500px;
+            min-height: 100%;
+            position: relative;
+            font-size: 12px;
+            padding: 10px;
+        }
+
+        #dvImageLoading {
+            background: url(/Images/loading_big.gif) no-repeat center center;
+            height: 90px;
+            width: 90px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 27%;
+            padding-top: 10px;
+            vertical-align: middle;
+            font-size: 12px;
+            align: center;
+        }
+
+        .input {
+            display: block;
+            -webkit-transition: all .30s ease-in-out;
+            -moz-transition: all .30s ease-in-out;
+            -ms-transition: all .30s ease-in-out;
+            -o-transition: all .30s ease-in-out;
+            outline: 0;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 100%;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 1%;
+            color: #555;
+            float: left;
+            margin: 0px;
+            margin: 5px;
+        }
+
+        .error {
+            margin-left: 6px;
+            display: block;
+        }
+
+        <style type="text/css" > .radioCheck {
+            width: 20px;
+            height: 18px;
+        }
+    </style>
+</head>
+<body ng-app="regApp" ng-cloak=ng-cloak>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    }
+    <center>
+        <div class="preloader" loader=loader>
+            <loading-directive>
+            </loading-directive>
+        </div>
+        <div id="border" style="background-color: White; text-align: left; width: 100%; display: none;margin:5px" ng-controller="regFController">
+            @* <form class="form-horizontal" name="regForm" id="regForm" method="post">*@
+            <div id="dvLogo" style="float: left; border: none; display: none; width: 100%;">
+                <img id="imgGPTLogo" class="org_logo" alt="" src="/Images/MadMoneyGPTLogo.jpg" style="float: left; margin-bottom: 10px; display: none;" />
+                <img id="imglivesurveys" alt="" src="/Images/livesurveyslogo.jpg" style="float: left; margin-bottom: 10px; display: none;" />
+            </div>
+
+            <div style="margin: auto; width: 80%;" ng-if="langShw">
+
+                <br />Choose Your Language / اختر لغتك / 選擇你的語言 / Kies je taal / Choisissez votre langue  / Wählen Sie Ihre Sprache / Scegli la tua LINGUA / 言語を選択してください / 언어를 선택하세요 / Wybierz swój język / Escolha seu idioma / Выберите свой язык / Elige tu idioma / Dilinizi seçin<br /><br />
+                <label>
+                    <input type="radio" ng-model="details.TypeId" value="Ar" style="margin-right:2px;" name="inv" />عربى
+                </label><br /><br />
+                <label>
+                    <input type="radio" ng-model="details.TypeId" value="Ch" style="margin-right:2px;" name="inv" />中文
+                </label><br /><br />
+                <label>
+                    <input type="radio" ng-model="details.TypeId" value="nd" style="margin-right:2px;" name="inv" />Nederlands
+                </label><br /><br />
+                <label>
+                    <input type="radio" ng-model="details.TypeId" value="en" style="margin-right:2px;" name="inv" />English
+                </label><br /><br />
+                <label>
+                    <input type="radio" ng-model="details.TypeId" value="Fr" style="margin-right:2px;" name="inv" />Française
+                </label><br /><br />
+                <label>
+                    <input type="radio" ng-model="details.TypeId" value="De" style="margin-right:2px;" name="inv" />Deutsche
+                </label><br /><br />
+                <label>
+                    <input type="radio" ng-model="details.TypeId" value="It" style="margin-right:2px;" name="inv" />Italiana
+                </label><br /><br />
+                <label>
+                    <input type="radio" ng-model="details.TypeId" value="Ja" style="margin-right:2px;" name="inv" />日本人
+                </label><br /><br />
+                <label>
+                    <input type="radio" value="kr" ng-model="details.TypeId" style="margin-right:2px;" name="inv" />한국어
+                </label><br /><br />
+                <label>
+                    <input type="radio" value="pl" ng-model="details.TypeId" style="margin-right:2px;" name="inv" />Polskie
+                </label><br /><br />
+                <label>
+                    <input type="radio" value="pt" ng-model="details.TypeId" style="margin-right:2px;" name="inv" />Português
+                </label><br /><br />
+                <label>
+                    <input type="radio" value="Ru" ng-model="details.TypeId" style="margin-right:2px;" name="inv" />русский
+                </label><br /><br />
+                <label>
+                    <input type="radio" value="es" ng-model="details.TypeId" style="margin-right:2px;" name="inv" />Española
+                </label><br /><br />
+                <label>
+                    <input type="radio" value="Tu" ng-model="details.TypeId" style="margin-right:2px;" name="inv" />Türk
+                </label><br /><br />
+                <div align="center">
+                    <input type="button" value="{{'Next' | translate}}" ng-click="nextStep(details.TypeId)" />
+                </div>
+            </div>
+            <div style="margin: auto; width: 80%;" ng-if="formhide">
+                {{'almostthere' | translate}}
+                <br />
+                <br />
+                {{'para1' | translate}}
+                <br />
+                <br />
+                <br />{{'para2' | translate}}
+            </div>
+            <br />
+            <div id="dvFreebies" style="display: none ;margin: auto; width: 80%;">
+                <form class="form-horizontal" name="feebieForm" id="feebieForm" novalidate=novalidate>
+                    <div style="width:100%" ng-if="!signup && !FogotPswd">
+                        <div class="col-md-12 text-center" style="margin-bottom: 15px;">
+                            <span style="font-weight: bold; color: black;">We couldn't find any accounts associated with the provided email address. Please register here.</span>
+                        </div>   
+                        <div></div>                     
+                        <div style="width:100%" ng-if="!signup && !resetpswd">
+                            <div>
+                                <span id="dvEmailForFreebies" class="help-inline">{{'emailaddress' | translate}}*</span>
+                                <input type="email" id="txtEmailForFreebies" class="input" ng-model="user.EmailAddress" name="email1" required=required />
+                                <span style="display:block;" ng-show="feebieForm.email1.$invalid && !feebieForm.email1.$pristine" class="text-danger">{{'notValidEmail' | translate}}</span>
+                                <span style="display:block;" class="text-danger" ng-if="showMemberExist">Member already exist with given Email address. Please try to login.</span>
+                            </div>
+                            <div ng-if="orgDetails.IsEnablelogin == true">
+                                <span id="spnPassword" class="help-inline">{{'Password' | translate}}*</span>
+                                <input type="password" id="txtPassword" class="input" name="password" ng-model="user.Password" required=required />
+                                <span class="error text-danger" ng-show="regForm.password.$invalid && showErrorMsg">{{'required'|translate}}</span>
+                            </div>
+                            <div ng-if="orgDetails.IsEnablelogin == true">
+                                <span id="spnPassword" class="help-inline">{{'Confirm Password' | translate}}*</span>
+                                <input type="password" id="txtConPassword" class="input" name="Cpassword" ng-model="user.ConfirmPassword" required=required />
+                                <span class="error text-danger" ng-show="regForm.Cpassword.$invalid && showErrorMsg">{{'required'|translate}}</span>
+                            </div>
+                            <div style="padding-left:10px">
+                                <img src="/Images/Wr.jpg" id="imgInvalid" hidden="hidden" />
+                                <img src="/Images/tick.png" id="imgValid" hidden="hidden" />
+                            </div>
+                            <div>
+                                <br />
+                                <br />
+                                <div align="center">
+                                    <input type="submit" id="btnContinue" class="btn btn-default submit-btn" style="margin-top:10px;background-color: #007bff; color: white;"" value="Continue" ng-click="saveFreebie(feebieForm.$valid)" ng-disabled="feebieForm.$invalid" />
+                                    @*<input type="submit" id="btnLogin" class="btn btn-default submit-btn" style="margin-top:0px;" value="Login" ng-if="rid == 21034 || rid == 22078" ng-click="loginClick()"/>*@
+                                </div>
+                            </div>
+                            <span ng-if="ConfPswd" class="error text-danger">Password and Confirm Password must be the same.</span>
+                        </div>
+                        </div>                 
+                </form>                
+                    <form name="userLoginForm" novalidate=novalidate style="width:100%" ng-if="signup">                        
+                            <div class="row" ng-if="existingemail">
+                                <div class="col-md-5">
+                                    <div style="margin-bottom:5px;">
+                                        <strong>{{'Login'| translate}}</strong>
+                                        <div class="clearfix"></div>
+                                        <label>{{'Email Address'| translate}}</label>
+                                        <input type="email" name="userEmail" class="form-control" placeholder="{{'Email' | translate}}" tabindex="1" ng-model="loginDetails.EmailAddress" ng-required="true" />
+                                        <span class="error text-danger" ng-show="userLoginForm.userEmail.$error.email">{{'Not Valid Email' | translate}}!</span>
+                                        <span class="error text-danger" ng-show="userLoginForm.userEmail.$error.required&&showLoginError">{{'Required' | translate}}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div style="margin-bottom:5px;">
+                                        <div>
+                                            @*<a href="" tabindex="4" ng-click="ForgotPswd()">{{'Forgot Password' | translate}}?</a>*@
+                                            <a href="" tabindex="4" ng-click="resetPassword()">{{'resetPassword' | translate}}?</a>
+                                        </div>
+
+                                        <div class="clearfix"></div>
+                                        <label>{{'Password'| translate}}</label>
+                                        <input type="password" name="userPsw" class="form-control" tabindex="2" placeholder="{{'Password' | translate}}" ng-model="loginDetails.Password" ng-required="true" />
+                                        <span class="error text-danger" ng-show="userLoginForm.userPsw.$invalid&&showLoginError">{{'Required' | translate}}</span>
+                                    </div>
+                                </div>
+                                @*<div  class="text-success" ng-if="showMessage">
+                                    <span class="text-success" ng-model="message">
+                                        {{'Password reset link has been sent to your register Email!'| translate}}
+                                    </span>
+                                </div>*@
+                                <div class="col-md-2 padding-zero">
+                                    <button type="submit" class="btn btn-default submit-btn" tabindex="3" style="background-color: #007bff; color: white;" ng-click="userLoginClick(userLoginForm.$valid)">{{'Login'|translate}}</button>
+                                </div>
+
+                            </div>
+                            
+                        <div class="row" ng-if="!existingemail">
+                            <div class="col-md-12 text-center">
+                                <span style="font-weight: bold; color: green;">Please enter your email address below to verify if you have an account with us.</span>
+                               </div>
+                            <div class="col-md-5">                                
+                                <div style="margin-bottom:5px;">                                   
+                                    <div class="clearfix"></div>                                    
+                                    <label>{{'Email Address'| translate}}</label>
+                                    <input type="email" name="userEmail" class="form-control" placeholder="{{'Email Address' | translate}}" tabindex="1" ng-model="getUserData.EmailAddress" ng-required="true" />                                    
+                                </div>
+                            </div> 
+                            <div class="col-md-2 padding-zero">
+                                <button type="submit" class="btn btn-default submit-btn" tabindex="3" style="margin-top: 26px; background-color: #007bff; color: white;" ng-click="checkEmailAddress(userLoginForm.$valid)">{{'Submit'|translate}}</button>
+                            </div>
+                        </div>
+                            <div>
+                                <div align="center" style="margin:10px;">
+                                    <span class="error text-danger" ng-show="isShowLoginFailErrmsg">{{'Wrong username/password. Try again.'|translate}}.</span>
+                                    <a href="" tabindex="5" ng-click="signupClick()">{{'Sign Up for a free account and start earning!'|translate}}</a>
+                                </div>
+                                <div class="text-success" ng-if="showMessage">
+                                    <span class="text-success" ng-model="message">
+                                        {{'Password reset link has been sent to your register Email!'| translate}}
+                                    </span>
+                                </div>
+
+                            </div>
+                        </form>
+                </div>
+                <div ng-if="FogotPswd" align="center">
+                    <div>
+                        <h2>Forgot Password?</h2>
+                    </div>
+                    <div class="row">
+                        <span>Please provide your email address below, your password information will be emailed to you.</span>
+                    </div>
+                    <br />
+                    <form  class="form-horizontal" novalidate=novalidate name="forgotPswdForm">
+                        <div class="row">
+                            <input type="email" name="email1" class="input form-control col-md-6" ng-model="getUserData.EmailAddress" placeholder="E-mail Address" required=required />
+                            <span ng-show="forgotPswdForm.email1.$invalid && forgotPswdErrMsg" class="span-err-msg">Required</span>
+                        </div>
+                        <div class="row" style="margin-top:20px;">
+                            <button type="submit" id="imgbutton" class="btn btn-default submit-btn" style="margin-top:0px;" ng-click="forgotPasswordClick(forgotPswdForm.$valid)">Submit</button>
+                            <input type="submit" id="btnLogin" class="btn btn-default submit-btn" style="margin-top:0px;" value="Back to Login" ng-click="loginClick()" />
+                        </div>
+                    </form>
+                    <span ng-show="saveref" ng-style="{'color':'green'}">We have sent your password to your email address. It should arrive shortly</span>
+                    <span ng-show="errMsg" ng-style="{'color':'red'}">Details Not Saved.</span>
+                </div>
+             
+            <div ng-if="is_show">
+                <div ng-if="resetpswd" align="center">
+                    <h2>Change Your Password</h2>
+                    <hr />
+                    <form class="form-horizontal" name="resetPasswordForm" id="resetPasswordForm" novalidate=novalidate>
+                        <div style="width:100%">
+                            <!-- Old Password Field -->
+                            @*<div>
+                                <span id="dvOldPassword" class="help-inline">
+                                    {{'Old Password' | translate}}*
+                                </span>
+                                <input type="password" id="txtOldPassword" name="oldPassword" class="input" ng-model="DoNotSellInfo.OldPassword" required=required />
+                                <span ng-show="resetPasswordForm.oldPassword.$invalid && resetPasswordForm.oldPassword.$touched" class="text-danger">
+                                    {{'Old password is required.' | translate}}
+                                </span>
+                            </div>*@
+
+                            <!-- New Password Field -->
+                            <div>
+                                <span id="spnNewPassword" class="help-inline">
+                                    {{'New Password' | translate}}*
+                                </span>
+                                <input type="password" id="txtNewPassword" name="newPassword" class="input" ng-model="DoNotSellInfo.NewPassword" required=required />
+                                <span ng-show="resetPasswordForm.newPassword.$invalid && resetPasswordForm.newPassword.$touched" class="text-danger">
+                                    {{'New password is required.' | translate}}
+                                </span>
+                            </div>
+
+                            <!-- Confirm Password Field -->
+                            <div>
+                                <span id="spnConfirmPassword" class="help-inline">
+                                    {{'Confirm Password' | translate}}*
+                                </span>
+                                <input type="password" id="txtConfirmPassword" name="confirmPassword" class="input" ng-model="DoNotSellInfo.CnfNewPassword" required=required />
+                                <span ng-show="resetPasswordForm.confirmPassword.$invalid && resetPasswordForm.confirmPassword.$touched" class="text-danger">
+                                    {{'Please confirm your new password.' | translate}}
+                                </span>
+                                <span ng-show="resetPasswordForm.confirmPassword.$touched && DoNotSellInfo.NewPassword !== DoNotSellInfo.CnfNewPassword" class="text-danger">
+                                    {{'Passwords do not match.' | translate}}
+                                </span>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div align="center">
+                                <button type="submit" class="btn btn-default submit-btn"
+                                        ng-click="submitNewPassword(resetPasswordForm.$valid)"
+                                        ng-disabled="resetPasswordForm.$invalid || DoNotSellInfo.NewPassword !== DoNotSellInfo.CnfNewPassword">
+                                    {{'Submit' | translate}}
+                                </button>
+                            </div>
+
+                            <!-- Feedback Messages -->
+                            <div align="center" style="margin-top: 10px;">
+                                <span ng-show="passwordResetSuccess" class="text-success">
+                                    {{'Your password has been reset successfully.' | translate}}
+                                </span>
+                            </div>
+                            <div align="center" style="margin-top: 10px;">
+                                <span ng-show="passwordResetError" class="text-danger">
+                                    {{'There was an error resetting your password. Please try again.' | translate}}
+                                </span>
+                            </div>
+                            <div align="center" style="margin-top: 10px;">
+                                <span ng-show="pwdmatchError" class="text-danger">
+                                    {{'Passwords do not match.' | translate}}
+                                </span>
+                            </div>
+                            <div align="center" style="margin-top: 10px;">
+                                <span ng-show="weekpwdMsg" class="text-danger">
+                                    {{'Password must be at least 8 characters long.' | translate}}
+                                </span>
+                            </div>
+                            <div align="center" style="margin-top: 10px;">
+                                <span ng-show="samePwdError" class="text-danger">
+                                    {{'New password cannot be the same as the old password.' | translate}}
+                                </span>
+                            </div>
+                            <div align="center" style="margin-top: 10px;">
+                                <span ng-show="isShowError" class="text-danger">
+                                    {{'Please correct the errors in the form.' | translate}}
+                                </span>
+                            </div>
+                            <div align="center" style="margin-top: 10px;">
+                                <span ng-show="errMsg" class="text-danger">
+                                    {{'An unexpected error occurred. Please try again later.' | translate}}
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="dvForm" style="margin: auto; width: 80%;" ng-if="formhide">
+                <form class="form-horizontal" name="regForm" id="regForm" novalidate=novalidate>
+                    <div>
+                        <span id="spnFirstName" class="help-inline">{{'firstName' | translate}}*</span>
+                        <input type="text" id="txtFirstName" class="input" ng-model="user.FirstName" name="firstName" ng-required="true" />
+                        <span ng-show="regForm.firstName.$invalid && showErrorMsg" class="text-danger error">{{'required' | translate}}</span>
+                    </div>
+                    <div>
+                        <span id="spnLastName" class="help-inline">{{'lastName' | translate}}*</span>
+                        <input type="text" id="txtLastName" class="input" ng-model="user.LastName" name="lastName" ng-required="true" />
+                        <span ng-show="regForm.lastName.$invalid && showErrorMsg" class="text-danger error">{{'required' | translate}}</span>
+                    </div>
+                    <div id="dvEmailAddress" ng-if="rid != 21034 && rid != 22078">
+                        <span id="dvEmailForFreebies" class="help-inline">{{'emailaddress' | translate}}*</span>
+                        <input type="email" id="txtEmail" class="input" ng-model="user.EmailAddress" name="email" ng-required="true" />
+                        <span class="error text-danger" error=error ng-show="regForm.$error.email">{{'notValidEmail' | translate}}</span>
+                        <img src="/Images/Wr.jpg" id="imgInvalid1" hidden="hidden" />
+                        <img src="/Images/tick.png" id="imgValid1" hidden="hidden" />
+
+                    </div>
+                    <div>
+                        <span id="spnAddress" class="help-inline">{{'address1' | translate}}*</span>
+                        <input type="text" id="txtAddress1" name="address1" class="input" ng-model="user.Address1" ng-required="true" />
+                        <span class="error text-danger" ng-show="regForm.address1.$invalid && showErrorMsg">{{'required' | translate}}</span>
+                    </div>
+                    <div>
+                        <span id="spnAddress2" class="help-inline">{{'address2' | translate}}</span>
+                        <input type="text" id="txtAddress2" class="input" ng-model="user.Address2" />
+                    </div>
+                    <div>
+                        <span id="spnCountry" class="help-inline">{{'country' | translate}}*</span>
+                        <select class="input" id="ddlCountry" ng-model="user.CountryId" name="country" ng-options="c.CountryId as c.CountryName for c in country"
+                                ng-init="formData.surgeryStatus = selected" ng-change="countryByStates(user.CountryId)" ng-required="true">
+                            <option value="">--{{'country' | translate}}--</option>
+                        </select>
+                        <span class="error text-danger" ng-show="regForm.country.$invalid && showErrorMsg">{{'required' | translate}}</span>
+
+                    </div>
+                    <div ng-if="states.length != 0">
+                        <span id="spnState" class="help-inline">{{'state' | translate}}*</span>
+
+                        <select class="input" id="ddlStates" ng-model="user.StateId" name="state" ng-options="st.StateId as st.StateName for st in states" ng-required="true">
+                            <option value="">{{'state' | translate}}</option>
+                        </select>
+                        <span class="error text-danger" ng-show="regForm.state.$invalid && showErrorMsg">{{'required' | translate}}</span>
+
+                    </div>
+                    <div>
+                        <span id="spnCity" class="help-inline">{{'city' | translate}}*</span>
+                        <input type="text" id="txtCity" class="input" ng-model="user.City" name="city" ng-required="true" />
+                        <span class="error text-danger" ng-show="regForm.city.$invalid && showErrorMsg">{{'required' | translate}}</span>
+
+                    </div>
+                    <div>
+                        <span id="lblGender" class="help-inline">{{'gender' | translate}}*</span>
+
+                        <select class="input" id="ddlGender" ng-model="user.Gender" name="gender" ng-required="true" ng-click="optIntelligenceCheck()">
+                            <option value="">{{'gender' | translate}}</option>
+                            <option value="m">{{'male' | translate}}</option>
+                            <option value="f">{{'female' | translate}}</option>
+                            <option value="N">{{'nonBinary'|translate}}</option>
+                        </select>
+                        <span class="error text-danger" ng-show="regForm.gender.$invalid && showErrorMsg">{{'required' | translate}}</span>
+
+                    </div>
+                    <span id="lblDob" class="help-inline">{{'dOB' | translate}}*</span>
+                    <div style="margin:5px;">
+                        <select class="form-control padding-zero" style="width: 100px;display: inline-block;" id="ddlMonth" ng-model="user.Month" name="month" ng-required="true" ng-click="optIntelligenceCheck()">
+                            <option value="">{{'month' | translate}}</option>
+                            <option value="01">{{'jan' | translate}}</option>
+                            <option value="02">{{'feb' | translate}}</option>
+                            <option value="03">{{'mar' | translate}}</option>
+                            <option value="04">{{'apr' | translate}}</option>
+                            <option value="05">{{'may' | translate}}</option>
+                            <option value="06">{{'jun' | translate}}</option>
+                            <option value="07">{{'jul' | translate}}</option>
+                            <option value="08">{{'aug' | translate}}</option>
+                            <option value="09">{{'sep' | translate}}</option>
+                            <option value="10">{{'oct' | translate}}</option>
+                            <option value="11">{{'nov' | translate}}</option>
+                            <option value="12">{{'dec' | translate}}</option>
+                        </select>
+
+                        <select class="form-control padding-zero" style="width: 140px;display: inline-block;" id="ddlDay" ng-model="user.Day" name="day" ng-required="true" ng-click="optIntelligenceCheck()">
+                            <option value="">{{'day' | translate}}</option>
+                            <option value="01">1</option>
+                            <option value="02">2</option>
+                            <option value="03">3</option>
+                            <option value="04">4</option>
+                            <option value="05">5</option>
+                            <option value="06">6</option>
+                            <option value="07">7</option>
+                            <option value="08">8</option>
+                            <option value="09">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+
+                        </select>
+
+                        <select class="form-control padding-zero" id="ddlYear" style="width: 122px;display: inline-block;" ng-model="user.Year" name="year" ng-required="true">
+                            <option value="">{{'year' | translate}}</option>
+                            <option ng-repeat="y in year" value="{{y.key}}">{{y.value}}</option>
+                        </select>
+
+                        <span class="error text-danger" ng-show="regForm.year.$invalid &&showErrorMsg" style="margin-left:16px;">{{'required' | translate}}</span>
+                    </div>
+                    <div>
+                        <span id="spnZipcode" class="help-inline">{{'zipPostalCode' | translate}}*</span>
+                        <input type="text" id="txtZipCode" class="input" ng-model="user.ZipCode" name="zipCode" ng-required="true" />
+                        <span class="error text-danger" ng-show="regForm.zipCode.$invalid && showErrorMsg">{{'required' | translate}}</span>
+                    </div>
+                    <div ng-if="user.CountryId != 505 && user.CountryId != 512 && user.CountryId != 525 && user.CountryId != 545 && user.CountryId != 548 && user.CountryId != 549 && user.CountryId !=550 && user.CountryId !=559 && user.CountryId !=564 && user.CountryId !=565 && user.CountryId !=572 && user.CountryId !=575 && user.CountryId !=590 && user.CountryId !=596 && user.CountryId !=599 && user.CountryId !=613 && user.CountryId !=618 && user.CountryId !=619 && user.CountryId !=620 && user.CountryId !=628 && user.CountryId != 647 && user.CountryId != 657 && user.CountryId != 668 && user.CountryId != 669 &&
+                         user.CountryId !=673 && user.CountryId !=693 && user.CountryId !=694 && user.CountryId !=700 && user.CountryId !=706">
+                        <span id="spnEthnicity" class="help-inline">{{'ethnicity' | translate}}*</span>
+                        <select class="input" id="ddlEthnicity" ng-model="user.EthnicityId" ng-options="ec.EthnicityId as ec.EthnicityType for ec in ethnicityLst" name="ethnicity" convert-to-number=convert-to-number ng-required="true">
+                            <option value="">{{'select'|translate}}</option>
+                        </select>
+                        <span class="error text-danger" ng-show="regForm.ethnicity.$invalid  && showErrorMsg">{{'required' | translate}}</span>
+
+                    </div>
+                    @*<div>
+                            <span id="pLanguage" class="help-inline">{{'preferredLanguage' | translate}}*</span>
+                            <select class="input" id="Language" ng-model="user.LanguageId" ng-options="ec.LanguageId as ec.LanguageName for ec in langLst" name="Language"   required>
+                                <option value="">{{'select'|translate}}</option>
+                            </select>
+                            <span class="error text-danger" ng-show="regForm.Language.$invalid && showErrorMsg">{{'required' | translate}}</span>
+                        </div>*@
+                    <div style="display: inline-block;">
+                        <br />
+                        {{'para3' | translate}} <a href="javascript: void(0)" onclick="popup('/WidgetTerms.html')" id="ancsurveysonline" runat="server">{{'termsofuse' | translate}}</a> {{'and' | translate}} <a href="javascript: void(0)" onclick="popup('/WidgetPrivacy.html')" id="ancsurveyspolicy">{{'privacypolicy' | translate}}</a>.
+                        {{'para4' | translate}}<br />
+                        <br />
+                    </div>
+                    <div>
+                        <span id="spnExtMemberId" style="color: Red; font-family: Verdana; font-size: 12px; display: none;"
+                              class="error">{{'extIDReq' | translate}}</span>
+                        <span style="display:block;" class="text-danger" ng-if="showMemberExist">Member already exists with given Email address.</span>
+                    </div>
+                    <div align="center">
+                        <input type="button" value="{{'JoinNow' | translate}}" ng-click="saveReg(regForm.$valid)" />
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </center>
+    <!-- /container -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angularval")
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="~/Scripts/services/customServices.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/pages/partner/reg.js"> </script>
+    <script type="text/javascript" src="~/Scripts/services/translationService.js"> </script>
+    <script src="~/Scripts/translate-pluggable-loader.js" type="text/javascript"></script>
+
+</body>
+</html>

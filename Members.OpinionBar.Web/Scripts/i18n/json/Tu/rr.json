@@ -1,0 +1,18 @@
+﻿{
+  "yourCurrentAccountBalance": "Mevcut Hesap Bakiyeniz",
+  "rewardName": "Ödül Adı",
+  "disclaimer": "feragat",
+  "rewardDis": "ödüllerin sponsoru değildir veya Opinionetwork'e bağlı değildir. Ekli logolar ve diğer tanımlayıcı markalar, temsil edilen her bir şirketin ve / veya bağlı şirketlerinin ticari markalarıdır ve ona aittir. Ek hüküm ve koşullar için lütfen her şirketin web sitesini ziyaret edin.",
+  "invalidCap": "Geçersiz güvenlik kodu seçimi",
+  "errorPlstryagain": "Hata oluştu. lütfen tekrar deneyin",
+  "amount": "Miktar",
+  "redeem": "Tazmin etmek",
+  "cancel": "İptal etmek",
+  "rewardNote": "Not: Önümüzdeki 2 saat içinde, kullanımınıza ilişkin bir onay e-postası almazsanız veya aşağıdaki tarihte kullanımınızı görürseniz, lütfen yardım için destek departmanımızla iletişime geçin."
+  "rewardNote1": "Nota: Nas próximas 2 horas, você verá seu resgate em seu histórico abaixo. Caso contrário, entre em contato com (support@opinionetwork.com)",
+  "paypalrequest1": "Запросы, сделанные 1–15 числа месяца (EST), будут оплачены 16 числа.",
+  "paypalrequest2": "Запросы, сделанные с 16 по 31 число месяца (EST), будут оплачены 1 числа.",
+  "paypalrequest3": "Если 1 или 16 числа выпадают на выходные и праздничные дни, платежи обрабатываются в первый рабочий день, следующий за ним.",
+  "paypalrequest4": "Вознаграждения PayPal зачисляются на адрес электронной почты, который вы используете для доступа к своей учетной записи OpinionBar.com.",
+  "paypalrequest5": "Если ваш адрес электронной почты не связан с вашей учетной записью PayPal, добавьте его, чтобы гарантировать, что депозит пройдет. Вы можете связать несколько адресов электронной почты с каждой учетной записью PayPal."
+}

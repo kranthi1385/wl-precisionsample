@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/_Leadlayout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/rzslider.min.css" />
+<link href="~/Content/prequestion.css" rel="stylesheet" />
+
+
+
+
+<div id="dvSurveyQuestions" ng-controller="userGmEndController" ng-if="gmPageLoad" ng-cloak>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    }
+    <form name="formValidation" novalidate>
+        <div id="surveyQuestion">
+            <img class="img-mob" src="~/Images/MarketPlaces/General-Motors.png" />
+            <div class="pre-question-panel">
+
+                @*<div id="dvImageLoading">
+                    </div>*@
+                @*<div class="pre-question-img">
+                    <img src="~/Images/question-img.png" />
+                </div>*@
+
+                <div id="dvQuestions" class="pre-question-list" style="font-size:13px;">
+                    <div class="body1" style="padding: 50px;">
+                        <span style="color:red;font-size:15px;">
+                            Thank you for participating. Unfortunately you do not match the desired profile required to complete this Profiling survey.
+                        </span>
+                    </div>
+                    <div class="footerblock">
+                        <div style="text-align: center; padding: 10px;">
+                            <span id="spnErrorMessage" align="left" style="color: Red; display: none; font-size: 15px"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

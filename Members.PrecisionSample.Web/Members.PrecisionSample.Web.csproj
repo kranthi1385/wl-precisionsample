@@ -1,0 +1,1115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6F98FBF5-9D32-46D9-846B-CF4B00754034}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Members.PrecisionSample.Web</RootNamespace>
+    <AssemblyName>Members.PrecisionSample.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <_MigrateToProjectGuid>774c4736-35b3-44e8-1f86-b51337144337</_MigrateToProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.7.402.8\lib\net45\AWSSDK.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AWSSDK.Lambda, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Lambda.3.7.411.45\lib\net45\AWSSDK.Lambda.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AWSSDK.SimpleEmail, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.SimpleEmail.3.7.0\lib\net45\AWSSDK.SimpleEmail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="dotless.Core, Version=1.4.0.0, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
+      <HintPath>..\packages\dotless.1.4.0.0\lib\dotless.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.0.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <HintPath>..\packages\System.Net.Http.2.0.20126.16343\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.2\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization.Less, Version=1.3.0.0, Culture=neutral, PublicKeyToken=9b7581e0240fe480, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Optimization.Less.1.3.4\lib\net40\System.Web.Optimization.Less.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\app.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap3.0.css" />
+    <Content Include="Content\custom.css" />
+    <Content Include="Content\default.css" />
+    <Content Include="Content\gmquestions.css" />
+    <Content Include="Content\Grid.css" />
+    <Content Include="Content\loading-bar.css" />
+    <Content Include="Content\loadingbar.css" />
+    <Content Include="Content\loquelanding\lqstyles.css" />
+    <Content Include="Content\loquelanding\main.css" />
+    <Content Include="Content\loquelanding\red.css" />
+    <Content Include="Content\main\epResponsive.css" />
+    <Content Include="Content\main\fpResponsive.css" />
+    <Content Include="Content\main\hmResponsive.css" />
+    <Content Include="Content\main\mrResponsive.css" />
+    <Content Include="Content\main\msResponsive.css" />
+    <Content Include="Content\main\s1.css" />
+    <Content Include="Content\molanding\css\all.css" />
+    <Content Include="Content\molanding\images\wrapper.jpg" />
+    <Content Include="Content\mrktplace\app.css" />
+    <Content Include="Content\mrktplace\media.css" />
+    <Content Include="Content\oslanding\app.css" />
+    <Content Include="Content\oslanding\foundation.css" />
+    <Content Include="Content\pagging.css" />
+    <Content Include="Content\main\redeem.css" />
+    <Content Include="Content\partner.css" />
+    <Content Include="Content\pgslanding\foundation.css" />
+    <Content Include="Content\pgslanding\foundationie.css" />
+    <Content Include="Content\phm.css" />
+    <Content Include="Content\piiapp.css" />
+    <Content Include="Content\prequestion.css" />
+    <Content Include="Content\reddem.css" />
+    <Content Include="Content\reg.css" />
+    <Content Include="Content\researchwroldwide\styles.css" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\main\rfResponsive.css" />
+    <Content Include="Content\rg\base.css" />
+    <Content Include="Content\rg\font-awesome.css" />
+    <Content Include="Content\rg\layout.css" />
+    <Content Include="Content\loquelanding\lqmain.css" />
+    <Content Include="Content\rg\main.css" />
+    <Content Include="Content\rg\prettyPhoto.css" />
+    <Content Include="Content\rg\sdl-style.css" />
+    <Content Include="Content\rg\skeleton.css" />
+    <Content Include="Content\rg\step1Responsive.css" />
+    <Content Include="Content\rg\step2Responsive.css" />
+    <Content Include="Content\rg\top10.css" />
+    <Content Include="Content\rg\wtlstep1.css" />
+    <Content Include="Content\river-main.css" />
+    <Content Include="Content\rzslider.min.css" />
+    <Content Include="Content\s4m\css\s4mstyle.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\main\tafResponsive.css" />
+    <Content Include="Content\vilanding\viapp.css" />
+    <Content Include="DailyQstTemp\Checkboxmatrix.html" />
+    <Content Include="DailyQstTemp\CheckboxwithnoneTmp.html" />
+    <Content Include="DailyQstTemp\ChkBoxTmp.html" />
+    <Content Include="DailyQstTemp\ChkboxwithrdmatrixTmp.html" />
+    <Content Include="DailyQstTemp\DropDownTmp.html" />
+    <Content Include="DailyQstTemp\LikertTmp.html" />
+    <Content Include="DailyQstTemp\QuestionTmp.html" />
+    <Content Include="DailyQstTemp\RdmatrixTmp.html" />
+    <Content Include="DailyQstTemp\RdTemp.html" />
+    <Content Include="DailyQstTemp\RdVeritcalTmp.html" />
+    <Content Include="DailyQstTemp\test.html" />
+    <Content Include="DailyQstTemp\TxtboxTmp.html" />
+    <Content Include="dlls\NLog.dll" />
+    <Content Include="dlls\NLog.Extended.dll" />
+    <Content Include="dlls\NLog.Web.dll" />
+    <Content Include="Flash\flash.swf" />
+    <Content Include="Flash\video.flv" />
+    <Content Include="Global.asax" />
+    <Content Include="hm.html" />
+    <Content Include="Images\01-History.png" />
+    <Content Include="Images\01-Profiles.png" />
+    <Content Include="Images\01-Rewards.png" />
+    <Content Include="Images\01-Survey.png" />
+    <Content Include="Images\01-Voucher.png" />
+    <Content Include="Images\04.png" />
+    <Content Include="Images\background-1.jpg" />
+    <Content Include="Images\background-2.jpg" />
+    <Content Include="Images\background-3.jpg" />
+    <Content Include="Images\background-4.jpg" />
+    <Content Include="Images\bg-survey-middle.png" />
+    <Content Include="Images\bg-survey-top.png" />
+    <Content Include="Images\bg.gif" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\bg1.jpg" />
+    <Content Include="Images\border-right.gif" />
+    <Content Include="Images\checkbox.png" />
+    <Content Include="Images\content_bg.png" />
+    <Content Include="Images\continue.jpg" />
+    <Content Include="Images\conversant.png" />
+    <Content Include="Images\cookie_image.png" />
+    <Content Include="Images\email_icon.png" />
+    <Content Include="Images\errorpage.jpeg" />
+    <Content Include="Images\flash 2.swf" />
+    <Content Include="Images\General-Motors-logo.png" />
+    <Content Include="Images\gm_logo.png" />
+    <Content Include="Images\help-icon.png" />
+    <Content Include="Images\list.png" />
+    <Content Include="Images\livesurveyslogo.jpg" />
+    <Content Include="Images\loadericon.gif" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\logo_opinionbar2x.png" />
+    <Content Include="Images\Loquedigo\WL\1156.png" />
+    <Content Include="Images\Loquedigo\WL\18079.png" />
+    <Content Include="Images\Loquedigo\WL\24914.png" />
+    <Content Include="Images\Loquedigo\WL\30272.png" />
+    <Content Include="Images\Loquedigo\WL\32438.png" />
+    <Content Include="Images\Loquedigo\WL\32441.png" />
+    <Content Include="Images\Loquedigo\WL\32445.png" />
+    <Content Include="Images\Loquedigo\WL\33308.png" />
+    <Content Include="Images\Loquedigo\WL\61330.png" />
+    <Content Include="Images\Loquedigo\WL\64104.png" />
+    <Content Include="Images\Loquedigo\WL\65038.png" />
+    <Content Include="Images\Loquedigo\WL\8811.png" />
+    <Content Include="Images\Loquedigo\WL\arrow.png" />
+    <Content Include="Images\Loquedigo\WL\body.png" />
+    <Content Include="Images\Loquedigo\WL\cookie_image.png" />
+    <Content Include="Images\Loquedigo\WL\email.png" />
+    <Content Include="Images\Loquedigo\WL\facebook.png" />
+    <Content Include="Images\Loquedigo\WL\features1.png" />
+    <Content Include="Images\Loquedigo\WL\features2.png" />
+    <Content Include="Images\Loquedigo\WL\features3.png" />
+    <Content Include="Images\Loquedigo\WL\fin.png" />
+    <Content Include="Images\Loquedigo\WL\google.png" />
+    <Content Include="Images\Loquedigo\WL\iStock_main_bg.jpg" />
+    <Content Include="Images\Loquedigo\WL\iStock_main_bg21.jpg" />
+    <Content Include="Images\Loquedigo\WL\logo-red.png" />
+    <Content Include="Images\Loquedigo\WL\main-bg-pr.jpg" />
+    <Content Include="Images\Loquedigo\WL\pg_r_t.gif" />
+    <Content Include="Images\Loquedigo\WL\shutterstock_main_bg31.jpg" />
+    <Content Include="Images\Loquedigo\WL\shutterstock_main_bg4.jpg" />
+    <Content Include="Images\Loquedigo\WL\shutterstock_main_bg5.jpg" />
+    <Content Include="Images\Loquedigo\WL\shutterstock_main_bg6.jpg" />
+    <Content Include="Images\Loquedigo\WL\title.png" />
+    <Content Include="Images\Loquedigo\WL\title2.png" />
+    <Content Include="Images\Loquedigo\WL\twitter.png" />
+    <Content Include="Images\MagazineOpinions\banner.gif" />
+    <Content Include="Images\MagazineOpinions\bg.jpg" />
+    <Content Include="Images\MagazineOpinions\details.jpg" />
+    <Content Include="Images\MagazineOpinions\Magazine-Opinions_banner.jpg" />
+    <Content Include="Images\MagazineOpinions\Magazine-Opinions_logo.jpg" />
+    <Content Include="Images\MagazineOpinions\makesomecash.gif" />
+    <Content Include="Images\MagazineOpinions\submit.gif" />
+    <Content Include="Images\MagazineOpinions\wrapper.jpg" />
+    <Content Include="Images\main\arrow_gray.gif" />
+    <Content Include="Images\MarketPlaces\banner_bg.jpg" />
+    <Content Include="Images\MarketPlaces\General-Motors.png" />
+    <Content Include="Images\MarketPlaces\gm_logo.png" />
+    <Content Include="Images\MarketPlaces\img_heard.png" />
+    <Content Include="Images\MarketPlaces\img_insider.png" />
+    <Content Include="Images\MarketPlaces\img_mp.png" />
+    <Content Include="Images\MarketPlaces\logo_amazon.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\blue1.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\check2.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\check3.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\check4.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\facebook_credits.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\finish_signup.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\free_to_join.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\get_started.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\ipad_box.gif" />
+    <Content Include="Images\MommyKnowsSurveys\WL\little_green.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\little_purple.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\menu_2_js_1.js" />
+    <Content Include="Images\MommyKnowsSurveys\WL\menu_2_style_1.css" />
+    <Content Include="Images\MommyKnowsSurveys\WL\mommy2.jpg" />
+    <Content Include="Images\MommyKnowsSurveys\WL\MommyKnows3.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\paypal.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\powered-by.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\red1.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\rewards.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\submit.png" />
+    <Content Include="Images\MommyKnowsSurveys\WL\ws-common.css" />
+    <Content Include="Images\MommyKnowsSurveys\WL\ws-common.js" />
+    <Content Include="Images\name-icon.png" />
+    <Content Include="Images\on_logocopy.PNG" />
+    <Content Include="Images\opinionnetwork_logo.png" />
+    <Content Include="Images\OpinionSquad\bodybg.JPG" />
+    <Content Include="Images\OpinionSquad\jointhesquad.png" />
+    <Content Include="Images\OpinionSquad\like.JPG" />
+    <Content Include="Images\OpinionSquad\logo.png" />
+    <Content Include="Images\OpinionSquad\main.PNG" />
+    <Content Include="Images\OpinionSquad\signuphere.png" />
+    <Content Include="Images\OpinionSquad\start-button.png" />
+    <Content Include="Images\OpinionSquad\survey.png" />
+    <Content Include="Images\panelofgamers\bullets.jpg" />
+    <Content Include="Images\panelofgamers\foot_bg.png" />
+    <Content Include="Images\panelofgamers\form_bg.png" />
+    <Content Include="Images\panelofgamers\form_bg2.png" />
+    <Content Include="Images\panelofgamers\join.png" />
+    <Content Include="Images\panelofgamers\left-arrow-small.png" />
+    <Content Include="Images\panelofgamers\left-arrow.png" />
+    <Content Include="Images\panelofgamers\logo-slide1.png" />
+    <Content Include="Images\panelofgamers\logo-slide2.png" />
+    <Content Include="Images\panelofgamers\logo_shine.png" />
+    <Content Include="Images\panelofgamers\page_bg.jpg" />
+    <Content Include="Images\panelofgamers\page_cracks.png" />
+    <Content Include="Images\panelofgamers\pause-black.png" />
+    <Content Include="Images\panelofgamers\pgslogo.png" />
+    <Content Include="Images\panelofgamers\promo.png" />
+    <Content Include="Images\panelofgamers\rewards.png" />
+    <Content Include="Images\panelofgamers\right-arrow-small.png" />
+    <Content Include="Images\panelofgamers\right-arrow.png" />
+    <Content Include="Images\panelofgamers\rotator-black.png" />
+    <Content Include="Images\panelofgamers\sign.png" />
+    <Content Include="Images\panelofgamers\signupbut.png" />
+    <Content Include="Images\panelofgamers\slide1.png" />
+    <Content Include="Images\panelofgamers\slide2.png" />
+    <Content Include="Images\panelofgamers\slide3.png" />
+    <Content Include="Images\panelofgamers\timer-black.png" />
+    <Content Include="Images\panelofgamers\top_bar_bg.png" />
+    <Content Include="Images\panelofgamers\vg.png" />
+    <Content Include="Images\partner\icon-history.png" />
+    <Content Include="Images\partner\icon-mysurvey.png" />
+    <Content Include="Images\partner\icon-profiles.png" />
+    <Content Include="Images\partner\icon-rewards.png" />
+    <Content Include="Images\precisionsamplelogo.png" />
+    <Content Include="Images\privacy_rights.png" />
+    <Content Include="Images\question-img.png" />
+    <Content Include="Images\radio.png" />
+    <Content Include="Images\ResearchWorldWide\01-icon.png" />
+    <Content Include="Images\ResearchWorldWide\02-icon.png" />
+    <Content Include="Images\ResearchWorldWide\03-icon.png" />
+    <Content Include="Images\ResearchWorldWide\banner-bg.jpg" />
+    <Content Include="Images\ResearchWorldWide\by_in_only.png" />
+    <Content Include="Images\ResearchWorldWide\client-1.png" />
+    <Content Include="Images\ResearchWorldWide\client-2.png" />
+    <Content Include="Images\ResearchWorldWide\client-3.png" />
+    <Content Include="Images\ResearchWorldWide\client-4.png" />
+    <Content Include="Images\ResearchWorldWide\client-5.png" />
+    <Content Include="Images\ResearchWorldWide\client-6.png" />
+    <Content Include="Images\ResearchWorldWide\client-7.png" />
+    <Content Include="Images\ResearchWorldWide\client-8.png" />
+    <Content Include="Images\ResearchWorldWide\client-9.png" />
+    <Content Include="Images\ResearchWorldWide\Linkedin-customized-button.png" />
+    <Content Include="Images\ResearchWorldWide\logo.png" />
+    <Content Include="Images\rg\1.png" />
+    <Content Include="Images\rg\2.png" />
+    <Content Include="Images\rg\3.png" />
+    <Content Include="Images\rg\amazon.png" />
+    <Content Include="Images\rg\apple.png" />
+    <Content Include="Images\rg\best.png" />
+    <Content Include="Images\rg\bgwithouttext.png" />
+    <Content Include="Images\rg\body_main_01.jpg" />
+    <Content Include="Images\main\border-right.gif" />
+    <Content Include="Images\main\border.gif" />
+    <Content Include="Images\main\build.jpg" />
+    <Content Include="Images\main\build1.jpg" />
+    <Content Include="Images\main\build_btn.jpg" />
+    <Content Include="Images\rg\col2_01.png" />
+    <Content Include="Images\rg\col2_02.png" />
+    <Content Include="Images\rg\col2_03.png" />
+    <Content Include="Images\rg\col2_05.png" />
+    <Content Include="Images\rg\col2_06.png" />
+    <Content Include="Images\rg\col2_07.png" />
+    <Content Include="Images\rg\col2_08.png" />
+    <Content Include="Images\rg\col2_09.png" />
+    <Content Include="Images\main\content_bg.png" />
+    <Content Include="Images\main\emptycheck.gif" />
+    <Content Include="Images\facebbook.png" />
+    <Content Include="Images\rg\facebook.png" />
+    <Content Include="Images\rg\fb.png" />
+    <Content Include="Images\rg\footer\dribbble.png" />
+    <Content Include="Images\rg\footer\facebook1.png" />
+    <Content Include="Images\rg\footer\googleplus.png" />
+    <Content Include="Images\rg\footer\twitter.png" />
+    <Content Include="Images\rg\form-globe.png" />
+    <Content Include="Images\rg\form2_03.jpg" />
+    <Content Include="Images\rg\form2_06.jpg" />
+    <Content Include="Images\rg\form3_09.jpg" />
+    <Content Include="Images\rg\frame_01.png" />
+    <Content Include="Images\howitworks.jpg" />
+    <Content Include="Images\join.jpg" />
+    <Content Include="Images\main\leftbox_gradient.jpg" />
+    <Content Include="Images\logo.gif" />
+    <Content Include="Images\main\maximize.gif" />
+    <Content Include="Images\main\FBnew.jpg" />
+    <Content Include="Images\Menu\home.png" />
+    <Content Include="Images\main\inviteMyFriends.jpg" />
+    <Content Include="Images\main\PersonGreen.gif" />
+    <Content Include="Images\main\PersonRed.gif" />
+    <Content Include="Images\rewards.jpg" />
+    <Content Include="Images\main\takesurveys1.jpg" />
+    <Content Include="Images\main\tweetthisnew.jpg" />
+    <Content Include="Images\main\usergroup.png" />
+    <Content Include="Images\main\WebResource.gif" />
+    <Content Include="Images\main\newsurveys.gif" />
+    <Content Include="Images\main\newsurveys.jpg" />
+    <Content Include="Images\privacy.jpg" />
+    <Content Include="Images\main\profiles.gif" />
+    <Content Include="Images\main\profiles.jpg" />
+    <Content Include="Images\main\takesurveys.jpg" />
+    <Content Include="Images\rg\intro.jpg" />
+    <Content Include="Images\rg\logo.png" />
+    <Content Include="Images\rg\main-bg.jpg" />
+    <Content Include="Images\rg\more.png" />
+    <Content Include="Images\rg\paypal.png" />
+    <Content Include="Images\rg\pics.png" />
+    <Content Include="Images\rg\required-active.png" />
+    <Content Include="Images\rg\rewards.jpg" />
+    <Content Include="Images\rg\set1\amazon-gift-card.png" />
+    <Content Include="Images\rg\set1\best-buy-gift-card.png" />
+    <Content Include="Images\rg\set1\itunes-gift-card.png" />
+    <Content Include="Images\rg\set1\paypal_logo.png" />
+    <Content Include="Images\rg\set1\starbucks-gift-card.png" />
+    <Content Include="Images\rg\set2\chilis-gift-card.png" />
+    <Content Include="Images\rg\set2\gamestop-gift-card.png" />
+    <Content Include="Images\rg\set2\habitat-donation-gift-card.png" />
+    <Content Include="Images\rg\set2\lowes-gift-card.png" />
+    <Content Include="Images\rg\set2\target-gift-card.png" />
+    <Content Include="Images\rg\set3\macys-gift-card.png" />
+    <Content Include="Images\rg\set3\petco-gift-card.png" />
+    <Content Include="Images\rg\set3\rei-gift-card.png" />
+    <Content Include="Images\rg\set3\sportsauthority-gift-card.png" />
+    <Content Include="Images\rg\set3\toysrus-gift-card.png" />
+    <Content Include="Images\rg\set4\home-depot-gift-card.png" />
+    <Content Include="Images\rg\set4\maggianos-gift-card.png" />
+    <Content Include="Images\rg\set4\redrobin-gift-card.png" />
+    <Content Include="Images\rg\set4\staples-gift-card.png" />
+    <Content Include="Images\rg\set4\xbox-gift-card.png" />
+    <Content Include="Images\rg\sprite.png" />
+    <Content Include="Images\rg\surveyrewards.png" />
+    <Content Include="Images\rg\usop-logo.png" />
+    <Content Include="Images\S4mLanding\back.jpg" />
+    <Content Include="Images\S4mLanding\check1.png" />
+    <Content Include="Images\S4mLanding\check2.png" />
+    <Content Include="Images\S4mLanding\check3.png" />
+    <Content Include="Content\s4m\css\Step1.css" />
+    <Content Include="Images\S4mLanding\f.png" />
+    <Content Include="Images\S4mLanding\header.jpg" />
+    <Content Include="Images\S4mLanding\join.png" />
+    <Content Include="Images\S4mLanding\join1.png" />
+    <Content Include="Images\S4mLanding\join2.png" />
+    <Content Include="Images\S4mLanding\login.png" />
+    <Content Include="Images\S4mLanding\logo.png" />
+    <Content Include="Images\S4mLanding\mainback.jpg" />
+    <Content Include="Images\S4mLanding\one.png" />
+    <Content Include="Images\S4mLanding\pay.png" />
+    <Content Include="Images\S4mLanding\slogan.png" />
+    <Content Include="Images\S4mLanding\slogan2.png" />
+    <Content Include="Images\S4mLanding\submit1.png" />
+    <Content Include="Images\S4mLanding\three.png" />
+    <Content Include="Images\S4mLanding\topform.png" />
+    <Content Include="Images\S4mLanding\topform2.png" />
+    <Content Include="Images\S4mLanding\two.png" />
+    <Content Include="Images\samplepartnerlogo.png" />
+    <Content Include="Images\survey-bg.jpg" />
+    <Content Include="Images\tick.png" />
+    <Content Include="Images\twitter.png" />
+    <Content Include="Images\main\view.jpg" />
+    <Content Include="Content\Unsub\960.css" />
+    <Content Include="Content\Unsub\main.css" />
+    <Content Include="Content\Unsub\reset.css" />
+    <Content Include="Content\Unsub\slide.css" />
+    <Content Include="Images\video.mp4" />
+    <Content Include="Images\ViLanding\arrow-icon.png" />
+    <Content Include="Images\ViLanding\banner.jpg" />
+    <Content Include="Images\ViLanding\fc-credits.png" />
+    <Content Include="Images\ViLanding\lock.png" />
+    <Content Include="Images\ViLanding\need-extra-cash.png" />
+    <Content Include="Images\ViLanding\paypal.png" />
+    <Content Include="Images\ViLanding\vilogo.png" />
+    <Content Include="Images\We-Tell\images\dribbble.png" />
+    <Content Include="Images\We-Tell\images\facebook1.png" />
+    <Content Include="Images\We-Tell\images\googleplus.png" />
+    <Content Include="Images\We-Tell\images\logo.png" />
+    <Content Include="Images\We-Tell\images\twitter.png" />
+    <Content Include="Images\Wr.jpg" />
+    <Content Include="PartialViews\main\tc.html" />
+    <Content Include="PartialViews\ucl\footer.html" />
+    <Content Include="PartialViews\ucl\step1-reg.html" />
+    <Content Include="PartialViews\ucl\step2.html" />
+    <Content Include="PartialViews\ucl\step1.html" />
+    <Content Include="PartialViews\main\ep.html" />
+    <Content Include="PartialViews\main\hm.html" />
+    <Content Include="PartialViews\rg\lqestep2.html" />
+    <Content Include="PartialViews\main\mr.html" />
+    <Content Include="PartialViews\main\ms.html" />
+    <Content Include="PartialViews\main\p2sampleentry.html" />
+    <Content Include="PartialViews\rg\step1.html" />
+    <Content Include="PartialViews\rg\step2.html" />
+    <Content Include="PartialViews\main\trr.html" />
+    <Content Include="PartialViews\main\rf.html" />
+    <Content Include="PartialViews\services\pagging.html" />
+    <Content Include="PartialViews\main\Taf.html" />
+    <Content Include="PartialViews\main\Tr.html" />
+    <Content Include="partner\c.htm" />
+    <Content Include="partner\Privacy.htm" />
+    <Content Include="partner\reg.htm" />
+    <Content Include="partner\sc2.aspx" />
+    <Content Include="partner\TermsofUse.html" />
+    <Content Include="Privacy.html" />
+    <Content Include="pr\sc2.aspx" />
+    <Content Include="QstTemp\Checkboxmatrix.html" />
+    <Content Include="QstTemp\CheckboxwithnoneTmp.html" />
+    <Content Include="QstTemp\ChkBoxTmp.html" />
+    <Content Include="QstTemp\ChkboxwithrdmatrixTmp.html" />
+    <Content Include="QstTemp\DropDownTmp.html" />
+    <Content Include="QstTemp\LikertTmp.html" />
+    <Content Include="QstTemp\QuestionTmp.html" />
+    <Content Include="QstTemp\RdmatrixTmp.html" />
+    <Content Include="QstTemp\RdTemp.html" />
+    <Content Include="QstTemp\RdVeritcalTmp.html" />
+    <Content Include="QstTemp\test.html" />
+    <Content Include="QstTemp\TxtboxTmp.html" />
+    <Content Include="Scripts\AC_RunActiveContent.js" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-sanitize.min.js" />
+    <Content Include="Scripts\angular-translate-loader-partial.js" />
+    <Content Include="Scripts\angular-translate.min.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\dailyqstcntrl\cbkwrd.js" />
+    <Content Include="Scripts\dailyqstcntrl\cbmatrix.js" />
+    <Content Include="Scripts\dailyqstcntrl\checkboxwithrdmatrix.js" />
+    <Content Include="Scripts\dailyqstcntrl\chkbox.js" />
+    <Content Include="Scripts\dailyqstcntrl\ddl.js" />
+    <Content Include="Scripts\dailyqstcntrl\rd.js" />
+    <Content Include="Scripts\dailyqstcntrl\rdmatrix.js" />
+    <Content Include="Scripts\dailyqstcntrl\slidebar.js" />
+    <Content Include="Scripts\dailyqstcntrl\txtb.js" />
+    <Content Include="Scripts\i18n\json\en\mr.json" />
+    <Content Include="Scripts\i18n\json\en\ep.json" />
+    <Content Include="Scripts\i18n\json\en\hm.json" />
+    <Content Include="Images\MommyKnowsSurveys\WL\Web.config" />
+    <Content Include="appSettings.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="connectionStrings.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\pages\e\ereg.js" />
+    <Content Include="Scripts\pages\e\extreg.js" />
+    <Content Include="Scripts\pages\e\lbmsg.js" />
+    <Content Include="Scripts\pages\e\msglb.js" />
+    <Content Include="Scripts\pages\e\peerly.js" />
+    <Content Include="Scripts\pages\e\top10.js" />
+    <Content Include="Scripts\pages\e\top20.js" />
+    <Content Include="Scripts\pages\e\vld.js" />
+    <Content Include="Scripts\pages\partner\tc.js" />
+    <Content Include="Scripts\pages\rg\chquestionandoptionsobj.js" />
+    <Content Include="Scripts\pages\rg\dequestionandoptionsobj.js" />
+    <Content Include="Scripts\pages\rg\esquestionandoptionsobj.js" />
+    <Content Include="Scripts\pages\rg\frquestionandoptionsobj.js" />
+    <Content Include="Scripts\pages\rg\itquestionandoptionsobj.js" />
+    <Content Include="Scripts\pages\rg\jpquestionandoptionsobj.js" />
+    <Content Include="Scripts\pages\rg\koquestionandoptionsobj.js" />
+    <Content Include="Scripts\pages\rg\nlquestionandoptionsobj.js" />
+    <Content Include="Scripts\pages\rg\ptquestionandoptionsobj.js" />
+    <Content Include="Scripts\pages\rg\ruquestionandoptionsobj.js" />
+    <Content Include="Scripts\pages\s1.js" />
+    <Content Include="Scripts\services\CookieTranslation.js" />
+    <Content Include="Scripts\services\footerService.js" />
+    <Content Include="WidgetPrivacy.html" />
+    <Content Include="WidgetTerms.html" />
+    <Content Include="DoNotSellInfo.html" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\angular-cookies.min.js" />
+    <Content Include="Scripts\i18n\json\en\faq.json" />
+    <Content Include="Scripts\i18n\json\en\abt.json" />
+    <Content Include="Scripts\i18n\json\en\lqestep1.json" />
+    <Content Include="Scripts\i18n\json\en\lqestep2.json" />
+    <Content Include="Scripts\i18n\json\en\ca.json" />
+    <Content Include="Scripts\i18n\json\cn\tc.json" />
+    <Content Include="Scripts\i18n\json\de\tc.json" />
+    <None Include="Scripts\i18n\json\en\ms.json" />
+    <Content Include="Scripts\iframresizer.js" />
+    <Content Include="Scripts\jquery.tmpl.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\knockout-2.3.0.js" />
+    <Content Include="Scripts\knockout.mapping-latest.debug.js" />
+    <Content Include="Scripts\knockout.mapping-latest.js" />
+    <Content Include="Scripts\lead\leadCustomServices.js" />
+    <Content Include="Scripts\lead\leadConfig.js" />
+    <Content Include="Scripts\lead\leadApp.js" />
+    <Content Include="Scripts\lead\end.js" />
+    <Content Include="Scripts\lead\q.js" />
+    <Content Include="Scripts\lead\splqst.js" />
+    <Content Include="Scripts\lead\start.js" />
+    <Content Include="Scripts\pages\footer\cu.js" />
+    <Content Include="Scripts\pages\footer\tc.js" />
+    <Content Include="Scripts\pages\main\entry.js" />
+    <Content Include="Scripts\pages\e\ext.js" />
+    <Content Include="Scripts\pages\login.js" />
+    <Content Include="Scripts\pages\main\ep.js" />
+    <Content Include="Scripts\pages\main\fp.js" />
+    <Content Include="Scripts\pages\main\hm.js" />
+    <Content Include="Scripts\pages\main\mr.js" />
+    <Content Include="Scripts\pages\main\ms.js" />
+    <Content Include="Scripts\pages\main\p2sampleentry.js" />
+    <Content Include="Scripts\pages\main\rr.js" />
+    <Content Include="Scripts\pages\main\sh.js" />
+    <Content Include="Scripts\pages\partner\phm.js" />
+    <Content Include="Scripts\pages\partner\rc.js" />
+    <Content Include="Scripts\pages\partner\reg.js" />
+    <Content Include="Scripts\pages\partner\rel.js" />
+    <Content Include="Scripts\pages\partner\trr.js" />
+    <Content Include="Scripts\pages\rg\olp.js" />
+    <Content Include="Scripts\pages\rg\qs.js" />
+    <Content Include="Scripts\pages\rg\questionandoptionsobj.js" />
+    <Content Include="Scripts\pages\rg\relevant.js" />
+    <Content Include="Scripts\pages\rg\rg.js" />
+    <Content Include="Scripts\pages\rg\step1.js" />
+    <Content Include="Scripts\pages\rg\step2.js" />
+    <Content Include="Scripts\pages\main\trr.js" />
+    <Content Include="Scripts\pages\main\rf.js" />
+    <Content Include="Scripts\pages\main\Taf.js" />
+    <Content Include="Scripts\pages\rg\top10.js" />
+    <Content Include="Scripts\pages\us.js" />
+    <Content Include="Scripts\qstcntrl\cbkwrd.js" />
+    <Content Include="Scripts\qstcntrl\cbmatrix.js" />
+    <Content Include="Scripts\qstcntrl\checkboxwithrdmatrix.js" />
+    <Content Include="Scripts\qstcntrl\chkbox.js" />
+    <Content Include="Scripts\qstcntrl\ddl.js" />
+    <Content Include="Scripts\qstcntrl\rd.js" />
+    <Content Include="Scripts\qstcntrl\rdmatrix.js" />
+    <Content Include="Scripts\qstcntrl\slidebar.js" />
+    <Content Include="Scripts\qstcntrl\txtb.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\services\rgapp.js" />
+    <Content Include="Scripts\services\app.js" />
+    <Content Include="Scripts\services\config.js" />
+    <Content Include="Scripts\services\customServices.js" />
+    <Content Include="Scripts\services\rgconfig.js" />
+    <Content Include="Scripts\services\translationService.js" />
+    <Content Include="Scripts\translate-pluggable-loader.js" />
+    <Content Include="Showmefiles\builder.js" />
+    <Content Include="Showmefiles\continue.jpg" />
+    <Content Include="Showmefiles\controls.js" />
+    <Content Include="Showmefiles\dragdrop.js" />
+    <Content Include="Showmefiles\effects.js" />
+    <Content Include="Showmefiles\functions.js" />
+    <Content Include="Showmefiles\ga.js" />
+    <Content Include="Showmefiles\logo.jpg" />
+    <Content Include="Showmefiles\mbox.js" />
+    <Content Include="Showmefiles\prototype.js" />
+    <Content Include="Showmefiles\reset.css" />
+    <Content Include="Showmefiles\scriptaculous.js" />
+    <Content Include="Showmefiles\slider.js" />
+    <Content Include="Showmefiles\styles_700.css" />
+    <Content Include="siteslist.html" />
+    <Content Include="terms.html" />
+    <Content Include="Views\pages\pprs.html" />
+    <Content Include="Views\Partner\rel.cshtml" />
+    <Content Include="Views\Shared\_WlLayout.cshtml" />
+    <Content Include="Views\WL\MkStep1.cshtml" />
+    <Content Include="Views\WL\MkStep2.cshtml" />
+    <Content Include="Views\Shared\_ExtLayout.cshtml" />
+    <Content Include="Views\E\External.cshtml" />
+    <Content Include="Views\Rg\Relevant.cshtml" />
+    <Content Include="Views\Rg\Top10.cshtml" />
+    <Content Include="Views\Rg\OptPage3.cshtml" />
+    <Content Include="Views\Rg\Sm.cshtml" />
+    <Content Include="Showmefiles\standard" />
+    <Content Include="Views\Rg\Sm1.cshtml" />
+    <Content Include="Views\Shared\_RegLayout.cshtml" />
+    <Content Include="Scripts\i18n\json\en\reg.json" />
+    <Content Include="Views\Shared\_CommonLayout.cshtml" />
+    <Content Include="Views\pages\entry.cshtml" />
+    <Content Include="Views\Render\Profile.cshtml" />
+    <Content Include="Views\Partner\trr.cshtml" />
+    <Content Include="Views\WL\LqeStep1.cshtml" />
+    <Content Include="Views\WL\LqeStep2.cshtml" />
+    <Content Include="Views\WL\Uos.cshtml" />
+    <Content Include="Views\WL\WtlStep1.cshtml" />
+    <Content Include="Views\WL\WtlStep2.cshtml" />
+    <Content Include="Views\WL\S4mStep1.cshtml" />
+    <Content Include="Views\WL\S4mStep2.cshtml" />
+    <Content Include="Views\Partner\rc.cshtml" />
+    <Content Include="Views\Render\RewardRedeem.cshtml" />
+    <Content Include="Views\Partner\newpsr.cshtml" />
+    <Content Include="Views\WL\ViLogin.cshtml" />
+    <Content Include="Views\WL\moLogin.cshtml" />
+    <Content Include="Views\Render\ForgotPsw.cshtml" />
+    <Content Include="Views\Footer\Privacy.cshtml" />
+    <Content Include="Views\Footer\Terms.cshtml" />
+    <Content Include="Views\Footer\ContactUs.cshtml" />
+    <Content Include="Scripts\i18n\json\en\tc.json" />
+    <Content Include="Scripts\i18n\json\es\tc.json" />
+    <Content Include="Scripts\i18n\json\pt\tc.json" />
+    <Content Include="Views\Footer\About.cshtml" />
+    <Content Include="Views\Footer\FAQ.cshtml" />
+    <Content Include="Scripts\i18n\json\es\faq.json" />
+    <Content Include="Scripts\i18n\json\pt\faq.json" />
+    <Content Include="Scripts\i18n\json\en\p.json" />
+    <Content Include="Scripts\i18n\json\es\p.json" />
+    <Content Include="Scripts\i18n\json\pt\p.json" />
+    <Content Include="Scripts\i18n\json\es\abt.json" />
+    <Content Include="Scripts\i18n\json\pt\abt.json" />
+    <Content Include="Scripts\i18n\json\es\lqestep1.json" />
+    <Content Include="Scripts\i18n\json\pt\lqestep1.json" />
+    <Content Include="Scripts\i18n\json\es\lqestep2.json" />
+    <Content Include="Scripts\i18n\json\pt\lqestep2.json" />
+    <Content Include="Views\WL\SiteMap.cshtml" />
+    <Content Include="Views\Footer\CancelAct.cshtml" />
+    <Content Include="Scripts\i18n\json\es\ca.json" />
+    <Content Include="Scripts\i18n\json\pt\ca.json" />
+    <Content Include="Views\Rg\olp.cshtml" />
+    <Content Include="Scripts\i18n\json\en\olp.json" />
+    <Content Include="Views\WL\pgslogin.cshtml" />
+    <Content Include="Views\WL\oslogin.cshtml" />
+    <Content Include="Views\WL\MpLogin.cshtml" />
+    <Content Include="Views\WL\MpStep2.cshtml" />
+    <Content Include="Views\Lead\Start.cshtml" />
+    <Content Include="Views\Lead\Q.cshtml" />
+    <Content Include="Views\Lead\End.cshtml" />
+    <Content Include="Views\Shared\_Leadlayout.cshtml" />
+    <Content Include="Views\Shared\_Qlayout.cshtml" />
+    <Content Include="Views\Render\SurveyHistory.cshtml" />
+    <Content Include="Views\WL\rwwStep1.cshtml" />
+    <Content Include="Views\Footer\DoNotSellInfo.cshtml" />
+    <Content Include="Scripts\i18n\json\fr\tc.json" />
+    <Content Include="Scripts\i18n\json\id\tc.json" />
+    <Content Include="Scripts\i18n\json\it\tc.json" />
+    <Content Include="Scripts\i18n\json\jp\tc.json" />
+    <Content Include="Scripts\i18n\json\kr\tc.json" />
+    <Content Include="Scripts\i18n\json\nl\tc.json" />
+    <Content Include="Scripts\i18n\json\ru\tc.json" />
+    <Content Include="Scripts\i18n\json\vn\tc.json" />
+    <Content Include="Scripts\i18n\json\th\tc.json" />
+    <Content Include="error.html" />
+    <Content Include="Upload\PrivacyPolicy\PrivacyPolicy.pdf" />
+    <Content Include="Views\E\Ereg.cshtml" />
+    <Content Include="Views\pages\Error.cshtml" />
+    <Content Include="Views\Cor\s2.cshtml" />
+    <Content Include="Views\Cor\s1.cshtml" />
+    <Content Include="Views\Partner\DoNotSellInfo.cshtml" />
+    <Content Include="Views\Cor\Top20.cshtml" />
+    <Content Include="Views\Cor\lbmsg.cshtml" />
+    <Content Include="Views\Cor\psrend.cshtml" />
+    <Content Include="Views\Cor\ps1.cshtml" />
+    <Content Include="Views\Cor\ps2.cshtml" />
+    <Content Include="Views\Cor\Top10.cshtml" />
+    <Content Include="Views\Cor\msglb.cshtml" />
+    <Content Include="Views\Footer\CookieSettings.cshtml" />
+    <Content Include="Views\Footer\CookieSt.cshtml" />
+    <Content Include="Views\E\Vld.cshtml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\CorController.cs" />
+    <Compile Include="Controllers\LeadController.cs" />
+    <Compile Include="Controllers\Sc2Controller.cs" />
+    <Compile Include="Controllers\ShController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="Controllers\EpController.cs" />
+    <Compile Include="Controllers\EController.cs" />
+    <Compile Include="Controllers\HmController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogInController.cs" />
+    <Compile Include="Controllers\MemController.cs" />
+    <Compile Include="Controllers\MrController.cs" />
+    <Compile Include="Controllers\MsController.cs" />
+    <Compile Include="Controllers\PartnerController.cs" />
+    <Compile Include="Controllers\partner\RegController.cs" />
+    <Compile Include="Controllers\RgController.cs" />
+    <Compile Include="Controllers\RfController.cs" />
+    <Compile Include="Controllers\StartController.cs" />
+    <Compile Include="Controllers\TafController.cs" />
+    <Compile Include="Controllers\WlController.cs" />
+    <Compile Include="CustomValidateAntiForgeryToken.cs" />
+    <Compile Include="Filters\LoggerAttribute.cs" />
+    <Compile Include="Filters\ValidateJsonAntiForgeryToken.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="partner\sc2.aspx.cs">
+      <DependentUpon>sc2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="partner\sc2.aspx.designer.cs">
+      <DependentUpon>sc2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="pr\sc2.aspx.cs">
+      <DependentUpon>sc2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pr\sc2.aspx.designer.cs">
+      <DependentUpon>sc2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StatesDataServices.cs" />
+    <Compile Include="Utlis\Attribute.cs" />
+    <Compile Include="Utlis\Code.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web References\com.imperium.ra\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\com.imperium.verity\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery-1.12.4.js" />
+    <Content Include="Scripts\version.json" />
+    <Content Include="Scripts\errors.json" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Views\Home\LogIn.cshtml" />
+    <Content Include="Scripts\i18n\json\en\login.json" />
+    <Content Include="Scripts\i18n\json\es\login.json" />
+    <Content Include="Scripts\i18n\json\pt\login.json" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Render\Home.cshtml" />
+    <Content Include="Views\Render\Surveys.cshtml" />
+    <Content Include="Views\Render\Rewards.cshtml" />
+    <Content Include="Views\Render\DownLine.cshtml" />
+    <Content Include="Views\Render\Account.cshtml" />
+    <Content Include="Scripts\i18n\json\en\rf.json" />
+    <Content Include="Scripts\i18n\json\es\rf.json" />
+    <Content Include="Scripts\i18n\json\pt\rf.json" />
+    <Content Include="Scripts\i18n\json\es\ms.json" />
+    <Content Include="Scripts\i18n\json\pt\ms.json" />
+    <Content Include="Scripts\i18n\json\es\mr.json" />
+    <Content Include="Scripts\i18n\json\pt\mr.json" />
+    <Content Include="Scripts\i18n\json\es\ep.json" />
+    <Content Include="Scripts\i18n\json\pt\ep.json" />
+    <Content Include="Scripts\i18n\json\es\hm.json" />
+    <Content Include="Scripts\i18n\json\pt\hm.json" />
+    <Content Include="Views\Render\Invite.cshtml" />
+    <Content Include="Scripts\i18n\json\en\Taf.json" />
+    <Content Include="Scripts\i18n\json\es\Taf.json" />
+    <Content Include="Scripts\i18n\json\pt\Taf.json" />
+    <Content Include="Views\Render\Redeem.cshtml" />
+    <Content Include="Views\Registration\sdl\Step2.cshtml" />
+    <Content Include="Views\Shared\_RgLayout.cshtml" />
+    <Content Include="Views\Registration\sdl\Step1.cshtml" />
+    <Content Include="Views\Registration\sdl\lqestep2.cshtml" />
+    <Content Include="Views\Misc\us.cshtml" />
+    <Content Include="Views\Partner\reg.cshtml" />
+    <Content Include="Views\Partner\hm.cshtml" />
+    <Content Include="Web References\com.imperium.ra\AnalyzeAnswerResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\com.imperium.ra\AnalyzeAnswerResponse4.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\_EntryLayout.cshtml" />
+    <None Include="Web References\com.imperium.ra\item.wsdl" />
+    <Content Include="Web References\com.imperium.ra\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\com.imperium.verity\ChallengeResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\com.imperium.verity\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\com.imperium.verity\ValidationResultsPlus4.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\com.imperium.verity\ValidationResultsPlus7.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\com.imperium.verity\ValidationResultsPlus9.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <None Include="Web References\com.imperium.verity\VerityWS.wsdl" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\E\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\en\" />
+    <Folder Include="Views\Errors\" />
+    <Folder Include="Views\Mem\" />
+    <Folder Include="Views\Sc2\" />
+    <Folder Include="Views\Start\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Members.PrecisionSample.Common\Members.PrecisionSample.Common.csproj">
+      <Project>{b0bbae5c-5208-4aae-8660-96a9595c4ad3}</Project>
+      <Name>Members.PrecisionSample.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Members.PrecisionSample.Components\Members.PrecisionSample.Components.csproj">
+      <Project>{37fbb778-f875-4274-a9c6-16b8379e0363}</Project>
+      <Name>Members.PrecisionSample.Components</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://ra.imperium.com/%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.imperium.ra\</RelPath>
+      <UpdateFromURL>https://ra.imperium.com/%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Members_PrecisionSample_Web_com_imperium_ra_raService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://verity.imperium.com/VerityWS">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\com.imperium.verity\</RelPath>
+      <UpdateFromURL>https://verity.imperium.com/VerityWS</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Members_PrecisionSample_Web_com_imperium_verity_RespSvc</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.Lambda.3.7.411.45\analyzers\dotnet\cs\AWSSDK.Lambda.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.Lambda.3.7.411.45\analyzers\dotnet\cs\SharedAnalysisCode.dll" />
+    <Analyzer Include="..\packages\AWSSDK.SimpleEmail.3.7.0\analyzers\dotnet\cs\AWSSDK.SimpleEmail.CodeAnalysis.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>19562</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://dev.affiliate.sdl.com</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://dev.affiliate.sdl.com/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

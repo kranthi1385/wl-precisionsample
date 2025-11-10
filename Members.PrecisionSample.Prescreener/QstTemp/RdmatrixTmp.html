@@ -1,0 +1,79 @@
+﻿<script type="text/ng-template" id="RadioWithMatrixTemplate">
+     <div align="left" class="questionback" style="clear: both;">
+        <span class="question" id="lblQuestiontext" ng-bind-html="question.QuestionText | unsafe"></span>
+    </div>
+    <div ng-repeat="chql in question.ChildQuestionList">
+        <div ng-if="chql.ParentQuestionId != '649'">
+            <!--<div ng-if="$index == 0">
+                <div class="grid_floating_header" width="100%">
+                    <div class="question_martix" style="min-height: 30px;">
+                        <div style="width: 35%;" class="grid_question">
+                        </div>
+                        <div ng-repeat="opl in chql.OptionList" style="font-size: 14px;">
+                            <div style="width: 11%;" class="grid_column">{{opl.OptionText}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div class="question_martix">
+                <div class="optiontext matrix_question_opt" style="text-align: left;" ng-attr-id="{{chql.QuestionId+'_optnc' }}">
+                  <span ng-bind-html="chql.QuestionText"></span> 
+                </div>
+                <div class="optiontext" ng-repeat="op in chql.OptionList">
+                    <div class="matrix_column" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_dvmain'}}" ng-class="{optionSelected:$index == chql.RdMatrixIndex}">
+                        <!--<div class="grid_radio" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_dvradio'}}" ng-class="{'input_on':$index==chql.RdMatrixIndex}" ng-click="rdMatrixClick($event,chql,op.OptionId,$index)">
+                        </div>-->
+                        <div class="matrix_span_holder">
+                            <span class="grid_span" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_rdDiv'}}" ng-click="rdMatrixClick($event,chql,op.OptionId,$index)">{{op.OptionText}}</span>
+                        </div>
+
+                        <input type="radio" style="display: none;" ng-attr-id="{{op.QuestionId+'_'+op.OptionId +'_radio'}}" ng-model="chql.ChqOptionId" name="{{chql.QuestionId+ '_'+'radio'}}" required />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div ng-if="chql.ParentQuestionId == '649'">
+            <div ng-if="$index == 0">
+                <div class="matrix_floating_header" width="100%">
+                    <!--<div class="question_martix" style="min-height: 30px;">
+                        <div style="width: 35%;" class="grid_question">
+                        </div>
+                        <div ng-repeat="opl in chql.OptionList" style="font-size: 14px;">
+                            <div style="width: 6%;" class="grid_column">{{opl.OptionText}}</div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <div class="question_martix">
+                <div class="optiontext matrix_question_opt" style="text-align: left;" ng-attr-id="{{chql.QuestionId+'_optnc' }}">
+                    <span ng-bind-html="chql.QuestionText"></span> 
+                </div>
+                <div class="optiontext" ng-repeat="op in chql.OptionList">
+                    <div style="width: 6%;" class="matrix_column" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_dvmain'}}" ng-class="{optionSelected:$index == chql.RdMatrixIndex}">
+                        <!--<div class="grid_radio" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_dvradio'}}" ng-class="{'input_on':$index==chql.RdMatrixIndex}" ng-click="rdMatrixClick($event,chql,op.OptionId,$index)">
+                        </div>-->
+                        <div class="matrix_span_holder">
+                            <span class="grid_span" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_rdDiv'}}" ng-click="rdMatrixClick($event,chql,op.OptionId,$index)">{{op.OptionText}}</span>
+                        </div>
+                        <input type="radio" style="display: none;" ng-attr-id="{{op.QuestionId+'_'+op.OptionId +'_radio'}}" ng-model="chql.ChqOptionId" name="{{chql.QuestionId+ '_'+'radio'}}" required />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div style="width: 100%; float: left;">
+            <span ng-show="submitValidations && formValidation[chql.QuestionId+ '_'+'radio'].$error.required" class="errors" style="color: red;">{{ errorMessage }}</span>
+        </div>
+    </div>
+</script>
+
+<div style="width: 100%;">
+
+    <div ng-controller="rdMatrixController">
+        <ng-include src="'RadioWithMatrixTemplate'"></ng-include>
+
+    </div>
+
+</div>
+

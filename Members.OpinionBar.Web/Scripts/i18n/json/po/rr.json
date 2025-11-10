@@ -1,0 +1,19 @@
+﻿{
+  "yourCurrentAccountBalance": "Saldo Twojego rachunku bieżącego",
+  "rewardName": "Nazwa nagrody",
+  "disclaimer": "Zrzeczenie się",
+  "rewardDis": "nie jest sponsorem nagród ani w żaden inny sposób związany z Opinetwork. Dołączone logo i inne znaki identyfikacyjne są znakami towarowymi i stanowią własność każdej reprezentowanej firmy i / lub jej spółek zależnych. Odwiedź stronę internetową każdej firmy, aby uzyskać dodatkowe warunki.",
+  "invalidCap": "Nieprawidłowy wybór captcha",
+  "errorPlstryagain": "Wystąpił błąd. proszę spróbuj ponownie",
+  "amount": "Ilość",
+  "redeem": "Wykupić",
+  "cancel": "Anuluj",
+  "rewardNote": "Uwaga: jeśli w ciągu najbliższych 2 godzin nie otrzymasz e-maila z potwierdzeniem realizacji zamówienia lub zobaczysz swoją realizację w poniższej historii, skontaktuj się z naszym działem pomocy technicznej w celu uzyskania pomocy.",
+  "rewardNote1": "Uwaga: w ciągu najbliższych 2 godzin zobaczysz swoje odkupienie w swojej historii poniżej. Jeśli nie, skontaktuj się z nami (support@opinionetwork.com)",
+  "paypalrequest1": "Żądania złożone w dniach 1–15 dnia miesiąca (EST) zostaną opłacone 16 dnia miesiąca.",
+  "paypalrequest2": "Żądania złożone w dniach 16–31 dnia miesiąca (EST) zostaną opłacone pierwszego dnia miesiąca.",
+  "paypalrequest3": "Jeżeli 1 lub 16 wypada w weekendy i święta, płatności realizowane są w pierwszym dniu roboczym następującym po nim.",
+  "paypalrequest4": "Nagrody PayPal są deponowane przy użyciu adresu e-mail, którego używasz do uzyskiwania dostępu do konta OpinionBar.com.",
+  "paypalrequest5": "Jeśli Twój adres e-mail nie jest powiązany z Twoim kontem PayPal, dodaj go, aby mieć pewność, że depozyt zostanie zrealizowany. Z każdym kontem PayPal możesz połączyć wiele adresów e-mail."
+}
+

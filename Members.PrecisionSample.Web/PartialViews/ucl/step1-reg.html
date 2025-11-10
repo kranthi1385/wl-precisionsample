@@ -1,0 +1,28 @@
+﻿<form name="step1RegForm" novalidate>
+    <div class="row" style="margin-top:10px;text-align:left;">
+        <div class="col-lg-10 col-md-10" style="margin-bottom:7px;">
+            <label>First Name</label>
+            <div>
+                <input name="step1RegFs" class="form-control" type="text" ng-model="user.FirstName" required />
+            </div>
+            <span class="text-danger" ng-show="step1RegForm.step1RegFs.$invalid&&showStep1ErrMsg">Required</span>
+        </div>
+        <div class="col-lg-10 col-md-10" style="margin-bottom:7px;">
+            <label>Last Name</label>
+            <div>
+                <input name="step1RegLS" type="text" class="form-control" ng-model="user.LastName" required />
+            </div>
+            <span class="text-danger" ng-show="step1RegForm.step1RegLS.$invalid&&showStep1ErrMsg">Required</span>
+        </div>
+        <div class="col-lg-10 col-md-10" style="margin-bottom:7px;">
+            <label>Email Address</label>
+            <div>
+                <input name="step1RegEmail" type="email" class="form-control" ng-model="user.EmailAddress"required />
+            </div>
+            <span class="text-danger" ng-show="step1RegForm.step1RegEmail.$error.required&&showStep1ErrMsg">Required</span>
+            <span class="error text-danger" ng-show="step1RegForm.step1RegEmail.$error.email">
+                Not valid email!
+            </span>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,161 @@
+﻿/**/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+.pre-question-panel {
+    display: table;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.03);
+}
+
+.pre-question-img {
+    width: 298px;
+    display: table-cell;
+    background-color: #b3f1fe;
+    vertical-align: top;
+    height: 432px;
+}
+
+    .pre-question-img img {
+        display: block;
+    }
+
+.pre-question-list {
+    display: table-cell;
+    vertical-align: top;
+    height: 432px;
+}
+
+.pre-footer {
+    display: table;
+    width: 100%;
+    text-align: center;
+}
+
+    .pre-footer p {
+        font-size: 13px;
+        color: #000;
+        padding-top: 10px;
+    }
+
+        .pre-footer p a {
+            color: #5256c1;
+            text-decoration: none;
+        }
+
+            .pre-footer p a:hover {
+                text-decoration: underline;
+            }
+
+.pre-question-btn button {
+    background: #5357c1;
+    border-radius: 5px;
+    padding: 8px 40px;
+    border: 0px;
+    float: none;
+    margin-left: 30px;
+    width: auto;
+    display: inline-block;
+}
+
+    .pre-question-btn button:hover {
+        background: #3c3fa0;
+    }
+
+.pre-powerd-byimg {
+    display: none;
+}
+
+/*.mobile-flex {
+    padding: 0px 0px 25px 60px;
+}
+
+.mobile-margin-left {
+    margin-left: 0;
+}
+
+.mobile-margin {
+    margin-left: auto;
+}*/
+
+@media (min-width: 1100px) {
+    .pre-question-panel {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .pre-powerd-byimg {
+        display: block;
+    }
+
+        .pre-powerd-byimg img {
+            max-width: 40px;
+        }
+
+    .pre-question-img {
+        display: none;
+    }
+
+    .pre-question-panel {
+        display: inline-block;
+    }
+
+    .pre-question-list {
+        display: inline;
+    }
+}
+
+@media (min-width:760px) {
+    .mobile-flex {
+        padding: 0px 0px 25px 60px;
+        display: flex;
+    }
+
+    .mobile-margin {
+        margin-left: auto;
+    }
+
+    .mobile-margin-left {
+        margin-left: 0;
+    }
+}
+
+
+@media (max-width:767px) {
+    .mobile-flex {
+        padding: 0px 0px 25px 60px;
+    }
+
+    .mobile-margin {
+        margin: 20px;
+    }
+
+    .mobile-margin-left {
+        margin-left: 10%;
+    }
+}
+
+@media (max-width:760px) {
+    .mobile-flex {
+        padding: 0px 0px 25px 60px;
+    }
+
+    .mobile-margin {
+        margin: 20px;
+    }
+
+    .mobile-margin-left {
+        margin-left: 10%;
+    }
+}

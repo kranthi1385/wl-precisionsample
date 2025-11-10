@@ -1,0 +1,35 @@
+﻿<script type="text/ng-template" id="languageList" ng-cloak>
+    <div class="optiontext" style="clear: both; overflow: hidden">
+        <div class="wrapper">
+            <div class="bera-privacy" style="font-size:13px; line-height:1.6; color:#333;">
+                <p><strong>{{ beraprivacy1 }}</strong></p>
+                <p>{{ beraprivacy2 }}</p>
+                <p>{{ beraprivacy3 }}</p>
+                <p>
+                    {{ beraprivacy4 }}
+                    <a href="https://bera.ai/privacy-policy/" target="_blank" style="color:#2b6cb0; text-decoration:none;">
+                        https://bera.ai/privacy-policy/
+                    </a>.
+                </p>
+                <p>{{ beraprivacy5 }}</p>
+                <div style="margin-top:15px;">
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:13px;">
+                        <input type="checkbox" ng-model="beraData.agreePrivacy" name="agreePrivacy" required />
+                        <span>{{ beraprivacy6 }}</span>
+                    </label>
+                    <span style="color:red;" ng-show="submitValidations">
+                        {{ beraprivacy7 }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<div style="width: 100%;">
+    <div>
+        <div ng-controller="consentController">
+            <ng-include src="'languageList'"></ng-include>
+        </div>
+    </div>
+</div>

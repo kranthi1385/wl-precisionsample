@@ -1,0 +1,167 @@
+﻿<div id="dvHome" ng-controller="homeController">
+    <div id="interiortop">
+        <h1 class="col-md-12">
+            <span>{{'hi' | translate}}</span>
+            <span id="lblFirstName">{{user.FirstName}}</span>&nbsp;(<span id="lblEmail">{{user.EmailAddress}}</span>)
+        </h1>
+        <p class="col-md-offset-2 col-md-10 col-sm-12">
+            {{'welcomeText' | translate}}
+        </p>
+        <div id="history" class="">
+            <div id="history">
+                <div id="takesurveys_col">
+                    <h2>
+                        <div>
+                            <span class="take-survey">{{'takeSurveys'| translate}}</span>
+                        </div>
+                        <img class="take-survey-img" src="/images/main/takesurveys1.jpg" alt="">
+                    </h2>
+                    <p id="expand">{{'youHave' | translate}} {{totalRewCount}}  {{'awatingSurveys' | translate}}</p>
+                    <p id="p1">{{'rewardText' | translate}} $ {{avaliableReward| number:2}}</p>
+                    <br>
+                    <h3>
+                        <a href="/ms/Surveys" class="new-survey-btn"><span class="spnBtn">{{'viewNewSurveys' | translate}}</span></a>
+                    </h3>
+                </div>
+                <div id="build_col">
+                    <h2>
+                        <div>
+                            <span class="build-downline">{{'buildDownline' | translate}}</span>
+                            <div>
+                                <img class="build-downline-img" src="/images/main/build1.jpg" alt="">
+                            </div>
+                        </div>
+                    </h2>
+                    <p>
+                        {{'downlineCurrently' | translate}}
+                        <br>&nbsp;&nbsp;&nbsp;{{referrals.SecondReferrals}} {{'secondReferrals' | translate}}
+                        <br>&nbsp;&nbsp;&nbsp; {{referrals.ThirdReferrals}} {{'thirdReferrals' | translate}}
+                    </p>
+                    <p>
+                    </p>
+                    <p> {{'youHave' | translate}}  {{'earned' | translate}} $ {{referralsReward | number:2}} from your referrals so far. </p>
+                    <br>
+                    <h3>
+                        <a href="/Mem/rf.aspx" class="buld-downline-btn">
+                            <span class="spnBtn">{{'buildDownline' | translate}}</span>
+                        </a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--INTERIORTOP-->
+    <div id="col2-sm" class="col-md-12">
+        <h1>
+            <span class="newsurver-text">{{'maximizeIncomeHeader' | translate}}</span>
+        </h1>
+        <h2>
+            <span class="newsurver-text">{{'newSurvey' | translate}}</span>
+        </h2>
+        <p>
+            {{'newSurveyText' | translate}}
+        </p>
+
+        <div class="div-profile-text1">
+            <h2>
+                <span class="profile-text">{{'profiles' | translate}}</span>
+            </h2>
+            <p>
+                {{'profilesText' | translate}} {{'profilesTextMore'| translate}}
+            </p>
+            <p>
+                {{'practiceText' | translate}}
+            </p>
+        </div>
+
+    </div>
+    <div id="interiorbottom">
+        <div id="col1">
+            <div class="boxleft">
+                <h1 class="newsurvey-h1">
+                    <div class="newsurvey-dv">
+                        <span class="newsurvey-span">{{'newSurvey' | translate}}</span>
+                    </div>
+                </h1>
+                <div id="surveys">
+                    <ul id='arrow' ng-repeat="survey in surveys">
+                        <li id='l1'>
+                            <table style="width:100%;">
+                                <tr>
+                                    <td>
+                                        <img src='/Images/main/arrow_gray.gif' />
+                                    </td>
+                                    <td>
+                                        <div ng-bind-html="survey.SurveyName">
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="div-profile-text2 col-sm-12">
+            <h2>
+                <span class="profile-content ">{{'profiles' | translate}}</span>
+            </h2>
+            <p>
+                {{'profilesText' | translate}} <a ng-click="expand(!isexpand)" ng-show="isexpand">{{'ProfileAnchorMoreSM' | translate}}</a>
+                <span ng-hide="isexpand">{{'profilesTextMore' | translate}}</span>
+            </p>
+
+            <p ng-hide="isexpand">
+                {{'practiceTextSM' | translate}} <a ng-click="expand(!isexpand)">{{'practiceanchorLessSM' | translate}}</a>
+            </p>
+
+        </div>
+        <div id="col2">
+            <h1>
+                <span class="newsurver-text">{{'maximizeIncomeHeader' | translate}}</span>
+            </h1>
+            <h2>
+                <span class="newsurver-text">{{'newSurvey' | translate}}</span>
+            </h2>
+            <p>
+                {{'newSurveyText' | translate}}
+            </p>
+            <h2>
+                <span class="profile-text">{{'profiles' | translate}}</span>
+            </h2>
+            <p>
+                {{'profilesText' | translate}} {{'profilesTextMore'| translate}}
+            </p>
+            <p>
+                {{'practiceText' | translate}}
+            </p>
+        </div>
+        <div class="dv-profile-main-box">
+            <div class="div-profile-box">
+                <div class="boxleft">
+                    <h1 class="profile-h1">
+                        <div class="profile-dv">
+                            <span class="profile-span">{{'profiles' | translate}}</span>
+                        </div>
+
+                    </h1>
+                    <ul id="check">
+                        <li>
+                            <table style="width:100%;">
+                                <tr ng-repeat="profile in profiles">
+                                    <td>
+                                        <div class="profile-tb-dv">
+                                            <img src="/images/main/emptycheck.gif" alt="">
+                                            <span ng-bind-html="profile.ProfileName"></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

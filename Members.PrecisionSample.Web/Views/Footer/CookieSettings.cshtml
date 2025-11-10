@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script src="~/Scripts/translate-pluggable-loader.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <title>Cookie Statement</title>
+</head>
+<body ng-app="footerApp">
+    @Html.AntiForgeryToken()
+    <div id="dvprivacy" ng-controller="cookiestController">
+        <table style="font-family: Verdana; font-size: small;">
+            <tr>
+                <td align="center">
+                    <b style="font-size: large;">
+                        Cookie Settings
+                    </b><br />
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <p>
+                        We use various kinds of cookies for our Website. You can manage the cookies settings for our Website here. If you want more details on each type of cookie we use, read our detailed <a href="#" onclick="window.open('/Login/cookiest', 'Cookie Statement', 'height=800,width=800,scrollbars=yes'); return false">Cookie Statement</a>.
+                    </p><br />
+                    <input type="checkbox" name="functionalCookies" checked disabled /> <span>Functional cookies</span><br />
+                    <p><i><b>Functional</b> cookies are necessary for the Website to function properly and securely. These cookies cannot be disabled.</i></p><br />
+                    <input type="checkbox" name="analyticalCookie" ng-model="analyticalCok" ng-change="analyticalCookie()"/> <span>Analytical/statistical cookies</span><br />
+                    <p><i>With<b> analytical/statistical</b> cookies we can see how our website is used and how we can optimize our website and services. Analytical cookies can be accepted or declined at any time.</i></p><br />
+                    <input type="checkbox" name="trackingCookie" ng-model="trackingCok" ng-change="trackingCookie()" /> <span>Tracking cookies</span>
+                    <p><i><b>Tracking</b> cookies by us or by third parties can be used to show you relevant advertisement based on your interests. Tracking cookies can be accepted or declined at any time.</i></p><br />
+        </table>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/services/CookieTranslation.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script src="~/Scripts/pages/footer/tc.js" type="text/javascript"></script>
+</body>

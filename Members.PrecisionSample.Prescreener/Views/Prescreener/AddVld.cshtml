@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "~/Views/Shared/_ZpLayout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/rzslider.min.css" />
+<link href="~/Content/prequestion.css" rel="stylesheet" />
+<link type="text/css" href="~/Content/pp/Advld.css" rel="stylesheet" />
+
+<div id="dvSurveyQuestions" ng-controller="addressVldController" ng-if="psPageLoad" ng-cloak>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    }
+    <div id="surveyQuestion">
+        <div class="pre-question-panel" style="margin-top: 10px">
+            <div id="dvQuestions" class="pre-question-list" style="font-size:13px;">
+                <div class="body1">
+                    <div id="tmpTable1">
+                        <p id="lblQuestiontext" style="padding-top: 0px;font-weight: 400;font-family: 'Roboto', sans-serif;color: #777777;font-size: 1.17em;line-height: 1.5em;">
+                            Thank you for participating today. You seem to be quite far from your home address currently. As part of our quality control measures, we only allow participation in surveys when members are near their home address. If you are on vacation, please enjoy it and
+                            participate in surveys when you return home!<br><br>
+                            If you recently moved, please share your new address below and we will update our records:
+                        </p>
+                        <form style="display: flex;align-items: center;flex-direction:column-reverse;align-content:stretch;padding-left: -20px;padding-right:104px;" name="formValidation" novalidate>
+                            <div>
+                                <div>
+                                    <label class="question ng-binding" for="fname" id="lblQuestiontext">Address1:</label>
+                                    <input type="text" id="text1" name="address1" ng-model="user.Address1" required>
+                                    <span ng-show="formValidation.address1.$invalid && isRegErrMsg" class="error text-danger">{{'Required'|translate}}</span>
+                                </div>
+                                <div>
+                                    <label class="question ng-binding" for="fname" id="lblQuestiontext">Address2:</label>
+                                    <input type="text" id="text1" name="address2" ng-model="user.Address2" required>
+                                    <span ng-show="formValidation.address2.$invalid && isRegErrMsg" class="error text-danger">{{'Required'|translate}}</span>
+                                </div>
+                                <div>
+                                    <label class="question ng-binding" for="fname" id="lblQuestiontext">Country:</label>
+                                    <select class="form-control txt-box" id="CountryId1" ng-model="user.CountryId" name="country" ng-options="con.CountryId as con.CountryName for con in countries" ng-change="countryByStates(user.CountryId)" required>
+                                        <option value="">-{{'select'|translate}}-</option>
+                                    </select>
+                                    <span ng-show="formValidation.country.$invalid && isRegErrMsg" class="error text-danger">{{'Required'|translate}}</span>
+                                </div>
+                                <div ng-if="states.length != 0">
+                                    <label class="question ng-binding" for="fname" id="lblQuestiontext">State:</label>
+                                    <select class="form-control txt-box" id="StateId" ng-model="user.StateId" name="state" ng-options="st.StateId as st.StateName for st in states" required>
+                                        <option value="">-{{'select'|translate}}-</option>
+                                    </select>
+                                    <span ng-show="formValidation.state.$invalid && isRegErrMsg" class="error text-danger">{{'Required'|translate}}</span>
+                                </div>
+                                <div>
+                                    <label class="question ng-binding" for="fname" id="lblQuestiontext">City:</label>
+                                    <input type="text" id="text2" name="city" ng-model="user.City" required>
+                                    <span ng-show="formValidation.city.$invalid && isRegErrMsg" class="error text-danger">{{'Required'|translate}}</span>
+                                </div>
+                                <div>
+                                    <label class="question ng-binding" for="fname" id="lblQuestiontext">Zip/Postal Code:</label>
+                                    <input type="text" id="text3" name="zip" ng-model="user.ZipCode" required>
+                                    <span ng-show="formValidation.zip.$invalid && isRegErrMsg" class="error text-danger">{{'Required'|translate}}</span>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="footerblock" style="padding-top:10px;">
+                            <div class="pre-question-btn" style="justify-content: space-between;display:inline-flex;padding-top: 18px;">
+                                <button id="btnSubmit" class="button" type="button" value="Continue" style="justify-content:space-between;display :inline-flex;" ng-click="saveandContinue(formValidation.$valid)">
+                                    Update Address and Continue to Survey
+                                </button>
+                                <button id="btnSubmit" class="button" type="button" value="Continue" ng-click="continue()">
+                                    Keep Address and Return to My Vacation!
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js"></script>
+</div>

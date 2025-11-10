@@ -1,0 +1,19 @@
+﻿{
+  "yourCurrentAccountBalance": "您的當前帳戶餘額",
+  "rewardName": "獎勵名稱",
+  "disclaimer": "免責聲明",
+  "rewardDis": "不是獎勵的讚助商或Opinionetwork的其他會員。 隨附的徽標和其他識別標記是每個代表公司和/或其分支機構的商標並擁有。 請訪問每個公司的網站以獲取其他條款和條件。",
+  "invalidCap": "驗證碼選擇無效",
+  "errorPlstryagain": "發生了錯誤。 請再試一遍",
+  "amount": "量",
+  "redeem": "贖回",
+  "cancel": "取消",
+  "rewardNote": "注意：如果您在接下来的 2 小时内没有收到确认您的兑换的电子邮件或在下面的历史记录中看到您的兑换，请联系我们的支持部门寻求帮助。",
+  "rewardNote1": "注意：在接下來的 2 小時內，您將在下面的歷史記錄中看到您的兌換。 如果您不這樣做，請聯絡 (support@opinionetwork.com)。",
+  "paypalrequest1": "當月 1 日至 15 日（美國東部標準時間）提出的請求將於 16 日支付。",
+  "paypalrequest2": " 當月 16 日至 31 日（東部標準時間）提出的請求將在 1 日支付。",
+  "paypalrequest3": " 當 1 日或 16 日恰逢週末和假日時，付款將在緊隨其後的第一個工作日處理。",
+  "paypalrequest4": " PayPal 獎勵將透過您用於存取 OpinionBar.com 帳戶的電子郵件地址存入。",
+  "paypalrequest5": "如果您的電子郵件未與您的 PayPal 帳戶關聯，請新增它以確保存款順利完成。 您可以將多個電子郵件地址連結到每個 PayPal 帳戶。"
+}
+  

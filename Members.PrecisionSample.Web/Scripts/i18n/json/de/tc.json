@@ -1,0 +1,16 @@
+﻿{
+  "DoNotSellMyInfo1": "Sie können dieses Formular zum Einreichen von Anfragen im Rahmen des kalifornischen Verbraucher-Datenschutzrechtes (California Consumer Privacy Act, CCPA) und der Datenschutz-Grundverordnung (DSGVO) verwenden, um dem Verkauf Ihrer personenbezogenen Daten zu widersprechen, Ihre personenbezogenen Daten zu löschen oder zu erfahren, welche Ihrer personenbezogenen Daten wir erhoben, offengelegt oder verkauft haben. Wir sind zwar nur Mitgliedern von Kalifornien und der Europäischen Union gegenüber verpflichtet, diese Option und diesen Service bereitzustellen, werden aber Anfragen der Mitglieder aller Staaten und Länder berücksichtigen.",
+  "DoNotSellMyInfo2": "Vorname",
+  "DoNotSellMyInfo3": "Nachname",
+  "DoNotSellMyInfo4": "E-Mail-Adresse, mit der Sie sich als Mitglied angemeldet haben",
+  "DoNotSellMyInfo5": "Precision Sample-Standort, an dem Sie sich beteiligen",
+  "DoNotSellMyInfo6": "Anforderungstyp",
+  "DoNotSellMyInfo7": "Anforderung zur Löschung meiner personenbezogenen Infos",
+  "DoNotSellMyInfo8": "Anforderung zum Widerruf des Verkaufs von personenbezogenen Infos",
+  "DoNotSellMyInfo9": "Anforderung zur Unterrichtung über meine personenbezogenen Infos",
+  "DoNotSellMyInfo10": "Sonstige den Datenschutz oder das Kundenmanagement betreffende Anforderung",
+  "Submit": "einreichen",
+  "required": "Erforderlich",
+  "invalidCaptcha": "Ungültiges Captcha",
+  "notvalidemail": "Nicht gültige E-Mail"
+}

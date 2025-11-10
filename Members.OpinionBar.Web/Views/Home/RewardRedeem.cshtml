@@ -1,0 +1,185 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_bannertab.cshtml";
+
+}
+
+<link href="~/Content/reddem.css" rel="stylesheet" />
+<script src="https://www.google.com/recaptcha/api.js?hl=@ViewBag.recaptchalangCode" async defer></script>
+
+<center>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    }
+
+    <div ng-if="pgLoad" style="width: 940px; margin: 0 auto;">
+        <div ng-controller="redmController" style="margin: 40px">
+            <div style="margin-bottom: 25px;" ng-show="!isPasswordValid">
+                <strong>Note:</strong> Please enter your current password to access the reward redemption.
+            </div>            
+            <div>
+                <label for="password" ng-show="!isPasswordValid">Please enter your current password:</label>
+                <input type="password" id="password" ng-show="!isPasswordValid" ng-model="password" />
+                <div ng-if="passwordValidation" ng-show="!isPasswordValid"  style="color: red;margin-top: 1rem;margin-left: 1rem;">Invalid password. Please try again.</div>
+                <div class="dvbuttons" style="margin-top: 35px; margin-bottom: 20px;">
+                    <div class="dvredbtn" style="margin-bottom: 2.5rem;">
+                        <input type="button" class="myButton" ng-show="!isPasswordValid" value="Confirm" ng-click="validatePassword($event)" />
+                    </div>
+                    <div class="dvcanbtn">
+                        <input type="button" class="myButton" ng-show="!isPasswordValid" value="Cancel" ng-click="cancelValidation()" />
+                    </div>                   
+                </div>
+            </div>                   
+                 
+            <div ng-show="isPasswordValid">
+                <div id="tblDetails">
+                    <div id="tblDetails">
+                        <div id="tblDetails">
+                            <div style="width: 100%;">
+                                <div style="width: 100%;">
+                                    <div id="dvTac">
+                                        <div class="dvacb">
+                                            <label id="lblBalance">
+                                                {{'yourCurrentAccountBalance'| translate}}:
+                                            </label>
+                                        </div>
+                                        <div class="dvtab">
+                                            <span class="spnd" style="color: #6195b2" ng-if="orgDetails.ClientId == 73 || orgDetails.ClientId == 111">
+                                                <span class="spntab" id="spnAccountBalance"
+                                                      style="color: #6195b2">{{trewards.AccountBalance}}</span> pts
+
+                                            </span>
+                                            <span class="spnd" style="color: #6195b2" ng-if="orgDetails.ClientId != 73 && orgDetails.ClientId != 111">
+                                                <span ng-if="countryID == 231">$</span><span ng-if="countryID == 229">£</span><span ng-if="countryID != 231 && countryID != 229">€</span><span class="spntab" id="spnAccountBalance"
+                                                                                                                                                                                               style="color: #6195b2">{{trewards.AccountBalance}}</span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div style="width: 100%;">
+                                <div style="width: 100%;">
+
+                                    <div id="dvImg">
+                                        <img id="imgRewardLogo" style="float:left;" border="0" src="" alt="#" />
+                                    </div>
+                                    <div class="dvrn1">
+                                        <div ng-if="show_paypal_message" style="color:black;">
+                                            <h3 style="color:black;">  PayPal Payout Schedule</h3> <br />
+                                            <span class="lblrt1">
+                                                {{'paypalrequest1'| translate}}<br />
+                                                {{'paypalrequest2'| translate}}<br /><br />
+
+                                                {{'paypalrequest3'| translate}}<br />
+
+                                                {{'paypalrequest4'| translate}}<br />
+
+                                                {{'paypalrequest5'| translate}}
+                                            </span> <br />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <br />
+                                        <div style="width: 100%">
+                                            <div class="dvrnst">
+                                                <label class="lblrn">
+                                                    {{'rewardName'| translate}}:&nbsp;
+                                                </label>
+                                            </div>
+                                            <div class="dvrn">
+                                                <label class="lblrt" id="lblRewardName">
+                                                    {{trewards.RewardName}}
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div ng-if="show_paypal_message" style="width: 100%;display:table">
+                                            <br />
+                                            <div class="dvrdescription">
+                                                <label class="lblrn">
+                                                    {{'disclaimer'| translate}}:
+                                                </label>
+                                            </div>
+                                            <div class="dvrn">
+                                                <span class="lblrt" id="spnDisclaimer" style="padding-left:5px">{{trewards.RewardName}} {{'rewardDis'| translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div ng-if="!show_paypal_message" style="width: 100%;display:table">
+                                            <br />
+                                            <div class="dvrdescription">
+                                                <label class="lblrn">
+                                                    {{'disclaimer'| translate}}:
+                                                </label>
+                                            </div>
+                                            <div class="dvrn">
+                                                <span class="lblrt" id="spnDisclaimer" style="padding-left:5px">{{trewards.RewardName}} {{'rewardDis'| translate}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12" style="border: 0px solid #ddd;display: inline-block;">
+                                        <!-- Add the vc-recaptcha directive with the specified attributes -->
+                                        <div vc-recaptcha key="'6LfVcForAAAAAHCQH_OWJRVYCXlvU0KlMm2u6B2i'" on-success="setResponse(response)" size="normal"></div>
+                                        @*<div class="g-recaptcha" data-sitekey="6LdOScMUAAAAAN37B5hXC_48jRl54XaCG2t9iJQ_" on-success="setResponse(response)"></div>*@
+                                        <span class="text-danger" ng-show="captchaErr">{{'invalidCap'| translate}}.</span>
+                                        <span class="text-danger" ng-show="isRegErrMsg">{{'errorPlstryagain'| translate}}.</span>
+                                    </div>
+                                </div>
+                                <div class="dvlinegap">
+                                </div>
+                                <div style="width: 100%;">
+                                    <div class="dvrredeem">
+                                        <label class="lblrn">
+                                            {{'amount'| translate}} <span ng-if="countryID == 231">$</span><span ng-if="countryID == 229">£</span><span ng-if="countryID != 231 && countryID != 229">€</span> :&nbsp;
+                                        </label>
+                                    </div>
+                                    <div class="dvrddl">
+                                        <select name="repeatSelect" id="ddlRedeemAmount" ng-model="trewards.RedeemAmount" style="float:left">
+                                            <option ng-repeat="option in  trewards.LstRewardAmount" value="{{option.Key}}">{{option.Value}}</option>
+                                        </select>
+                                        @* <select ng-options="item.Key  for item in trewards.LstRewardAmount" id="ddlRedeemAmount" ng-model="trewards.RedeemAmount"></select>*@
+                                        <input type="text" id="txtRedeemAmount" ng-bind="trewards.RedeemAmount" ng-model="trewards.RedeemAmount" style="float: left;" disabled />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div>
+                                        <label id="lblMessage">
+                                        </label>
+                                        <div ng-if="show_paypal_message"><span style="color: black;">{{'rewardNote1' | translate}}</span></div>
+
+                                        <div ng-if="!show_paypal_message"><span style="color: black;">{{'rewardNote' | translate}}</span></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <br />
+                                </div>
+                                <div class="dvbuttons" ng-if="!showRedeemButton">
+                                    <div class="dvredbtn">
+                                        <input type="button" id="btnRedeem" class="myButton" value="{{'redeem'| translate}}" ng-click="RedeemClick()" />
+                                    </div>
+                                    <div class="dvcanbtn">
+                                        <input type="button" id="btnCancel" class="myButton" value="{{'cancel'| translate}}" ng-click="CancelClick()" />
+                                    </div>
+                                </div>
+                                <div class="dvbuttons" ng-if="showRedeemButton">                                   
+                                    <div class="dvcanbtn">
+                                        <input type="button" id="btnCancel" class="myButton" value="{{'back'| translate}}" ng-click="CancelClick()" style="margin-left: 87px;" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+    
+
+</center> 

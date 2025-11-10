@@ -1,0 +1,209 @@
+﻿@model  Members.PrecisionSample.Components.Entities.Surveys
+@{
+    Layout = null;
+    ViewBag.Title = "ReachCollective";
+}
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+
+
+    <script type="text/javascript">
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        var ug = getUrlVars()["ug"];
+        if (ug == undefined) {
+            ug = '';
+        }
+        var issam = getUrlVars()["issam"];
+        if (issam == undefined) {
+            issam = 'f';
+        }
+        var extid = getUrlVars()["extid"];
+        if (extid == undefined) {
+            extid = '';
+        }
+        var show = 'f'; //do not fire pixel.
+        var usg = getUrlVars()["usg"];
+        if (usg == undefined) {
+            usg = '';
+        }
+        uig = getUrlVars()["uig"];
+        if (uig == undefined) {
+            uig = '';
+        }
+        var pid = getUrlVars()["pid"];
+        if (pid == undefined) {
+            pid = '';
+        }
+
+        var cid = getUrlVars()["cid"];
+        if (cid == undefined) {
+            cid = '';
+        }
+        var is_t = getUrlVars()["is_t"];
+        if (is_t == undefined) {
+            is_t = 's';
+        }
+        leadguid = getUrlVars()["leadid"] //user status guid added 06/13/2016
+        debugger;
+        if (leadguid == undefined) {
+            leadguid = '';
+        }
+        pg = getUrlVars()["pg"] //user status guid added 06/13/2016
+        debugger;
+        if (pg == undefined) {
+            pg = '';
+        }
+        if (pg.toLowerCase() == '9EE17B1A-6882-4CAE-9AED-3C4D4A92DFA9'.toLowerCase()) {
+            $(document).ready(function () {
+                $("div#conversentform").hide();
+                $("div#conversentbutton").hide();
+                $("div#conversantimg").hide();
+            });
+        }
+        else if (pg.toLowerCase() == '71CC02CD-B8A5-4A5A-AF4D-9988B2F21761'.toLowerCase()) {
+            $(document).ready(function () {
+                $("div#obform").hide();
+                $("div#obformbutton").hide();
+                $("div#obimg").hide();
+            });
+        }
+
+        var pc = getUrlVars()["pc"];
+        if (pc == undefined) {
+            pc = '';
+        }
+        else {
+            pc = pc.replace(leadguid, "");
+        }
+        if (pc != '' && pc != undefined && extid != '' && extid != undefined) {
+            var imgsfpixel = document.createElement('img');
+            imgsfpixel.height = "1px";
+            imgsfpixel.width = "1px";
+            imgsfpixel.alt = "";
+            imgsfpixel.src = "https://tag.simpli.fi/sifitag/6d031150-3d7a-0139-84f7-06b4c2516bae?tx_val=" + pc +"&tx_id="+ extid;
+            document.getElementsByTagName('head')[0].appendChild(imgsfpixel);
+
+        }
+
+
+        function takeme() {
+        
+            if (issam == "t" || (pc != '' && pc != undefined)) {// if comes from simplify
+
+                window.location.href = 'https://www.conversant.pro/registration?leadid=' + leadguid + '&pc=t450&extid='+ extid;
+            }
+
+            else {
+
+                window.location.href = 'https://www.conversant.pro/registration?leadid=' + leadguid + '&pc=f';
+            }
+        }
+
+        function thankyou() {
+            if (issam == "t"  || pc != '' && pc != undefined) {// if comes from simplify
+                window.location.href = 'https://www.opinionbar.com/Home/LogIn?leadid=' + leadguid + '&is_t=' + is_t + '&pc=t491&extid=' + extid;
+            }
+            else {
+                window.location.href = 'https://www.opinionbar.com/Home/LogIn?leadid=' + leadguid + '&is_t=' + is_t + '&pc=f';
+            }
+
+        }
+    </script>
+
+
+
+
+    <style type="text/css">
+        body {
+            color: black !important;
+            font-family: Lucida Sans Console, Verdana, Tahoma, Arial, Verdana, sans-serif;
+            font-size: 13px;
+            line-height: 1.42857143; /* background-color: #abd7fe; */
+        }
+
+        #dvContent {
+            padding: 26px;
+            overflow: hidden;
+            max-width: 770px;
+            background-color: White;
+            margin: auto;
+            text-align: justify;
+            -webkit-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+            -moz-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+            box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+        }
+
+        h1.hidden {
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+<body ng-app="endLinksApp" ng-cloak>
+    @using (Html.BeginForm())
+            {
+        @Html.AntiForgeryToken()
+    }
+    <div style="margin-top:15px;width:100%;">
+        <img id="imgsfpixel" alt="" src="" height="1" width="1" /> 
+
+        <div ng-controller="tasController" id="dvContent">
+            <div class="form-group col-md-12 col-lg-12">
+                <img src="@ViewBag.PartnerLogo" />
+            </div>
+            <div style="padding-left:10px;" id="conversantimg">
+                <img id="imgLogo" src="/images/conversant.png" style="width:213px;height:50px;">
+            </div>
+            <div style="padding-left:10px;" id="obimg">
+                <img id="imgLogo" src="/images/logo_opinionbar2x.png" style="width:213px;height:50px;">
+            </div>
+            <br />
+          
+            <div class="row">
+                <div class="form-group col-md-12 col-lg-12">
+                    <p>
+                        <b style="margin-left:190px;">Success! You have completed this survey!</b><br />
+                    </p>
+                </div>
+            </div>
+            <div class="row" id="obform">
+                <div class="form-group col-md-12 col-lg-12">
+                    <p><b><u>Claim your $5.00 reward by clicking the button below and joining Opinionbar.</u></b> Once joined, you will have access to additional surveys and the opportunity to redeem your reward for a direct Paypal payment or a wide variety of gift cards from your favorite retailers including Amazon, BestBuy, Starbucks, airbnb & more! </p>
+                </div>
+            </div>
+            <div class="row" id="conversentform">
+                <div class="form-group col-md-12 col-lg-12">
+                    <p><b><u>Claim your $20.00 reward by clicking the button below and joining Conversant.pro.</u></b> Once joined, you will have access to additional surveys and the opportunity to redeem your reward for a direct Paypal payment or a wide variety of gift cards from your favorite retailers including Amazon, BestBuy, Starbucks, airbnb & more! </p>
+                </div>
+            </div>
+            <br />
+            <div class="row" style="display:flex;">
+                <div class="form-group col-md-12 col-lg-6" id="obformbutton">
+                    @*<input type="button" class="btn btn-primary" id="btnTakeAnotherSurvey" onclick="takeme();" value="{{'tas6'|translate}}" />*@
+                    <input class="btn btn-primary" type="button" id="obformbutton" onclick="thankyou();" style="margin-top:0px;margin-left:290px;" value="Join Opinionbar">
+                </div>
+                <div class="form-group col-md-12 col-lg-6" id="conversentbutton">
+                    @*<input type="button" class="btn btn-primary" id="btnTakeAnotherSurvey" onclick="takeme();" value="{{'tas6'|translate}}" />*@
+                    <input class="btn btn-primary" type="button" id="conversentbutton" onclick="takeme();" style="margin-top:0px;margin-left:290px;" value="Join Conversant.pro">
+                </div>
+                @*<div class="form-group col-md-12 col-lg-6">
+                        <button class="pull-right btn btn-dark" type="submit" onclick="thankyou();" style="margin-top:0px;">No! Thank You!</button>
+                    </div>*@
+            </div>
+
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angularval")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/pages/recaptcha.js" type="text/javascript"></script>
+</body>

@@ -1,0 +1,27 @@
+﻿{
+  "blddwln": "Downline'ınızı oluşturun!",
+  "facebookText": "Takipçilerinize anlatmak için aşağıdaki Twitter ve Facebook kullanın",
+  "facebookText1": "ve kayıt olduklarında onları otomatik olarak Alt Hattınıza ekleyeceğiz!",
+  "friendsJoin": "Arkadaşlarınızı Downline'ınıza davet etmek için ilk adlarını ve e-posta adreslerini aşağıya girin. Sizin adınıza katılmaya ve para kazanmaya davet eden bir e-posta göndereceğiz; onlar ve senin için de!",
+  "inviteFriends": "Arkadaşlarını davet etmek için",
+  "sendEmailText": ", adlarını ve e-posta adreslerini aşağıya girin. Sizin adınıza katılmaları için bir e-posta göndereceğiz.",
+  "ipadEntriesText": "ve para kazanmak; onlar için ve iPad Giveaway girişleri sizin için!",
+  "firstName": "İsim:",
+  "emailAddress": "E-posta Adres:",
+  "accessCode": "Giriş kodu",
+  "textBelow": "Bu kodu aşağıdaki metin kutusuna girin",
+  "invalidAccessCode": "Geçersiz giriş kodu",
+  "enterAccessCode": "Erişim kodunu giriniz*",
+  "inviteFriend": "ARKADAŞLARIMI DAVET ET",
+  "required": "gereklidir",
+  "filldata": "Lütfen geçerli verileri doldurun",
+  "onlyletters": "Lütfen sadece harfleri giriniz",
+  "invsucc": "Üye Başarıyla Davet Edildi.",
+  "memberInvitedSucessfully": "Üye Başarıyla Davet Edildi",
+  "invitationFailed": "Davetiye Başarısız Oldu",
+  "pleasegiveatleastoneemailaddress": "Lütfen en az bir e-posta adresi verin"
+}
+
+
+
+

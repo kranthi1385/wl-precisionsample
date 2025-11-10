@@ -1,0 +1,10 @@
+2025-11-04 15:39:09.9362 | HYLT777-GNJ5HX3 | 36584 | w3wp | Fatal |  | | | Members.OpinionBar.Web.Filters.LoggerAttribute | /Login/GetUserDataEmail?EmailAddress=bollachanti@gmail.com&token=null|http://dev.op.ps.com/Login/GetUserDataEmail?EmailAddress=bollachanti@gmail.com&token=null||System.NullReferenceException: Object reference not set to an instance of an object.
+   at Members.OpinionBar.Web.Controllers.LoginController.GetUserDataEmail(String EmailAddress, String token) in F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Web\Controllers\LoginController.cs:line 50
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()

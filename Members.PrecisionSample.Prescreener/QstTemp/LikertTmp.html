@@ -1,0 +1,27 @@
+﻿<script type="text/ng-template" id="LikertSclae">   
+    <div align="left" class="questionback" style="clear: both;">
+    <span class="question" id="lblQuestiontext" ng-bind-html="question.QuestionText | unsafe"></span>
+</div>
+<div ng-if="question.QuestionTypeId == '8'">
+    <div class="form-group">
+        <div style="width: 100%;">
+            <span ng-show="submitValidations && formValidation[question.QuestionId+ '_' + 'likertscalegroup'].$error.required" class="errors" style="color: red;">{{ errorMessage }}</span>
+        </div>
+        <div align="left" style="padding-top: 9px; padding-bottom: 10px;">
+            <rzslider ng-attr-id="{{question.QuestionId+'_likert'}}" name="{{question.QuestionId+ '_' + 'likertscalegroup' }}" ng-model="question.ChqOptionId"
+                rz-slider-model="slider.value " rz-slider-options="slider.options" ng-click="sliderChange(slider.value,question)" required></rzslider>
+        </div>
+    </div>
+</div>
+</script>
+
+<div style="width: 100%;">
+    <div>
+        <div ng-controller="likertScaleController" style="width: 95%;">
+            <ng-include src="'LikertSclae'"></ng-include>
+        </div>
+
+    </div>
+</div>
+
+

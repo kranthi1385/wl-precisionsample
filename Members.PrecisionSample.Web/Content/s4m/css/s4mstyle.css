@@ -1,0 +1,486 @@
+﻿
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background: #fee5ad url('../../../Images/S4mLanding/back.jpg') repeat-x top;
+    font: 16px/18px Verdana, Geneva, sans-serif;
+    color: #000;
+}
+
+h1, h2, h3 {
+    margin: 0px;
+    padding: 0px;
+    font-weight: bold;
+}
+
+p, ol, ul {
+    margin-top: 0px;
+}
+
+a {
+    color: #006389;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    a img {
+        border: none;
+    }
+
+img.border {
+}
+
+img.alignleft {
+    float: left;
+}
+
+img.alignright {
+    float: right;
+    margin: 0 35px 0 0;
+}
+
+img.alignright1 {
+    float: right;
+    margin: 0 15px 0 0;
+}
+
+img.aligncenter {
+    margin: 0px auto;
+}
+
+hr {
+    display: none;
+}
+
+/** WRAPPER */
+#wrapper {
+    width: 894px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+.clearfix {
+    clear: both;
+}
+
+#slogan {
+    float: left;
+    width: 447px;
+    height: 75px;
+    background: url('../../../Images/S4mLanding/slogan.png') no-repeat;
+    margin: 16px 0 20px 0;
+}
+
+#slogan2 {
+    float: left;
+    width: 570px;
+    height: 45px;
+    background: url('../../../Images/S4mLanding/slogan2.png') no-repeat;
+    margin: 16px 0 20px 0;
+}
+
+#rewards {
+    float: right;
+    font: bold italic 16px/40px Verdana, Geneva, sans-serif;
+    padding: 20px 0 7px 30px;
+}
+
+#login {
+    width: 396px;
+    float: right;
+    margin: 27px 0 0 0;
+    color: #67250d;
+}
+
+.login1 {
+    width: 400px;
+    overflow: hidden;
+    padding: 0 0 0 0;
+}
+
+.text-danger {
+    color: Red;
+    font-size: 12px;
+}
+
+.text-success {
+    color: green;
+    font-size: 12px;
+}
+
+#login form {
+    width: 400px;
+    overflow: hidden;
+    padding: 0 0 0 0;
+}
+
+#login .place {
+    float: left;
+    width: 143px;
+    margin: 0 10px 0 0;
+}
+
+#login form label {
+    font: 12px/14px Verdana, Geneva, sans-serif;
+    float: left;
+    padding: 0 0 0 0;
+    width: 143px;
+    text-align: left;
+    display: block;
+    margin: 0 0 0 0;
+}
+
+#login form input.text {
+    padding: 0 0 0 3px;
+    width: 138px;
+    height: 23px;
+    float: left;
+    display: block;
+    background: #fff;
+    margin: 3px 0 0 0;
+    font: 16px/23px Verdana, Geneva, sans-serif;
+    border: 1px solid #c28721;
+}
+
+#login form input.login {
+    width: 89px;
+    height: 34px;
+    float: left;
+    background: url('../../../Images/S4mLanding/login.png') no-repeat 0 0;
+    border: none;
+    cursor: pointer;
+    padding: 0 0 0 0;
+    margin: 12px 0 0 0;
+    display: block;
+}
+
+    #login form input.login:hover {
+        background: url('../../../Images/S4mLanding/login.png') no-repeat 0 -34px;
+    }
+
+#main {
+    border: solid 3px #f9913e;
+    background: #fff url('../../../Images/S4mLanding/mainback.jpg') repeat-x top;
+    overflow: hidden;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    width: 888px;
+}
+
+#header {
+    float: left;
+    width: 509px;
+}
+
+#header2 {
+    float: left;
+    width: 459px;
+}
+
+#logo {
+    width: 457px;
+    height: 111px;
+    margin: 0 0 0 0;
+    float: left;
+    background: url('../../../Images/S4mLanding/logo.png') no-repeat;
+}
+
+#logo1 {
+    width: 457px;
+    height: 126px;
+    margin: 0 0 0 0;
+    float: left;
+    background: url('../../../Images/S4mLanding/logo.png') no-repeat;
+}
+
+#content {
+    padding: 0 40px 30px 40px;
+    text-align: justify;
+    font: 13px/20px Verdana, Geneva, sans-serif;
+}
+
+#form-top {
+    background: url('../../../Images/S4mLanding/topform.png') no-repeat top;
+    width: 329px;
+    height: 82px;
+    padding: 75px 0 0 0;
+    text-align: center;
+    font-size: 18px;
+    color: #6bcffd;
+}
+
+#topform {
+    width: 329px;
+    float: left;
+    margin: 7px 0 7px 0;
+}
+
+.details {
+    width: 329px;
+    color: #fff;
+    background-color: #004d6d;
+    overflow: hidden;
+    padding: 15px 0 0 0;
+    border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    -khtml-border-radius: 0 0 10px 10px;
+}
+
+#topform label {
+    font: 12px/30px Verdana, Geneva, sans-serif;
+    float: left;
+    color: #ebede4;
+    padding: 0 0 0 0;
+    width: 94px;
+    text-align: right;
+    display: block;
+    margin: 0 0 0 0;
+}
+
+#topform form input.text {
+    padding: 0 0 0 6px;
+    width: 197px;
+    height: 28px;
+    float: left;
+    display: block;
+    background: #fff;
+    margin: 0 0 14px 5px;
+    font: 16px/28px Verdana, Geneva, sans-serif;
+    border: 1px solid #fff;
+    -moz-box-shadow: inset 3px 3px 7px #9d9d9d;
+    -webkit-box-shadow: inset 3px 3px 7px #9d9d9d;
+    box-shadow: inset 3px 3px 7px #9d9d9d;
+}
+
+.button {
+    width: 241px;
+    height: 60px;
+    float: left;
+    border: none;
+    cursor: pointer;
+    padding: 0 0 0 0;
+    margin: 20px 0 28px 48px;
+    display: block;
+}
+
+#topform form input.join:hover {
+    /*background: url(/AffiliateLading/s4mlanding/images/submit2.png) no-repeat 0 -60px; */
+}
+
+
+#form-top2 {
+    background: url('../../../Images/S4mLanding/topform2.png') no-repeat top;
+    width: 398px;
+    height: 70px;
+    padding: 0 0 0 0;
+    text-align: center;
+}
+
+#topform2 {
+    width: 398px;
+    float: left;
+    margin: 7px 0 30px 0;
+}
+
+    #topform2 #form {
+        width: 398px;
+        color: #fff;
+        background-color: #004d6d;
+        overflow: hidden;
+        padding: 15px 0 0 0;
+        border-radius: 0 0 10px 10px;
+        -moz-border-radius: 0 0 10px 10px;
+        -khtml-border-radius: 0 0 10px 10px;
+    }
+
+    #topform2 label {
+        font: 12px/30px Verdana, Geneva, sans-serif;
+        float: left;
+        color: #ebede4;
+        padding: 0 0 0 0;
+        width: 120px;
+        text-align: right;
+        display: block;
+        margin: 0 0 0 0;
+    }
+
+    #topform2 #form input.text {
+        padding: 0 0 0 6px;
+        width: 240px;
+        height: 28px;
+        float: left;
+        display: block;
+        background: #fff;
+        margin: 0 0 10px 5px;
+        font: 16px/28px Verdana, Geneva, sans-serif;
+        border: 1px solid #fff;
+        -moz-box-shadow: inset 3px 3px 7px #9d9d9d;
+        -webkit-box-shadow: inset 3px 3px 7px #9d9d9d;
+        box-shadow: inset 3px 3px 7px #9d9d9d;
+    }
+
+    #topform2 #form .sel {
+        padding: 0 0 0 2px;
+        width: 200px;
+        height: 28px;
+        float: left;
+        display: block;
+        background: #fff;
+        margin: 0 0 10px 5px;
+        font: 14px/28px Verdana, Geneva, sans-serif;
+        border: 1px solid #fff;
+    }
+
+    #topform2 #form .dob {
+        padding: 0 0 0 2px;
+        width: 80px;
+        height: 28px;
+        float: left;
+        display: block;
+        background: #fff;
+        margin: 0 0 10px 5px;
+        font: 14px/28px Verdana, Geneva, sans-serif;
+        border: 1px solid #fff;
+    }
+/*#topform2 #form .join
+{
+	width: 241px;
+	height: 60px;
+	float: left;
+	background: url(/AffiliateLading/s4mlanding/images/submit1.png) no-repeat 0 0;
+	border: none;
+	cursor: pointer;
+	padding: 0 0 0 0;
+	margin: 20px 0 28px 80px;
+	display: block;
+}
+#topform2 #form .join:hover
+{
+	background: url(/AffiliateLading/s4mlanding/images/submit2.png) no-repeat 0 0;
+}*/
+
+#redline {
+    float: left;
+    width: 858px;
+    background-color: #a5261d;
+    color: #fff;
+    font: bold italic 25px/66px Verdana, Geneva, sans-serif;
+    padding: 7px 0 7px 30px;
+}
+
+#yelbox {
+    background-color: #fdc96c;
+    margin: 30px 30px 30px 33px;
+    float: left;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    padding: 15px;
+    width: 224px;
+    text-align: justify;
+    color: #242424;
+    font: 12px/16px Verdana, Geneva, sans-serif;
+}
+
+    #yelbox p {
+        font: bold italic 15px Verdana, Geneva, sans-serif;
+        color: #431613;
+        text-align: center;
+    }
+
+#yelbox2 {
+    background-color: #fdc96c;
+    margin: 14px 0 30px 14px;
+    float: left;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    padding: 15px;
+    width: 400px;
+    text-align: justify;
+    color: #242424;
+    font: 12px/16px Verdana, Geneva, sans-serif;
+}
+
+ul.one {
+    float: left;
+    list-style: none outside none;
+    margin: 38px 25px 0 0;
+    padding: 0;
+    width: 545px;
+}
+
+    ul.one li.one {
+        background: url('../../../Images/S4mLanding/one.png') no-repeat 0 0;
+        padding: 3px 0 20px 55px;
+    }
+
+    ul.one li.two {
+        background: url('../../../Images/S4mLanding/two.png') no-repeat 0 0;
+        padding: 3px 0 20px 55px;
+    }
+
+    ul.one li.three {
+        background: url('../../../Images/S4mLanding/three.png') no-repeat 0 0;
+        padding: 3px 0 5px 55px;
+    }
+
+ul.check {
+    float: left;
+    list-style: none outside none;
+    margin: 10px 10px 0 0;
+    padding: 0;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+    ul.check li.one {
+        background: url('../../../Images/S4mLanding/check1.png') no-repeat 0 0;
+        padding: 3px 0 20px 55px;
+    }
+
+    ul.check li.two {
+        background: url('../../../Images/S4mLanding/check2.png') no-repeat 0 0;
+        padding: 3px 0 20px 55px;
+    }
+
+    ul.check li.three {
+        background: url('../../../Images/S4mLanding/check3.png') no-repeat 0 0;
+        padding: 3px 0 20px 55px;
+    }
+
+
+#bottom {
+    margin: 15px auto 0 auto;
+    padding: 0 0 30px 0;
+    overflow: hidden;
+    color: #431613;
+    font: 12px/14px Verdana, Geneva, sans-serif;
+    width: 100%;
+}
+
+.botmenu {
+    /* float: right; 	width: 430px; 	margin-top: -6px; */
+}
+
+#bottom a {
+    font: bold 12px/18px Verdana, Geneva, sans-serif;
+    text-decoration: none;
+    padding: 0 5px 0 5px;
+    color: #431613; /*border-right: 1px solid #431613;*/
+}
+
+    #bottom a:hover {
+        color: #000;
+    }
+
+    #bottom a.no-border {
+        border-right: none;
+    }

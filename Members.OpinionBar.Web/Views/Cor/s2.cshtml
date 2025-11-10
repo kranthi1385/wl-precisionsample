@@ -1,0 +1,319 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>OpinionNetwork Surveys</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link id="lnkMainCss" rel="stylesheet" href="/css/river-main.css" type="text/css"
+          media="screen" />
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+          rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="/Scripts/jquery.1.7.1.min.js"></script>
+
+    <script type="text/javascript" src="/Scripts/knockout-2.3.0.js"></script>
+
+    <script src="/Scripts/jquery.tmpl.min.js" type="text/javascript"></script>
+
+    <script src="/Scripts/knockout.mapping-latest.debug.js" type="text/javascript"></script>
+
+    <script src="/Scripts/knockout.mapping-latest.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="https://js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js" type="text/javascript"></script>
+
+    <script src="/Scripts/Pages/s2.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        function popup(url) {
+            var width = 700;
+            var height = 700;
+            var left = (screen.width - width) / 2;
+            var top = (screen.height - height) / 2;
+            var params = 'width=' + width + ', height=' + height;
+            params += ', top=' + top + ', left=' + left;
+            params += ', directories=no';
+            params += ', location=no';
+            params += ', menubar=no';
+            params += ', resizable=no';
+            params += ', scrollbars=yes';
+            params += ', status=no';
+            params += ', toolbar=no';
+            newwin = window.open(url, 'windowname5', params);
+            if (window.focus) { newwin.focus() }
+            return false;
+        }
+
+
+    </script>
+
+    <script type="text/javascript">
+        //get member reg details
+        function getUrlVars() {
+            var Url = window.location.href.toLowerCase();
+            var vars = {};
+            var parts = Url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        //Get query parmas value referrer id
+        ug = getUrlVars()["ug"];
+        if (ug == undefined) {
+            ug = ''
+        }
+        function GetMemberDetails() {
+            $.ajax({
+                url: '/services/RiverService.aspx?Mode=GetMemberDetails&ug=' + ug,
+                timeout: 50000,
+                datatype: 'json',
+                type: 'POST',
+                async: false,
+                success: function (data) {
+                    if (data == null) {
+                    }
+                    else {
+                        if (data.EmailAddress != '' && data.CountryCode != '' && data.Gender != '' && data.Dob != '' && data.ZipCode != '' && data.EthnicityId != 0 && data.EthnicityId != -1 && data.address1 == "0") {
+                            window.location.href = '/river/top10.htm?ug=' + ug;
+                        }
+                        else {
+                            ViewModel = ko.mapping.fromJS(data);
+                            var date = data.Dob;
+                            var splitdate = date.split(' ');
+                            var dateparts = splitdate[0].split('/');
+                            ViewModel.Year = dateparts[2];
+                            ViewModel.Month = dateparts[0];
+                            ViewModel.Day = dateparts[1];
+                            ko.applyBindings(ViewModel, document.getElementById("border"));
+                        }
+                    }
+
+                }
+
+            });
+
+        }
+
+    </script>
+
+    <style type="text/css">
+        #dvImageLoading {
+            background: url(/Images/loading_big.gif) no-repeat center center;
+            height: 90px;
+            width: 90px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 27%;
+            padding-top: 10px;
+            vertical-align: middle;
+            font-size: 12px;
+            align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <script type="text/javascript">
+        GetMemberDetails();
+    </script>
+
+    <center>
+        <div class="cp-bg">
+        </div>
+        <div class="dvoverly">
+        </div>
+        <div class="container_12" style="clear: both;">
+            <!-- /// begin page /// -->
+            <!-- ///////////////////////////////////////// MASTHEAD ///////////////////////////////////////// -->
+            <div id="masthead">
+                <div id="logo">
+                    <a href="/river/s1.htm">
+                        <img src="/images/on_logocopy.PNG" />
+                    </a>
+                </div>
+                <!--  <h1 id="logo2">
+                <a href="index.html">sample partner</a></h1>-->
+            </div>
+            <div class="clear">
+                <br />
+            </div>
+            <!-- ///////////////////////////////////////// CONTENT ///////////////////////////////////////// -->
+            <div id="dvMemberDetails">
+                <div class="clear">
+                </div>
+                <div id="surveyQuestionContainer" style="float: none;">
+                    <div id="surveyQuestion">
+                        <div align="center">
+                            <div id="dvImageLoading" style="display: none;">
+                            </div>
+                            <div id="border" style="text-align: left;">
+                                <p style="font-size: 16px;">Welcome to Conversant.pro</p>
+                                <p style="font-size: 16px;">
+                                    A community of professionals who are the go-to resource for Fortune 1000 firms looking to gather expert opinion on business critical decisions. Once joined,you'll have the opportunity to participate in paid surveys and interviews with our clients while connecting with fellow community members to solve your challenges and stay a step ahead of the competition.<br />
+                                </p>
+                                <p>You've got answers and we've got a lot of questions so let's get started.</p>
+                                <p>Once you've completed our introductory survey and joined; we'll deposit $20 into your account.</p>
+                                <br />
+                                <div id="dvForm">
+                                    <!-- <div>
+                                        <span id="spnFirstName" class="help-inline">First Name*</span>
+                                        <input type="text" class="span" id="txtFirstName" data-bind="value:ViewModel.FirstName" />
+                                    </div>
+                                    <div>
+                                        <span id="spnLastName" class="help-inline">Last Name*</span>
+                                        <input type="text" class=" span" id="txtLastName" data-bind="value:ViewModel.LastName" />
+                                    </div>-->
+                                    @*<div id="dvEmailAddress">
+                                            <p id="spn12" class="help-inlineStep2">
+                                                Email Address*
+                                            </p>
+                                            <input type="text" class="span" style="margin-right: 0px;" id="txtEmail" data-bind="value: ViewModel.EmailAddress" />
+                                        </div>*@
+                                    <!--<div>
+                                        <span id="spnAddress" class="help-inline">Address 1*</span>
+                                        <input type="text" class="span" id="txtAddress1" data-bind="value: ViewModel.Address1" />
+                                    </div>-->
+                                    <!--  <div>
+                                        <span id="spnCity" class="help-inline">City*</span>
+                                        <input type="text" id="txtCity" data-bind="value: ViewModel.City" class="span" />
+                                    </div>-->
+                                    <div>
+                                        <p id="spnCountry" class="help-inlineStep2">
+                                            Country*
+                                        </p>
+                                        <select id="ddlCountry" data-bind="value:ViewModel.CountryCode" class="spanddl"></select>
+                                    </div>
+                                    <div>
+                                        <p id="lblGender" class="help-inlineStep2">
+                                            Gender*
+                                        </p>
+                                        <select id="ddlGender" data-bind="value:ViewModel.Gender" class="spanddl">
+                                            <option value="-1">--Select--</option>
+                                            <option value="M">Male</option>
+                                            <option value="F">Female</option>
+                                            <option value="N">Non-Binary</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <p id="Span2" class="help-inlineStep2">
+                                            Date of Birth*
+                                        </p>
+                                        <select name="month" id="ddlMonth" data-bind="value:ViewModel.Month" class="ddldob ddlmonth">
+                                            <option value="-1">--</option>
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                        <select name="day" id="ddlDay" data-bind="value:ViewModel.Day" style="" class="ddldob ddlday">
+                                            <option value="-1">--</option>
+                                            <option value="1">01</option>
+                                            <option value="2">02</option>
+                                            <option value="3">03</option>
+                                            <option value="4">04</option>
+                                            <option value="5">05</option>
+                                            <option value="6">06</option>
+                                            <option value="7">07</option>
+                                            <option value="8">08</option>
+                                            <option value="9">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                            <option value="13">13</option>
+                                            <option value="14">14</option>
+                                            <option value="15">15</option>
+                                            <option value="16">16</option>
+                                            <option value="17">17</option>
+                                            <option value="18">18</option>
+                                            <option value="19">19</option>
+                                            <option value="20">20</option>
+                                            <option value="21">21</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                        </select>
+                                        <select name="year" id="ddlYear" data-bind="value:ViewModel.Year" class="ddldob ddlyear"></select>
+                                    </div>
+                                    <div>
+                                        <p id="spnZipcode" class="help-inlineStep2">
+                                            Zip Code*
+                                        </p>
+                                        <input type="text" id="txtZip" style="margin-right: 0px;" data-bind="value:ViewModel.ZipCode"
+                                               class="span" />
+                                    </div>
+                                    <div>
+                                        <p id="spnEthnicity" class="help-inlineStep2">
+                                            Ethnicity*
+                                        </p>
+                                        <select name="Ethnicity" id="ddlEthnicity" data-bind="value:ViewModel.EthnicityId"
+                                                class="spanddl"></select>
+                                    </div>
+                                    <!--<div style="width:100%">
+                                        <br />
+                                        This survey program is managed by Precision Sample. By submitting this form you
+                                        agree to receive survey invitations via email and our <a href="javascript: void(0)"
+                                            onclick="popup('/Clients/TermsofUse.htm')" id="ancsurveysonline" runat="server">
+                                            Terms of Use </a>and <a href="javascript: void(0)" onclick="popup('/Clients/privacy.htm')"
+                                                id="ancsurveyspolicy" runat="server">Privacy Policy</a>. Your Privacy is
+                                        extremely important to us! We will never sell, rent or lease your personally identifiable
+                                        information to others without your consent.<br />
+                                        <br />
+                                    </div>-->
+                                    <div>
+                                        <span id="spnMsg" style="font-size: 12px; display: none;" class="error"></span>
+                                    </div>
+                                    <br />
+                                    <!--   added google captcha on 14-6-2017-->
+                                    <div id="dvGoogleCaptcha">
+
+                                        <div class="g-recaptcha" data-sitekey="6LfVcForAAAAAHCQH_OWJRVYCXlvU0KlMm2u6B2i"></div>
+                                        <label id="lblResult" style="float: left; display: none;color:red;" class="error">Invalid Captcha</label>
+                                    </div>
+                                    <div align="center">
+                                        <input type="submit" id="imgButton" value="Continue" style="width: 130px;" />
+                                        <!--<input type="image" id="imgButton" src="/Images/join.jpg" />-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div>
+            <br />
+            <br />
+        </div>
+    </center>
+</body>
+</html>

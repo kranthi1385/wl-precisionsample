@@ -1,0 +1,115 @@
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.cn.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.eg.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.jp.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.us.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.ar.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.de.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.es.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.fr.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.it.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.ko.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.nl.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.pl.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.pt.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.ru.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.tr.resources
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.csproj.GenerateResource.Cache
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\Members.OpinionBar.Components.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\Members.OpinionBar.Components.pdb
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\ar\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\de\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\es\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\fr\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\it\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\ko\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\nl\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\pl\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\pt\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\ru\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\tr\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\Newtonsoft.Json.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\NLog.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.Mvc.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.Razor.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.WebPages.Razor.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.WebPages.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\Microsoft.Web.Infrastructure.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.WebPages.Deployment.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.csproj.AssemblyReference.cache
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.csproj.CoreCompileInputs.cache
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\ar\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\de\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\es\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\fr\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\it\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\ko\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\nl\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\pl\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\pt\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\ru\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\tr\Members.OpinionBar.Components.resources.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members..A19277E5.Up2Date
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.pdb
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\Members.OpinionBar.Components.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\Members.OpinionBar.Components.pdb
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\ar\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\de\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\es\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\fr\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\it\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\ko\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\nl\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\pl\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\pt\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\ru\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\tr\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\NLog.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.Mvc.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.Razor.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.WebPages.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\NLog.xml
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.Mvc.xml
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.Razor.xml
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.WebPages.xml
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.csproj.AssemblyReference.cache
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.cn.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.eg.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.jp.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.us.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.ar.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.de.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.es.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.fr.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.it.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.ko.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.nl.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.pl.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.pt.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.ru.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.Resources.Resource.tr.resources
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.csproj.GenerateResource.cache
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.csproj.CoreCompileInputs.cache
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\ar\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\de\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\es\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\fr\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\it\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\ko\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\nl\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\pl\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\pt\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\ru\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\tr\Members.OpinionBar.Components.resources.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members..A19277E5.Up2Date
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.OpinionBar.Components\obj\Debug\Members.OpinionBar.Components.pdb

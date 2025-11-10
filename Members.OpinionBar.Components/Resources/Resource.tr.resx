@@ -1,0 +1,771 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="about_msg" xml:space="preserve">
+    <value>Fikrinizi isteyen firmalar</value>
+    <comment>About</comment>
+  </data>
+  <data name="about_us" xml:space="preserve">
+    <value>Hakkımızda</value>
+  </data>
+  <data name="atleast6letters" xml:space="preserve">
+    <value>en az 6 karakter</value>
+    <comment>Login</comment>
+  </data>
+  <data name="back_to_signin" xml:space="preserve">
+    <value>Giriş yap</value>
+    <comment>Login</comment>
+  </data>
+  <data name="bankaccount" xml:space="preserve">
+    <value>banka hesabı</value>
+  </data>
+  <data name="banner1_giveyouropinion" xml:space="preserve">
+    <value>Fikrinizi verin ve ödeme alın</value>
+    <comment>Login</comment>
+  </data>
+  <data name="banner1_small_nospam" xml:space="preserve">
+    <value>Ve spam yok ... Vaat!</value>
+    <comment>Login</comment>
+  </data>
+  <data name="breach_terms" xml:space="preserve">
+    <value>Breach of Terms</value>
+  </data>
+  <data name="breach_terms_msg" xml:space="preserve">
+    <value>If OpinionBar is of the reasonable opinion that a real or potential breach of the letter or intent of the terms and conditions has occurred, OpinionBar reserves the right to immediately either permanently or temporarily postpone or terminate the Services supplied by OpinionBar, to block prohibited activities or undertake any other actions it considers suitable. Users who violate these TERMS may also become criminally or civilly liable. OpinionBar may hand any perpetrators over to the civil or criminal authorities for prosecution and will co-operate fully with the authorities with regards to investigations into suspected civil or criminal offences.</value>
+  </data>
+  <data name="choose_country" xml:space="preserve">
+    <value>Ülkenizi seçin</value>
+  </data>
+  <data name="choose_password" xml:space="preserve">
+    <value>Şifre seçin</value>
+    <comment>Login</comment>
+  </data>
+  <data name="choose_password_error_msg" xml:space="preserve">
+    <value>Şifre alanı gerekli</value>
+    <comment>Login</comment>
+  </data>
+  <data name="cn_choose_country" xml:space="preserve">
+    <value>Bir ülke seç…</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="cn_choose_survey" xml:space="preserve">
+    <value>Bir anket seçin…</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="cn_feeback_msg" xml:space="preserve">
+    <value>Mesaj</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="cn_full_name" xml:space="preserve">
+    <value>Ad Soyad</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="cn_send_msg" xml:space="preserve">
+    <value>Mesaj gönder</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="contact_header" xml:space="preserve">
+    <value>Bizimle iletişime geçin</value>
+    <comment>Contact</comment>
+  </data>
+  <data name="content_msg" xml:space="preserve">
+    <value>OpinionBar, içeriklerin (örneğin, web siteleri, reklamlar, çerezler, reklamlar, etiketler, yazılımlar) veya bir araştırmanın katılımcısı olarak ziyaret ettiğiniz üçüncü ürünleri, telif hakkı, ticaret gizliliği, iftiraya ilişkin yasalar tarafından izin verilip verilmediğinden sorumlu değildir. , mahremiyet ve müstehcenlik veya başka türlü. &lt;/br&gt; 
+Bir Panel Üyesi olarak ve bazen anketlere katılarak, hakaret edici veya uygunsuz olabilecek veya üçüncü bir tarafın mülkiyet hakkını ihlal edebilecek içerikleri görmeniz gerektiğini anlıyorsunuz. İstenmeyen malzemelere karşı korunmak için makul girişimlerde bulunmaktan tek sorumlu sizsiniz. OpinionBar hiçbir surette, kökenleri ne olursa olsun, ankete katılımınızın bir sonucu olarak görüntülenen, postalanan veya başka bir şekilde alınan herhangi bir içerikten sorumlu değildir. &lt;/br&gt; 
+OpinionBar, gerekli gördüğü takdirde OpinionBar olarak harekete geçebilir ve içeriğinin kaldırılması ve / veya üyeliğinizin derhal feshedilmesi de dahil olmak üzere, şubelerinin, tedarikçilerinin, kanal ortaklarının veya müşterilerin sorumlu olabileceği kanaatindedir. Davranışınız bu şartların ve koşulların mektubuna veya ruhuna uymuyor. &lt;/br&gt;</value>
+  </data>
+  <data name="create_your_account" xml:space="preserve">
+    <value>hesabını oluştur</value>
+    <comment>Login</comment>
+  </data>
+  <data name="creat_account" xml:space="preserve">
+    <value>Hesap açmak</value>
+    <comment>Login</comment>
+  </data>
+  <data name="dec_privacy" xml:space="preserve">
+    <value>Gizlilik beyanı</value>
+  </data>
+  <data name="dec_privacy_msg" xml:space="preserve">
+    <value>TERMİLERİ kabul ederek, OpinionBar'ın yayınını açıkça kabul etmiş olursunuz ve kişisel bilgilerinizin o anda geçerli olan Gizlilik Politik Beyannamesi'nde açıklandığı şekilde kullanılmasını kabul etmiş olursunuz.</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-mail</value>
+    <comment>Login</comment>
+  </data>
+  <data name="email_error_msg1" xml:space="preserve">
+    <value>Geçersiz e-posta adresi.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="email_error_msg2" xml:space="preserve">
+    <value>E-posta Adresi alanı gerekli</value>
+    <comment>Login</comment>
+  </data>
+  <data name="expiry_ account" xml:space="preserve">
+    <value>Hesabın sona ermesi</value>
+  </data>
+  <data name="expiry_ account_msg" xml:space="preserve">
+    <value>
+OpinionBar Paneline aktif olarak katılmazsanız - herhangi bir e-posta talebine cevap vermezseniz veya mevcut bir araştırmaya katılırsanız - bir aydan fazla bir süre için, OpinionBar hesabınızı kapatma hakkına ve herhangi bir bakiye hesabınız "kazanılmadı" olarak değerlendirilecek ve süresi dolulacak. &lt;/br&gt; 
+OpinionBar ve OpinionBar Logosu, Hollanda'da ve dünya çapında MetrixLab BV'nin ticari markalarıdır. Diğer tüm ticari markalar kendi sahiplerinin mülkiyetindedir.</value>
+  </data>
+  <data name="first_name" xml:space="preserve">
+    <value>İsim</value>
+    <comment>Login</comment>
+  </data>
+  <data name="first_name_error_msg" xml:space="preserve">
+    <value>İlk ad alanı gerekli</value>
+    <comment>Login</comment>
+  </data>
+  <data name="footer_copyright 2015" xml:space="preserve">
+    <value>telif hakkı</value>
+    <comment>Login</comment>
+  </data>
+  <data name="footer_more_abt_opbar" xml:space="preserve">
+    <value>OpinionBar hakkında daha fazla bilgi</value>
+    <comment>Login</comment>
+  </data>
+  <data name="footer_privacy" xml:space="preserve">
+    <value>Gizlilik</value>
+    <comment>Login</comment>
+  </data>
+  <data name="footer_terms&amp;conditions" xml:space="preserve">
+    <value>Şartlar ve koşullar</value>
+    <comment>Login</comment>
+  </data>
+  <data name="forgot_psw" xml:space="preserve">
+    <value>Parolanızı mı unuttunuz?</value>
+    <comment>Login</comment>
+  </data>
+  <data name="forgot_psw_msg" xml:space="preserve">
+    <value>Lütfen e-posta adresinizi yazınız ve hesabınız için yeni bir şifre girmek için kullanabileceğiniz özel bir bağlantı ile size bir e-posta göndereceğiz.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="forgot_your_psw" xml:space="preserve">
+    <value>Parolanızı mı unuttunuz?</value>
+    <comment>Login</comment>
+  </data>
+  <data name="general" xml:space="preserve">
+    <value>Genel</value>
+  </data>
+  <data name="general_msg" xml:space="preserve">
+    <value>TERMS, Hollandalılar tarafından girilen sözleşmeler için geçerli olduğundan Hollanda yasalarına uygun olarak oluşturulmakta ve hazırlanmaktadır. TERİMLER'deki herhangi bir şart (lar) kanuna uymuyorsa / / veya uymuyorsa, tarafların niyetlerine mümkün olduğunca yakın olan koşul (lar) hazırlanacaktır. Bu Sözleşmedeki diğer hükümler tamamen geçerli kalacaktır. OpinionBar'ın, KOŞULLAR'daki haklar veya hükümleri yerine getirmemesi ya da zorlaması halinde, bu, Sözleşme'nin OpinionBar tarafından yazılı olarak onaylanmadığı ve onaylanmadığı sürece, böyle bir hak ya da hükmü reddettiği anlamına gelmez. Siz ve OpinionBar, bu TERMS veya Hizmetlerden kaynaklanan veya bunlardan kaynaklanan bir neden veya eylemin, neden veya eylemin oluşturulduğu tarihten itibaren bir (1) yıl içinde alınması gerektiği konusunda hemfikir olun, aksi takdirde böyle bir neden veya eylem kalıcı olarak sonuçlanacaktır. Bu Tüzüklerdeki paragrafların başlıkları sadece tarafların uygunluğu için mevcuttur ve hukuki veya sözleşmesel bir önemi yoktur. Bu şartlar ve koşullar, burada tartışılan konularla ilgili olarak OpinionBar'la aranızdaki tüm sözleşmeyi oluşturur ve önceki ve mevcut sözlü veya yazılı anlaşmaların yerini alır. Bu sözleşmeyi başka birine devredemezsiniz.</value>
+  </data>
+  <data name="get_paid" xml:space="preserve">
+    <value>Ödeme alın!</value>
+    <comment>Login</comment>
+  </data>
+  <data name="get_paid_msg" xml:space="preserve">
+    <value>Ödemeyi ya da seçtiğiniz bir hayır kurumunu desteklemeyi seçin</value>
+    <comment>Login</comment>
+  </data>
+  <data name="give_your_opinion" xml:space="preserve">
+    <value>Düşünceni söyle</value>
+    <comment>Login</comment>
+  </data>
+  <data name="give_your_opinion_msg" xml:space="preserve">
+    <value>Çevrimiçi anketlerimizde fikirlerinizi yayınlayın ve şirketlerin ürünlerini geliştirmelerine yardımcı olun</value>
+    <comment>Login</comment>
+  </data>
+  <data name="how_it_works" xml:space="preserve">
+    <value>Nasıl çalışır</value>
+    <comment>Login</comment>
+  </data>
+  <data name="last_name" xml:space="preserve">
+    <value>Soyadı</value>
+    <comment>Login</comment>
+  </data>
+  <data name="last_name_error_msg" xml:space="preserve">
+    <value>Soyadı alanı zorunludur</value>
+    <comment>Login</comment>
+  </data>
+  <data name="limitation_ guarantees" xml:space="preserve">
+    <value>Garantilerin sınırlandırılması</value>
+  </data>
+  <data name="limitation_ guarantees_msg" xml:space="preserve">
+    <value>OpinionBar Araştırma Paneli, hizmetleri ve tüm değerlendirmeleri "olduğu gibi" sağlar. Ne OpinionBar, ne de onun şube ofisleri, tedarikçileri, kanal ortakları veya müşterileri, Araştırma Paneli, hizmetler ve değerlendirmeler aracılığıyla ya da aracılığıyla ulaşılan bilgilerin işleyişi hakkında açık ya da örtük ifadeler yapacaktır. OpinionBar, açık bir şekilde veya zımni olarak herhangi bir yükümlülüğü reddeder, ancak bunlarla sınırlı olmamakla birlikte, gizli bir garanti, mülkiyet, belirli bir amaca uygunluk ve ihlal etmeme gibi örtük garantileri içerir. Ayrıca, OpinionBar, hizmetlerin kullanımının kesintisiz olacağını, her yerden her zaman mevcut olacağını, güvenli veya hatasız olduğunu, hataların ele alınacağını veya hizmetlerin virüs veya diğer zarar verici bileşenlerden arınmış olacağını garanti etmemektedir.</value>
+  </data>
+  <data name="limitation_liability" xml:space="preserve">
+    <value>Sorumluluğun sınırlandırılması</value>
+  </data>
+  <data name="limitation_liability_msg" xml:space="preserve">
+    <value>Hiçbir durumda OpinionBar, şubeleri, tedarikçileri, kanal ortakları veya müşterileri, garanti, sözleşme, yasadışı eylem veya başka bir yasal dayanağı içeren doğrudan, dolaylı ve ek hasar veya sonuçta meydana gelen kayıplar dahil ancak bunlarla sınırlı olmamak üzere herhangi bir zarardan sorumlu tutulamaz. teori ve bu tür bir hasar olasılığından haberdar olup olmadığı. OpinionBar'ın, şubelerinin, tedarikçilerinin, kanal ortaklarının veya bu sözleşmeden kaynaklanan müşteri veya müşterinin toplam yükümlülüğü (eylem türüne veya talebine bakılmaksızın, örneğin sözleşme, garanti, yasadışı eylem, katı sorumluluk, ihmal, suiistimal, dolandırıcılık) veya diğer yasal önermeler) 5000 ile sınırlıdır. Yürürlükteki yasanın ek veya sonuç olarak meydana gelen kayıpların hariç tutulmasına veya kısıtlanmasına izin vermediği yargı bölgelerinde bu hariç tutma ve kısıtlama geçersizdir.</value>
+  </data>
+  <data name="menu_about" xml:space="preserve">
+    <value>HAKKINDA</value>
+    <comment>Login</comment>
+  </data>
+  <data name="menu_contact" xml:space="preserve">
+    <value>TEMAS</value>
+    <comment>Login</comment>
+  </data>
+  <data name="menu_profile" xml:space="preserve">
+    <value>BENİM PROFİLİM</value>
+    <comment>Login</comment>
+  </data>
+  <data name="mp_address" xml:space="preserve">
+    <value>Adres:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_alirght" xml:space="preserve">
+    <value>Peki!</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_avaliable" xml:space="preserve">
+    <value>Mevcut</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_balance" xml:space="preserve">
+    <value>Denge</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_bank_account" xml:space="preserve">
+    <value>Banka hesabım için</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_change" xml:space="preserve">
+    <value>Değişiklik</value>
+  </data>
+  <data name="mp_change_pay_option" xml:space="preserve">
+    <value>Ödeme Seçeneğini Değiştir</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_charity" xml:space="preserve">
+    <value>Seçtiğim bir hayır kurumuna</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_choose_pay_bal" xml:space="preserve">
+    <value>Dengesini ödemeyi seçtin</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_city" xml:space="preserve">
+    <value>Kent:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_close" xml:space="preserve">
+    <value>Kapat</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_confirm_payment" xml:space="preserve">
+    <value>Ödemeyi Onayla</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_country" xml:space="preserve">
+    <value>Ülke:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_deatails_tab" xml:space="preserve">
+    <value>Detaylarım</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_delete_account" xml:space="preserve">
+    <value>Hesabı sil</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_delete_account_msg1" xml:space="preserve">
+    <value>Emin misiniz?</value>
+  </data>
+  <data name="mp_delete_account_msg2" xml:space="preserve">
+    <value>Hesabınızı silmek istediğinizden emin misiniz? Hesabınızı daha sonra kurtaramazsınız. Kalan bakiyeniz kaybolacak.</value>
+  </data>
+  <data name="mp_details_correct" xml:space="preserve">
+    <value>Bu ödeme detayları doğru mu?</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_dob" xml:space="preserve">
+    <value>Doğum tarihi:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_getpaid" xml:space="preserve">
+    <value>Ücretli Olun</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_history" xml:space="preserve">
+    <value>Tarihçe</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_iban_number" xml:space="preserve">
+    <value>IBAN Number:</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_invite_more_surveys" xml:space="preserve">
+    <value>Sizi yakında daha fazla ankete davet edeceğiz!</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_my_balance" xml:space="preserve">
+    <value>Lütfen 10,00 € 'luk bakiyemi ödeyin:</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_name" xml:space="preserve">
+    <value>Adı:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_password" xml:space="preserve">
+    <value>Parola:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_payer_name" xml:space="preserve">
+    <value>Alıcı adı:</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_payments_text" xml:space="preserve">
+    <value>Ödemeleriniz:</value>
+    <comment>My details payment history</comment>
+  </data>
+  <data name="mp_payment_confirmmation" xml:space="preserve">
+    <value>Ödemeniz, sonraki ayın ilk haftasında hesabınıza aktarılacaktır!</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_payment_history" xml:space="preserve">
+    <value>ödeme geçmişi</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_payment_order" xml:space="preserve">
+    <value>Ödeme talimatı</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_payment_text" xml:space="preserve">
+    <value>Ödemelerim</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_paypal_account" xml:space="preserve">
+    <value>PayPal hesabına</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_pay_amount" xml:space="preserve">
+    <value>Miktar:</value>
+    <comment>My details payment history</comment>
+  </data>
+  <data name="mp_pay_date" xml:space="preserve">
+    <value>Tarih:</value>
+    <comment>My details payment history</comment>
+  </data>
+  <data name="mp_pay_paid" xml:space="preserve">
+    <value>Ödenen:</value>
+    <comment>My details payment history</comment>
+  </data>
+  <data name="mp_pay_status" xml:space="preserve">
+    <value>Durum:</value>
+  </data>
+  <data name="mp_pay_total" xml:space="preserve">
+    <value>Genel Toplam:</value>
+    <comment>My details payment history</comment>
+  </data>
+  <data name="mp_personal_info" xml:space="preserve">
+    <value>Kişisel bilgi</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_profile" xml:space="preserve">
+    <value>Profil</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_profile_text" xml:space="preserve">
+    <value>Bir sonraki profil anketini tamamladığınızda "Anket adı" profilinizin tamamını% 60'a getirecek</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_save" xml:space="preserve">
+    <value>Kayıt etmek</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_start_survey" xml:space="preserve">
+    <value>Anketi Başlat</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mp_survey_tab" xml:space="preserve">
+    <value>Anketlerim</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_totla_earned" xml:space="preserve">
+    <value>Zaten kazandın</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_to_bank_account" xml:space="preserve">
+    <value>banka hesabınıza</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_welcome" xml:space="preserve">
+    <value>Hoşgeldiniz</value>
+    <comment>My Profile</comment>
+  </data>
+  <data name="mp_your_reward" xml:space="preserve">
+    <value>Ödülün!</value>
+    <comment>My details payment order</comment>
+  </data>
+  <data name="mp_zip" xml:space="preserve">
+    <value>Posta kodu:</value>
+    <comment>My details</comment>
+  </data>
+  <data name="mr_abt_op" xml:space="preserve">
+    <value>OpinionBar hakkında daha fazla bilgi</value>
+  </data>
+  <data name="m_abt_msg" xml:space="preserve">
+    <value>Biz lider bir küresel çevrimiçi test topluluğuz. Dünyanın en hızlı büyüyen dijital pazar araştırma kurumlarından biri olan MetrixLab tarafından işletiliyoruz. &lt;/br&gt; 
+Topluluk üyelerini çevrimiçi anketlere katılmaya davet ediyoruz. Bunu kendi evlerinin rahatlığında veya istedikleri her yerden yapabilirler. Markalara ne düşündüklerini söylemek için zaman ayırdıkları için para alıyorlar. &lt;/br&gt; 
+1999 yılında web siteleri ile ilgili anketler başlattık. Bugün yüz binlerce üyemiz var ve her ay çeşitli konularda görüşlerini soruyoruz - web siteleri, ürünler, reklamlar ve hizmetler de dahil olmak üzere .. &lt;/br&gt;</value>
+  </data>
+  <data name="opbar_fortune _companies" xml:space="preserve">
+    <value>Fortune 500 şirketleri!</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opbar_fortune _companies_msg" xml:space="preserve">
+    <value>Dünyanın her yerinden gelen Fortune 500 şirketleri ile birlikte çalışıyoruz.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opbar_make_your_voice" xml:space="preserve">
+    <value>Sesini duyuyoruz!</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opbar_make_your_voice_msg" xml:space="preserve">
+    <value>OpinionBar ile her yıl milyonlarca insan fikirlerini ifade ediyor ve büyük organizasyonlara ürün, hizmet, web siteleri ve reklam hakkında ne düşündüklerini anlatıyor.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opbar_privacy" xml:space="preserve">
+    <value>Gizlilik!</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opbar_privacy_msg" xml:space="preserve">
+    <value>OpinionBar kişisel verilerinizin gizliliğine değer verir. Bu yüzden anketler anonimdir, kişisel verileri asla üçüncü taraflarla paylaşmayız ve verileriniz SSL tarafından korunur.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="opinionbar" xml:space="preserve">
+    <value>OpinionBar</value>
+    <comment>Login</comment>
+  </data>
+  <data name="password_length_error_msg" xml:space="preserve">
+    <value>Şifre en az 6 karakter olmalıdır</value>
+    <comment>Login</comment>
+  </data>
+  <data name="password_verifcation" xml:space="preserve">
+    <value>Şifre doğrulaması</value>
+    <comment>Login</comment>
+  </data>
+  <data name="password_verifcation_error_msg" xml:space="preserve">
+    <value>Şifre ve doğrulama şifresi uyuşmuyor.</value>
+    <comment>Login</comment>
+  </data>
+  <data name="paypal" xml:space="preserve">
+    <value>PayPal</value>
+  </data>
+  <data name="paypalaccount" xml:space="preserve">
+    <value>Paypal hesabı</value>
+  </data>
+  <data name="privacy_ans1" xml:space="preserve">
+    <value>Anketlerimizde, araştırmalarımızda ve web sitemizde verdiğiniz cevaplar, aksi belirtilmedikçe, aksi belirtilmedikçe, anonim olarak değerlendirilecektir. Kişisel olarak tanımlanabilmenizi sağlayan bir formda veri iletme iznini istediğimiz nispeten az sayıda durumda, bilgilerin yalnızca belirtilen amaçlar için kullanılmasını sağlayacağız. Size istenmeyen ticari postalar göndermeyeceğiz ve bu amaçla e-posta adreslerinizi başkalarına iletmeyeceğiz. Ancak neredeyse tüm anketler isimsiz olarak yapılır: adınız, adresiniz ve e-posta bilgileriniz asla başka şirketlere veya kişilere iletilmez. Bu, anketlerimizde ve araştırmalarımızdaki tüm katılımcılar için geçerlidir ve aynı zamanda her bir anket için de yasal bir gerekliliktir.</value>
+  </data>
+  <data name="privacy_ans2" xml:space="preserve">
+    <value>Bu gizlilik politikası OpinionBar / MetrixLab tarafından yapılan araştırmalara katılan veya katılan tüm kişiler için geçerlidir: 1. OpinionBar.com kayıt formuna kayıt olmuş katılımcılar. 2. Üçüncü taraf web sitelerine davet edilerek işe alınan katılımcılar. 3. Müşteri tarafından teslim edilen bir CRM veritabanı aracılığıyla davet edilen katılımcılar. 4. OpinionBar tarafından düzenlenen insanların seçtiği ödüllerle işe alınan katılımcılar. 5. Anketlere yukarıda listelenenlerden başka herhangi bir biçimde katılmış olan katılımcılar.</value>
+  </data>
+  <data name="privacy_ans3" xml:space="preserve">
+    <value>Adınız, adresiniz, ip adresiniz, e-posta adresiniz, ödeme bilgileriniz, telefon numaranız ve doğum tarihiniz gibi bilgiler "tanınabilir kişisel bilgiler" olarak sınıflandırılır, çünkü bu bilgiler dolaylı veya doğrudan sizi tanımlamak için kullanılabilir. Bu bilgiler gizlilik politikamız gereği korunmaktadır. Hiçbir zaman üçüncü şahıslara tanınabilir kişisel bilgileri vermeyeceğiz, satamayacak, kiralayamayacak veya ticari olarak paylaşmayacağız veya bu bilgileri üçüncü taraflarla paylaşmayacağız.</value>
+  </data>
+  <data name="privacy_ans4" xml:space="preserve">
+    <value>Anketler her zaman anonimdir: adınız, adresiniz ve e-posta bilgileriniz asla başka şirketlere veya kişilere iletilmez. Bu, araştırmalarımız ve anketlerimizde katılımcılar için geçerlidir ve her anket için yasal olarak gereklidir. &lt;/br&gt; 
+Belirli bir kişiye kadar izlenebilecek bilgiler hiçbir zaman doğrudan pazarlama, adres listeleri oluşturma, kredi notu, para toplama ya da bireysel katılımcılar ile ilgili diğer pazarlama aktiviteleri gibi araştırma dışı amaçlar için kullanılmayacaktır. &lt;/br&gt; 
+Araştırmamızı gizliliğinize en büyük saygıyla uyguluyoruz. Hiçbir koşulda MetrixLab, üyelerimiz hakkında üçüncü şahıslara tanınabilir kişisel bilgiler vermez, satar, kiralamaz veya ticaretini yapamaz veya bu bilgileri üçüncü şahıslarla paylaşmaz.</value>
+  </data>
+  <data name="privacy_ans5" xml:space="preserve">
+    <value>OpinionBar web sitesi, yönettiğimiz bilgilerin kaybolması, kötüye kullanılması ve düzenlenmesine karşı korunmaktadır. Bu, güvenlik duvarları, veri şifreleme, SSL şifreleme (RC4 128 Bit), uygulama proxy'leri, izleme teknolojisi ve ağımızın ve veri içeriğimizin kötüye kullanımını izlemek için ağ trafiğinin uyarlanabilir analizi gibi önlemleri içerir. OpinionBar web sitesi ve yazılımı, veritabanımızla SSL protokolünü kullanarak iletişim kurar, böylece üçüncü taraflar herhangi bir veriyi okuyamaz veya düzenleyemez.</value>
+  </data>
+  <data name="privacy_ans6" xml:space="preserve">
+    <value>Web sitemizi her zaman ziyaret edebilir ve kendi profilinizi değiştirebilirsiniz. Lütfen Dikkat: Profilinizi görüntülemek, değiştirmek veya değiştirmek isterseniz e-posta adresinizi ve şifrenizi vermeniz istenecektir.</value>
+  </data>
+  <data name="privacy_ans7" xml:space="preserve">
+    <value>Abonelik iptali sayfasından üyeliğinizi sonlandırabilirsiniz (www.opinionbar.com/unsubscribe.aspx). Güvenlik nedeniyle hesabınızın iptalini onaylamak için bir e-posta gönderilecektir.</value>
+  </data>
+  <data name="privacy_ans8" xml:space="preserve">
+    <value>Gizlilik politikamızı değiştirmeye karar verirsek, bu değişiklikleri Ana sayfamızda yayınlayacağız veya kullanıcılarımıza hangi bilgileri topladığımızı, nasıl kullandığımızı ve hangi koşullar altında yayınlayabileceğimizi her zaman bilmelerini sağlamak için değişiklikler içeren bir e-posta göndereceğiz. bilgi.</value>
+  </data>
+  <data name="privacy_ans9" xml:space="preserve">
+    <value>İnternette gerçekleştirilen tüm araştırmalar, önde gelen ICC / ESOMAR Uluslararası Pazarlama ve Sosyal Araştırmalar Uygulama Kuralı'nın (ayrıca Avrupa Veri Koruma için Avrupa Rehberi ve diğer ilgili ulusal veya uluslararası mevzuat) kural ve girişimlerine tabidir. &lt;/br&gt; 
+Pazar araştırması, her zaman katılımcıların ve diğer İnternet kullanıcılarının haklarına saygı göstermelidir. İlgili taraflar ve genel halk için kabul edilebilir bir şekilde yürütülmeli ve ulusal ve uluslararası öz düzenlemelere uymalıdır. Araştırmacılar, insanların İnternet araştırmalarında sahip oldukları güvenin itibarını zedeleyecek veya etkileyebilecek eylemlerden kaçınmalıdır. &lt;/br&gt; 
+ESOMAR ve ICC / ESOMAR Uluslararası Pazarlama ve Sosyal Araştırmalar Uygulaması Kodu hakkında daha fazla bilgi için www.esomar.org adresini ziyaret edin. &lt;/br&gt; 
+Avrupa Veri Koruma Kılavuzu 
+Kişisel bilgilerin işlenmesi ve bunların serbest dolaşımı ile ilgili olarak bireylerin korunmasına ilişkin Avrupa Parlamentosu ve AB Konseyi Rehberi.
+</value>
+  </data>
+  <data name="privacy_msg" xml:space="preserve">
+    <value>OpinionBar, dijital araştırma ajansı MetrixLab'ın bir girişimidir. MetrixLab (OpinionBar) pazar araştırmasının tek amacı için bilgi toplar .. &lt;/br&gt; 
+Pazar araştırması, tüketiciler, şirketler ve toplumdan bilgi toplanması ve yorumlanmasıdır. Toplanan istihbarat, müşterileri / şirketleri pazarlama, ürün geliştirme ve topluma daha akıllı kararlar vermek için devreye sokarak kullanılır. OpinionBar anketlerine katılımınız, şirketlerin web sitelerini, ürünlerini ve hizmetlerini geliştirmelerine ve geliştirmelerine yardımcı olur. &lt;/br&gt; 
+Gizliliğinize değer veriyor ve kişisel verilerinizi koruyoruz. Bu yüzden tüm anketlerimiz isimsiz. Kişisel verileri asla üçüncü taraflarla paylaşmayız. Ve verileriniz bir bilgisayar ağı üzerinden güvenli iletişim sağlayan SSL ile korunmaktadır. toplama türü hakkında daha fazla gereklilik. &lt;/br&gt; 
+Araştırmamızı gizliliğinize en büyük saygıyla uyguluyoruz. Üyelerimiz hakkında üçüncü bir tarafa bilgi veremez, satamaz veya kiraya veremez. Bu bilgileri üçüncü taraflarla da paylaşmayacağız veya paylaşmayacağız.</value>
+  </data>
+  <data name="privacy_qn1" xml:space="preserve">
+    <value>OpinionBar verilere nasıl davranıyor?</value>
+  </data>
+  <data name="privacy_qn2" xml:space="preserve">
+    <value>Bu gizlilik bildirimi kime uygulanır?</value>
+  </data>
+  <data name="privacy_qn3" xml:space="preserve">
+    <value>Katılımcılardan ne tür bilgiler topluyoruz?</value>
+  </data>
+  <data name="privacy_qn4" xml:space="preserve">
+    <value>Bu bilgiyi nasıl kullanacağız?</value>
+  </data>
+  <data name="privacy_qn5" xml:space="preserve">
+    <value>Bilgileri korumak için ne tür bir güvenlik kullanıyoruz?</value>
+  </data>
+  <data name="privacy_qn6" xml:space="preserve">
+    <value>Kişisel bilgilerinize nasıl erişebilirsiniz?</value>
+  </data>
+  <data name="privacy_qn7" xml:space="preserve">
+    <value>Katılımınızı nasıl sona erdirebilirsiniz?</value>
+  </data>
+  <data name="privacy_qn8" xml:space="preserve">
+    <value>Gizlilik politikasındaki değişiklikler hakkında sizi nasıl bilgilendiririz?</value>
+  </data>
+  <data name="privacy_qn9" xml:space="preserve">
+    <value>Uygun olduğumuz kuruluşlar ve yönetmelikler.</value>
+  </data>
+  <data name="prohibited_list_1" xml:space="preserve">
+    <value>Üçüncü taraflara posta göndermemek ya da sorulan soruları, sorulara verdiğiniz yanıtı, katıldığınız herhangi bir anketin içeriğinin veya içeriğinin, ziyaret ettiğiniz web sitelerinin ya da ankete katılımınız sırasında test ettiniz. Tüm içerik, soru ve cevaplarda telif hakkı OpinionBar'a aittir.</value>
+  </data>
+  <data name="prohibited_list_10" xml:space="preserve">
+    <value>"Otomatik yanıt verenler", "iptal botları" veya yalnızca ağ trafiği oluşturan veya haber gruplarını veya e-postaları rahatsız eden benzer mekanizmaları kullanmamak.</value>
+  </data>
+  <data name="prohibited_list_11" xml:space="preserve">
+    <value>Asla istenmeyen e-postalar veya reklamlar göndermeyin.</value>
+  </data>
+  <data name="prohibited_list_12" xml:space="preserve">
+    <value>Ürün, işletme veya hizmetlerin yanlış veya yanıltıcı tekliflerini göndermemek veya: İstenmeyen e-postaları veya reklamları OpinionBar sunucularını kullanarak geçirmemek için &lt;/br&gt;</value>
+  </data>
+  <data name="prohibited_list_13" xml:space="preserve">
+    <value>Üçüncü tarafların sizin için anketlerinizi doldurmaması</value>
+  </data>
+  <data name="prohibited_list_14" xml:space="preserve">
+    <value>Yazılımlarımızı veya anketlerimizde otomatik olarak cevap üreten bir mekanizmayı kullanmamak</value>
+  </data>
+  <data name="prohibited_list_15" xml:space="preserve">
+    <value>Şartlar ve Koşullarımızın ihlali nedeniyle hesabınız silindikten sonra kendinizi OpinionBar'a yeniden kaydetmeyin</value>
+  </data>
+  <data name="prohibited_list_2" xml:space="preserve">
+    <value>Kayıt sırasında veya ankette cevaplarınızda yanıltıcı veya yanlış bilgi vermemek.</value>
+  </data>
+  <data name="prohibited_list_3" xml:space="preserve">
+    <value>OpinionBar veya onun anketleri ile ilgili yanıltıcı veya yanlış bilgi vermemek.</value>
+  </data>
+  <data name="prohibited_list_4" xml:space="preserve">
+    <value>Üçüncü tarafların, kayıt işleminin bir parçası olarak OpinionBar'a yanlış veya yanlış bilgi vermelerini teşvik etmemek.</value>
+  </data>
+  <data name="prohibited_list_5" xml:space="preserve">
+    <value>İyi niyetle tamamlamadığınız anketler için ödül talebinde bulunmamak.</value>
+  </data>
+  <data name="prohibited_list_6" xml:space="preserve">
+    <value>Telif hakkı, ticari marka, ticari sır, patent veya diğer fikri mülkiyet hakları ile korunan herhangi bir materyali ilk önce uygun yetkiyi almadan kullanmayın veya göndermeyin. &lt;/br&gt;</value>
+  </data>
+  <data name="prohibited_list_7" xml:space="preserve">
+    <value>Hiçbir zaman, kısmen veya tamamen bir mesaj konusundan, Hizmetlerden kaynaklanan veya Hizmetlerden geçen bir elektronik iletimi göndermeyiniz.</value>
+  </data>
+  <data name="prohibited_list_8" xml:space="preserve">
+    <value>Başka bir kişi veya grubu tehdit etmek, zapt etmek, itibarını yitirmek, utandırmak veya üzmek asla.</value>
+  </data>
+  <data name="prohibited_list_9" xml:space="preserve">
+    <value>Bilgisayar sistemine zarar vermek veya değiştirmek amacıyla hiçbir zaman bilgisayar virüsleri, solucanlar veya başka yazılımlar göndermeyiniz.</value>
+  </data>
+  <data name="prohibited_use_msg" xml:space="preserve">
+    <value>Bir Panel Üyesi olarak, Hizmetleri yalnızca yasal amaçlarla kullanmayı kabul edersiniz. Kanunlara veya diğer düzenlemelere aykırı veri veya malzemelerin gönderilmesi, dağıtılması, toplanması veya kaydedilmesi ile ilgili Hizmetler'in kullanımı yasaktır. Ayrıca kabul ediyorsunuz: &lt;/br&gt;</value>
+  </data>
+  <data name="rememberme" xml:space="preserve">
+    <value>Beni hatırla</value>
+    <comment>Login</comment>
+  </data>
+  <data name="request_link" xml:space="preserve">
+    <value>İstek bağlantısı</value>
+    <comment>Login</comment>
+  </data>
+  <data name="resp_of_usr" xml:space="preserve">
+    <value>Kullanıcının sorumlulukları</value>
+  </data>
+  <data name="resp_of_usr_msg" xml:space="preserve">
+    <value>OpinionBar'a doğru ve eksiksiz kayıt ayrıntılarını sağlamayı ve bu ayrıntıları her zaman güncel tutmayı kabul edersiniz. Bir Panel Üyesi olarak birden fazla isim altında kayıt olmamayı, aynı ankete iki kez katılmamayı, kredinizi kendi hesabınız dışındaki bir banka hesabına aktarmamayı veya herhangi bir şekilde birden fazla şifre almayı kabul etmektesiniz. Bunu yapamazsanız, bu KOŞULLARI ihlal edersiniz. &lt;/br&gt; 
+Web tabanlı ya da diğer teknolojiler de dahil olmak üzere yazılım veya hizmet sunan bir şirketin, bir müşteri, potansiyel müşteri, çalışan, devralım ya da müşteri bakış açısıyla, pazar araştırmasını niteliksel ya da niceliksel olarak yürütmek üzere bir iş ortağı, hissedarı ya da çalışanı olmadığını beyan veya diğer hedef kitleler (bir "OpinionBar yarışmacısı"). Buna ek olarak (uluslararası) Pazar Araştırmaları Derneği üyesi olmadığını beyan ediyorsunuz. &lt;/br&gt; 
+Bir Panel Üyesi olmak için kayıt olarak bir kullanıcı adı ve şifre alacaksınız. Hesap bilgilerinizi ve şifrenizi güvende tutmak sizin sorumluluğunuzdadır. Şifrenizi başkalarına bildiremeyebilirsiniz. Hesabınız üzerinden yürütülen tüm faaliyetlerden tamamen siz sorumlusunuz. Hesabınızın yetkisiz kullanımı veya fark ettiğiniz veya şüphelendiğiniz başka bir güvenlik ihlali durumunda derhal OpinionBar'ı bilgilendirmeyi kabul edersiniz. &lt;/br&gt; 
+Bazı web sitesi anketlerine katılabilmek için, web sitemizde bulunan OpinionBar yazılımını indirmelisiniz. Opinion yazılımının size AS tarafından sağlandığını ve OpinionBar'ın yazılımı indirdiğiniz veya kullandığınızdan sorumlu olmadığını kabul edersiniz. &lt;/br&gt; 
+OpinionBar, Araştırma Panelinin bir üyesi olarak, bir veya daha fazla ankete katılmak üzere e-posta yoluyla bir davetiye (bir "davetiye") gönderebilir. Bir ankete katılmaya karar verirseniz, mümkün olan en iyi şekilde tamamlamak için elinizden geleni yapmalısınız. OpinionBar, anketi tamamladığınızdan ve soruları OpinionBar'ın tatmin edici bulduğu bir şekilde cevapladığınızdan emin olmak için sonuçlarınızı görecektir. OpinionBar, anketi alan müşteriye verilecek olan toplanan sonuçlara cevabınızı da eklediyse, OpinionBar size size Davet'de sunulan ödülü verecektir. Ancak, eğer OpinionBar cevaplarınızı istemciye verilecek toplanmış sonuçlara dahil etmezse, çünkü bunların tatmin edici olmadığını tespit ettik; Ödül almayacaksınız veya alınan ödül geri alınacaktır. &lt;/br&gt;</value>
+  </data>
+  <data name="safeguarding" xml:space="preserve">
+    <value>korunması</value>
+  </data>
+  <data name="safeguarding_msg" xml:space="preserve">
+    <value>OpinionBar'ı, şubelerini, tedarikçilerini, kanal ortaklarını ve müşterilerini, yasal ücretler, hesabınızın kullanımı sonucunda üçüncü taraflarca, postalayabileceğiniz, gönderebileceğiniz veya aktarabileceğiniz herhangi bir içerikle ilgili talep ve taleplere karşı korumayı kabul edersiniz. Panel Üyesi olarak kapasitenizde, TERMS'yi ihlal ettiğinizde veya herhangi bir üçüncü tarafın haklarını ihlal ettiğinizde.</value>
+  </data>
+  <data name="signin" xml:space="preserve">
+    <value>oturum aç</value>
+    <comment>Login</comment>
+  </data>
+  <data name="signin_error_msg" xml:space="preserve">
+    <value>Geçersiz e-posta veya şifre</value>
+    <comment>Login</comment>
+  </data>
+  <data name="signin_facebook" xml:space="preserve">
+    <value>Facebook ile giriş yap
+</value>
+    <comment>Login</comment>
+  </data>
+  <data name="signin_your_acount" xml:space="preserve">
+    <value>Hesabınızda oturum açın</value>
+    <comment>Login</comment>
+  </data>
+  <data name="signup_free" xml:space="preserve">
+    <value>Ücretsiz kaydol</value>
+    <comment>Login</comment>
+  </data>
+  <data name="signup_free_msg" xml:space="preserve">
+    <value>Ücretsiz OpinionBar hesabınızı bugün oluşturun ve çevrimiçi topluluğumuza katılın</value>
+    <comment>Login</comment>
+  </data>
+  <data name="sign_out" xml:space="preserve">
+    <value>oturumu Kapat</value>
+  </data>
+  <data name="srvy_shd_fun" xml:space="preserve">
+    <value>Anketlerin eğlenceli olması gerektiğine inanıyoruz!</value>
+  </data>
+  <data name="srvy_shd_fun_msg" xml:space="preserve">
+    <value>Topluluğumuzun bir üyesi olarak, her türlü ankete katılmaya davet edileceksiniz. Bunların olabildiğince tamamlamak için ilginç ve / veya eğlenceli olması gerektiğine inanıyoruz. Sonuçta, onları tamamlamaktan hoşlanıyorsanız, daha iyi yanıt oranları ve daha yüksek kaliteli veriler elde ederiz. Bu nedenle, üyelerin web sitelerini veya reklamları hakkında gerçekten ne düşündüklerini belirlemek için oyun benzeri ve eğlenceli alıştırmalar kullanıyoruz. Örneğin, ürünleri evde test etme olanağına sahip olacaksınız (ve çoğu zaman onları saklayabileceksiniz).</value>
+  </data>
+  <data name="sys_network_sec" xml:space="preserve">
+    <value>Sistem ve Ağ güvenliği</value>
+  </data>
+  <data name="sys_network_sec_msg" xml:space="preserve">
+    <value>Hizmetlerin veya bir ağın güvenliğini sağlamak için ziyaret ettiğiniz bir sitenin veya sistemin ağ güvenliğinin ihlali yasaktır ve sizi cezai veya medeni kanuna tabi kılabilir. OpinionBar herhangi bir ihlalden şüphelenirse, güvenlik ihlallerini araştırır ve ilgili polis servislerini bilgilendirebilir. Açık izni almadığınız verilere, hesaplara veya sistemlere erişim kazanmak için kimlik doğrulamayı veya ana bilgisayarların, ağların, ağ bileşenlerinin veya hesapların güvenliğini aşmanıza izin verilmez. Açık bir şekilde izin almadıkça, diğer İnternet kullanıcılarını, ana bilgisayarları, sistemleri veya ağları engellemeye veya engellemeye izin verilmez.</value>
+  </data>
+  <data name="tc_content" xml:space="preserve">
+    <value> içerik</value>
+  </data>
+  <data name="tc_msg" xml:space="preserve">
+    <value>OpinionBar, OpinionBar Araştırma Paneli ("Araştırma Paneli") üyelerini kullanarak anketler yürütmektedir. Araştırma Paneline üye olmak ve OpinionBar Hizmetlerinin, OpinionBar Yazılımının ve ilgili hizmetlerin (“Hizmetler”) kullanılmasına bağlanan şartlar, koşullar ve kılavuzlar, Araştırma Paneli üyelerine sunulmaktadır. “Panel Üyeleri”), bu kapsamda OpinionBar Araştırma Paneli'ne katılım için belirtilmiştir. ( "KOŞULLAR"). &lt;/ Br&gt; 
+Bir OpinionBar pazar araştırması anketine katılarak, bu Şartlarda belirtilen şartlara, koşullara ve yönergelere uymayı kabul edersiniz. &lt;/br&gt; 
+Lütfen unutmayın ki, OpinionBar bu Şartları herhangi bir zamanda herhangi bir bildirimde bulunmadan değiştirebilir ve bu değişikliklerin, söz konusu değişikliklerin http://www.OpinionBar.com adresindeki OpinionBar web sitesinde yayınlandığı tarihte yürürlüğe gireceğini unutmayın. Bu değişikliklerin yürürlüğe girmesinden sonra ankete katılımınız, tüm değişiklikleri kabul ettiğiniz anlamına gelir. &lt;/br&gt; 
+Anketlere katılım ve OpinionBar üyeliği ücretsiz olup, 14 yaş ve üzerindeki herkese, Şartlarımızı kabul eden herkese açıktır. &lt;/br&gt;</value>
+  </data>
+  <data name="tc_prohibited_use" xml:space="preserve">
+    <value>Yasak kullanım</value>
+  </data>
+  <data name="termination" xml:space="preserve">
+    <value>Sonlandırma</value>
+  </data>
+  <data name="termination_msg" xml:space="preserve">
+    <value>Hesabınızı herhangi bir zamanda hesabınızın fesih sayfasını ziyaret ederek ya da isminiz, adresiniz, doğum tarihiniz, e-posta adresiniz ve imzanız ile birlikte bir mektup gönderebilirsiniz: MetrixLab BV, Wilhelminakade 312, 3072 AR, Rotterdam, Hollanda. Hesabınızın feshi, OpinionBar'ın fesih bildiriminizi aldıktan sonra makul bir süre içinde gerçekleşecektir. &lt;/br&gt; 
+OpinionBar, Hizmetlerini kullanıcılara kısıtlama hakkını saklı tutar ve bildirimde bulunarak ya da duymaksızın ve kendi kararına göre ve gerekçeli veya sebepsiz olarak Hizmetlere erişimi hemen reddeder ve tüm hesap detaylarını, kredileri ve diğer içerikleri kaldırabilir. &lt;/br&gt; 
+Siz veya OpinionBar, hesabı istediğiniz zaman sonlandırabilir. Bu, zaman zaman değiştirilebilecek olan TERMS'teki Hizmetler, şartlar ve koşullar ya da OpinionBar'ın ayarlayabileceği ya da değiştirebileceği diğer politikalar ve uygulamalar hakkında herhangi bir memnuniyetsizlikle uğraşmanızın tek ve ayrıcalıklı yoludur.</value>
+  </data>
+  <data name="we_thn-rewd" xml:space="preserve">
+    <value>Ödüllendirilmeniz gerektiğini düşünüyoruz!</value>
+  </data>
+  <data name="we_thn-rewd_msg" xml:space="preserve">
+    <value>Tamamladığınız her bir anket için hesabınıza 1,00 € ile 10,00 € arasında kredi vereceğiz. Bakiyeniz minimum € 10.00 eşiğine ulaştığında ödeme isteyebilirsiniz. Parayı kendiniz almayı seçebilir veya OpinionBar tarafından desteklenen hayır kurumlarından birine bağışlayabilirsiniz. Diğer çevrimiçi anket topluluklarından farklı olarak, ödemeleri değil, parayla ödüllendiriyoruz. Bu sizin paranızdır ve siz de onu seçmekte özgürsünüz.</value>
+  </data>
+</root>

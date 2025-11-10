@@ -1,0 +1,192 @@
+﻿<div ng-controller="step1Controller" id="Body1" class="container">
+    <form id="loginForm" method="post">
+        <div class="main">
+            <div class="header_spacer">
+                <img src="/Images/Step12_Pics/AUimages/frame_01.png" width="941" height="9" alt="" />
+            </div>
+            <div class="header">
+                <img src="/Lp2landing/images/logo.gif" alt="Survey Downline" width="205" height="45"
+                     class="logo" />
+                <div id="flashplaceholder" style="border: 0; margin-right: 9px; padding-right: 9px;">
+                    <a id="flashtrigger" href="javascript:">
+                        <img class="img-flash" src="/Lp2landing/images/howitworks.jpg" id="imgFlashImage"
+                             alt="How it works - click here to play" width="670" height="235" border="0" style="border-width: 0px;" />
+                    </a>
+                </div>
+                <br />
+                <div style="clear: both;">
+                </div>
+            </div>
+            <div class="body_container">
+                <div class="body_content">
+                    <div id="divCountrylogo">
+                    </div>
+                    <div class="col2">
+                        <table id="Table_01" width="450" height="543" border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td colspan="3" class="td-border-sm">
+                                    <span class="h3-login-banner"><b>Make Money Sign-Up Now!</b></span>
+                                    <img class="img-login-banner" src="/Images/col2_01.png" width="456"
+                                         height="57" alt="" />
+                                </td>
+                                <td width="58" rowspan="4" class="hide-sm">
+                                    <img src="/Images/col2_02.png" width="58" height="543" alt="" />
+                                </td>
+                            </tr>
+                            <tr class="border-left-15 bg-color">
+                                <td class="visible-none-sm" width="11">
+                                    <img src="/Images/col2_03.png" width="11" height="211" alt="" />
+                                </td>
+                                <td class="td-sm" style="width: 421px; padding-left: 25px; margin-left: 25px; height: 211px;
+                                vertical-align: middle;" bgcolor="#004c7b">
+                                    <table border="0" align="center" cellpadding="3" cellspacing="0" class="login-tbl">
+                                        <tr id="Tr1">
+                                            <td style="float: right;" id="tdfacebbok">
+                                                <div id="fb-root">
+                                                    <fb:login-button autologoutlink="false" onlogin="fb_login();">
+                                                        <span>Sign up with Facebook</span>
+                                                    </fb:login-button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fnt">
+                                                {{'firstName'|translate}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="firstname">
+                                                </label>
+                                                <input id="txtFirstName" TabIndex="4" MaxLength="49" />
+                                                <span ng-show="userForm.firstName.$invalid && !userForm.firstName.$pristine">{{'required'|translate}}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fnt">
+                                                {{'lastName'|translate}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="txtLastName" TabIndex="5" MaxLength="49" />
+                                                <span ng-show="userForm.lastName.$invalid && !userForm.lastName.$pristine">{{'required'|translate}}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fnt">
+                                                {{'email'|translate}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <UpdatePanel id="upd1" UpdateMode="Conditional">
+                                                    <input id="txtEmailAddress" TabIndex="6" tooltipText="Please make sure your email address is correct or you won't have access to SurveyDownLine!"
+                                                           MaxLength="199" AutoPostBack="true" />
+                                                    <span class="error text-danger txt-req" ng-show="userForm.$error.email">{{'notValidEmail'|translate}}</span>
+                                                    <img id="ImageIcon" ImageUrl="/Images/tick.png"
+                                                         ToolTip="Verified" />
+                                                    <img id="ImageIcon1" ImageUrl="/Images/Wr.jpg"
+                                                         ToolTip="Invalid" /><br />
+                                                    <label ID="lblMessageBt" CssClass="lbl-msg" ForeColor="White"></label>
+                                                </UpdatePanel>
+                                                <ajaxtoolkit:updatepanelanimationextender id="UpdatePanelAnimationExtender1" behaviorid="upd1"
+                                                                                          targetcontrolid="upd1">
+                                                    <Animations>
+                                                        <OnUpdating>
+                                                            <Parallel duration="0">
+                                                                <ScriptAction Script="onUpdating();" />
+                                                                <FadeOut minimumOpacity=".5" />
+                                                            </Parallel>
+                                                        </OnUpdating>
+                                                        <OnUpdated>
+                                                            <Parallel duration="0">
+                                                                <FadeIn minimumOpacity=".5" />
+                                                                <ScriptAction Script="onUpdated();" />
+                                                            </Parallel>
+                                                        </OnUpdated>
+                                                    </Animations>
+                                                </ajaxtoolkit:updatepanelanimationextender>
+                                                <div id="updateProgressDiv" style="display: none;">
+                                                    <div style="float: right; margin-left: 225px;">
+                                                        <img alt="" src="/Images/pg_r_t.gif" />
+                                                        <span id="Span1" style="color: Red;" class="updateProgressMessage">
+                                                            ..
+                                                            Please Wait
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <regularExpressionValidator CssClass="err-msg" id="revEmailAddress" ValidationGroup="register"
+                                                                            ControlToValidate="txtEmailAddress" ErrorMessage="Invalid Email Format"
+                                                                            ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Display="Dynamic"></regularExpressionValidator>
+                                                <CustomValidator CssClass="err-msg" ValidationGroup="register" ID="cvCheckAvliblity"
+                                                                 SetFocusOBnError="true" Display="Dynamic" ErrorMessage="An account already exists with this email"
+                                                                 OnServerValidate="cvCheckAvliblity_ServerValidate"></CustomValidator>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td width="24" class="td-multicolor">
+                                    <img class="hide-sm" src="/Images/col2_05.png" width="24" height="211"
+                                         alt="" />
+                                </td>
+                            </tr>
+                            <tr class="height-10-sm">
+                                <td colspan="2" style="vertical-align: top;">
+                                    <imgbutton ID="imgNext" ImageUrl="/Images/col2_06.png"
+                                               OnClick="btnGo_Click" Width="432" Height="203" ValidationGroup="register" />
+                                </td>
+                                <td class="td-multicolor bg-color-sm">
+                                    <img id="img-height" class="hide-sm" src="/Images/col2_07.png"
+                                         width="24" height="203" alt="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <img class="img-login-footer" src="/Images/col2_08.png" width="432"
+                                         height="72" alt="" />
+                                </td>
+                                <td>
+                                    <img class="img-hide-in-sm" src="/Images/col2_09.png" width="24"
+                                         height="72" alt="" />
+                                    <input type="hidden" id="hfclcikId" value="0" />
+                                    <input type="hidden" id="hfShow" value="0" />
+                                    <input type="hidden" id="cpahitId" value="0" />
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="hidden" id="hfrid" value="-1" />
+                    </div>
+                </div>
+            </div>
+            <div class="body_bottom">
+            </div>
+        </div>
+        <div class="footer_container">
+            <div class="footer">
+                <div class="copyright">
+                    <p id="text">
+                        <ucf:ucfooter id="footer1" />
+                    </p>
+                </div>
+                <div class="social_media">
+                    <table id="tb1">
+                        <tr>
+                            <td>
+                                <imgbutton id="ImgTwitter" ImageUrl="/Images/Step12_Pics/AUimages/social_media_02.png"
+                                           OnClientClick="popup123('https://twitter.com/#!/SurveyDownline','123456')" Width="34"
+                                           Height="34" ValidationGroup="register" />
+                            </td>
+                            <td>
+                                <imgbutton id="ImageButton3" OnClick="btnGo_Click"
+                                           ImageUrl="/Images/Step12_Pics/AUimages/social_media_03.png" OnClientClick="checkflag();"
+                                           Width="34" Height="34" ValidationGroup="register" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+
+        })(window, document, 'script', 'dataLayer', 'GTM-N9DDS62');</script>
+    <!-- End Google Tag Manager -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script src="~/Scripts/translate-pluggable-loader.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <title>Cookie Statement</title>
+</head>
+<body ng-app="footerApp">
+    @Html.AntiForgeryToken()
+    <div id="dvprivacy" ng-controller="cookiestController">
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9DDS62"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <table style="font-family: Verdana; font-size: small;">
+            <tr>
+                <td align="center">
+                    <b style="font-size: large;">
+                        {{'ParaHeader2' | translate}}
+                    </b><br />
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <p>
+                        {{'para36' | translate}} <a href="#" onclick="window.open('/Footer/cookiest', 'Cookie Statement', 'height=800,width=800,scrollbars=yes'); return false">{{'para47' | translate}}</a>.
+                    </p><br />
+                    <input type="checkbox" name="functionalCookies" checked disabled /> <span>{{'para37' | translate}}</span><br />
+                    <p><i><b>{{'para38' | translate}}</b>{{'para39' | translate}}</i></p><br />
+                    <input type="checkbox" name="analyticalCookie" ng-model="analyticalCok" ng-change="analyticalCookie()"/> <span>{{'para40' | translate}}</span><br />
+                    <p><i>{{'para41' | translate}}<b>{{'para42' | translate}}</b>{{'para43' | translate}}</i></p><br />
+                    <input type="checkbox" name="trackingCookie" ng-model="trackingCok" ng-change="trackingCookie()" /> <span>{{'para44' | translate}}</span>
+                    <p><i><b>{{'para45' | translate}}</b>{{'para46' | translate}}</i></p><br />
+        </table>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/services/CookieTranslation.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script src="~/Scripts/main/footer/tc.js" type="text/javascript"></script>
+</body>

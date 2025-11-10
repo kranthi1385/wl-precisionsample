@@ -1,0 +1,18 @@
+﻿{
+  "yourCurrentAccountBalance": "El saldo de su cuenta corriente",
+  "rewardName": "Nombre de recompensa",
+  "disclaimer": "Descargo de responsabilidad",
+  "rewardDis": "no es patrocinador de las recompensas ni está afiliado a Opinionetwork. Los logotipos y otras marcas de identificación adjuntas son marcas comerciales y son propiedad de cada empresa representada y / o sus filiales. Visite el sitio web de cada empresa para obtener términos y condiciones adicionales.",
+  "invalidCap": "Selección de captcha no válida",
+  "errorPlstryagain": "Ocurrió un error. Inténtalo de nuevo",
+  "amount": "Cantidad",
+  "redeem": "Redimir",
+  "cancel": "Cancelar",
+  "rewardNote": "Nota: Si no recibe un correo electrónico de confirmación de su canje o no ve su canje en el historial a continuación en las próximas 2 horas, comuníquese con nuestro departamento de soporte para obtener ayuda.",
+  "rewardNote1": "Nota: Dentro de las próximas 2 horas, verá su canje en su historial a continuación. Si no es así, póngase en contacto con (support@opininetwork.com).",
+  "paypalrequest1": "Las solicitudes realizadas del 1 al 15 del mes (EST) se pagarán el día 16.",
+  "paypalrequest2": "Las solicitudes realizadas del 16 al 31 del mes (EST) se pagarán el día 1.",
+  "paypalrequest3": " Cuando el día 1 o 16 caen en fines de semana y días festivos, los pagos se procesan el primer día hábil inmediatamente siguiente..",
+  "paypalrequest4": " Las recompensas de PayPal se depositan utilizando la dirección de correo electrónico que utiliza para acceder a su cuenta OpinionBar.com.",
+  "paypalrequest5": "Si su correo electrónico no está asociado con su cuenta PayPal, agréguelo para asegurarse de que el depósito se realice. Puede vincular varias direcciones de correo electrónico a cada cuenta PayPal."
+}

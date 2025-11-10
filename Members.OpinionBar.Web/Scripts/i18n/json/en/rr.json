@@ -1,0 +1,18 @@
+﻿{
+  "yourCurrentAccountBalance": "Your Current Account Balance",
+  "rewardName": "Reward Name",
+  "disclaimer": "Disclaimer",
+  "rewardDis": "is not a sponsor of the rewards or otherwise affiliated with Opinionetwork. The logos and other identifying marks attached are trademarks of and owned by each represented company and/or its affiliates.  Please visit each company's website for additional terms and conditions.",
+  "invalidCap": "Invalid captcha selection",
+  "errorPlstryagain": "Error occured. please try again",
+  "amount": "Amount",
+  "redeem": "Redeem",
+  "cancel": "Cancel",
+  "rewardNote": "Note: If you do not receive an email confirmation of your redemption or see your redemption in the history below in the next 2 hours, please contact our support department for assistance.",
+  "rewardNote1": "Note : Within the next 2 hours, you will see your redemption in your history below.  If you do not, please contact (support@opinionetwork.com)",
+  "paypalrequest1": "Requests made on the 1st - 15th of the month (EST) will be paid on the 16th.",
+  "paypalrequest2": " Requests made on the 16th - 31st of the month (EST) will be paid on the 1st.",
+  "paypalrequest3": " When the 1st or 16th fall on weekends and holidays, payments are processed on the first business day immediately following.",
+  "paypalrequest4": " PayPal rewards are deposited using the email address you use to access your OpinionBar.com account.",
+  "paypalrequest5": "If your email is not associated with your PayPal account, please add it to assure the deposit will go through. You can link multiple email addresses to each PayPal account."
+}

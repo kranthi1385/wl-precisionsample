@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+</head>
+<body ng-app="footerApp">
+    @Html.AntiForgeryToken()
+    <div ng-controller="aboutController" style="margin-left: 40px">
+        <div style="margin-top: 40px;font-size: 11pt; font-family: Verdana">
+            <b>{{'text1' | translate}} {{orgDetails.OrgName}}</b>
+        </div>
+        <div id="others" ng-if="orgDetails.ClientId==57" style="margin-top: 40px;font-size: 9pt; font-family: Verdana">
+            <p>
+                {{orgDetails.OrgName}} {{'text2' | translate}} {{orgDetails.OrgName}}{{'text' | translate}} {{'text3' | translate}} {{orgDetails.CopyrightYear}}, {{orgDetails.OrgName}}{{'p1' | translate}} {{'p2' | translate}}
+            </p>
+        </div>
+        <div id="others" ng-if="orgDetails.ClientId!=57" style="margin-top: 40px;font-size: 9pt; font-family: Verdana">
+            <p>
+                {{orgDetails.OrgName}} {{'text2' | translate}} {{orgDetails.OrgName}}{{'text' | translate}} {{'text3' | translate}} {{orgDetails.CopyrightYear}}, {{orgDetails.OrgName}}{{'p1' | translate}} {{'p2' | translate}}. {{'p6' | translate}}
+            </p>
+        </div>
+        Precision Sample, LLC<br />
+        3461 Ringsby Court
+        <br />
+        Suite 240
+        <br />
+        Denver, CO 80216,
+        <br />
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script src="~/Scripts/pages/footer/tc.js" type="text/javascript"></script>
+</body>
+

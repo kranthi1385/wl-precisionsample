@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Members.NewOpinionBar.Web.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Members_NewOpinionBar_Web_com_imperium_verity_RespSvc" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://verity.imperium.com/VerityWS/RespService.asmx</Value>
+    </Setting>
+    <Setting Name="Members_NewOpinionBar_Web_com_imperium_ra_raService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ra.imperium.com/raservice.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

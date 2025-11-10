@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/Shared/_Qlayout.cshtml";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/rzslider.min.css" />
+<link href="~/Content/prequestion.css" rel="stylesheet" />
+
+
+
+
+<div id="dvSurveyQuestions" ng-controller="userGmQuestionsController" ng-if="gmPageLoad" ng-cloak>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    }
+    <form name="formValidation" novalidate>
+        <div id="surveyQuestion" ng-show="isShowQuestions">
+            <img class="img-mob" src="~/Images/MarketPlaces/General-Motors.png" />
+            <hr class="hr-style" />
+            <div class="pre-question-panel">
+
+                @*<div id="dvImageLoading">
+                    </div>*@
+
+                @*<div class="pre-question-img" ng-if="questions[0].QuestionId != 4108">
+                    <img src="~/Images/question-img.png" />
+                </div>*@
+
+
+
+                <div id="dvQuestions" class="pre-question-list" style="font-size:13px;">
+                    <div class="body1">
+                        <div id="tmpTable" ng-repeat="question in questions">
+                            @*   <div template-directive question_typeid="{{question.QuestionTypeId}}" ></div>*@
+                            <div ng-if="question.ChildQuestionList == null">
+                                <template-directive question-type-id="{{question.QuestionTypeId}}"></template-directive>
+                            </div>
+                            <div ng-if="question.ChildQuestionList.length !=null ">
+                                <div ng-if="question.QuestionTypeId != 13 ">
+                                    <template-directive question-type-id="{{question.ChildQuestionList[0].QuestionTypeId}}"></template-directive>
+                                </div>
+                                <div ng-if="question.QuestionTypeId == 13 ">
+                                    <template-directive question-type-id="{{question.QuestionTypeId}}"></template-directive>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="footerblock">
+                        <div style="text-align: center; padding: 10px;">
+                            <span id="spnErrorMessage" align="left" style="color: Red; display: none; font-size: 15px"></span>
+                        </div>
+                        <div class="pre-question-btn">
+                            <button id="btnSubmit" class="button" type="button" value="Continue"
+                                    ng-click="save(formValidation.$valid)">
+                                Continue
+                            </button>
+
+                        </div>
+                        @*<code>formValidation.input.$valid = {{formValidation.input.$valid}}</code><br>
+                            <code>formValidation.input.$error = {{formValidation.input.$error}}</code><br>
+                            <code>formValidation.$valid = {{formValidation.$valid}}</code><br>
+                            <code>formValidation.$error.required = {{!!formValidation.$error.required}}</code><br>*@
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

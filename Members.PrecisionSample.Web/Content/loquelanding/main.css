@@ -1,0 +1,555 @@
+﻿
+.main
+{
+    height: auto;
+    padding-bottom: 0;
+}
+
+.mem_log
+{
+    height: auto;
+    width: 100%;
+    text-align: right;
+    padding-right: 15px;
+}
+
+    .mem_log .col-sm-3, .loginSubmit
+    {
+        float: none;
+        display: inline-block;
+        text-align: right;
+    }
+
+.regpageform .control-label
+{
+    line-height: normal;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.mem_log input[type="text"], .mem_log input[type="password"]
+{
+    width: 100% !important;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.mem_log .col-input
+{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.mlogin-label
+{
+    line-height: 1.2;
+    text-align: right;
+    padding-right: 0;
+}
+
+.navi
+{
+    padding-top: 15px;
+}
+
+.login-icon
+{
+    display: none;
+    font-size: 21px;
+    margin-left: 10px;
+}
+
+.menu-icon
+{
+    display: none;
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.title h3, .step p
+{
+    display: table;
+}
+
+.promobox
+{
+    padding-right: 20px;
+    padding-left: 0px;
+}
+
+.action
+{
+    width: 100%;
+    display: table;
+}
+
+.gradient
+{
+    height: auto;
+}
+
+.page2wrapper
+{
+    width: 100%;
+    display: table;
+}
+
+footer
+{
+    background-color: #eee;
+}
+
+@media (min-width:1024px)
+{
+
+
+    #dvMemLog
+    {
+        display: block !important;
+    }
+
+    .menu-ul
+    {
+        display: block !important;
+    }
+
+    .mem_log
+    {
+        display: block !important;
+    }
+
+    .regtd
+    {
+        vertical-align: top;
+        padding-top: 4%;
+    }
+
+    .tdmemberlogin
+    {
+        position: relative;
+    }
+
+    .spnerrormsg
+    {
+        font-size: 11px;
+        display: none;
+        position: absolute;
+    }
+
+    .dvTc
+    {
+        margin-left: 6%;
+    }
+
+    .form-group
+    {
+        margin-bottom: 2px;
+    }
+
+    .dv-errmsg-login
+    {
+        width: 54%;
+        float: left;
+    }
+}
+
+@media (max-width:1000px)
+{
+    .mlogin-label
+    {
+        padding-right: 15px;
+    }
+
+    .loginSubmit
+    {
+        padding-right: 15px;
+    }
+
+    .mem_log > .row > div
+    {
+        margin-bottom: 10px;
+    }
+
+    .mem_log .col-input
+    {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .mem_log > .row
+    {
+        margin: 0;
+    }
+
+    footer
+    {
+        width: 100%;
+        display: table;
+    }
+
+    .howitwork
+    {
+        box-shadow: 0 0 0 #ccc;
+    }
+
+    .promobox
+    {
+        padding: 0px;
+        max-width: 100%;
+    }
+
+    .wrapper
+    {
+        width: 100%;
+    }
+
+    .gradient
+    {
+        padding: 0 15px;
+    }
+
+
+    .copy
+    {
+        width: auto;
+        line-height: 20px;
+        margin: 14px 0 10px;
+    }
+
+    .title h3, .step p
+    {
+        height: auto;
+    }
+
+    .main-header
+    {
+        padding: 0 20px;
+        height: 74px;
+    }
+
+    .logo
+    {
+        width: 85px;
+        height: 50px;
+        background-size: cover;
+    }
+
+    .menu-icon, .login-icon
+    {
+        margin-top: 25px;
+    }
+
+    .login-icon
+    {
+        display: inline-block;
+        float: right;
+        cursor: pointer;
+        color: #555;
+    }
+
+    .menu-icon
+    {
+        display: inline-block;
+        float: right;
+        cursor: pointer;
+        color: #555;
+    }
+
+    /*.mem_log
+    {
+        display: none;
+        width: 240px;
+        background: #f5f5f5;
+        border: 1px solid #ccc;
+        padding: 15px 10px;
+        position: absolute;
+        right: 0;
+        top: 75px;
+        height: auto;
+    }*/
+
+        .mem_log .memberTable td
+        {
+            display: inline-block !important;
+            width: 100% !important;
+        }
+
+        .mem_log .memberTable > tbody > tr > td
+        {
+            padding: 3px 10px !important;
+        }
+
+    .memberTableInner td
+    {
+        padding: 3px 0px !important;
+    }
+
+    .mem_log input[type="text"], .mem_log input[type="submit"], .mem_log input[type="password"]
+    {
+        height: 34px;
+        line-height: 33px;
+        border-radius: 3px;
+        width: 100%;
+    }
+
+    #dvFp
+    {
+        padding-right: 15px;
+        display: table;
+        width: 100%;
+    }
+
+    #aFps
+    {
+        padding-right: 15px;
+        display: table;
+        width: 100%;
+    }
+
+    /*.menu-ul
+    {
+        display: none;
+        width: 200px;
+        background: #f5f5f5;
+        border: 1px solid #ccc;
+        padding-bottom: 15px;
+        position: absolute;
+        right: 0;
+        top: 75px;
+        height: auto;
+    }*/
+
+    /*.navi li
+    {
+        width: 100%;
+    }*/
+
+        .navi li a
+        {
+            width: 100%;
+            text-align: right;
+            padding: 11px 24px 10px 10px !important;
+        }
+
+    .cp-bg
+    {
+        background-size: cover !important;
+        height: 100%;
+    }
+
+    body
+    {
+        padding: 0 !important;
+    }
+
+
+    .navi li:hover a
+    {
+        color: #454545;
+    }
+
+    .page2wrapper .sloganLeft .arrow
+    {
+        display: none;
+    }
+
+    .page2wrapper
+    {
+        background: none !important;
+    }
+
+        .page2wrapper .sloganLeft
+        {
+            width: 100%;
+            float: none;
+            display: table;
+            padding-bottom: 20px;
+        }
+
+        .page2wrapper #dvSubscriber
+        {
+            width: 100%;
+            max-width: 445px;
+            float: none;
+            display: table;
+            margin: auto;
+        }
+
+    .form-group
+    {
+        margin-bottom: 0px;
+    }
+
+    .dv-errmsg-login
+    {
+        padding-right: 15px;
+        display: table;
+        width: 100%;
+    }
+    .loque-header {
+    height: auto !important;
+}
+    .mem_log > .row > div {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+    .loque-header .navi{
+        float:none;
+        width:auto;
+    }
+
+}
+
+@media (max-width:767px)
+{
+    .regpageform .control-label
+    {
+        text-align: left;
+    }
+
+    .title h3
+    {
+        width: 90%;
+    }
+
+    .featu p
+    {
+        min-height: inherit !important;
+    }
+
+    .subscriber
+    {
+        float: right;
+        width: 340px;
+    }
+
+        .subscriber input
+        {
+            width: 100%;
+        }
+
+    .action
+    {
+        text-align: center;
+    }
+
+        .action h3
+        {
+            height: auto;
+            float: none;
+        }
+
+    .action-button
+    {
+        float: none;
+        display: inline-block;
+    }
+
+    /*.mem_log
+    {
+        display: none;
+    }*/
+
+    /*.menu-ul
+    {
+        display: none;
+    }*/
+
+    .subscriber-fp
+    {
+        height: 240px;
+    }
+}
+
+@media (max-width:640px)
+{
+
+    .subscriber
+    {
+        width: 100%;
+    }
+
+    footer
+    {
+        padding: 0 15px;
+    }
+
+    /*.mem_log
+    {
+        display: none;
+    }*/
+
+    /*.menu-ul
+    {
+        display: none;
+    }*/
+
+    .subscriber-fp
+    {
+        height: 240px;
+    }
+    ul.menu-ul {
+    width: 100%;
+}
+}
+
+@media (max-width:480px)
+{
+    .navi li
+    {
+        width: 100%;
+        border: 0;
+        float: left;
+    }
+
+        .navi li:hover
+        {
+            width: 100%;
+            border: 0;
+            float: left;
+        }
+
+    .regForm td
+    {
+        display: block;
+        width: 100%;
+        padding-bottom: 5px;
+    }
+
+    .signupImg
+    {
+        width: 100%;
+    }
+
+    /*.mem_log
+    {
+        display: none;
+    }*/
+
+    /*.menu-ul
+    {
+        display: none;
+    }*/
+
+    .subscriber-fp
+    {
+        height: 240px;
+    }
+    .mem_log{
+    width: 260px;
+    margin-top: -65px;
+    padding-right: 0;
+    }
+    .loque-header .navi li,.loque-header .navi li a {
+    float: none;
+    width: auto;
+    border-top: none;
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: top;
+}
+.logo{
+    background-size: 130px;
+}
+
+}

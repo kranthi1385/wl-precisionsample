@@ -1,0 +1,142 @@
+﻿<html>
+<head>
+    <title>Opinionetwork Surveys</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link id="lnkMainCss" rel="stylesheet" href="/css/river-main.css" type="text/css"
+        media="screen" />
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+        rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src=" https://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+    <script type="text/javascript" src="/Scripts/Pages/rep.js"></script>
+
+    <script type="text/javascript">
+        var getUrlVars = function() {
+            var Url = window.location.href.toLowerCase();
+            var vars = {};
+            var parts = Url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        _usg = getUrlVars()["usg"];
+        _ug = getUrlVars()["ug"];
+        _uig = getUrlVars()["uig"];
+
+        function Click() {
+            document.hi1.action = '/river/rfep.aspx?ug=' + _ug + "&usg=" + _usg + "&uig=" + _uig;
+            document.hi1.submit();
+        }
+    </script>
+
+    <style type="text/css">
+        html, body
+        {
+            height: 93%;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        var getUrlVars = function() {
+            var Url = window.location.href.toLowerCase();
+            var vars = {};
+            var parts = Url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        _usg = getUrlVars()["usg"];
+        _ug = getUrlVars()["ug"];
+        function pageLoad() {
+            debugger;
+            if (_usg.toUpperCase() == 'F6A6B754-4CF8-41BB-B9AA-5B97C412B1F4' || _usg.toUpperCase() == '67B98BED-9C3F-42AE-BDD3-7E15F9C17F00') {
+                debugger;
+                $('#dvFailureMessage').show();
+            }
+            else if (_usg.toUpperCase() == '6AC169C6-DF47-4CD1-8F4D-1311F5C5F163') {
+                $('#dvSuccessMessage').show();
+            }
+            else {
+                window.location.href = '/river/entry.htm?ug=' + _ug;
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    <script type="text/javascript">
+        pageLoad();
+    </script>
+
+    <center>
+        <div class="cp-bg">
+        </div>
+        <div class="dvoverly">
+        </div>
+        <div class="container_12" id="dvContainer" style="display:none;">
+            <!-- /// begin page /// -->
+            <!-- ///////////////////////////////////////// MASTHEAD ///////////////////////////////////////// -->
+            <div id="masthead">
+                <div id="logo">
+                    <a href="/river/s1.htm">
+                        <img src="/images/on_logocopy.PNG" /></a></div>
+                <!--  <h1 id="logo2">
+                <a href="index.html">sample partner</a></h1>-->
+            </div>
+            <div class="clear">
+                <br />
+            </div>
+            <!-- ///////////////////////////////////////// CONTENT ///////////////////////////////////////// -->
+            <div id="dvRep">
+                <h3 class="surveyHeader">
+                </h3>
+                <div class="clear">
+                </div>
+                <div id="dvRepContainer" align="center">
+                    <div id="dvmessage" style="font-family: Verdana; font-size: 16px;">
+                        <div id="dvSuccessMessage" style="margin-top: 15px; display: none; text-align: left;">
+                            <p class="pmessage" style="text-align: left; font-family: 'PT Sans Narrow' , sans-serif">
+                                Success! You’ve completed this survey and will receive your reward shortly.
+                                <br />
+                                Would you like to take another survey?
+                            </p>
+                            <br />
+                        </div>
+                        <div id="dvFailureMessage" style="margin-top: 15px; display: none;">
+                            <p class="pmessage" style="text-align: left; font-family: 'PT Sans Narrow' , sans-serif">
+                                Unfortunately your profile does not meet our Client’s requirements for this study.<br />
+                                Would you like to take another survey?
+                            </p>
+                            <br />
+                        </div>
+                        <div style="margin-top: 15px;">
+                            <input type="button" id="btnYesSuccess" value="Yes, take me there!" style="width: 185px;" />
+                            <form action="" name="formendpage" method="post">
+                            <div class="dvbtngap">
+                            </div>
+                            <input type="hidden" name="ButtonNo" value="Yes" />
+                            <input type="button" id="btnNoSuccess" value="Not at this time" class="btnno" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <br />
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div id="dvPixel">
+        </div>
+        <!-- ///////////////////////////////////////// FOOTER ///////////////////////////////////////// -->
+    </center>
+</body>
+</html>

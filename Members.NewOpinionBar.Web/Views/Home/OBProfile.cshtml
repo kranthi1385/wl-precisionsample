@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Views/Shared/_bannertab.cshtml";
+}
+
+<style>
+    ul.list-links {
+        margin: 0;
+        padding-left: 10px;
+    }
+
+        ul.list-links li {
+            list-style: none;
+            margin-bottom: 3px;
+        }
+
+            ul.list-links li:before {
+                content: ">";
+                padding: 0 10px 0 0;
+                font-weight: 500;
+                font-family: monospace;
+                color: #999;
+            }
+
+            ul.list-links li a {
+                padding: 5px 0;
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 600;
+                color: #b9292d;
+            }
+
+                ul.list-links li a:hover {
+                    color: #454545;
+                }
+</style>
+
+<link href="~/Content/profile.css" rel="stylesheet" />
+<div style="margin-top: 20px;">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    }
+    <div ng-if="pgLoad" style="width: 618px;margin: 0 auto;" class="pro_wrap">
+        <div id="dvHome" ng-controller="obProfileController">
+            <div class="form-group col-lg-12">
+                <div class="panel survey-panels ProfilesPanel">
+                    <div class="panel-heading portlet-header">
+                        <h3 class="profile_head">
+                            {{'profile' | translate}}
+                        </h3>
+                        <div class="float_right">
+                            <div class="icon_howitworks_myprofile">
+                                <img src="/Images/profile_logo.jpg" style="border-radius: 50%;width: 43px;" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr_column2"></div>
+                    <div class="panel-body portlet-body">
+                        <div class="panel-hyperlinks">
+                            @*<ul id="check" style="list-style: none;">
+                                <li>*@
+                            <table style="width:50%;float: none;" class="links-table">
+                                <tr>
+                                    <td>
+                                        <div class="profile-tb-dv">
+                                            <ul class="list-links">
+
+                                                <li><a style="cursor:pointer;" ng-click="popup('https://stage.opinionbar.com/mem/pf?pid=53904696-D71F-4BA3-BEB7-D70281ADD44B&cid=337')">{{'basicprofile' | translate}}</a></li>
+                                                <li><a style="cursor:pointer;" ng-click="popup('https://stage.opinionbar.com/mem/pf?pid=CB963824-983A-41FA-A2AC-508BD5F85B95&cid=337')">{{'Household profile' | translate}}</a></li>
+                                                @*<li><a style="cursor:pointer;" ng-click="popup('https://stage.opinionbar.com/mem/pf?pid=9B3996C3-02E3-403A-9DEF-9C7136147126&cid=337')">{{'Purchases profile' | translate}}</a></li>*@
+                                                @*<li><a style="cursor:pointer;" ng-click="popup('https://stage.opinionbar.com/mem/pf?pid=55A80725-E9EC-4213-BA25-040DC9C0F481&cid=337')">{{'Watching profile' | translate}}</a></li>*@
+                                                <li><a style="cursor:pointer;" ng-click="popup('https://stage.opinionbar.com/mem/pf?pid=EFBCEB63-FBD5-45A8-94D0-C46D338B2E60&cid=337')">{{'Technology profile' | translate}}</a></li>
+                                                <li><a style="cursor:pointer;" ng-click="popup('https://stage.opinionbar.com/mem/pf?pid=0189D28C-D008-4F0B-BFF7-9445B3CA9113&cid=337')">{{'Time and Transport profile' | translate}}</a></li>
+                                                <li><a style="cursor:pointer;" ng-click="popup('https://stage.opinionbar.com/mem/pf?pid=5D8F709D-C9D5-410E-8080-C66DDED69C22&cid=337')">{{'Workprofile' | translate}}</a></li>
+                                                <li><a style="cursor:pointer;" ng-click="popup('https://stage.opinionbar.com/mem/pf?pid=3DC7C62C-9112-47C7-BE37-229F7657976B&cid=337')">{{'Health profile' | translate}}</a></li>
+                                                @*<li><a style="cursor:pointer;" ng-click="popup('https://stage.opinionbar.com/mem/pf?pid=FE620D24-0882-4DA3-8CD0-E0C028428959&cid=337')">{{'Finance profile' | translate}}</a></li>*@
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            @*</li>
+                                </ul>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
