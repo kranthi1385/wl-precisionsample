@@ -1,0 +1,18 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      # Install NuGet (if needed)
+      - echo Installing NuGet...
+  build:
+    commands:
+      # Restore NuGet packages
+      - nuget restore WL.PrecisionSample.sln
+      # Build the solution
+      - msbuild WL.PrecisionSample.sln /p:Configuration=Release
+artifacts:
+  files:
+    - '**\bin\Release\**\*'
+  discard-paths: yes
+  base-directory: 'WL.PrecisionSample/bin/Release'
