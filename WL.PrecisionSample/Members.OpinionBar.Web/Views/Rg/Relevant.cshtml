@@ -1,0 +1,118 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>rel</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    @*<script type="text/javascript" id="cleanid_script_id" src="https://idsuite.navigatorsurveys.com/cleanid-v3.current.min.js" data-key="34ef4d14-bb81-ecea-dcd2-9a8f090ece82"></script>*@
+    <script src="https://js.verisoul.ai/prod/bundle.js" verisoul-project-id="be0e3932-c860-4b71-927b-8a2e8b7941dc"></script>
+    @*<script src="https://www.ipqscdn.com/api/*/eQN8AtqlOm74ZSNbmGKCaTDyyZaS1tFqdPBIn1ADM6Qp8GObALIELx35stQVoBMRXYKVXxCaIJkn8pFGivyYOrNQFn32GWkwnqbyvHT2z61imMDxaLh10wf7So51cFvWH4nyJncXgDsGXGrxOObXoTXlRUJH1osapuFtV5vCYFUMuVQ6h0B41NH3pWnj6puCFJtbDT9en43Leu47ZUEmabwwKMXrPrmKHLLXrrj8jopvE4ycdDYwtTTz1F5QEjym/learn.js" crossorigin="anonymous"></script>*@
+    @*<noscript><img src="https://www.ipqscdn.com/api/*/eQN8AtqlOm74ZSNbmGKCaTDyyZaS1tFqdPBIn1ADM6Qp8GObALIELx35stQVoBMRXYKVXxCaIJkn8pFGivyYOrNQFn32GWkwnqbyvHT2z61imMDxaLh10wf7So51cFvWH4nyJncXgDsGXGrxOObXoTXlRUJH1osapuFtV5vCYFUMuVQ6h0B41NH3pWnj6puCFJtbDT9en43Leu47ZUEmabwwKMXrPrmKHLLXrrj8jopvE4ycdDYwtTTz1F5QEjym/pixel.png" /></noscript>*@
+    <script>
+        debugger;
+        getUrlVars = function () {
+            var Url = window.location.href.toLowerCase();
+            var vars = {};
+            var parts = Url.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        var ug = getUrlVars()["ug"];
+        var cid = getUrlVars()["cid"];
+        var usid = getUrlVars()["id"];
+        if (usid == undefined) {
+            usid = '';
+        }
+        if (ug == undefined) {
+            ug = '';
+        }
+        if (cid == undefined) {
+            cid = '';
+        }
+        // Optional tracking variables that can be used to pass data and subIDs.
+        // Please set any new variables to track here: https://www.ipqualityscore.com/user/settings#variables
+        // Must be manually added to <noscript> <img> tag above such as: ...pixel.png?userID=123&transactionID=11
+        // Strongly suggested to pass "email" and "userID" for better device tracking and performance
+        // Parse the value in the transactionID field from the URL
+        if (typeof Startup !== "undefined") {
+            // Startup.Store('transactionID', uid);
+            Startup.Store('userID', usid);
+            // Startup.Store('campaignID', pid);
+            Startup.Store('publisherID', cid);
+        }
+
+        if (typeof Startup !== "undefined") {
+            Startup.AfterResult(function (result) {
+                var ipqsJson = JSON.stringify(result);
+                debugger;
+                // redirect or perform business logic if Fraud Score is >= recommended value of 90
+                localStorage.setItem('ipqsJson', ipqsJson);
+            });
+
+            Startup.AfterFailure(function (reason) {
+                // user has blocked the second JavaScript call
+                // can redirect or perform other business logic if JS is not loaded
+                // window.location.href = "";
+            });
+        }
+
+        if (typeof Startup === "undefined") {
+            // user has blocked the initial JavaScript call
+            // can redirect or perform other business logic if JS is not loaded
+            // window.location.href = "";
+        }
+    </script>
+</head>
+<body>
+    <div class="inner-container" ng-app="commonApp">
+        @using (Html.BeginForm())
+        {
+        @Html.AntiForgeryToken()
+        }
+        <div ng-controller="crController" ng-init="relevantInitialize()">
+            <div>
+                @*<input type="hidden" id="wm" name="wm" value="0" />
+                <input type="hidden" name="ClientID" id="ClientID" />
+                <input type="hidden" name="RelevantID" id="RelevantID" />
+                <input type="hidden" name="PanelistID" id="PanelistID" />
+                <input type="hidden" name="SurveyID" id="SurveyID" />
+                <input type="hidden" name="GeoCodes" id="GeoCodes" />
+                <input type="hidden" name="CID" id="CID" />
+                <input type="hidden" name="TID" id="TID" />
+                <input type="hidden" name="PropertyList" id="PropertyList" />
+                <input type="hidden" name="TimePeriod" id="TimePeriod" />
+                <input type="hidden" name="RVIDCompleted" id="RVIDCompleted" value="0" />*@
+
+                <input type="hidden" name="ClientID" id="ClientID" />
+                <input type="hidden" name="PanelistID" id="PanelistID" />
+                <input type="hidden" name="SurveyID" id="SurveyID" />
+                <input type="hidden" name="GeoCodes" id="GeoCodes" />
+                <input type="hidden" name="TimePeriod" id="TimePeriod" />
+                <input type="hidden" name="RVIDCompleted" id="RVIDCompleted" value="0" />
+                <input type="hidden" name="VID" id="VID" value="" />
+                <input type="hidden" name="RequestCSOData" id="RequestCSOData" value="" />
+
+            </div>
+        </div>
+        <div id="dvImageLoading" style="height: 90px; width: 90px; position: fixed; z-index: 1000;
+        left: 45%; top: 45%; padding-top: 10px; vertical-align: middle; font-size: 12pt;
+        align: center;">
+            <img src="/Images/loadericon.gif" />
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @*<script type="text/javascript" src="https://d3op16id4dloxg.cloudfront.net/RelevantID4.js"></script>*@
+        <script data-main="" src="/Scripts/require.js"></script>
+        <script src="~/Scripts/rg/relevant.js"></script>
+    </div>
+</body>
+</html>

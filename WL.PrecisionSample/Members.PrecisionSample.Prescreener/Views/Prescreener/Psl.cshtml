@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="~/Content/rzslider.min.css" />
+<link href="~/Content/prequestion.css?v=2" rel="stylesheet" />
+<div id="dvSurveyQuestions" ng-controller="psLanguageController" ng-if="psPageLoad" ng-cloak>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    }
+    <form name="formValidation" novalidate>
+        <div id="surveyQuestion" ng-show="isShowQuestions">
+            <div class="pre-question-panel">
+                <div id="dvQuestions" class="pre-question-list" style="font-size:13px;">
+                    <div class="body1">
+                        <div id="tmpTable" style="display:grid;">
+                            <ng-include src="'languageList'"></ng-include>
+                        </div>
+                    </div>
+                    <div class="footerblock">
+                        <div style="text-align: center; padding: 10px;">
+                            <span id="spnErrorMessage" align="left" style="color: Red; display: none; font-size: 15px"></span>
+                        </div>
+                        <div class="pre-question-btn">
+                            <button id="btnSubmit" class="button" type="button" value="Continue"
+                                    ng-click="save(formValidation.$valid)"
+                                    ng-disabled="isButtonDisabled">
+                                <img src="https://cdn2.cmix.com/surveyContent/survey_4545/uploads/fwd.png" />
+                            </button>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/ng-template" id="languageList" ng-cloak>
+    <style>
+        .optiontext .wrapper .left {
+            width: 100%; /* Makes each option take the full row */
+            float: none; /* Removes the side-by-side alignment */
+            margin-bottom: 10px; /* Adds some space between the rows */
+        }
+            /* Optional: Removes margin from the last button */
+            .optiontext .wrapper .left:last-child {
+                margin-bottom: 0;
+            }
+    </style>
+    <div align="left" class="questionback" style="clear: both;" >
+        <span class="question" id="lblQuestiontext" ng-bind-html="LanguageHeader"></span>
+    </div>
+    <div class="optiontext" style="clear: both; overflow: hidden">
+        <div class="wrapper">
+            <div ng-repeat="op in langQst.SelectedOptions" >
+                <div class="left">
+                    <div class="dvChkbox dvstyle" ng-class="{optionSelected:$index == $parent.radiobtnvalidation}" ng-click="rdClick($event,op.OptionId,$index); $parent.OptionId = op.OptionId;">
+                        <div class="grid_column" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_dvmain' }}" ng-class="{input_onm:$index == $parent.radiobtnvalidation}">
+                            <label class="option-label" for="{{op.QuestionId +'_'+op.OptionId+'_radio'}}" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_lblrd' }}">
+                                <div class="grid_span_holder">
+                                    <span class="grid_span" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_rdDiv'}}">{{op.OptionText}}</span>
+                                </div>
+                                <input type="radio" style="display: none;" ng-attr-id="{{op.QuestionId+'_'+op.OptionId +'_radio'}}" ng-model="$parent.OptionId" value="op.OptionId" name="{{op.QuestionId+ '_'+'radio'}}" ng-click required />
+                                <span class="single_radio">{{op.OptionText}}</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</script>

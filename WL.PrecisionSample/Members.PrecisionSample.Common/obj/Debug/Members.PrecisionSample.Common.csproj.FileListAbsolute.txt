@@ -1,0 +1,10 @@
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Common\bin\Debug\Members.PrecisionSample.Common.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Common\bin\Debug\Members.PrecisionSample.Common.pdb
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Common\obj\Debug\Members.PrecisionSample.Common.dll
+F:\ps_dev_new\SDL OffShore Devlopment and Support\SDL_Dev_Branch\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Common\obj\Debug\Members.PrecisionSample.Common.pdb
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.PrecisionSample.Common\bin\Debug\Members.PrecisionSample.Common.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.PrecisionSample.Common\bin\Debug\Members.PrecisionSample.Common.pdb
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.PrecisionSample.Common\obj\Debug\Members.PrecisionSample.Common.csproj.AssemblyReference.cache
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.PrecisionSample.Common\obj\Debug\Members.PrecisionSample.Common.csproj.CoreCompileInputs.cache
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.PrecisionSample.Common\obj\Debug\Members.PrecisionSample.Common.dll
+C:\Users\kranthikumarkuruva\Downloads\WL.PrecisionSample\Members.PrecisionSample.Common\obj\Debug\Members.PrecisionSample.Common.pdb

@@ -1,0 +1,410 @@
+﻿
+@{
+    Layout = null;
+}
+<head>
+    <meta name="viewport" content="width=device-width" /><script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script src="~/Scripts/translate-pluggable-loader.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+</head>
+<body ng-app="footerApp">
+    @Html.AntiForgeryToken()
+    <div id="dvprivacy" ng-controller="privacyController">
+        <table style="font-family: Verdana; font-size: small;">
+            <tr>
+                <td align="left">
+                    <b style="font-size: large;">
+                        {{'Pri_Pcy' | translate}}
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <p>
+                       {{'pr_para1'|translate}}
+                    </p>
+                    <p>
+                        {{'pr1_para1'|translate}} “<b>Precision Sample</b>,” “<b>{{'us'|translate}}</b>” {{'and'|translate}} “<b>{{'we'|translate}}</b>” {{'means'|translate}} Precision Sample, LLC {{'pr1_para2'|translate}}. {{'pr1_para3'|translate}} (“<b>{{'pdata'|translate}}</b>”) {{'pr1_para4'|translate}} (e.g. www.precisionsample.com {{'pr1_para5'|translate}} <a href="#" onclick="window.open( '/siteslist.html?v=1', 'Precision Sample Sites','height=400,width=400,scrollbars=yes' ); return false" style="color: Blue; text-decoration: underline;">{{'here'|translate}}</a>, {{'pr1_para6'|translate}} “<b>Website</b>” or “<b>Site</b>”) {{'pr1_para7'|translate}} “<b>{{'Services'|translate}}.</b>”
+                    </p>
+                    <p>
+                        {{'pr2_para1'|translate}}
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>1.&nbsp;&nbsp;{{'heading1'|translate}}</b>
+                    <br />
+                    <p>
+                        {{'pr3_para1'|translate}} (“<b>Clients</b>”) {{'pr3_para2'|translate}} “<b>{{'Platform'|translate}}</b>”). {{'pr3_para3'|translate}} (“<b>{{'clntsur'|translate}}</b>”), {{'pr3_para4'|translate}} (“<b>PS Surveys</b>”). {{'pr3_para5'|translate}} “<b>Surveys</b>”.
+                    </p>
+                    <p>
+                        {{'pr4_para1'|translate}} (“<b>{{'ProfileData'|translate}}</b>”). {{'pr4_para2'|translate}} (“<b>{{'srvydt'|translate}}</b>”). {{'pr4_para3'|translate}} (“<b>{{'srvydata'|translate}}</b>”).
+                    </p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>2.&nbsp;&nbsp;{{'heading2'|translate}}</b>
+                    <br />
+                    <p>{{'pr5_para1'|translate}} </p>
+                    <p>{{'pr6_para1'|translate}} <a href="#" onclick="window.open( '/home/contact', 'Contact us','height=600,width=750,scrollbars=yes' ); return false" style="color: Blue; text-decoration: underline;">{{'cntcus'|translate}}</a> section below.</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>3.&nbsp;&nbsp;{{'heading3'|translate}}</b>
+                    <br />
+                    <p>{{'hd3_pt1'|translate}}</p>
+                    <b>A.&nbsp;&nbsp;{{'hd3_ptA'|translate}}</b>
+                    <p>{{'hd3_ptAa'|translate}}</p>
+                    <b>B.&nbsp;&nbsp;{{'hd3_ptB'|translate}}</b>
+                    <p>{{'hd3_ptBa'|translate}} <b>{{'hd3_ptBb'|translate}}</b></p>
+                    <b>C.&nbsp;&nbsp;{{'cntdata'|translate}}</b>
+                    <p>{{'hd4_pt1'|translate}}</p>
+                    <p><b><i>{{'Note'|translate}}</i></b>: {{'note1'|translate}}</p>
+                    <p><b>{{'FinancialInformation'|translate}}</b> {{'FinancialInformation1'|translate}}</p>
+                    <b>D.&nbsp;&nbsp;{{'TechnicalInformation'|translate}}</b>
+                    <p>{{'TechnicalInformation1'|translate}}</p>
+                    <b>E.&nbsp;&nbsp;{{'SurveyData'|translate}}</b>
+                    <p>{{'SurveyData1'|translate}} <b>{{'SurveyData2'|translate}}</b></p>
+                    <p><b><i>{{'Note'|translate}}</i></b>: {{'note2'|translate}}</p>
+                    <b>F.&nbsp;&nbsp;{{'OtherInformation'|translate}} </b>
+                    <p>{{'OtherInformation1'|translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>4.&nbsp;&nbsp;{{'heading4'|translate}}</b>
+                    <br />
+                    <p>
+                       {{'hd4_pt2'|translate}}
+                    </p>
+                    <b>A.&nbsp;&nbsp;{{'ProvidingtheServices'|translate}}</b>
+                    <p>{{'ProvidingtheServices1'|translate}}</p>
+                    <p><b><i>{{'note4'|translate}}:</i></b> {{'note5'|translate}}</p>
+                    <b>B.&nbsp;&nbsp;{{'CreatingAggregateData'|translate}}</b>
+                    <p>{{'CreatingAggregateData1'|translate}}</p>
+                    <b>C.&nbsp;&nbsp;{{'CommunicatingwithYou'|translate}}</b>
+                    <p>{{'CommunicatingwithYou1'|translate}}</p>
+                    <b>D.&nbsp;&nbsp;{{'PersonalizingtheServices'|translate}}</b>
+                    <p>{{'PersonalizingtheServices1'|translate}}</p>
+                    <b>E.&nbsp;&nbsp;{{'ImprovingtheServices'|translate}}</b>
+                    <p>{{'ImprovingtheServices1'|translate}}</p>
+                    <b>F.&nbsp;&nbsp;{{'Advertising'|translate}}</b>
+                    <p>{{'Advertising1'|translate}}</p>
+                    <b>G.&nbsp;&nbsp;{{'SecurityandFraudPrevention'|translate}}</b>
+                    <p>{{'SecurityandFraudPrevention1'|translate}}</p>
+                    <b>H.&nbsp;&nbsp;{{'Compliance'|translate}}</b>
+                    <p>{{'Compliance1'|translate}}</p>
+                    <b>I.&nbsp;&nbsp;{{'Consent'|translate}}</b>
+                    <p>{{'Consent1'|translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>
+                        5.&nbsp;&nbsp;{{'heading5'|translate}}
+                    </b>
+                    <p>{{'hd5_pt1'|translate}}</p>
+                    <p><ul><li>{{'hd5_pt2'|translate}}</li></ul></p>
+                    <p><ul><li>{{'hd5_pt3'|translate}}</li></ul></p>
+                    <p><ul><li>{{'hd5_pt4'|translate}}</li></ul></p>
+                    <p><ul><li>{{'hd5_pt5'|translate}}</li></ul></p>
+                    <p><ul><li>{{'hd5_pt6'|translate}}“<b>{{'hd5_pt7'|translate}}</b>”{{'hd5_pt8'|translate}} <b>{{'note7'|translate}}:</b> {{'hd5_pt9'|translate}}</li></ul></p>
+                    <br />
+                    <p>{{'hd5_pt10'|translate}}</p>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>6.&nbsp;&nbsp;{{'Information'|translate}}</b>
+                    <p>{{'Information1'|translate}}</p>
+                    <b>A.&nbsp;&nbsp;{{'Clients'|translate}}</b>
+                    <p>{{'Clients1'|translate}}</p>
+                    <b>B.&nbsp;&nbsp;{{'ServiceProviders'|translate}}</b>
+                    <p>{{'ServiceProviders1'|translate}}</p>
+                    <b>C.&nbsp;&nbsp;{{'Affiliates'|translate}}</b>
+                    <p>{{'Affiliates1'|translate}}</p>
+                    <b>D.&nbsp;&nbsp;{{'Marketers'|translate}}</b>
+                    <p>{{'Marketers1'|translate}}</p>
+                    <b>E.&nbsp;&nbsp;{{'Partners'|translate}}</b>
+                    <p>{{'Partners1'|translate}}</p>
+                    <b>F.&nbsp;&nbsp;{{'CorporateEvents'|translate}}</b>
+                    <p>{{'CorporateEvents1'|translate}}</p>
+                    <b>G.&nbsp;&nbsp;{{'LegalDisclosures'|translate}}</b>
+                    <p>{{'LegalDisclosures1'|translate}}</p>
+                    <b>H.&nbsp;&nbsp;{{'AggregatedInformation'|translate}}</b>
+                    <p>{{'AggregatedInformation1'|translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>7.&nbsp;&nbsp;{{'DataProtected'|translate}}</b>
+                    <br />
+                    <p>{{'DataProtected1'|translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>8.&nbsp;&nbsp;{{'PersonalData'|translate}}</b>
+                    <br />
+                    <p>{{'PersonalData1'|translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>9.&nbsp;&nbsp;{{'ControlsandChoices'|translate}}</b><br />
+                    <b>A.&nbsp;&nbsp;{{'OptOuts'|translate}}</b>
+                    <p>{{'OptOuts1'|translate}}<b>{{'OptOuts2'|translate}}</b></p>
+                    <b>B.&nbsp;&nbsp;{{'CommunicationPreferences'|translate}}</b>
+                    <p>{{'CommunicationPreferences1'|translate}}</p>
+                    <b>C.&nbsp;&nbsp;{{'CookiesandSimilarTechnologies'|translate}}</b>
+                    <p>{{'CookiesandSimilarTechnologies1'|translate}}</p>
+                    <p>{{'CookiesandSimilarTechnologies2'|translate}}</p>
+                    <p>
+                      {{'CookiesandSimilarTechnologies3'|translate}}  <a href="#" onclick="window.open('https://www.aboutads.info/choices', 'About Ads', 'height=600,width=600,scrollbars=yes'); return false" style="color: Blue; text-decoration: underline;">https://www.aboutads.info/choices</a>. {{'about1'|translate}} <a href="#" onclick="window.open('https://www.google.com/analytics/terms/us.html', 'Google Terms of Use', 'height=600,width=600,scrollbars=yes'); return false" style="color: Blue; text-decoration: underline;">Google Analytics Terms of Use,</a> the <a href="#" onclick="window.open( 'https://policies.google.com/privacy', 'Google Privacy Policy','height=600,width=600,scrollbars=yes' ); return false"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           style="color: Blue; text-decoration: underline;">Google Privacy Policy,</a> or <a href="#" onclick="window.open( 'https://tools.google.com/dlpage/gaoptout?hl=en-GB', 'Google Analytics Opt-out','height=600,width=600,scrollbars=yes' ); return false"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             style="color: Blue; text-decoration: underline;">Google Analytics Opt-out.</a>
+                    </p>
+                    <b>D.&nbsp;&nbsp;{{'TrackSignals'|translate}}</b>
+                    <p>{{'TrackSignals1'|translate}}</p>
+                    <b>E.&nbsp;&nbsp;{{'YourPersonaldata'|translate}}</b>
+                    <p>{{'YourPersonaldata1'|translate}} <a href="mailto:support@precisionsample.zendesk.com">support@precisionsample.zendesk.com</a>{{'YourPersonaldata2'|translate}}</p>
+                    <p>{{'YourPersonaldata3'|translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>10.&nbsp;&nbsp;{{'Children'|translate}}</b>
+                    <br />
+                    <p>{{'Children1'|translate}}</p>
+                    <p>{{'Children2'|translate}} <a href="mailto:support@precisionsample.zendesk.com">support@precisionsample.zendesk.com</a>.</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>11.&nbsp;&nbsp;{{'Disclosures'|translate}}</b>
+                    <br />
+                    <p>{{'Disclosures1'|translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>12.&nbsp;&nbsp;{{'InternationalTransfers'|translate}}</b>
+                    <br />
+                    <p>{{'InternationalTransfers1'|translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+
+                    <b>13.&nbsp;&nbsp;{{'EuropeanUnionUsers'|translate}}</b>
+                    <br />
+                    <br />
+                    <b>A.&nbsp;&nbsp;{{'Controller'|translate}}</b>
+                    <p>{{'Controller1'|translate}} <a href="mailto:support@precisionsample.zendesk.com">support@precisionsample.zendesk.com</a>{{'Controller2'|translate}} </p>
+                    <b>B.&nbsp;&nbsp;{{'Legalbasesforprocessing'|translate}}</b>
+                    <p>
+                        {{'Legalbasesforprocessing1'|translate}}
+                        <table cellpadding="0" cellspacing="0" style="font-size:13px">
+                            <tr>
+                                <td style="width:30%">{{'Processingpurpose'|translate}}</td>
+                                <td>{{'LegalBasis'|translate}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>{{'LegalBasis1'|translate}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'Usesmall'|translate}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="text-decoration:underline;vertical-align:top"><b>{{'ProvidingtheServices'|translate}}</b></td>
+                                <td><ul><li style="height: 14px;font-size: 14px;">{{'ProvidingtheServices1'|translate}}</li></ul></td>
+                            </tr>
+                            <tr>
+                                <td>{{'Disclosure'|translate}}</td>
+                            </tr>
+                            <tr>
+                                <td style="text-decoration:underline;vertical-align: top;"><b>{{'Clients'|translate}}</b></td>
+                            </tr>
+                            <tr>
+                                <td style="text-decoration:underline;vertical-align:top;"><b>{{'ServiceProviders'|translate}}</b></td>
+                                <td><ul><li style="font-size: 14px;">{{'ServiceProviders1'|translate}}</li></ul></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>{{'ServiceProviders2'|translate}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'Usesmall'|translate}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="text-decoration:underline;vertical-align: top;">
+                                    <b>{{'CreatingAggregateData'|translate}}</b><br />
+                                    <b>{{'CommunicatingwithYou'|translate}}</b><br />
+                                    <b>{{'PersonalizingtheServices'|translate}}</b><br />
+                                    <b>{{'Advertising'|translate}}</b><br />
+                                    <b>{{'ImprovingtheServices'|translate}}</b><br />
+                                    <b>{{'SecurityandFraudPrevention'|translate}}</b><br />
+                                    <b>{{'CookiesandSimilarTechnologies'|translate}}</b><br />
+                                </td>
+                                <td>
+                                    <ul style="height:0px;">
+                                        <li>
+                                            {{'DirectMarketing'|translate}}
+                                        </li>
+                                    </ul>
+                                    <ul style="height:0px;">
+                                        <li>
+                                            {{'AdvertisingtovisitorstoourSite'|translate}}
+                                        </li>
+                                    </ul>
+                                    <ul style="height:15px;">
+                                        <li>
+                                            {{'customization'|translate}}
+                                        </li>
+                                    </ul>
+                                    <ul style="height:35px;"><li>{{'monitoring'|translate}}</li></ul>
+                                    <ul style="height:5px;"><li>{{'removal'|translate}}</li></ul>
+                                    <ul style="height:5px;"><li>{{'providers'|translate}}</li></ul>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>{{'Disclosure'|translate}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="text-decoration:underline;vertical-align: top;">
+                                    <b>{{'ServiceProviders'|translate}}</b><br />
+                                    <b>{{'Affiliates'|translate}}</b><br />
+                                    <b>{{'Partners'|translate}}</b><br />
+                                    <b>{{'Clients'|translate}}</b><br />
+                                    <b>{{'CorporateEvents'|translate}}</b><br />
+                                    <b>{{'AggregatedInformation'|translate}}</b><br />
+                                </td>
+                                <td style="vertical-align: top;">
+                                    <ul style="height:35px;"><li>{{'users'|translate}}</li></ul>
+                                    <ul style="height:15px;"><li>{{'media'|translate}}</li></ul>
+                                </td>
+                            </tr>
+                            @*<tr>
+                                    <td style="width:30%">Processing purpose</td>
+                                    <td>Legal Basis</td>
+                                </tr>*@
+                            <tr>
+                                <td></td>
+                                <td>{{'law'|translate}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'Usesmall'|translate}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="text-decoration:underline;vertical-align: top;"><b>{{'Compliance'|translate}}</b></td>
+                                <td>{{'Compliance1'|translate}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{'Disclosure'|translate}}</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="text-decoration:underline;vertical-align: top;"><b>{{'LegalDisclosures'|translate}}</b></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="text-decoration:underline;vertical-align: top;">
+                                    {{'Usesmall'|translate}}<br />
+                                    <b>{{'use1'|translate}}</b><br />
+                                    <b>{{'use2'|translate}}</b><br />
+                                </td>
+                                <td>{{'use3'|translate}} <a href="mailto:support@precisionsample.zendesk.com">support@precisionsample.zendesk.com</a>.</td>
+                            </tr>
+                        </table><br />
+                        <b>C.&nbsp;&nbsp;{{'Yourrights'|translate}}</b>
+                    <p>{{'rights2'|translate}}</p> 
+                    <p>
+                        <ul>
+                            <li>
+                                <b>{{'Optout2'|translate}}</b>{{'stop'|translate}}
+                            </li>
+                        </ul>
+                    </p>
+                    <p><ul><li><b>{{'Access'|translate}}</b>{{'Access1'|translate}}</li></ul></p>
+                    <p><ul><li><b>{{'Correct'|translate}}</b>{{'Correct1'|translate}}</li></ul></p>
+                    <p><ul><li><b>{{'Delete'|translate}}</b>{{'Delete1'|translate}} (<b>{{'note12'|translate}}</b>{{'Delete2'|translate}} .</li></ul></p>
+                    <p><ul><li><b>{{'Export'|translate}}</b>{{'Export1'|translate}}</li></ul></p>
+                    <p><ul><li><b>{{'Restrict'|translate}}</b>{{'Restrict1'|translate}}</li></ul></p>
+                    <p><ul><li><b>{{'Object'|translate}}</b>{{'Object1'|translate}}</li></ul></p>
+                    <p><ul><li><b>{{'ContactRegulator'|translate}}</b>{{'ContactRegulator1'|translate}}</li></ul></p>
+                    <p>{{'email'|translate}} <a href="mailto:support@precisionsample.zendesk.com">support@precisionsample.zendesk.com</a> {{'email1'|translate}}</p>
+                    <br />
+                    <b>D.&nbsp;&nbsp;{{'CrossBorderDataTransfer'|translate}}</b>
+                    <br />
+                    <p>{{'legislation'|translate}}</p>
+                    <p><ul><li>{{'countries'|translate}}</li></ul></p>
+                    <p><ul><li>{{'ShieldFramework'|translate}}</li></ul></p>
+                    <p>{{'contact'|translate}}</p>
+                    <b>E.&nbsp;&nbsp;{{'EUUS'|translate}}</b>
+                    <p>{{'EUUS1'|translate}}<a href="https://www.privacyshield.gov/."></a>https://www.privacyshield.gov/.</p>
+                    <p>{{'EUUS2'|translate}}</p>
+                    <p> {{'EUUS3'|translate}}<a href="#" onclick="window.open('https://www.aboutads.info/choices', 'About Ads', 'height=600,width=600,scrollbars=yes'); return false" style="color: Blue; text-decoration: underline;">http://www.insightsassociation.org/get-support/privacy-shield-program/privacy-shield-eu-swiss-citizens-file-complaint</a>{{'EUUS4'|translate}} </p>
+                    <p>{{'EUUS5'|translate}}</p>
+                    <p>
+                         {{'EUUS6'|translate}}<a href="#" onclick="window.open( 'https://www.privacyshield.gov/list', 'Shield Companies','height=600,width=600,scrollbars=yes' ); return false" style="color: Blue; text-decoration: underline;">{{'here'|translate}}</a>
+                    </p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>14.&nbsp;&nbsp;{{'ChangestothePrivacyPolicy'|translate}}</b>
+                    <br />
+                    <p>{{'policy'|translate}}</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>15.&nbsp;&nbsp;{{'ContactUs'|translate}}</b>
+                    <p>{{'ContactUs1'|translate}}<a href="mailto:support@precisionsample.zendesk.com">support@precisionsample.zendesk.com</a>{{'ContactUs2'|translate}}</p>
+                    <p>
+                        Reach Collective.<br />
+                        3461 Ringsby Ct.<br />
+                        Suite 240<br />
+                        Denver, CO 80216<br />
+                        Ph:720-360-4230<br />
+                        {{'address'|translate}}
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/services/footerTranslation.js" type="text/javascript"></script>
+    <script src="~/Scripts/main/footer/tc.js" type="text/javascript"></script>
+</body>

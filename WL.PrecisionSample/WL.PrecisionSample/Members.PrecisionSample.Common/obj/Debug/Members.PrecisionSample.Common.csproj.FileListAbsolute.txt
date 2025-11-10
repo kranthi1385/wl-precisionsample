@@ -1,5 +1,0 @@
-D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Common\bin\Debug\Members.PrecisionSample.Common.dll
-D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Common\bin\Debug\Members.PrecisionSample.Common.pdb
-D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Common\obj\Debug\Members.PrecisionSample.Common.csprojResolveAssemblyReference.cache
-D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Common\obj\Debug\Members.PrecisionSample.Common.dll
-D:\Projects\SDL OffShore Devlopment and Support\SDL_Prod\PS2.0 WLSites\WL.PrecisionSample\Members.PrecisionSample.Common\obj\Debug\Members.PrecisionSample.Common.pdb
