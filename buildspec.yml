@@ -3,19 +3,24 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing NuGet...
+      - echo Installing NuGet and restoring packages...
       - nuget restore WL.PrecisionSample.sln
+
   build:
     commands:
+      - echo Building Members.PrecisionSample.Web...
       - msbuild Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj /p:Configuration=Release
+      - echo Building Members.NewOpinionBar.Web...
       - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /p:Configuration=Release
+      - echo Building Members.OpinionBar.Web...
       - msbuild Members.OpinionBar.Web\Members.OpinionBar.Web.csproj /p:Configuration=Release
 
 artifacts:
   files:
     - '**/*'
+
   discard-paths: yes
-  name: MainArtifact
+  base-directory: '.'
 
   secondary-artifacts:
     PrecisionSampleWeb:
@@ -23,18 +28,18 @@ artifacts:
         - '**/*'
       base-directory: 'Members.PrecisionSample.Web/bin/Release'
       discard-paths: yes
-      name: PrecisionSampleWebArtifact
+      name: PrecisionSampleWeb-artifact
 
     NewOpinionBarWeb:
       files:
         - '**/*'
       base-directory: 'Members.NewOpinionBar.Web/bin/Release'
       discard-paths: yes
-      name: NewOpinionBarWebArtifact
+      name: NewOpinionBarWeb-artifact
 
     OpinionBarWeb:
       files:
         - '**/*'
       base-directory: 'Members.OpinionBar.Web/bin/Release'
       discard-paths: yes
-      name: OpinionBarWebArtifact
+      name: OpinionBarWeb-artifact
