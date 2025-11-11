@@ -3,27 +3,29 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing NuGet...
+      - echo Restoring NuGet packages...
+      - nuget restore WL.PrecisionSample.sln
+
   build:
     commands:
-      - nuget restore WL.PrecisionSample.sln
-      - msbuild Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj /p:Configuration=Release
-      - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /p:Configuration=Release
-      - msbuild Members.OpinionBar.Web\Members.OpinionBar.Web.csproj /p:Configuration=Release
+      - echo Building Members.PrecisionSample.Web...
+      - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj /p:Configuration=Release'
+      - echo Building Members.NewOpinionBar.Web...
+      - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /p:Configuration=Release'
+      - echo Building Members.OpinionBar.Web...
+      - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" Members.OpinionBar.Web\Members.OpinionBar.Web.csproj /p:Configuration=Release'
+
 artifacts:
-  files:
-    - '**/*'
-  discard-paths: yes
   secondary-artifacts:
     PrecisionSampleWeb:
+      base-directory: 'Members.PrecisionSample.Web\bin\Release'
       files:
         - '**/*'
-      base-directory: 'Members.PrecisionSample.Web/bin/Release'
     NewOpinionBarWeb:
+      base-directory: 'Members.NewOpinionBar.Web\bin\Release'
       files:
         - '**/*'
-      base-directory: 'Members.NewOpinionBar.Web/bin/Release'
     OpinionBarWeb:
+      base-directory: 'Members.OpinionBar.Web\bin\Release'
       files:
         - '**/*'
-      base-directory: 'Members.OpinionBar.Web/bin/Release'
