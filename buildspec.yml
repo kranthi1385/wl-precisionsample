@@ -15,23 +15,26 @@ artifacts:
   files:
     - '**/*'
   discard-paths: yes
-  name: main-artifact
+  name: MainArtifact
+
   secondary-artifacts:
     PrecisionSampleWeb:
       files:
         - '**/*'
       base-directory: 'Members.PrecisionSample.Web/bin/Release'
       discard-paths: yes
-      name: PrecisionSampleWeb-artifact
+      name: PrecisionSampleWebArtifact
+
     NewOpinionBarWeb:
       files:
         - '**/*'
       base-directory: 'Members.NewOpinionBar.Web/bin/Release'
       discard-paths: yes
-      name: NewOpinionBarWeb-artifact
+      name: NewOpinionBarWebArtifact
+
     OpinionBarWeb:
       files:
         - '**/*'
       base-directory: 'Members.OpinionBar.Web/bin/Release'
       discard-paths: yes
-      name: OpinionBarWeb-artifact
+      name: OpinionBarWebArtifact
