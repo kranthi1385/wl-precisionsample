@@ -3,18 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing Visual Studio 2022 Build Tools (Web workload)...
+      - echo "Installing Visual Studio 2022 Build Tools (Web workload)..."
       - choco install visualstudio2022buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.WebBuildTools --includeRecommended --includeOptional --quiet --norestart" -y
-      - echo Restoring NuGet packages...
+      - echo "Restoring NuGet packages..."
       - nuget restore WL.PrecisionSample.sln
 
   build:
     commands:
-      - echo Building Members.PrecisionSample.Web...
+      - echo "Building Members.PrecisionSample.Web..."
       - '& "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj" /p:Configuration=Release'
-      - echo Building Members.NewOpinionBar.Web...
+      - echo "Building Members.NewOpinionBar.Web..."
       - '& "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj" /p:Configuration=Release'
-      - echo Building Members.OpinionBar.Web...
+      - echo "Building Members.OpinionBar.Web..."
       - '& "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.OpinionBar.Web\Members.OpinionBar.Web.csproj" /p:Configuration=Release'
 
 artifacts:
