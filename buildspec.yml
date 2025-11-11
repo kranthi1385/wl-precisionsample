@@ -3,35 +3,35 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo "Installing Visual Studio 2022 Build Tools (Web workload)..."
-      - choco install visualstudio2022buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.WebBuildTools --includeRecommended --includeOptional --quiet --norestart" -y
-      - echo "Restoring NuGet packages..."
+      - echo Installing NuGet...
       - nuget restore WL.PrecisionSample.sln
-
   build:
     commands:
-      - echo "Building Members.PrecisionSample.Web..."
-      - '& "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj" /p:Configuration=Release'
-      - echo "Building Members.NewOpinionBar.Web..."
-      - '& "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj" /p:Configuration=Release'
-      - echo "Building Members.OpinionBar.Web..."
-      - '& "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.OpinionBar.Web\Members.OpinionBar.Web.csproj" /p:Configuration=Release'
+      - msbuild Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj /p:Configuration=Release
+      - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /p:Configuration=Release
+      - msbuild Members.OpinionBar.Web\Members.OpinionBar.Web.csproj /p:Configuration=Release
 
 artifacts:
   files:
     - '**/*'
   discard-paths: yes
-
+  name: main-artifact
   secondary-artifacts:
     PrecisionSampleWeb:
-      base-directory: 'Members.PrecisionSample.Web\bin\Release'
       files:
         - '**/*'
+      base-directory: 'Members.PrecisionSample.Web/bin/Release'
+      discard-paths: yes
+      name: PrecisionSampleWeb-artifact
     NewOpinionBarWeb:
-      base-directory: 'Members.NewOpinionBar.Web\bin\Release'
       files:
         - '**/*'
+      base-directory: 'Members.NewOpinionBar.Web/bin/Release'
+      discard-paths: yes
+      name: NewOpinionBarWeb-artifact
     OpinionBarWeb:
-      base-directory: 'Members.OpinionBar.Web\bin\Release'
       files:
         - '**/*'
+      base-directory: 'Members.OpinionBar.Web/bin/Release'
+      discard-paths: yes
+      name: OpinionBarWeb-artifact
