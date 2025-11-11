@@ -7,9 +7,23 @@ phases:
   build:
     commands:
       - nuget restore WL.PrecisionSample.sln
-      - msbuild WL.PrecisionSample.sln /p:Configuration=Release
+      - msbuild Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj /p:Configuration=Release
+      - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /p:Configuration=Release
+      - msbuild Members.OpinionBar.Web\Members.OpinionBar.Web.csproj /p:Configuration=Release
 artifacts:
   files:
-    - '**/bin/Release/**/*'
+    - '**/*'
   discard-paths: yes
-  base-directory: '.'
+  secondary-artifacts:
+    PrecisionSampleWeb:
+      files:
+        - '**/*'
+      base-directory: 'Members.PrecisionSample.Web/bin/Release'
+    NewOpinionBarWeb:
+      files:
+        - '**/*'
+      base-directory: 'Members.NewOpinionBar.Web/bin/Release'
+    OpinionBarWeb:
+      files:
+        - '**/*'
+      base-directory: 'Members.OpinionBar.Web/bin/Release'
