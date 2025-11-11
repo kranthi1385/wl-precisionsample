@@ -3,21 +3,19 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Downloading Visual Studio Build Tools installer...
-      - powershell -Command "Invoke-WebRequest -Uri 'https://aka.ms/vs/16/release/vs_buildtools.exe' -OutFile 'vs_buildtools.exe'"
-      - echo Installing Web Build Tools workload...
-      - powershell -Command "Start-Process -FilePath 'vs_buildtools.exe' -ArgumentList '--quiet','--norestart','--wait','--nocache','--add','Microsoft.VisualStudio.Workload.WebBuildTools','--includeRecommended','--includeOptional' -Wait"
+      - echo Installing Visual Studio 2022 Build Tools (Web workload)...
+      - choco install visualstudio2022buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.WebBuildTools --includeRecommended --includeOptional --quiet --norestart" -y
       - echo Restoring NuGet packages...
       - nuget restore WL.PrecisionSample.sln
 
   build:
     commands:
       - echo Building Members.PrecisionSample.Web...
-      - '& "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj" /p:Configuration=Release'
+      - '& "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj" /p:Configuration=Release'
       - echo Building Members.NewOpinionBar.Web...
-      - '& "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj" /p:Configuration=Release'
+      - '& "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj" /p:Configuration=Release'
       - echo Building Members.OpinionBar.Web...
-      - '& "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.OpinionBar.Web\Members.OpinionBar.Web.csproj" /p:Configuration=Release'
+      - '& "C:\Program Files\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.OpinionBar.Web\Members.OpinionBar.Web.csproj" /p:Configuration=Release'
 
 artifacts:
   files:
