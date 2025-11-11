@@ -3,6 +3,8 @@ version: 0.2
 phases:
   install:
     commands:
+      - echo Installing missing WebApplication targets...
+      - choco install microsoft-visualstudio2019-buildtools --package-parameters "--add Microsoft.VisualStudio.Workload.WebBuildTools --includeRecommended --includeOptional --quiet --norestart" -y
       - echo Restoring NuGet packages...
       - nuget restore WL.PrecisionSample.sln
 
@@ -17,7 +19,7 @@ phases:
 
 artifacts:
   files:
-    - README.md  # required primary artifact
+    - '**/*'
   discard-paths: yes
 
   secondary-artifacts:
