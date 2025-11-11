@@ -9,13 +9,17 @@ phases:
   build:
     commands:
       - echo Building Members.PrecisionSample.Web...
-      - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj /p:Configuration=Release'
+      - '& "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj" /p:Configuration=Release'
       - echo Building Members.NewOpinionBar.Web...
-      - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /p:Configuration=Release'
+      - '& "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj" /p:Configuration=Release'
       - echo Building Members.OpinionBar.Web...
-      - '"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" Members.OpinionBar.Web\Members.OpinionBar.Web.csproj /p:Configuration=Release'
+      - '& "C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\MSBuild\Current\Bin\MSBuild.exe" "Members.OpinionBar.Web\Members.OpinionBar.Web.csproj" /p:Configuration=Release'
 
 artifacts:
+  files:
+    - README.md  # required primary artifact
+  discard-paths: yes
+
   secondary-artifacts:
     PrecisionSampleWeb:
       base-directory: 'Members.PrecisionSample.Web\bin\Release'
