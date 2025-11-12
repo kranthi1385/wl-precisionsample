@@ -13,23 +13,23 @@ phases:
   pre_build:
     commands:
       - echo "====================================================="
-      - echo "PRE-BUILD PHASE - Preparing artifact folder"
+      - echo "PRE-BUILD PHASE - Creating artifact folder"
       - echo "====================================================="
-      - powershell -Command "if (Test-Path 'C:\codebuild\artifacts') { Remove-Item -Recurse -Force C:\codebuild\artifacts }; New-Item -ItemType Directory -Path C:\codebuild\artifacts"
+      - mkdir C:\codebuild\artifacts
 
   build:
     commands:
       - echo "====================================================="
       - echo "BUILD PHASE - Compiling and publishing web project"
       - echo "====================================================="
-      - msbuild "Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj" ^
-          /p:DeployOnBuild=true ^
-          /p:WebPublishMethod=FileSystem ^
-          /p:Configuration=Release ^
-          /p:SkipInvalidConfigurations=true ^
-          /p:DeleteExistingFiles=True ^
-          /p:publishUrl="C:\codebuild\artifacts" ^
-          /p:DeployDefaultTarget=WebPublish ^
+      - msbuild "Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj" `
+          /p:DeployOnBuild=true `
+          /p:WebPublishMethod=FileSystem `
+          /p:Configuration=Release `
+          /p:SkipInvalidConfigurations=true `
+          /p:DeleteExistingFiles=True `
+          /p:publishUrl="C:\codebuild\artifacts" `
+          /p:DeployDefaultTarget=WebPublish `
           /verbosity:minimal
       - echo "====================================================="
       - echo "BUILD COMPLETE - Listing generated files"
@@ -39,15 +39,13 @@ phases:
   post_build:
     commands:
       - echo "====================================================="
-      - echo "POST-BUILD PHASE - Packaging and uploading artifact"
+      - echo "POST-BUILD PHASE - Running tests if available"
       - echo "====================================================="
-      # Compress the artifact folder into a zip file named after your project
-      - powershell -Command "Compress-Archive -Path 'C:\codebuild\artifacts\*' -DestinationPath 'C:\codebuild\wl-precisionsample-artifact.zip' -Force"
-      # Upload to S3 (replace BUCKET_NAME with your actual artifact bucket)
-      - aws s3 cp C:\codebuild\wl-precisionsample-artifact.zip s3://artifacts-bucket-name/wl-precisionsample/
+      - powershell -Command "if (Test-Path '**\bin\Release\*.Tests.dll') { vstest.console.exe '**\bin\Release\*.Tests.dll' --logger:trx } else { Write-Host 'No test DLLs found. Skipping tests.' }"
       - echo "====================================================="
-      - echo "UPLOAD COMPLETE"
+      - echo "POST-BUILD COMPLETE"
       - echo "====================================================="
 
 artifacts:
-  type: no_artifacts
+ type: no_artifacts
+
