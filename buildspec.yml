@@ -5,12 +5,12 @@ phases:
       - 'choco install nuget.commandline -y' # if choco available
   pre_build:
     commands:
-      - nuget restore PrecisionSample.Services.sln
+      - nuget restore WL.PrecisionSample.sln
   build:
     commands:
-      - msbuild PrecisionSample.Services.sln /p:Configuration=Release
+      - msbuild WL.PrecisionSample.sln /p:Configuration=Release
       - msbuild /t:Restore
-      - msbuild PrecisionSample.Services.csproj /p:Configuration=Release /p:OutputPath=C:\temp\publish
+      - msbuild Members.OpinionBar.Web.csproj /p:Configuration=Release /p:OutputPath=C:\temp\publish
   post_build:
     commands:
       - powershell -Command "Compress-Archive -Path C:\temp\publish\* -DestinationPath C:\tmp\app-artifact.zip"
