@@ -36,8 +36,7 @@ phases:
 
 artifacts:
   files:
-    - artifacts/**
-    - appspec.yml
+- '**/bin/Release/**/*'
   discard-paths: yes
   base-directory: '.'
-  name: NewOpinionBarWeb-artifact
+ 
