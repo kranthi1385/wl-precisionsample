@@ -5,39 +5,56 @@ phases:
     runtime-versions:
       dotnet: 4.8
     commands:
-      - echo Installing NuGet and restoring packages...
+      - echo =====================================================
+      - echo INSTALL PHASE - Restoring NuGet packages
+      - echo =====================================================
       - nuget restore WL.PrecisionSample.sln
+
+  pre_build:
+    commands:
+      - echo =====================================================
+      - echo PRE-BUILD PHASE - Creating artifact folder
+      - echo =====================================================
+      - mkdir C:\codebuild\artifacts
 
   build:
     commands:
-      - echo Creating artifacts folder...
-      - mkdir artifacts
-      - echo Building and publishing Members.NewOpinionBar.Web...
+      - echo =====================================================
+      - echo BUILD PHASE - Compiling and publishing web project
+      - echo =====================================================
       - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj `
           /p:DeployOnBuild=true `
           /p:WebPublishMethod=FileSystem `
           /p:Configuration=Release `
           /p:SkipInvalidConfigurations=true `
           /p:DeleteExistingFiles=True `
-          /p:publishUrl="artifacts" `
-          /p:DeployDefaultTarget=WebPublish
-      - echo Build completed. Listing artifacts...
-      - dir artifacts
+          /p:publishUrl="C:\codebuild\artifacts" `
+          /p:DeployDefaultTarget=WebPublish `
+          /verbosity:minimal
+      - echo =====================================================
+      - echo BUILD COMPLETE - Listing generated files
+      - echo =====================================================
+      - dir C:\codebuild\artifacts
 
   post_build:
     commands:
-      - echo Checking for test DLLs...
+      - echo =====================================================
+      - echo POST-BUILD PHASE - Running tests (if available)
+      - echo =====================================================
       - |
         if (Test-Path "**\bin\Release\*.Tests.dll") {
           vstest.console.exe "**\bin\Release\*.Tests.dll" --logger:trx
         } else {
           echo "No test DLLs found. Skipping tests."
         }
+      - echo =====================================================
+      - echo POST-BUILD COMPLETE
+      - echo =====================================================
 
 artifacts:
   files:
-    - artifacts/**
+    - '**/*'
     - appspec.yml
   discard-paths: yes
-  base-directory: 'artifacts'
+  base-directory: 'C:\codebuild\artifacts'
   name: NewOpinionBarWeb-artifact
