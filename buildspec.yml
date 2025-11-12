@@ -1,20 +1,19 @@
 version: 0.2
-
 phases:
   install:
     commands:
-      - echo Installing NuGet...
+      - 'choco install nuget.commandline -y' # if choco available
+  pre_build:
+    commands:
+      - nuget restore PrecisionSample.Services.sln
   build:
     commands:
-      - nuget restore WL.PrecisionSample.sln
-      - msbuild Members.PrecisionSample.Web\Members.PrecisionSample.Web.csproj /p:Configuration=Release
-
+      - msbuild PrecisionSample.Services.sln /p:Configuration=Release
+      - msbuild /t:Restore
+      - msbuild PrecisionSample.Services.csproj /p:Configuration=Release /p:OutputPath=C:\temp\publish
+  post_build:
+    commands:
+      - powershell -Command "Compress-Archive -Path C:\temp\publish\* -DestinationPath C:\tmp\app-artifact.zip"
 artifacts:
   files:
-    - '**/*'
-  discard-paths: yes
-  secondary-artifacts:
-    PrecisionSampleWeb:
-      files:
-        - '**/*'
-      base-directory: '.'
+    - C:\tmp\app-artifact.zip
