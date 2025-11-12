@@ -896,7 +896,6 @@
     <Content Include="Views\Home\Account.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\DownLine.cshtml" />
-    <Content Include="Views\Account\EmailExpire.cshtml" />
     <Content Include="Views\Home\ForgotPsd.cshtml" />
     <Content Include="Views\Home\ForgotPwd.cshtml" />
     <Content Include="Views\Home\HelpDesk.cshtml" />
