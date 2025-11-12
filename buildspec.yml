@@ -1,41 +1,27 @@
 version: 0.2
 
-env:
-  variables:
-    SOLUTION_NAME: Members.PrecisionSample.sln
-    PROJECT_PATH: "src\\Members.PrecisionSample.Common\\Members.PrecisionSample.Common.csproj"
-    CONFIGURATION: Release
-    FRAMEWORK_PATH: "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319"
-    PUBLISH_DIR: "C:\\temp\\publish"
-    ARTIFACT_DIR: "C:\\tmp"
-    ARTIFACT_PATH: "C:\\tmp\\app-artifact.zip"
-
 phases:
   install:
+    runtime-versions:
+      dotnet: 4.8
     commands:
-      - echo "Installing NuGet CLI"
-      - choco install nuget.commandline -y
-
-  pre_build:
-    commands:
-      - echo "Restoring NuGet packages"
-      - nuget restore %SOLUTION_NAME%
+      - echo Installing NuGet and restoring packages...
+      - nuget restore WL.PrecisionSample.sln
 
   build:
     commands:
-      - echo "Building solution and project"
-      - if not exist "%PUBLISH_DIR%" mkdir "%PUBLISH_DIR%"
-      - "%FRAMEWORK_PATH%\\MSBuild.exe" "%SOLUTION_NAME%" /p:Configuration=%CONFIGURATION%
-      - "%FRAMEWORK_PATH%\\MSBuild.exe" "%PROJECT_PATH%" /p:Configuration=%CONFIGURATION% /p:OutputPath=%PUBLISH_DIR%
+      - echo Building Members.NewOpinionBar.Web...
+      - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:Configuration=Release /p:SkipInvalidConfigurations=true /p:DeleteExistingFiles=True /p:publishUrl="artifacts" /p:DeployDefaultTarget=WebPublish
 
   post_build:
     commands:
-      - echo "Packaging output"
-      - if not exist "%ARTIFACT_DIR%" mkdir "%ARTIFACT_DIR%"
-      - powershell -Command "Compress-Archive -Path '%PUBLISH_DIR%\\*' -DestinationPath '%ARTIFACT_PATH%' -Force"
+      - echo Running Tests...
+      - vstest.console.exe "**\Release\*test*.dll" --logger:trx
 
 artifacts:
   files:
-    - '**/*.zip'
-  base-directory: 'C:\tmp'
+    - artifacts/**
+    - appspec.yml
   discard-paths: yes
+  base-directory: 'Members.NewOpinionBar.Web/bin/Release/net48'
+  name: NewOpinionBarWeb-artifact
