@@ -17,5 +17,5 @@ artifacts:
   files:
     - '**/*'
   discard-paths: yes
-  base-directory: 'Members.NewOpinionBar.Web/bin/Release'
+  base-directory: '.'
   name: NewOpinionBarWeb-artifact
