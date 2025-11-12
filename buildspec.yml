@@ -22,14 +22,14 @@ phases:
       - echo =====================================================
       - echo BUILD PHASE - Compiling and publishing web project
       - echo =====================================================
-      - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj `
-          /p:DeployOnBuild=true `
-          /p:WebPublishMethod=FileSystem `
-          /p:Configuration=Release `
-          /p:SkipInvalidConfigurations=true `
-          /p:DeleteExistingFiles=True `
-          /p:publishUrl="C:\codebuild\artifacts" `
-          /p:DeployDefaultTarget=WebPublish `
+      - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj ^
+          /p:DeployOnBuild=true ^
+          /p:WebPublishMethod=FileSystem ^
+          /p:Configuration=Release ^
+          /p:SkipInvalidConfigurations=true ^
+          /p:DeleteExistingFiles=True ^
+          /p:publishUrl="C:\codebuild\artifacts" ^
+          /p:DeployDefaultTarget=WebPublish ^
           /verbosity:minimal
       - echo =====================================================
       - echo BUILD COMPLETE - Listing generated files
@@ -41,12 +41,7 @@ phases:
       - echo =====================================================
       - echo POST-BUILD PHASE - Running tests (if available)
       - echo =====================================================
-      - |
-        if (Test-Path "**\bin\Release\*.Tests.dll") {
-          vstest.console.exe "**\bin\Release\*.Tests.dll" --logger:trx
-        } else {
-          echo "No test DLLs found. Skipping tests."
-        }
+      - powershell -Command "if (Test-Path '**\bin\Release\*.Tests.dll') { vstest.console.exe '**\bin\Release\*.Tests.dll' --logger:trx } else { Write-Host 'No test DLLs found. Skipping tests.' }"
       - echo =====================================================
       - echo POST-BUILD COMPLETE
       - echo =====================================================
