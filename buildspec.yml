@@ -8,30 +8,12 @@ phases:
 
   build:
     commands:
-
       - echo Building Members.NewOpinionBar.Web...
       - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /p:Configuration=Release
-      - echo Building Members.OpinionBar.Web...
-      - msbuild Members.OpinionBar.Web\Members.OpinionBar.Web.csproj /p:Configuration=Release
 
 artifacts:
   files:
     - '**/*'
-
   discard-paths: yes
-  base-directory: '.'
-
-  secondary-artifacts:
-    NewOpinionBarWeb:
-      files:
-        - '**/*'
-      base-directory: 'Members.NewOpinionBar.Web/bin/Release'
-      discard-paths: yes
-      name: NewOpinionBarWeb-artifact
-
-    OpinionBarWeb:
-      files:
-        - '**/*'
-      base-directory: 'Members.OpinionBar.Web/bin/Release'
-      discard-paths: yes
-      name: OpinionBarWeb-artifact
+  base-directory: 'Members.NewOpinionBar.Web/bin/Release'
+  name: NewOpinionBarWeb-artifact
