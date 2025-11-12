@@ -47,5 +47,10 @@ phases:
       - echo "====================================================="
 
 artifacts:
- type: no_artifacts
+  files:
+    - '**/*'
+    - appspec.yml
+  discard-paths: yes
+  base-directory: 'C:\codebuild\artifacts'
+  name: !Sub '${CODEBUILD_PROJECT_NAME}-artifact'
 
