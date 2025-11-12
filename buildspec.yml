@@ -23,7 +23,7 @@ phases:
 
   build:
     commands:
-      - echo "=== BUILD: Compiling solution and project==="
+      - echo "=== BUILD: Compiling solution and project ==="
       - if not exist "%PUBLISH_DIR%" mkdir "%PUBLISH_DIR%"
       - echo "Building entire solution..."
       - "%FRAMEWORK_PATH%\\MSBuild.exe" "%SOLUTION_NAME%" /p:Configuration=%CONFIGURATION%
