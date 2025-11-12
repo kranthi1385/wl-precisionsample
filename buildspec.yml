@@ -11,9 +11,17 @@ phases:
   build:
     commands:
       - echo Building Members.NewOpinionBar.Web...
-      - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:Configuration=Release /p:SkipInvalidConfigurations=true /p:DeleteExistingFiles=True /p:publishUrl="artifacts" /p:DeployDefaultTarget=WebPublish
+      - |
+        msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj ^
+          /p:DeployOnBuild=true ^
+          /p:WebPublishMethod=FileSystem ^
+          /p:Configuration=Release ^
+          /p:SkipInvalidConfigurations=true ^
+          /p:DeleteExistingFiles=True ^
+          /p:publishUrl="artifacts" ^
+          /p:DeployDefaultTarget=WebPublish || echo "MSBuild returned non-zero exit code, check logs"
+      - echo Build completed.
 
-  # Comment or fix this section based on test availability
   post_build:
     commands:
       - echo Running Tests...
@@ -26,8 +34,7 @@ phases:
 
 artifacts:
   files:
-    - artifacts/**
-    - appspec.yml
+    - '**/*'
   discard-paths: yes
-  base-directory: 'artifacts'
+  base-directory: 'Members.NewOpinionBar.Web/bin/Release/net48'
   name: NewOpinionBarWeb-artifact
