@@ -3,17 +3,19 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing NuGet and restoring packages...
+      - echo "Installing NuGet and restoring packages..."
       - nuget restore WL.PrecisionSample.sln
 
   build:
     commands:
-      - echo Building Members.NewOpinionBar.Web...
+      - echo "Cleaning previous build output..."
+      - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /t:Clean
+      - echo "Building Members.NewOpinionBar.Web project..."
       - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /p:Configuration=Release
 
 artifacts:
   files:
     - '**/*'
   discard-paths: yes
-  base-directory: 'Members.NewOpinionBar.Web/bin/Release/net48'
+  base-directory: 'Members.NewOpinionBar.Web/bin/Release'
   name: NewOpinionBarWeb-artifact
