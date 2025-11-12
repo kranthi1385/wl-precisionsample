@@ -52,4 +52,5 @@ artifacts:
     - appspec.yml
   discard-paths: yes
   base-directory: 'C:\codebuild\artifacts'
-  name: NewOpinionBarWeb-artifact
+  name: !Sub '${CODEBUILD_PROJECT_NAME}-artifact'
+
