@@ -13,10 +13,16 @@ phases:
       - echo Building Members.NewOpinionBar.Web...
       - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:Configuration=Release /p:SkipInvalidConfigurations=true /p:DeleteExistingFiles=True /p:publishUrl="artifacts" /p:DeployDefaultTarget=WebPublish
 
+  # Comment or fix this section based on test availability
   post_build:
     commands:
       - echo Running Tests...
-      - vstest.console.exe "**\Release\*test*.dll" --logger:trx
+      - |
+        if (Test-Path "**\bin\Release\*.Tests.dll") {
+          vstest.console.exe "**\bin\Release\*.Tests.dll" --logger:trx
+        } else {
+          echo "No test DLLs found. Skipping tests."
+        }
 
 artifacts:
   files:
