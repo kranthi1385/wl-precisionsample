@@ -10,7 +10,9 @@ phases:
 
   build:
     commands:
-      - echo Building Members.NewOpinionBar.Web...
+      - echo Creating artifacts folder...
+      - mkdir artifacts
+      - echo Building and publishing Members.NewOpinionBar.Web...
       - msbuild Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj `
           /p:DeployOnBuild=true `
           /p:WebPublishMethod=FileSystem `
@@ -19,10 +21,11 @@ phases:
           /p:DeleteExistingFiles=True `
           /p:publishUrl="artifacts" `
           /p:DeployDefaultTarget=WebPublish
+      - echo Build completed. Listing artifacts...
+      - dir artifacts
 
   post_build:
     commands:
-      - echo Build completed successfully.
       - echo Checking for test DLLs...
       - |
         if (Test-Path "**\bin\Release\*.Tests.dll") {
