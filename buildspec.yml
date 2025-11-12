@@ -1,19 +1,43 @@
 version: 0.2
+
+env:
+  variables:
+    SOLUTION_NAME: Members.PrecisionSample.sln
+    PROJECT_PATH: "src\\Members.PrecisionSample.Common\\Members.PrecisionSample.Common.csproj"
+    CONFIGURATION: Release
+    FRAMEWORK_PATH: "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319"
+    PUBLISH_DIR: "C:\\temp\\publish"
+    ARTIFACT_DIR: "C:\\tmp"
+    ARTIFACT_PATH: "C:\\tmp\\app-artifact.zip"
+
 phases:
   install:
     commands:
-      - 'choco install nuget.commandline -y' # if choco available
+      - echo "=== INSTALL: Installing NuGet CLI ==="
+      - choco install nuget.commandline -y
+
   pre_build:
     commands:
-      - nuget restore WL.PrecisionSample.sln
+      - echo "=== PRE-BUILD: Restoring NuGet packages ==="
+      - nuget restore %SOLUTION_NAME%
+
   build:
     commands:
-      - msbuild WL.PrecisionSample.sln /p:Configuration=Release
-      - msbuild /t:Restore
-      - msbuild Members.PrecisionSample.Common.csproj /p:Configuration=Release /p:OutputPath=C:\temp\publish
+      - echo "=== BUILD: Compiling solution and project ==="
+      - if not exist "%PUBLISH_DIR%" mkdir "%PUBLISH_DIR%"
+      - "%FRAMEWORK_PATH%\\MSBuild.exe" "%SOLUTION_NAME%" /p:Configuration=%CONFIGURATION%
+      - echo "Building project: %PROJECT_PATH%"
+      - "%FRAMEWORK_PATH%\\MSBuild.exe" "%PROJECT_PATH%" /p:Configuration=%CONFIGURATION% /p:OutputPath=%PUBLISH_DIR%
+
   post_build:
     commands:
-      - powershell -Command "Compress-Archive -Path C:\temp\publish\* -DestinationPath C:\tmp\app-artifact.zip"
+      - echo "=== POST-BUILD: Packaging build output ==="
+      - if not exist "%ARTIFACT_DIR%" mkdir "%ARTIFACT_DIR%"
+      - powershell -Command "if (Test-Path '%PUBLISH_DIR%') { Compress-Archive -Path '%PUBLISH_DIR%\\*' -DestinationPath '%ARTIFACT_PATH%' -Force } else { Write-Host 'No publish directory found, skipping packaging.' }"
+      - echo "Packaging completed."
+
 artifacts:
   files:
-    - C:\tmp\app-artifact.zip
+    - '**/*.zip'
+  base-directory: 'C:\tmp'
+  discard-paths: yes
