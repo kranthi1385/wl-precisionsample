@@ -39,5 +39,5 @@ artifacts:
     - artifacts/**
     - appspec.yml
   discard-paths: yes
-  base-directory: 'artifacts'
+  base-directory: '.'
   name: NewOpinionBarWeb-artifact
