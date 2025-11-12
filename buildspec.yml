@@ -23,5 +23,5 @@ artifacts:
     - artifacts/**
     - appspec.yml
   discard-paths: yes
-  base-directory: 'Members.NewOpinionBar.Web/bin/Release/net48'
+  base-directory: 'artifacts'
   name: NewOpinionBarWeb-artifact
