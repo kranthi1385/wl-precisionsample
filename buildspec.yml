@@ -10,7 +10,7 @@ phases:
     commands:
       - msbuild WL.PrecisionSample.sln /p:Configuration=Release
       - msbuild /t:Restore
-      - msbuild Members.OpinionBar.Web.csproj /p:Configuration=Release /p:OutputPath=C:\temp\publish
+      - msbuild Members.PrecisionSample.Common.csproj /p:Configuration=Release /p:OutputPath=C:\temp\publish
   post_build:
     commands:
       - powershell -Command "Compress-Archive -Path C:\temp\publish\* -DestinationPath C:\tmp\app-artifact.zip"
