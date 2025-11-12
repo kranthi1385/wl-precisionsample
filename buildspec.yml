@@ -13,29 +13,26 @@ env:
 phases:
   install:
     commands:
-      - echo "=== INSTALL: Installing NuGet CLI ==="
+      - echo "Installing NuGet CLI"
       - choco install nuget.commandline -y
 
   pre_build:
     commands:
-      - echo "=== PRE-BUILD: Restoring NuGet packages ==="
+      - echo "Restoring NuGet packages"
       - nuget restore %SOLUTION_NAME%
 
   build:
     commands:
-      - echo "=== BUILD: Compiling solution and project ==="
+      - echo "Building solution and project"
       - if not exist "%PUBLISH_DIR%" mkdir "%PUBLISH_DIR%"
-      - echo "Building entire solution..."
       - "%FRAMEWORK_PATH%\\MSBuild.exe" "%SOLUTION_NAME%" /p:Configuration=%CONFIGURATION%
-      - echo "Building project: %PROJECT_PATH%"
       - "%FRAMEWORK_PATH%\\MSBuild.exe" "%PROJECT_PATH%" /p:Configuration=%CONFIGURATION% /p:OutputPath=%PUBLISH_DIR%
 
   post_build:
     commands:
-      - echo "=== POST-BUILD: Packaging build output ==="
+      - echo "Packaging output"
       - if not exist "%ARTIFACT_DIR%" mkdir "%ARTIFACT_DIR%"
-      - powershell -Command "if (Test-Path '%PUBLISH_DIR%') { Compress-Archive -Path '%PUBLISH_DIR%\\*' -DestinationPath '%ARTIFACT_PATH%' -Force } else { Write-Host 'No publish directory found, skipping packaging.' }"
-      - echo "Packaging completed."
+      - powershell -Command "Compress-Archive -Path '%PUBLISH_DIR%\\*' -DestinationPath '%ARTIFACT_PATH%' -Force"
 
 artifacts:
   files:
