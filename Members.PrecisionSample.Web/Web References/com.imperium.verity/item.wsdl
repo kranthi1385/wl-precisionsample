@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="TestVerityPlus9">
+        <s:complexType>
+          <s:sequence />
+        </s:complexType>
+      </s:element>
+      <s:element name="TestVerityPlus9Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestVerityPlus9Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PingVerity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PingVerityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PingVerityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PingVerityPlus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PingVerityPlusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PingVerityPlusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PingVerity6">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PingVerity6Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PingVerity6Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChallengeValidate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ChallengeID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnswerChoice1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnswerChoice2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnswerChoice3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChallengeValidateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChallengeValidateResult" type="tns:ChallengeResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDataPlus4">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddLine1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddLine2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutputCase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryAC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryVerityPlus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppendFlag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDataPlus4Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateDataPlus4Result" type="tns:ValidationResultsPlus4" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDataPlus7">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddLine1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddLine2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SSN4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutputCase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryVerityPlus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryChallenge" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDataPlus7Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateDataPlus7Result" type="tns:ValidationResultsPlus7" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDataPlus9">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddLine1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddLine2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SSN4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutputCase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryVerityPlus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryChallenge" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDataPlus9Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateDataPlus9Result" type="tns:ValidationResultsPlus9" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDataPlus10">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddLine1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddLine2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SSN4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutputCase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryVerityPlus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryChallenge" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDataPlus10Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateDataPlus10Result" type="tns:ValidationResultsPlus9" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDataPlus11">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddLine1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AddLine2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SSN4" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutputCase" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryVerityPlus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="QueryChallenge" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateDataPlus11Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidateDataPlus11Result" type="tns:ValidationResultsPlus9" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:complexType name="ChallengeResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ChallengeID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChallengeScore" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ValidationResultsPlus4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MatchResults" type="tns:MRPlus4" />
+          <s:element minOccurs="0" maxOccurs="1" name="Corrections" type="tns:MKPlus4" />
+          <s:element minOccurs="0" maxOccurs="1" name="Enhanced" type="tns:EnhancedData4" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressCorrection" type="tns:AddressCorrectionData4" />
+          <s:element minOccurs="0" maxOccurs="1" name="Appended" type="tns:AppendedData4" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageCodes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Score" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AppendFlag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ValidationResultsPlus7">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MatchResults" type="tns:MRPlus7" />
+          <s:element minOccurs="0" maxOccurs="1" name="Corrections" type="tns:MKPlus7" />
+          <s:element minOccurs="0" maxOccurs="1" name="Enhanced" type="tns:EnhancedData7" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressCorrection" type="tns:AddressCorrectionData7" />
+          <s:element minOccurs="0" maxOccurs="1" name="Challenge" type="tns:ChallengeData7" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageCodes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSN4ProcessError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Score" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UDF1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UDF2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UDF3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ValidationResultsPlus9">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MatchResults" type="tns:MRPlus9" />
+          <s:element minOccurs="0" maxOccurs="1" name="Corrections" type="tns:MKPlus9" />
+          <s:element minOccurs="0" maxOccurs="1" name="Enhanced" type="tns:EnhancedData9" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressCorrection" type="tns:AddressCorrectionData9" />
+          <s:element minOccurs="0" maxOccurs="1" name="Challenge" type="tns:ChallengeData9" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageCodes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSN4ProcessError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Score" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UDF1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UDF2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UDF3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GeoCorrelationFlag" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMsg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MRPlus4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MKPlus4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EnhancedData4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Age" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Children" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Education" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ethnicity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeMarketValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeOwnerRenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HouseholdIncome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LengthOfResidence" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaritalStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Occupation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PoliticalParty" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AddressCorrectionData4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Primary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Secondary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Building" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddOn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MatchLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DPCheck" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessCodes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AppendedData4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MRPlus7">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSN4" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MKPlus7">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EnhancedData7">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Age" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Children" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Education" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ethnicity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeMarketValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeOwnerRenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HouseholdIncome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LengthOfResidence" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaritalStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Occupation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PoliticalParty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle1Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle1Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle1Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle2Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle2Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle2Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailOrderResponder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkingWoman" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailOrderBuyer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuppressionMailDMA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChildrensAgeRanges" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdultAgeRanges" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailOrderDonor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessOwner" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AddressCorrectionData7">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Primary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Secondary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Building" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddOn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MatchLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DPCheck" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessCodes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ChallengeData7">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ChallengeID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Choices1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Choices2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Choices3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MRPlus9">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSN4" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MKPlus9">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EnhancedData9">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Age" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Children" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Education" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ethnicity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeMarketValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeOwnerRenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HouseholdIncome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LengthOfResidence" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaritalStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Occupation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PoliticalParty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle1Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle1Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle1Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle2Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle2Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vehicle2Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailOrderResponder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkingWoman" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailOrderBuyer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuppressionMailDMA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChildrensAgeRanges" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdultAgeRanges" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailOrderDonor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessOwner" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AddressCorrectionData9">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Primary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Secondary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Building" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddOn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MatchLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DPCheck" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessCodes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ChallengeData9">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ChallengeID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuestionText1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuestionText2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QuestionText3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnswerChoices1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnswerChoices2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnswerChoices3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UDF1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UDF2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TestVerityPlus9SoapIn">
+    <wsdl:part name="parameters" element="tns:TestVerityPlus9" />
+  </wsdl:message>
+  <wsdl:message name="TestVerityPlus9SoapOut">
+    <wsdl:part name="parameters" element="tns:TestVerityPlus9Response" />
+  </wsdl:message>
+  <wsdl:message name="TestVerityPlus9AuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="PingVeritySoapIn">
+    <wsdl:part name="parameters" element="tns:PingVerity" />
+  </wsdl:message>
+  <wsdl:message name="PingVeritySoapOut">
+    <wsdl:part name="parameters" element="tns:PingVerityResponse" />
+  </wsdl:message>
+  <wsdl:message name="PingVerityAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="PingVerityPlusSoapIn">
+    <wsdl:part name="parameters" element="tns:PingVerityPlus" />
+  </wsdl:message>
+  <wsdl:message name="PingVerityPlusSoapOut">
+    <wsdl:part name="parameters" element="tns:PingVerityPlusResponse" />
+  </wsdl:message>
+  <wsdl:message name="PingVerityPlusAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="PingVerity6SoapIn">
+    <wsdl:part name="parameters" element="tns:PingVerity6" />
+  </wsdl:message>
+  <wsdl:message name="PingVerity6SoapOut">
+    <wsdl:part name="parameters" element="tns:PingVerity6Response" />
+  </wsdl:message>
+  <wsdl:message name="PingVerity6AuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ChallengeValidateSoapIn">
+    <wsdl:part name="parameters" element="tns:ChallengeValidate" />
+  </wsdl:message>
+  <wsdl:message name="ChallengeValidateSoapOut">
+    <wsdl:part name="parameters" element="tns:ChallengeValidateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChallengeValidateAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus4SoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateDataPlus4" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus4SoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateDataPlus4Response" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus4AuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus7SoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateDataPlus7" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus7SoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateDataPlus7Response" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus7AuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus9SoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateDataPlus9" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus9SoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateDataPlus9Response" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus9AuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus10SoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateDataPlus10" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus10SoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateDataPlus10Response" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus10AuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus11SoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateDataPlus11" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus11SoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateDataPlus11Response" />
+  </wsdl:message>
+  <wsdl:message name="ValidateDataPlus11AuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="RespSvcSoap">
+    <wsdl:operation name="TestVerityPlus9">
+      <wsdl:input message="tns:TestVerityPlus9SoapIn" />
+      <wsdl:output message="tns:TestVerityPlus9SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PingVerity">
+      <wsdl:input message="tns:PingVeritySoapIn" />
+      <wsdl:output message="tns:PingVeritySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PingVerityPlus">
+      <wsdl:input message="tns:PingVerityPlusSoapIn" />
+      <wsdl:output message="tns:PingVerityPlusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PingVerity6">
+      <wsdl:input message="tns:PingVerity6SoapIn" />
+      <wsdl:output message="tns:PingVerity6SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChallengeValidate">
+      <wsdl:input message="tns:ChallengeValidateSoapIn" />
+      <wsdl:output message="tns:ChallengeValidateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus4">
+      <wsdl:input message="tns:ValidateDataPlus4SoapIn" />
+      <wsdl:output message="tns:ValidateDataPlus4SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus7">
+      <wsdl:input message="tns:ValidateDataPlus7SoapIn" />
+      <wsdl:output message="tns:ValidateDataPlus7SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus9">
+      <wsdl:input message="tns:ValidateDataPlus9SoapIn" />
+      <wsdl:output message="tns:ValidateDataPlus9SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus10">
+      <wsdl:input message="tns:ValidateDataPlus10SoapIn" />
+      <wsdl:output message="tns:ValidateDataPlus10SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus11">
+      <wsdl:input message="tns:ValidateDataPlus11SoapIn" />
+      <wsdl:output message="tns:ValidateDataPlus11SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RespSvcSoap" type="tns:RespSvcSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestVerityPlus9">
+      <soap:operation soapAction="http://tempuri.org/TestVerityPlus9" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TestVerityPlus9AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PingVerity">
+      <soap:operation soapAction="http://tempuri.org/PingVerity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PingVerityAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PingVerityPlus">
+      <soap:operation soapAction="http://tempuri.org/PingVerityPlus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PingVerityPlusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PingVerity6">
+      <soap:operation soapAction="http://tempuri.org/PingVerity6" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PingVerity6AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChallengeValidate">
+      <soap:operation soapAction="http://tempuri.org/ChallengeValidate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ChallengeValidateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus4">
+      <soap:operation soapAction="http://tempuri.org/ValidateDataPlus4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateDataPlus4AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus7">
+      <soap:operation soapAction="http://tempuri.org/ValidateDataPlus7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateDataPlus7AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus9">
+      <soap:operation soapAction="http://tempuri.org/ValidateDataPlus9" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateDataPlus9AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus10">
+      <soap:operation soapAction="http://tempuri.org/ValidateDataPlus10" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateDataPlus10AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus11">
+      <soap:operation soapAction="http://tempuri.org/ValidateDataPlus11" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidateDataPlus11AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RespSvcSoap12" type="tns:RespSvcSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TestVerityPlus9">
+      <soap12:operation soapAction="http://tempuri.org/TestVerityPlus9" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TestVerityPlus9AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PingVerity">
+      <soap12:operation soapAction="http://tempuri.org/PingVerity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PingVerityAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PingVerityPlus">
+      <soap12:operation soapAction="http://tempuri.org/PingVerityPlus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PingVerityPlusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PingVerity6">
+      <soap12:operation soapAction="http://tempuri.org/PingVerity6" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PingVerity6AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChallengeValidate">
+      <soap12:operation soapAction="http://tempuri.org/ChallengeValidate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ChallengeValidateAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus4">
+      <soap12:operation soapAction="http://tempuri.org/ValidateDataPlus4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateDataPlus4AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus7">
+      <soap12:operation soapAction="http://tempuri.org/ValidateDataPlus7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateDataPlus7AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus9">
+      <soap12:operation soapAction="http://tempuri.org/ValidateDataPlus9" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateDataPlus9AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus10">
+      <soap12:operation soapAction="http://tempuri.org/ValidateDataPlus10" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateDataPlus10AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateDataPlus11">
+      <soap12:operation soapAction="http://tempuri.org/ValidateDataPlus11" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidateDataPlus11AuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RespSvc">
+    <wsdl:port name="RespSvcSoap" binding="tns:RespSvcSoap">
+      <soap:address location="http://verity.imperium.com/VerityWS/" />
+    </wsdl:port>
+    <wsdl:port name="RespSvcSoap12" binding="tns:RespSvcSoap12">
+      <soap12:address location="http://verity.imperium.com/VerityWS/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

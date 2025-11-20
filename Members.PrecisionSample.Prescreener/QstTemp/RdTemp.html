@@ -1,0 +1,69 @@
+﻿<script type="text/ng-template" id="RdTemplate">
+    <style>
+        /* This style is for the horizontal layout (QuestionId 1635) */
+        .wrapper.horizontal-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* --- NEW STYLE ADDED HERE --- */
+        /* This style is for the vertical, single-column layout */
+        .wrapper.vertical-options {
+            display: grid;
+            grid-template-columns: 1fr; /* Creates a single column */
+            gap: 10px; /* Adds space between the rows */
+        }
+    </style>
+    <div align="left" class="questionback" style="clear: both;">
+        <span class="question" id="lblQuestiontext" ng-bind-html="question.QuestionText | unsafe"></span>
+        <div ng-if="question.QuestionTypeId == '4'" class="select-one-text"
+             style="margin-top: 5px;font-size: 13px;">
+            Select one.
+        </div>
+        <div ng-if="question.QuestionId == 5879"><img src="../Images/prescreener1.jpg" /></div>
+        <div ng-if="question.QuestionId == 5880"><img src="../Images/Prescreener2.jpg" /></div>
+        <div ng-if="question.QuestionId == 5881"><img src="../Images/Prescreener3.png" /></div>
+        <div ng-if="question.QuestionId == 5893"><img src="../Images/Prescreener4.jpg" /></div>
+        <div ng-if="question.QuestionId == 5894"><img src="../Images/Prescreener5.jpg" /></div>
+        <div ng-if="question.QuestionId == 5896"><img src="../Images/Cucumber.jpg" /></div>
+        <div ng-if="question.QuestionId == 5955"><img src="../Images/Apple.jpg" /></div>
+        <div ng-if="question.QuestionId == 5956"><img src="../Images/banana.jpg" /></div>
+        <div ng-if="question.QuestionId == 5957"><img src="../Images/Bread.jpg" /></div>
+        <div ng-if="question.QuestionId == 5958"><img src="../Images/Onion.jpg" /></div>
+    </div>
+
+    <div ng-if="question.QuestionTypeId == '4'">
+        <div class="optiontext" style="clear: both; overflow: hidden">
+            <div class="wrapper" ng-class="{
+                'horizontal-options': question.QuestionId == 1635,
+                'vertical-options': question.QuestionId == 6197 || question.QuestionId == 6198 || question.QuestionId == 6199
+            }">
+                <div ng-repeat="op in question.OptionList">
+                    <div class="left" ng-style="(question.QuestionId == 6197 || question.QuestionId == 6198 || question.QuestionId == 6199) ? { 'width': '100%','z-index':'2' } : {}">
+                        <div class="dvChkbox dvstyle" ng-class="{optionSelected:$index == $parent.radiobtnvalidation}" ng-click="rdClick($event,question,op.OptionId,$index); $parent.OptionId = op.OptionId;">
+                            <div class="grid_column" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_dvmain' }}" ng-class="{input_onm:$index == $parent.radiobtnvalidation}">
+                                <label class="option-label" for="{{op.QuestionId +'_'+op.OptionId+'_radio'}}" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_lblrd' }}">
+                                    <div class="grid_span_holder">
+                                        <span class="grid_span" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_rdDiv'}}">{{op.OptionText}}</span>
+                                    </div>
+                                    <input type="radio" style="display: none;" ng-attr-id="{{op.QuestionId+'_'+op.OptionId +'_radio'}}" ng-model="$parent.OptionId" value="op.OptionId" name="{{question.QuestionId+ '_'+'radio'}}" ng-click required />
+                                    <span class="single_radio">{{op.OptionText}}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span ng-show="submitValidations && formValidation[question.QuestionId+ '_'+'radio'].$error.required" style="color: red;"> Please answer the question</span>
+    </div>
+</script>
+
+<div style="width: 100%;">
+    <div>
+        <div ng-controller="rdController">
+            <ng-include src="'RdTemplate'"></ng-include>
+        </div>
+    </div>
+</div>

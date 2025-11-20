@@ -1,0 +1,110 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_WlLayout.cshtml";
+}
+<link href="~/Content/default.css" rel="stylesheet" />
+<div id="container" style="padding-left: 45px;">
+    <div id="header">
+        <img src="{{orgDetails.OrgLogo}}" style="margin-top: 30px;" />
+    </div>
+    <table style="width: 850px; background-color: #F5F5F5; padding: 10px; overflow: hidden;
+            border: solid 1px #CACACA; font-size: 12px;margin-top:50px;">
+        <tr>
+            <td align="center" colspan="5" style="color: #1E91CB;">
+                <br />
+                {{orgDetails.OrgName}}.com Sitemap
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="width: 5%;"></td>
+            <td align="left" style="width: 42.5%; vertical-align: top;">
+                <b>Paid Surveys Membership</b>
+                <br />
+                <br />
+                Take paid surveys online and get paid for surveys at no cost to you. Join our free
+                paid surveys club and get instant access to paid online surveys.
+                <br />
+                <br />
+                <ul>
+                    <li><a href="{{orgDetails.MgLoginPath}}" style="color: #1E91CB;">Free Paid Surveys Membership</a></li>
+                    <li><a href="/login/ForgotPsw" style="color: #1E91CB;">Member Login and Login Help</a></li>
+                    @*<li><a href="/misc/faqs.aspx" style="color: #1E91CB;">Paid Online Surveys FAQs</a></li>*@
+                    <li>
+                        <a href="/Login/ca" style="color: #1E91CB;">Cancel Paid Surveys Account</a>
+                    </li>
+                </ul>
+            </td>
+            <td align="left" style="width: 5%;">
+                &nbsp;&nbsp;&nbsp;<img src="~/Images/border-right.gif" />
+            </td>
+            <td align="left" style="width: 42.5%; vertical-align: top;">
+                <b>Paid Surveys Resources</b>
+                <br />
+                <br />
+                <ul>
+                    <li><a href="{{orgDetails.MgLoginPath}}" style="color: #1E91CB;">Paid Surveys List</a></li>
+                    <li>
+                        <a href="{{orgDetails.MgLoginPath}}" id="ctl00_cphMain_inviteFriends" style="color: #1E91CB;">
+                            Reffer-A-Friend
+                        </a>
+                    </li>
+                </ul>
+                <br />
+                <br />
+                <b>{{orgDetails.OrgName}} Features</b>
+                <br />
+                <br />
+                <ul>
+                    <li><a href="{{orgDetails.MgLoginPath}}" style="color: #1E91CB;">Rewards Redeemption</a></li>
+                    <li>
+                        <a href="{{orgDetails.MgLoginPath}}" id="A2" style="color: #1E91CB;">Complete your Profiles.</a>
+                    </li>
+                    <li><a href="{{orgDetails.MgLoginPath}}" id="A1" style="color: #1E91CB;">Update Account</a> </li>
+                    <li><a href="/Login/ca" id="A3" style="color: #1E91CB;">Cancel Account</a> </li>
+                </ul>
+            </td>
+            <td align="left" style="width: 5%;"></td>
+        </tr>
+        <tr>
+            <td colspan="5" align="center">
+                <br />
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="width: 5%;"></td>
+            <td align="left" style="width: 42.5%; vertical-align: top;">
+                <b>Paid Surveys Miscellaneous </b>
+                <br />
+                <br />
+                <ul>
+                    <li><a href="{{orgDetails.MgLoginPath}}" style="color: #1E91CB;">Scam Alert</a></li>
+                    <li><a href="{{orgDetails.MgLoginPath}}" style="color: #1E91CB;">Anti-Spam Policy</a></li>
+                    <li><a href="/misc/Unsub" style="color: #1E91CB;">Unscribe</a></li>
+                </ul>
+            </td>
+            <td align="left" style="width: 5%;">
+                &nbsp;&nbsp;&nbsp;<img src="~/Images/border-right.gif" />
+            </td>
+            <td align="left" style="width: 42.5%; vertical-align: top;">
+                <b>Paid Surveys Affiliate Program</b>
+                <br />
+                <br />
+                Our paid surveys affiliate program is the fastest-growing and most popular affiliate
+                program around - because our affiliates make the most money.
+                <br />
+                <br />
+            </td>
+            <td align="left" style="width: 5%;"></td>
+        </tr>
+    </table>
+    <img src="~/Images/main/border.gif" style="margin-top: 20px;" />
+    <footer class="footer text-center" style="padding-top: 15px;font-size: 9px;text-align: center;color: #b2b2b2;margin-bottom: 126px;margin-right: 45px;">
+        © Copyright 2014-2022 {{orgDetails.OrgName}} | <a href="javascript:;" ng-click="termsClick('/WidgetTerms.html')"> Terms</a> | <a href="" ng-click="privacyClick()">Privacy</a> | <a href="javascript:;" ng-click="contactClick()">Contact Us</a> | <a href="javascript:;" ng-click="aboutClick()">About Us</a> |
+    </footer>
+</div>

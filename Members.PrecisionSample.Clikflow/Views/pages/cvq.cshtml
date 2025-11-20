@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "cvq";
+    Layout = "~/Views/shared/_layout.cshtml";
+}
+
+<div ng-if="pgLoad" style="width:100%;" ng-cloak>
+    <div ng-controller="cvqController">
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+        }
+        <div style="width:100%;" class="inner-container content-hide" ng-class="{'content-show':showViewContent}">
+            <form novalidate name="verityQst">
+                <div style="width: 100%;">
+                    <div style="float: left;">
+                        <br />
+                        <img id="imgLogo" class="logo" alt="" />
+                        <br />
+                        <br />
+                    </div>
+                    <div style="width:100%;">
+                        <div ng-repeat="qst in questions" class="qst-container">
+                            <div align="left" class="questionback" style="margin-bottom: 10px; clear: both;">
+                                <span class="question" id="lblQuestiontext" ng-bind-html="qst.QuestionText" style="padding-bottom: 10px;"></span>
+                            </div>
+                            <div class="row">
+                                <div ng-repeat="opt in qst.OptionList">
+                                    <div class="opt-container">
+                                        <input type="radio" name='cvq_{{$parent.$index}}' ng-attr-id="{{'opt_'+$index}}" ng-model="qst.SelectedAnsId" value="{{$index+1}}" ng-required="true" ng-click="chkOptions(qst,opt)" />
+                                        <label for="{{'opt_'+$index}}">{{opt.OptionText}}</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <span ng-show="verityQst['cvq_' + $index].$invalid && showErrMsg" class="error" style="margin:1px 0px 3px 15px">Required</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-primary" ng-click="save(verityQst.$valid)">
+                                <i class="fa fa-check" aria-hidden="true"></i> {{'Continue'|translate}}
+                            </button>
+                            <button type="button" class="btn btn-primary" style="display:none;">
+                                <i class="fa fa-check" aria-hidden="true"></i> {{'Skip'|translate}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

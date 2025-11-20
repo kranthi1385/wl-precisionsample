@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "cr";
+    Layout = "~/Views/shared/_layout.cshtml";
+}
+
+<style type="text/css">
+    body {
+        color: black !important;
+        font-family: Lucida Sans Console, Verdana, Tahoma, Arial, Verdana, sans-serif;
+        font-size: 13px;
+        line-height: 1.42857143; /* background-color: #abd7fe; */
+    }
+
+    #dvContent {
+        padding: 26px;
+        overflow: hidden;
+        max-width: 770px;
+        background-color: White;
+        margin: auto;
+        text-align: justify;
+        -webkit-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+        -moz-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+        box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+    }
+
+    h1.hidden {
+        visibility: hidden;
+    }
+</style>
+
+
+
+<div ng-if="pgLoad" onload="loader()" ng-cloak >
+    <div ng-controller="smsController">
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+        }
+
+        <div class="inner-form content-hide" ng-class="{'content-show':showViewContent}">
+            <div style="width:100%;">
+                <div id="dvContent">
+                    <form novalidate name="surveyForm">
+                        <div id="divmobileonly">
+                            <div id="USmember" style="text-align:left;">
+                                {{'UsMember'|translate}}<br />
+                                <br />
+                                <div class="row">
+                                    <div class="col-sm-8">
+                                        <label for="usr">{{'enterno'|translate}}</label>
+                                        <input name="mobileNo" type="text" class="input" ng-model="mobileNumber" ng-pattern="/^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/" ng-required="true" />
+                                        @*ng-pattern="/^[0-9]{1,7}$/"*@
+                                        <span ng-show="surveyForm.mobileNo.$error.pattern" class="error">Not a valid number!</span>
+                                        <span ng-show="showMessage && surveyForm.mobileNo.$invalid" class="error">{{'Required'|translate}}</span>
+                                        <span ng-show="isMessageShow==1" class="error" style="color: green;">{{'txtmsgsent'|translate}}</span>
+                                        <span ng-show="isMessageShow==2" class="error">{{'failedmsg'|translate}}</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <input type="button" class="btn btn-primary" ng-click="sendsms(surveyForm.$valid,mobileNumber)" value="Send SMS" />
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="button" class="btn btn-primary" ng-click="Nothankyou()" value="No Thankyou" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="nonUSmember" ng-if="isNonUsMember" style="text-align:left;">
+                            {{'nonusmember'|translate}}
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <input type="button" class="btn btn-primary" ng-click="" value="Continue" />
+                                </div>
+                            </div>
+                            @*<asp:Button ID="btnContinue" Text="Continue" runat="server" Style="background: #00A2E8; width: 100px; color: #FFFFFF;"
+                                CausesValidation="false" OnClick="btnContinue_OnClick" />*@
+                        </div>
+                    </form>
+                </div>
+                <div id="divdesktoponly" style="display:none;">
+                    {{'thanksmsg'|translate}}
+                    <br />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    function loader() {
+        document.getElementsByClassName("preloader")[0].style.display = "none";
+    }
+    loader();
+</script>

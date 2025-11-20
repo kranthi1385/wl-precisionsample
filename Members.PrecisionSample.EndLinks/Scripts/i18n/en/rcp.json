@@ -1,0 +1,16 @@
+﻿{
+  "checkboxacceptance": "Acceptance of terms and conditions is required.",
+  "cpatchaErr": "Invalid Captcha",
+  "cptchaText1": "We're sending you to the survey but before you go…",
+  "cptchaText2": "Be sure to follow these simple rules to ensure you’ll be rewarded for this survey and get invited to future surveys:",
+  "cptchaText3": "1.Take your time",
+  "cptchaText4": "Our clients are often making multi-million and sometimes multi-billion dollar decisions based on your answers. Take your time and give well considered answers. If you're asked to give a written response put meaningful effort into it and ensure your answer is spelled correctly.",
+  "cptchaText5": "2. Be truthful!",
+  "cptchaText6": " Do not misrepresent details about your personal or work life in order to qualify for this survey. We and our clients review all answers carefully and are able to spot inconsistent and untruthful responses. Participants found to provide untruthful responses will not receive rewards for participating in this survey and may face account suspension.",
+  "privacy": "Privacy",
+  "agree": "I agree to the ",
+  "and": "and",
+  "saveMyInfo": "Do Not Sell My Info",
+  "startSurvey": "Start Survey",
+  "terms_conditions": "Terms & Conditions"
+}

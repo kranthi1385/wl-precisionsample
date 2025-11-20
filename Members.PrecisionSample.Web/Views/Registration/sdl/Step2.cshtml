@@ -1,0 +1,320 @@
+﻿@{
+    Layout = "~/Views/Shared/_RgLayout.cshtml";
+}
+<script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
+<link href="~/Content/rg/step2Responsive.css" rel="stylesheet" />
+<div>
+    @using (Html.BeginForm("", "", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+    }
+    <div ng-if="pgLoad">
+        <div id="Body1" ng-controller="step2Controller">
+            <form id="loginForm" name="step2Form">
+                <div class="main">
+                    <div class="header_spacer">
+                        <img src="../Images/rg/frame_01.png" />
+                    </div>
+                    <div class="header2">
+                        <div class="header_img">
+                            <img src="../Images/rg/form2_03.jpg" />
+                            <img class="img-logo-sm" src="/Images/-1.png" style="display: none" />
+                        </div>
+                    </div>
+                    <div id="divheight" class="body_container_page2">
+                        <div class="body_content" style="width:910px;">
+                            <div class=""></div>
+                            <div class="col1_page2 col-md-6 col-sm-6 col-xs-12">
+                                <img class="img-rewards" src="../Images/rg/rewards.jpg" />
+                                <div class="div-banner-title"><span class="spn-banner-title">Make Money Sign-Up Now!</span></div>
+                                <div class="form2">
+                                    <div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                Address 1
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <input type="text" id="txtAddress1" class="form-control" tabindex="8" ng-model="user.Address1" required>
+                                                <span ng-show="step2Form.address1.$invalid && !step2Form.address1.$pristine" class="text-danger txt-req">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                Address 2
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <input type="text" id="txtAddress2" class="form-control" tabindex="8" ng-model="user.Address2" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                {{'country'|translate}} *
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <select class="form-control txt-box" id="CountryId" ng-model="user.CountryId" name="country" ng-change="countryByStates(user.CountryId)" convert-to-number required>
+                                                    <option value="">{{'select'|translate}}</option>
+                                                    <option value="231">{{'unitedstatesofamerica'|translate}}</option>
+                                                    <option value="38">{{'canada'|translate}} </option>
+                                                    <option value="229">{{'unitedkingdom'|translate}}</option>
+                                                    <option value="15"> {{'australia'|translate}}</option>
+                                                </select>
+                                                <span class="error text-danger txt-req" ng-show="step2Form.country.$invalid && !step2Form.country.$pristine">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                {{'stateProvince'|translate}} *
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                @*<select class="form-control txt-box" id="ddlStates" ng-model="user.StateId" name="state" ng-options="st.StateId as st.StateName for st in states" required>
+                                                    <option value="">{{'select'|translate}}</option>
+                                                </select>*@
+                                                <select class="form-control txt-box" name="type" id="DdlPriceDesignation" ng-model="user.StateId">
+                                                    <option value="-1">texas</option>
+                                                    <option value="2">sd</option>
+                                                    <option value="1">dcsd</option>
+                                                    <option value="3">cerft</option>
+                                                </select>
+                                                <span class="error text-danger txt-req" ng-show="step2Form.state.$invalid && !step2Form.state.$pristine">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                {{'city'|translate}} *
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <input type="text" id="txtCity" class="form-control" ng-model="user.City" name="city" required>
+                                                <span class="error text-danger txt-req" ng-show="step2Form.city.$invalid && !step2Form.city.$pristine">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                {{'zipPostalCode'|translate}}
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <input type="text" id="txtZipCode" class="form-control" ng-model="user.ZipCode" name="zipCode" required>
+                                                <span class="error text-danger txt-req" ng-show="step2Form.zipCode.$invalid && !step2Form.zipCode.$pristine">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                {{'mobilePhone '|translate}}<span style="font-size: 10px;">(optional)</span>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <input type="text" id="txtmobilePhone" class="form-control" ng-model="user.MobilePhone">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                {{'gender'|translate}} *
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <select class="form-control" id="ddlGender" ng-model="user.Gender" name="gender" required>
+                                                    <option value="">{{'select'|translate}}</option>
+                                                    <option value="M">Male</option>
+                                                    <option value="F">Female</option>
+                                                    <option value="N">Non-Binary</option>
+                                                </select>
+                                                <span class="error text-danger txt-req" ng-show="step2Form.gender.$invalid && !step2Form.gender.$pristine">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                {{'birthDate'|translate}} *
+                                            </div>
+                                            <div class="col-md-12  form-group">
+                                                <div class="col-md-3 col-sm-3 form-group-sm">
+                                                    <select class="form-control padding-zero ddl-mm" id="ddlMonth" ng-model="user.Month" name="month" required>
+                                                        <option value="">-MM-</option>
+                                                        <option value="01">{{'jan'|translate}}</option>
+                                                        <option value="02">{{'feb'|translate}}</option>
+                                                        <option value="03">{{'mar'|translate}}</option>
+                                                        <option value="04">{{'apr'|translate}}</option>
+                                                        <option value="05">{{'may'|translate}}</option>
+                                                        <option value="06">{{'jun'|translate}}</option>
+                                                        <option value="07">{{'jul'|translate}}</option>
+                                                        <option value="08">{{'aug'|translate}}</option>
+                                                        <option value="09">{{'sep'|translate}}</option>
+                                                        <option value="10">{{'oct'|translate}}</option>
+                                                        <option value="11">{{'nov'|translate}}</option>
+                                                        <option value="12">{{'dec'|translate}}</option>
+                                                    </select>
+                                                    <select class="form-control padding-zero ddl-dd" id="ddlDay" ng-model="user.Day" name="day" required>
+                                                        <option value="">-DD-</option>
+                                                        <option value="01">1</option>
+                                                        <option value="02">2</option>
+                                                        <option value="03">3</option>
+                                                        <option value="04">4</option>
+                                                        <option value="05">5</option>
+                                                        <option value="06">6</option>
+                                                        <option value="07">7</option>
+                                                        <option value="08">8</option>
+                                                        <option value="09">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                        <option value="14">14</option>
+                                                        <option value="15">15</option>
+                                                        <option value="16">16</option>
+                                                        <option value="17">17</option>
+                                                        <option value="18">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                        <option value="21">21</option>
+                                                        <option value="22">22</option>
+                                                        <option value="23">23</option>
+                                                        <option value="24">24</option>
+                                                        <option value="25">25</option>
+                                                        <option value="26">26</option>
+                                                        <option value="27">27</option>
+                                                        <option value="28">28</option>
+                                                        <option value="29">29</option>
+                                                        <option value="30">30</option>
+                                                        <option value="31">31</option>
+                                                    </select>
+                                                    <select class="form-control y-width ddl-yy" id="ddlYear" ng-model="user.Year" name="year" convert-to-number required>
+                                                        <option value="">-YY-</option>
+                                                        <option ng-repeat="y in year" value="{{y.key}}">{{y.value}}</option>
+                                                    </select>
+                                                    <span class="error text-danger  txt-req spn-yy-err" ng-show="(step2Form.month.$invalid ||step2Form.day.$invalid||step2Form.year.$invalid)  && (!step2Form.month.$pristine||!step2Form.day.$pristine || !step2Form.year.$pristine)">{{'required'|translate}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12 col-sm-6">
+                                                {{'ethnicity'|translate}}*
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <select class="form-control" id="ddlEthnicity" ng-model="user.EthnicityId" name="ethnicity" convert-to-number required>
+                                                    <option value="">{{'select'|translate}}</option>
+                                                    <option ng-repeat="ec in ethnicityLst" value="{{ec.EthnicityId}}">{{ec.EthnicityType}}</option>
+                                                </select>
+                                                <span class="error text-danger txt-req" ng-show="step2Form.ethnicity.$invalid  && !step2Form.ethnicity.$pristine">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                {{'newPassword'|translate}}*
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input type="password" id="txtPassword" class="form-control" name="password" ng-model="user.Password" required>
+                                                <span class="error text-danger txt-req" ng-show="step2Form.password.$invalid && !step2Form.password.$pristine">{{'required'|translate}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div>
+                                            <input type="hidden" id="hfvalue" value="0" />
+                                            <input type="hidden" id="cpahitId" value="0" />
+                                            <input type="hidden" id="hfclcikId" value="0" />
+                                            <input type="hidden" id="hfShow" value="0" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12" style="margin-bottom: 12px;">
+                                            <re-captcha ng-model='captcha' name="googleCaptcha" required></re-captcha>
+                                            <span class="error text-danger" ng-show="step2Form.$submitted && (step2Form.googleCaptcha.$invalid || step2Form.$error.captcha.length)">Invalid Google Captcha</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="hfShow" value="0" />
+                                <table cellspacing="0" style="width: 100%;">
+                                    <tr>
+                                        <td align="left"></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="float: left;">
+                                            <label ID="lblMessage" ForeColor="Red"></label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <br />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align: center; vertical-align: top;">
+                                            <input type="hidden" id="Hidden1" value="0" />
+                                            <input type="hidden" id="Hidden2" value="0" />
+                                            <input type="hidden" id="Hidden3" value="0" />
+                                            <input type="hidden" id="txtFirstName" value="" />
+                                            <input type="hidden" id="txtLastName" value="" />
+                                            <input type="hidden" id="txtEmailAddress" value="" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <!--<td align="left" style="font-size: 8pt; color: Gray; padding: 6px;">
+                                        By signing up, you agree to our Terms of Use and Privacy Policy and agree to receive
+                                        additional survey, market research and other relevant offers from SurveyDownline.com
+                                    </td>-->
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col2_page2 col-md-6 col-sm-6 col-xs-12">
+                                <div>
+                                    <div class="margin-left-2">
+                                        <div class="div-img-right">
+                                            <div ng-if="!step2Form.$valid" id="divShow1" class="img-right-sm" style="float:left;text-align:left;background:url('../images/rg/form2_06.jpg') no-repeat;width:456px;height:543px;">
+                                            </div>
+                                            <div id="divShow" class="div-offer-sm" style="display: none;">
+                                                <img class="img-offer-sm" src="../Images/rg/form2_06.jpg" />
+                                                <br />
+                                                <div id="divoffersheight">
+                                                    <input type="hidden" name="oi_sid" id="hfoi_sid" value="" />
+                                                    <input type="hidden" name="OI_FORM_IDENTIFIER" value="" />
+                                                    <input type="hidden" name="OI_button" value="0" />
+                                                </div>
+                                            </div>
+                                            <div ng-if="step2Form.$valid" id="divTurbo" >
+                                                <img src="../Images/rg/bgwithouttext.png" /><br />
+                                                <div style="padding-left: 30px; margin-left: 30px;">
+                                                   <label></label>
+                                                </div>
+                                            </div>
+                                            <div ng-if="step2Form.$valid" id="divSubmit">
+                                                <button type="submit" id="imgNext" class="btn btn-default reg-btn" ng-click="submit(user)">Join Now</button>
+                                                @*<a href="" ng-click="submit()">
+                                                    <img class="col-sm-12 img-btn-join" id="imgNext" src="../Images/rg/form3_09.jpg" />
+                                                </a>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="body_bottom">
+                    </div>
+
+                    <div class="footer_container col-md-12">
+                        <div class="footer">
+                            <footer class="footer text-center">
+                                © Copyright 2009-2021 Survey Downline | <a href="javascript:;"> Terms</a> | <a href="javascript:;">Privacy</a> | <a href="javascript:;">Contact Us</a> | <a href="javascript:;">About Us</a> | <a href="javascript:;">FAQ</a> | <a href="javascript:;">Affiliates</a>
+                            </footer>
+                            <div class="social_media">
+                                <table id="tb1">
+                                    <tr>
+                                        <td>
+                                            <img id="ImgFacebook" ImageUrl="/Images/Step12_Pics/AUimages/social_media_01.png"
+                                                 OnClientClick="popup123('https://www.facebook.com/surveydownline/','12345')" />
+                                        </td>
+                                        <td>
+                                            <img id="ImgTwitter" ImageUrl="/Images/Step12_Pics/AUimages/social_media_02.png"
+                                                 OnClientClick="popup123('https://twitter.com/#!/SurveyDownline','123456')" />
+                                        </td>
+                                        <td>
+                                            <img id="ImageButton3" OnClick="btnGo_Click" ImageUrl="/Images/Step12_Pics/AUimages/social_media_03.png" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

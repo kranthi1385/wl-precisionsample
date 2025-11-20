@@ -1,0 +1,56 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      dotnet: 4.8
+    commands:
+      - echo "====================================================="
+      - echo "INSTALL PHASE - Restoring NuGet packages"
+      - echo "====================================================="
+      - nuget restore WL.PrecisionSample.sln
+
+  pre_build:
+    commands:
+      - echo "====================================================="
+      - echo "PRE-BUILD PHASE - Creating artifact folder"
+      - echo "====================================================="
+      - mkdir C:\codebuild\artifacts
+
+  build:
+    commands:
+      - echo "====================================================="
+      - echo "BUILD PHASE - Compiling and publishing web project"
+      - echo "====================================================="
+      - msbuild "Members.NewOpinionBar.Web\Members.NewOpinionBar.Web.csproj" `
+          /p:DeployOnBuild=true `
+          /p:WebPublishMethod=FileSystem `
+          /p:Configuration=Release `
+          /p:SkipInvalidConfigurations=true `
+          /p:DeleteExistingFiles=True `
+          /p:publishUrl="C:\codebuild\artifacts" `
+          /p:DeployDefaultTarget=WebPublish `
+          /verbosity:minimal
+      - echo "====================================================="
+      - echo "BUILD COMPLETE - Listing generated files"
+      - echo "====================================================="
+      - dir C:\codebuild\artifacts
+
+  post_build:
+    commands:
+      - echo "====================================================="
+      - echo "POST-BUILD PHASE - Running tests if available"
+      - echo "====================================================="
+      - powershell -Command "if (Test-Path '**\bin\Release\*.Tests.dll') { vstest.console.exe '**\bin\Release\*.Tests.dll' --logger:trx } else { Write-Host 'No test DLLs found. Skipping tests.' }"
+      - echo "====================================================="
+      - echo "POST-BUILD COMPLETE"
+      - echo "====================================================="
+
+artifacts:
+  files:
+    - '**/*'
+    - appspec.yml
+  discard-paths: yes
+  base-directory: 'C:\codebuild\artifacts'
+  name: !Sub '${CODEBUILD_PROJECT_NAME}-artifact'
+

@@ -1,0 +1,496 @@
+﻿
+@{
+    Layout = null;
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+</head>
+<body ng-app="footerApp">
+    @Html.AntiForgeryToken()
+    <div id="dvprivacy" ng-controller="privacyController">
+        <table style="font-family: Verdana; font-size: small;">
+            <tr>
+                <td align="center">
+                    <b style="font-size: large;">
+                        {{'Pri_Pcy' | translate}}
+                    </b><br />
+                    <span>{{'Last update:12 May 2022' | translate}}</span><br />
+                    <a href="#" style="color: Blue; text-decoration: underline;" ng-click="dowPrivacyPolicy()">{{'Download' | translate}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <p>
+                        At Reach Collective, we take your privacy very seriously and want you to know how we collect and use <b>Personal Data</b> within the meaning of the General Data Protection Regulation <b>(GDPR)</b>. Personal Data means all information relating to an identified or identifiable natural person.
+                    </p>
+                    <p>
+                        This <b>Privacy Notice</b> is designed to help you understand what kind of Personal Data we collect via our Services (as defined below). We also explain what role we have in the processing of Personal Data, how long we retain Personal Data and what rights you have as a <b>Data Subject</b>.
+                    </p>
+                    <p>
+                        Under the California Consumer Privacy Act <b>(“CCPA”)</b> and other California laws, California residents may have the specific rights. These are described in section 9 of this Privacy Notice.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>1.&nbsp;&nbsp;Who are we and what do we offer? </b>
+                    <br />
+                    <p>
+                        We are Reach Collective LLC, a U.S. (<b>Reach Collective</b>, also: <b>we, us</b> and <b>our</b>). We provide a <b>Platform</b> via which you, as <b>User</b> (also: <b>you</b>), can conduct online surveys from various companies, to help those companies improve their products and services. The surveys are offered to you by our <b>Clients</b>.
+                    </p>
+                    <p>
+                        You can find more information about our Platform on our general <b>Website</b>: https://www.reachcollective.com/.
+                    </p>
+                    <p>
+                        In order to participate in the surveys, you must register through one of our community <b>Websites</b>
+                        <ul>
+                            <li>
+                                <a href="http://www.surveydownline.com">http://www.surveydownline.com</a>
+                            </li>
+                            <li>  <a href="http://www.loquedigo.com">http://www.loquedigo.com</a></li>
+                            <li>
+                                <a href="https://www.conversant.pro">https://www.conversant.pro</a>
+                            </li>
+                        </ul>
+                    </p>
+                    <p>
+                        When you register through one of our community Websites, you become our <b>Panellist</b>. You may also register into our services via one of our Opinionetwork <b>Partners</b>.
+                    </p>
+                    <p>
+                        The use of the Platform and our (general and community) Websites collectively: our <b>Services</b>.
+                    </p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>2.&nbsp;&nbsp;Controller</b>
+                    <br />
+                    <p>
+                        Under the GDPR, Reach Collective is the so-called <b>Controller</b> regarding the processing of Personal Data as described in this Privacy Notice.
+                    </p>
+                    <p>
+                        Reach Collective acts as the EU-representative for Reach Collective within the meaning of Art. 27 GDPR
+                    </p>
+                    <p>
+                        If you have questions about the processing of your Personal Data, you can always contact Reach Collective through the contact details listed at the bottom of this Privacy Notice.
+                    </p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>3.&nbsp;&nbsp;Scope of this Privacy Notice and Description of Services</b>
+                    <br />
+                    <p>This Privacy Notice describes our processing of your Personal Data when you are our <b>User</b>.</p>
+                    <p>
+                        Our Clients develop market research or other similar questionnaires or surveys (“<b>Surveys</b>”) and offer them to our Users. The Surveys may be hosted on the Client’s website or through other services or we may host Surveys on behalf of our Clients on our Platform. Our Platform allows Users to create an account, get invited for Surveys and receive a reward for taking Surveys (from us our via our Partners).
+                    </p>
+                    <p>
+                        Please note that the relevant Client is the <b>Controller</b> within the meaning of the GDPR for any Personal Data collected through Surveys. This Privacy Notice does not apply to the collection of Personal Data via Surveys and the further processing of such Personal Data by our Clients. Please consult the Client’s Privacy Notice for more information about the processing of Personal Data by our Clients. If you have questions regarding a Client’s processing of your Personal Data or if you wish to exercise your rights regarding any Personal Data processed by our Client, you should contact the Client directly with your request.
+                    </p>
+                    @*<table cellpadding="0" cellspacing="0" style="font-size:13px">
+                            <tr>
+                                <td><b style="float: left;margin-top: -13px;">A.&nbsp;&nbsp;Identity Data:</b></td>
+                                <td style="padding:10px;"><p>Personal Data relating to an individual’s identity or representing that individual, such as your name, username, unique ID, etc.</p></td>
+                            </tr>
+                            <tr>
+                                <td><b style="float: left;">B.&nbsp;&nbsp;Contact Data:</b></td>
+                                <td style="padding:10px;"><p>Personal Data used to contact an individual, e.g. email address(es) or phone number(s).</p></td>
+                            </tr>
+                            <tr>
+                                <td><p><b style="float: left;">C.&nbsp;&nbsp;Commercial Data:</b></p></td>
+                                <td style="padding:10px;"><p>Information about the Services we provide to you and about transactions you make with us or other companies, e.g. Survey participation records, financial remittance, etc.</p></td>
+                            </tr>
+                            <tr>
+                                <td><b style="float: left;margin-top: -30px;">D.&nbsp;&nbsp;Device/Network Data:</b></td>
+                                <td style="padding:10px;"><p>Personal Data relating to your device, browser, or application e.g. IP addresses, MAC addresses, application ID/AdID/IDFA, identifiers from cookies, session navigation history and similar browsing metadata, and other data generated through applications and browsers, including cookies and similar technologies.</p></td>
+                            </tr>
+                            <tr>
+                                <td><b style="float: left;margin-top: -13px;">E.&nbsp;&nbsp;Financial Data:</b></td>
+                                <td style="padding:10px;"><p>Information such as bank account details, payment card information, and information from credit reference agencies, including similar data defined in Cal Civ Code § 1798.80(e).</p></td>
+                            </tr>
+                            <tr>
+                                <td><b style="float: left;margin-top:-13px;">F.&nbsp;&nbsp;Health Data:</b></td>
+                                <td style="padding:10px;"><p>Information about your health (for example when you provide information relating to a health condition in connection with a Survey Data or as part of your Profile Data).</p></td>
+                            </tr>
+                            <tr>
+                                <td><b style="float: left;margin-top:-13px;">G.&nbsp;&nbsp;Inference Data:</b></td>
+                                <td style="padding:10px;"><p>Personal Data inferred about personal characteristics and preferences, such as demographics, interests, behavioral patterns, psychological trends, predispositions, or behavior.</p></td>
+                            </tr>
+                            <tr>
+                                <td><b>H.&nbsp;&nbsp;Biographical Data:</b></td>
+                                <td style="padding:10px;"><p>Data relating to professional and employment history, qualifications, and similar biographic information.</p></td>
+                            </tr>
+                            <tr>
+                                <td><b style="float: left;margin-top:-21px;">I.&nbsp;&nbsp;User Content:</b></td>
+                                <td style="padding:10px;"><p>Unstructured/free-form data that may include any category of Personal Data, e.g. data that you give us in free text fields such as Survey Data, Profile Data, including any other Personal Data which you may provide through or in connection with our Services.</p></td>
+                            </tr>
+                            <tr>
+                                <td><b>J.&nbsp;&nbsp;Protected Category Data:</b></td>
+                                <td style="padding:10px;"><p>Characteristics of protected classifications under California or federal law, e.g. race, national origin, religion, gender, or sexual orientation.</p></td>
+                            </tr>
+                            <tr>
+                                <td><b style="float: left;margin-top:-25px;">K.&nbsp;&nbsp;Special Category Data:</b></td>
+                                <td style="padding:10px;"><p>Personal Data subject to GDPR and similar laws revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, and the processing of genetic data, biometric data for the purpose of uniquely identifying a natural person, data concerning health or data concerning a natural person’s sex life or sexual orientation.</p></td>
+                            </tr>
+                        </table>*@
+                    <!--<p><b><i>Note</i></b>: Users may choose not to provide Profile Data or Survey Selection Data. If you do not wish to provide any personal data, do not submit the questionnaire or answer any questions that request personal data. You may receive fewer Surveys if you do not provide adequate information to determine your eligibility for Surveys.</p>
+                    <p><b>Financial Information</b> If you will receive compensation for participation in a Survey, we will also collect financial and transactional information, which may include accounts, contacts, bank details, billing and mailing addresses, and other payment-related information.</p>-->
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>4.&nbsp;&nbsp;How we collect and use personal data</b>
+                    <br />
+                    <br />
+                    <!--<p>
+                        We use your information in the following ways:
+                    </p>-->
+                    <b>A.&nbsp;&nbsp;Registration</b>
+                    <i>Account creation on our Websites</i>
+                    <p>We collect your first name, last name, email address, address, phone number (optional), gender, data of birth, preferred language and password when you create an account to become a Panellist (<b>Registration Data</b>). Depending on your country of residence, we may also require you to provide your ethnicity. The Registration Data are primarily used to create and maintain your account and communicate with you regarding that account and our Services.</p>
+                    <p>If you register through a Partner we may be provided with certain Personal Data by that Partner, depending on the privacy policies of that Partner. We will provide the Partner with a Unique Identifier (a reference code linked to you by the relevant Partner), so that we can link your Survey input to your <b>Unique Identifier</b>. This allows us to communicate with the Partner that you have completed the Survey without receiving any (additional) Personal Data.</p>
+                    <p>We process these Personal Data <b>to perform our User Agreement</b> with you or to take steps prior to entering into such agreement (as further described in our Terms and Conditions for Users).</p>
+                    <p>We may process your telephone number if you gave us <b>your consent</b> to do so (by completing the optional field). </p>
+                    <i>New surveys</i>
+                    <p>The Registration Data are also used to contact you in case we have a new Survey that matches your profile, so you can complete this Survey and receive a reward. We do this to perform our User Agreement with you.</p>
+                    <p>We also collect Personal Data in connection with our tracking of emails opens and clicks based on <b>legitimate interest</b>.</p>
+                    <i>Refer-a-friend</i>
+                    <p>We also use the Registration Data to grant you a preferred status if your friend signs up on our Platform through your referral link, or if you (as a referral) sign up on our Platform. This status includes getting a deposit in your account. We process the Registration Data for this purpose because we have a legitimate interest to do so.</p>
+                    <!--<p><b><i>Note:</i></b> Any Registration Data, and Profile Data you choose to provide will be used as necessary to provide the Services, and may be analyzed or transferred subject to your contract with us, and our contract with our Clients. You may choose to change any Registration or Profile Data that is part of your user account, however, once you have completed a Survey, the terms of your contract may result in the sale of that data and affect your rights in that data.</p>-->
+                    <b>B.&nbsp;&nbsp;Profile completion</b>
+                    <i>Survey suitability</i>
+                    <p>To increase your chances of getting invited for a Survey, you can add Personal Data to your user profile on your background, demographics, etc. when you are a Panellist (<b>Profile Data</b>). You may generally choose what Profile Data to provide. We use the Profile Data to assess your suitability for a specific Survey. We do this to <b>perform our User Agreement with you</b>.</p>
+                    <p>In some cases, when you are selected for a Survey, we may ask for <b>Additional Profile Data</b> if the Client requires additional specific information to determine your suitability for the Survey. We also store and use these data to invite you to Surveys in the future that are relevant to your background, directly or via the relevant Partner.</p>
+                    <p>In some cases where you registered into our Services via a Partner, we ask you to provide your <b>Contact Details</b> (name and email address) to us, so we can invite you to Surveys in the future ourselves.</p>
+                    <p>At the Client’s direction and if allowed under applicable law, we may also augment your Profile Data with additional information obtained from third party commercial sources. We process the Additional Profile Data as part of our User Agreement with you.</p>
+                    <p>We process the (Additional) Profile Data and Contact Details as part of our User Agreement with you.</p>
+                    <i>Special categories of Personal Data</i>
+                    <p>The (Additional) Profile Data may include <b>Special Categories of Personal Data</b> within the meaning of article 9 GDPR, such as data revealing racial or ethnic origin, data concerning health and data concerning your sex life or sexual orientation. We only process such Special Categories of Personal Data if you gave us your explicit consent to do so, i.e. by confirming you understand that we will process such data when you complete the relevant question.</p>
+                    <b>C.&nbsp;&nbsp;Technical Survey Data</b>
+                    <p>When a Survey is hosted on our Platform, we collect <b>Technical Survey Data</b>. This includes the type of device (mobile, tablet, computer), device IDs, geolocation data (based on your IP address), browser settings, and other data generated through applications and browsers when completing a Survey. It furthermore includes information about how you navigate through the Survey. This may include data on how long it takes you to complete each question as well as the entire Survey, which is relevant for our Survey analysis. In some instances, we will also process information relating to your activity during a Survey (e.g., your mouse activity). We process these data because we have a <b>legitimate interest</b> to do so or because we have obtained your <b>consent</b>.</p>
+                    <p>We collect Technical Survey Data via cookies and similar technologies. If you would like to know more about the cookies we use, please consult our Cookie Statement </p>
+                    <b>D.&nbsp;&nbsp;Compensation</b>
+                    <p>If you receive compensation for participation in a Survey as a Panellist, we also collect and process compensation-related information, such as your PayPal email address and information about vouchers provided to you (<b>Compensation Data</b>). This information is used to track and process compensation you are entitled to receive in connection with Survey completion.</p>
+                    <p>We process these data, because this is necessary to <b>perform our User Agreement</b> with you. We may also process these data because we are <b>legally obliged</b> to share (some of) these data with tax authorities.</p>
+                    <p>When you register into our services via one of our Partners, whether and how you will be awarded for each completed survey depends on the agreements you have made with that Partner.</p>
+                    <b>E.&nbsp;&nbsp;Correspondence and Communications</b>
+                    <p>We collect Personal Data about you when you engage with us via email, mail, sign up forms or other contact forms available through the Services. This Personal Data includes your name, e-mail address and the content of the correspondence.</p>
+                    <p>We use these data to answer your questions and/or handle any complaints, support you in using our Services and improve our Services as a result of questions and feedback from you. We process these data, because we have a <b>legitimate interest</b> to contact and assist you based on your comment or question and to improve our Services as a result of the questions and feedback we receive.</p>
+                    <b>F.&nbsp;&nbsp;Usage Data</b>
+                    <p>We automatically collect information on how you interact with the Services, such as the IP address from which you access the Services, date and time, information about your browser, operating system and computer or device, pages viewed, and items clicked (Usage Data).</p>
+                    <p>We use the Usage Data to analyze and improve our Services, to control unauthorized use or abuse of the Services, or otherwise detect, investigate or prevent activities that may violate the User Agreement or other fraudulent, harmful, unauthorized, unethical or illegal activities. We, for example, use your IP address to verify your country of residence.</p>
+                    <p>We also use Usage Data to deliver you advertising, including by serving and managing ads on the Services or on third party sites and to tailor ads based on your interests and browsing history.</p>
+                    <p>We process Usage Data because we have a legitimate interest to do so, or because we have obtained your consent. We use cookies and similar technologies (including those operated by third parties) to collect Usage Data. Our Cookie Statement outlines the purposes for which Usage Data is processed and the principles underlying the processing of Usage Data.</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    @*<b>
+                            5.&nbsp;&nbsp;Business and Commercial Purposes of Processing
+                        </b>
+                        <p>We use your information for the following business and commercial purposes:</p>
+                        <b>A.&nbsp;&nbsp;Providing the Services</b>
+                        <p>We may use personal data we collect as we believe necessary or appropriate to operate, maintain, administer and improve the Services and conduct the Surveys, analyze and report results, and other appropriate processing. We may also use data you provide us to respond to your inquiries and otherwise deliver customer service or and to process any payments to you.</p>
+                        <p>Any Registration Data, Profile Data and Survey Data you choose to provide will be used as necessary to provide the Services and may be analyzed or transferred subject to your contract with us, and our contract with our Clients. You may choose to change any Registration or Profile Data that is part of your user account, however, once you have completed a Survey, the terms of your contract may result in the sale of that data and affect your rights in that data.</p>
+                        <b>B.&nbsp;&nbsp;Creating Aggregate Data</b>
+                        <p>We will use Survey Data and Profile Data to create reports comprised of Aggregated Data that we will provide to our Clients, and we may otherwise use responses in accordance with standard market research industry practices and guidelines. We may also process information from Cookies and Similar Technologies, and other personal data collected through our Sites to analyze how our Services are used or perform, and other related matters.</p>
+                        <b>C.&nbsp;&nbsp;Communicating with You</b>
+                        <p>We may also use your contact data to communicate with you regarding your account, for example, by sending you Service announcements, technical notices, updates, security alerts, and support and administrative messages. Consistent with our legitimate interests in direct marketing to our users, we may also use personal data we collect to communicate directly with you, including by sending you newsletters, promotions or information about new products and services from Reach Collective. Your opt-out options for promotional communications are described below.</p>
+                        <b>D.&nbsp;&nbsp;Profiling/Personalization</b>
+                        <p>We may use personal data we collect to personalize the Services, including to greet you by name, provide better Survey recommendations to you, tailor communications to your interests, and use the information to guide overall improvements to our products and the Services. We may also create and augment user profiles with include information such as Inference Data or certain Aggregate Data in order to better tailor the Surveys, assess Survey eligibility, and to augment your Survey responses.</p>
+                        <b>E.&nbsp;&nbsp;Improving the Services </b>
+                        <p>We may use personal data we collect as we believe necessary or appropriate to analyze trends, administer or optimize the Services, monitor usage or traffic patterns (including to track users’ use of the Services) and gather certain Inference Data about our user base as a whole.</p>
+                        <b>F.&nbsp;&nbsp;Advertising</b>
+                        <p>We do not sell or use personal data collected during Surveys for direct marketing or other advertising purposes. However, we may use personal data we collect from our Sites to deliver you advertising, including by serving and managing ads on the Services or on third party sites and to tailor ads based on your interests and browsing history. Please see below for additional information on how to manage the ads you see.</p>
+                        <p><b><il>Note:</il></b>we do not control how our Client use Survey data that we provide to them.</p>
+                        <b>G.&nbsp;&nbsp;Security and Fraud Prevention</b>
+                        <p>We may use personal data we collect as we believe necessary or appropriate to control unauthorized use or abuse of the Services and our other products and services, or otherwise detect, investigate or prevent activities that may violate our policies; in connection with the monitoring and analysis of our IT systems to ensure the security of information, networks, and connected systems.</p>
+                        <b>H.&nbsp;&nbsp;Compliance</b>
+                        <p>We may use personal data we collect as we believe necessary or appropriate in connection with legal requirements, to prevent or respond to a crime, to investigate violations of our Terms of Use, or protect our rights, privacy, safety or property, and/or that of you or others, and to  protect, investigate and deter against fraudulent, harmful, unauthorized, unethical or illegal activity.</p>
+                        <b>I.&nbsp;&nbsp;Consent</b>
+                        <p>We may use personal data we collect in the manner described to you at the time of collection or otherwise in accordance with your consent.</p>*@
+                    <!--<p><ul><li>for “essential” or “functional” purposes, such as to enable various features of the Services such as remembering passwords, or staying logged in during your session;</li></ul></p>
+                    <p><ul><li>for “analytics” purposes, consistent with our legitimate interests in how our Services are used or performs, how users engage with and navigate our Services, what websites users visit before visiting our Site, how often they visit our Site, and other similar information;</li></ul></p>
+                    <p><ul><li>for social media integration e.g. via third-party social media cookies, or when you share information using a social media sharing button or “like” button on our Site or you link your account or engage with our content on or through a social networking website such as Facebook or Twitter;</li></ul></p>
+                    <p><ul><li>for the purpose of displaying advertisements via retargeting or other advertising platforms to those users who have visited our Site; and</li></ul></p>
+                    <p><ul><li>if you are a registered user and consent to the use to our web-browsing Survey feature, we may use additional “<b>Survey Cookies</b>” that are used so that we, or our partners, may contact you regarding your opinion on certain things you see or do on the Internet. <b>Note:</b> These tracking cookies contain personal data, including a unique user ID that is linked to your registration information, and these cookies track certain sites you may visit, the advertisements you see, and whether you click on certain content.</li></ul></p>
+                    <br />
+                    <p>Note, some of these technologies can be used by us and/or our third-party partners to identify you across platforms, devices, sites, and services. Further, Clients may use additional cookies or other technologies as part of the Client Services that are not covered by this Privacy Policy.</p>
+                    <p>We partner with third parties that collect information across various channels, including offline and online, for purposes of delivering more relevant advertising and content to you. Our partner may place or recognize a cookie on your computer or device and we may share personal information with them if you have submitted such information to us, such as your email address. Our partners may link the personal information we share with them to the cookie stored on your browser or device, and they may collect information such as your IP address, browser or operating system type and version, and demographic or inferred-interest information. Our partners use this information to recognize you across different channels and platforms over time for advertising, analytics, attribution, and reporting purposes. For example, our partners may deliver and/or enable downstream delivery of an ad to you in your web browser based on a purchase you made in a physical retail store, or they may send a personalized marketing email to you based on the fact that you visited a particular website. To learn more about interest-based advertising in general and to opt-out, please visit <a href="#" onclick="window.open('https://www.youronlinechoices.com', 'Contact us', 'height=600,width=750,scrollbars=yes'); return false" style="color: Blue; text-decoration: underline;">https://www.youronlinechoices.com</a> You can also refuse cookies via the settings of your browser as follow:</p>
+                    <p><ul><li>For Internet Explorer, <a href="#" onclick="window.open('https://support.microsoft.com/en-us/help/278835/how-to-delete-cookie-files-in-internet-explorer','explorer' ,'height=600,width=750,scrollbars=yes' ); return false" style="color: Blue; text-decoration: underline;">click here </a></li></ul></p>
+                    <p><ul><li>For Mozilla Firefox, <a href="#" onclick="window.open('https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences','mozilla', 'height=600,width=750,scrollbars=yes'); return false" style="color: Blue; text-decoration: underline;">click here </a></li></ul></p>
+                    <p><ul><li>For Google Chrome, <a href="#" onclick="window.open('https://support.google.com/chrome/answer/95647?hl=en&co=GENIE.Platform=Desktop','google', 'height=600,width=750,scrollbars=yes'); return false" style="color: Blue; text-decoration: underline;">click here </a></li></ul></p>
+                    <p><ul><li>For Safari, <a href="#" onclick="window.open('https://support.apple.com/en-us/HT201265','safari', 'height=600,width=750,scrollbars=yes'); return false" style="color: Blue; text-decoration: underline;">click here </a></li></ul></p>
+                    <p>To know more about Acxiom/Liveramp advertising cookies and opting out: <a href="#" onclick="window.open('https://liveramp.com/opt_out/','liveramp', 'height=600,width=750,scrollbars=yes'); return false" style="color: Blue; text-decoration: underline;">https://liveramp.com/opt_out/</a></p>-->
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>5.&nbsp;&nbsp;With whom do we share your Personal Data?</b>
+                    <p>Personal data we collect may be disclosed to a variety of parties, depending upon the purpose for which the information was provided and the context in which it was provided. The following describes how we may share the personal data we receive through our Services.</p>
+                    <b>A.&nbsp;&nbsp;Clients</b>
+                    <p>Pursuant to our contract with the Client, and your contract with us to provide the Survey Data for compensation, we may share Survey Data and related Profile Data with the Client who requested that we host the Survey. In some circumstances, we may share personal data with commercial data suppliers so that we can obtain additional information relevant to a Survey, to better validate your Survey responses, so that we may share additional Aggregated Data with our Clients, or for other business purposes. Any Registration Data, and Survey Data may be shared with Clients for the purpose of Survey validation, except that this data will be identified by a randomly-generated ID number, and we will not share your name or other Registration Data with Clients. If you are a registered user who has consented to the installation of our web-browsing based Survey Cookie, we may share a randomly generated user ID and the information contained in or collected from the use of the tracking cookie with our Client.</p>
+                    <b>B.&nbsp;&nbsp;Partners</b>
+                    <p>If you have registered into our services via one of our Partners, we will provide your Unique Identifier to the relevant Partner once you have completed the Survey, and the confirmation regarding the completion, so that that Partner can (if agreed with that Partner) provide rewards to you.</p>
+                    <b>C.&nbsp;&nbsp;Service Providers (our Processors)</b>
+                    <p>We share your Personal Data with service providers who provide certain services and process Personal Data on our behalf in connection with our general business operations, product/service improvements, such as website hosting, data analysis, email delivery and data validation services.</p>
+                    <b>D.&nbsp;&nbsp;Affiliates</b>
+                    <p>We share your Personal Data with any of our current or future affiliated entities, subsidiaries, and parent companies in order to streamline certain business operations and develop products and services that better meet the interests and needs of our Users. Click here for the list of Reach Collective entities.</p>
+                    <b>E.&nbsp;&nbsp;Marketers</b>
+                    <p>We share certain Personal Data collected on our Websites/Platform via cookies with third parties for marketing, advertising, or other commercial purposes, and we allow third parties (such as Facebook, ad exchanges, data management platforms, or ad servers) to operate on our Websites/Platform and process data for behavioral advertising, if you have provided us your consent to do so.  If you would like to know more about the cookies we use, please consult our Cookie Statement</p>
+                    <b>F.&nbsp;&nbsp;Corporate Events</b>
+                    <p>Your personal data may be processed in the event that we go through a business transition, such as a merger, acquisition, liquidation, or sale of all or a portion of our assets. For example, personal data may be part of the assets transferred, or may be disclosed (subject to confidentiality restrictions) during the due diligence process for a potential transaction.</p>
+                    <b>G.&nbsp;&nbsp;Legal Disclosures</b>
+                    <p>In limited circumstances, we access and disclose your Personal Data, any communications sent or received by you, and any other information that we have about you to the extent we believe such disclosure is legally required, to prevent or respond to a crime, to investigate violations of our Terms of Use, or in the vital interests of us or any person.</p>
+                    <b>H.&nbsp;&nbsp;Aggregated Information</b>
+                    <p>We also share aggregated or anonymized information with third parties for other purposes. Such information does not identify you individually, but may include usage, viewing and technical information such as the types of Services our Users generally use, the configuration of their computers, and performance metrics related to the use of Services which we collected through our technology.</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>6.&nbsp;&nbsp;How long do we Retain your Personal Data?</b>
+                    <br />
+                    <p>We will only retain your Personal Data for as long as necessary to fulfil the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements. To determine the appropriate retention period for Personal Data, we consider the amount, nature, and sensitivity of the Personal Data, the potential risk of harm from unauthorized use or disclosure of your Personal Data, the purposes for which we process your Personal Data, whether we can achieve those purposes through other means, and the applicable legal requirements. Afterwards, we will delete or anonymize your Personal Data.</p>
+                    <p>In this respect, we apply the following retention periods:</p>
+                    <i>Registration Data/Unique Identifier/Contact Details/(Additional) Profile Data</i>
+                    <p>If you are a Panellist, your Registration Data and (Additional) Profile Data are retained as long as your account is activated and will be deleted within one (1) month after the deactivation of your account (unless stated otherwise below).</p>
+                    <p>If your account has been inactive for two (2) years, we will delete your account and all Registration Data and (Additional) Profile Data after sending you a reminder.</p>
+                    <p>If you have registered into our Services via a Partner, your Unique Identifier/Contact Details and (Additional) Profile Data will be deleted if you have not participated in a Survey on our Platform for two (2) years. If we have received your Contact Details, we will send you a reminder via email before we delete these data.</p>
+                    <p>If you are no longer allowed to use our Platform because you have engaged in fraudulent behaviour, your Registration Data/Unique Identifier/Contact Details are retained for five (5) years after deactivation of your account.</p>
+                    <i>Technical Survey Data</i>
+                    <p>Your Technical Survey Data is retained for one (1) year after the Survey was conducted.</p>
+                    <i>Personal Data in correspondence</i>
+                    <p>These data are stored as long as necessary to handle your message/question/feedback.</p>
+                    <i>Cookies</i>
+                    <p>You can find more information about the retention periods of Personal Data collected via cookies in our Cookie Statement</p>
+                    <i>Other reasons to keep Personal Data</i>
+                    <p>Apart from (and even after expiry of) the aforementioned purposes and corresponding retention period(s), we process and retain certain Personal Data to comply with legal retention obligations and/or for fraud/misuse investigations or to substantiate a (judicial) claim. In such events, we will retain the Personal Data separately and only use such Personal Data for the aforementioned purposes.</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>7.&nbsp;&nbsp;Export of Personal Data outside the European Union</b>
+                    <br />
+                    <p>The Reach Collective Personal Data server is located in the United States. We operate in Europe, the United States and India. Your Personal Data may be transferred to these locations.</p>
+                    <p>Whenever we transfer your Personal Data to other parties in countries not deemed by the European Commission (or other appropriate local authorities) to provide an adequate level of Personal Data protection, the transfer will be based on one of the following safeguards recognized as providing adequate protection for Personal Data, where required by applicable data protection legislation:</p>
+                    <ul>
+                        <li>
+                            Contracts approved by the European Commission which impose data protection obligations on the parties to the transfer. For further details, see the European Commission Standard Contractual Clauses for the transfer of Personal Data to third countries.
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            The derogations under GDPR Article 49 (or analogous provision in local data protection law), such as where transfers are necessary to fulfil a contract or provide the services you request, or when you provide your consent.
+                        </li>
+                    </ul>
+                    <p>Please contact us if you want further information on the specific mechanism used by us when transferring your Personal Data to third countries.</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>8.&nbsp;&nbsp;Third party websites</b>
+                    <p>You may find advertising or other (hyper)links on our Websites/Platform that link to the websites, products and services of partners, suppliers, advertisers, sponsors, licensors or other third parties. We do not control the content or the links that appear on these websites and we are not responsible for the practices employed by websites linked to or from our Websites/Platform. In addition, these websites, products and services, including their content and links, may be constantly changing. These websites, products and services may have their own privacy notices, user terms and customer service policies. Browsing and interaction on any other website, including websites that are linked to or from our Websites/Platform, are subject to the terms and policies of that website.</p>
+                    <br />
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b id="bottom">9.&nbsp;&nbsp;Supplemental Privacy Disclosures </b>
+                    <br />
+                    <br />
+                    <b>A.&nbsp;&nbsp;Your California Privacy Rights</b>
+                    <p>Under the (<b>CCPA</b>) and other California laws, California residents may have the following rights in addition to those set forth in the Rights & Choices section above, subject to your submission of an appropriately-verified request (see below for verification requirements):</p>
+                    <table>
+                        <tr>
+                            <td style="float:left;margin-top:12px;font-size:small;"><b>Right to Know</b></td>
+                            <td style="padding: 12px;font-size:small;"><p>You may request the any of following, for the 12-month period preceding your request: (1) the categories of Personal Data we have collected about you, or that we have sold, or disclosed for a commercial purpose; (2) the categories of sources from which your Personal Data was collected; (3) the business or commercial purpose for which we collected or sold your Personal Data; (4) the categories of third parties to whom we have sold your Personal Data, or disclosed it for a business purpose; and (5) the specific pieces of Personal Data we have collected about you.</p></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:small;"><b>Right to Delete</b></td>
+                            <td style="padding: 5px;font-size:small;"><p>You have the right to delete certain Personal Data that we hold about you, subject to exceptions under applicable law.</p></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:small;"><b>Right to Non-Discrimination</b></td>
+                            <td style="padding: 10px;font-size:small;"><p>You have the right to not to receive discriminatory treatment as a result of your exercise of rights conferred by the CCPA.</p></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:small;"><b>Direct Marketing</b></td>
+                            <td style="padding: 10px;font-size:small;"><p>You may request a list of Personal Data we have disclosed about you to third parties for direct marketing purposes during the preceding calendar year.</p></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:small;"><b>Opt-Out of Sale</b></td>
+                            <td style="padding: 10px;font-size:small;"><p>If we engage in a “sale” of data as defined by applicable law, you have the right to opt-out of that sale. Similarly, you may have the right to opt out of the “sharing” of Personal Data, or the disclosure or use of any Sensitive Personal Information we process.</p></td>
+                        </tr>
+                    </table>
+                    <b>B.&nbsp;&nbsp;Privacy Rights in Other U.S. Jurisdictions</b>
+                    <p>Applicable law in other US jurisdictions may grant you certain rights in your Personal Data. These rights vary based on your residence, and may be limited by or subject to our own rights in your Personal Data. Please contact us using the information below to exercise rights you may have in your Personal Data.</p>
+                    <b>C.&nbsp;&nbsp;Submission of Requests</b>
+                    <p>You may submit requests, as follows (see below for summary of required verification information):</p>
+                    <table>
+                        <tr>
+                            <td style="font-size:small;"><b>Opt-Out of Sale</b></td>
+                            <td style="padding:10px;font-size:small;"><p>To opt-out of the sale of your personal data (to the extent we do so) you may click <a href="https://www.surveydownline.com/login/dns" style="color: Blue; text-decoration: underline;">here</a>, or send us an email to <a href="mailto:support@Reachcollective.com">support@Reachcollective.com</a>. See below for information regarding the opt out of sale in relation to targeted advertising.</p></td>
+                        </tr>
+                        <tr>
+                            <td style="float:left;margin-top:10px;font-size:small;"><b>Right to Confirm Processing, Access, Export; "Right to Know”</b></td>
+                            <td style="padding:10px;font-size:small;"><p>You may send an email to <a href="mailto:support@Reachcollective.com">support@Reachcollective.com</a> to request access to or a copy of your personal data. We may require you to provide your email address, phone number and address we have on file for you along with your desire to know what personal data we hold about you. Additional information about our processing of categories of personal data is available in the chart below.</p></td>
+                        </tr>
+                        <tr>
+                            <td style="float:left;margin-top: 6px;font-size:small;"><b>Right to Correct, Delete</b></td>
+                            <td style="padding: 7px;font-size:small;"><p>You may send an email to <a href="mailto:support@Reachcollective.com">support@Reachcollective.com</a> you to request to have your data deleted or to correct any inaccurate information. We may request information necessary to verify your identity, and access to your email, in order to fulfill your deletion/correction request. Certain information may be deleted/correct through your user account or profile settings.</p></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:small;"><b>Direct Marketing</b></td>
+                            <td style="padding: 7px;font-size:small;"><p>You may request a list of any relevant direct marketing disclosures via email to our privacy team at <a href="mailto:support@Reachcollective.com">support@Reachcollective.com</a>.</p></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:small;"><b>Targeted Advertising</b></td>
+                            <td style="padding: 7px;font-size:small;"><p>To opt out of any targeted advertising, please use the cookie controls and processes set forth in our Cookie Statement.</p></td>
+                        </tr>
+                    </table>
+                    <!--<p>If you are a California resident and we disclose your personally identifiable information to third parties for such third parties’ direct marketing purposes, California’s Shine the Light Law (CA Civil Code Section 1798.83) allows you to request certain information from us about such disclosures. To make a request under the Shine the Light Law, please contact us at data@intercom.com. Please note that under California law, businesses are not required to respond to such requests more than once during any calendar year.</p>-->
+                    <b>D.&nbsp;&nbsp;Verification of Requests</b>
+                    <p>All rights requests must be verified to ensure that the individual making the request is authorized to make that request, to reduce fraud, and to ensure the security of your Personal Data. We may require that you provide the email address we have on file for you (and verify that you can access that email account) as well as an address, phone number, or other data we have on file, in order to verify your identity. If an agent is submitting the request on your behalf, we reserve the right to validate the agent’s authority to act on your behalf. We may require you to submit rights requests directly with Clients on whose behalf we operated a given Survey.</p>
+                    <b>E.&nbsp;&nbsp;Data Processing</b>
+                    <br />
+                    <b>Categories of Personal Data Disclosed for Business Purposes</b>
+                    <p>For purposes of the CCPA and other US laws, we may disclose to Service Providers for “business purposes” the following categories of Personal Data: Identity Data; Contact Data; Commercial Data; Device/Network Data; Compensation Data; Health Data; Inference Data; Biographical Data; User Content; Protected Category Data; Special Category Data (including Sensitive Personal Information).</p>
+                    <b>Categories of Personal Data Sold</b>
+                    <p>For purposes of the CCPA and other US laws, we may “sell” Device/Network Data, Identity Data, Commercial Data, and Inference Data, and Contact Data in connection with your use of Cookies.</p>
+                    <b>Summary of Uses and Disclosures/”Right to Know”</b>
+                    <style>
+                        .grid {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                    </style>
+                    <table class="grid">
+                        <tr class="grid">
+                            <th class="grid" style="background:black;color:white;font-size:small;">Category of Data</th>
+                            <th class="grid" style="background:black;color:white;font-size:small;">Category of Sources</th>
+                            <th class="grid" style="background:black;color:white;font-size:small;">Business and Commercial Purposes</th>
+                            <th class="grid" style="background:black;color:white;font-size:small;">Category of Recipients</th>
+                        </tr>
+                        <tr class="grid">
+                            <td class="grid" style="font-size:small;"><il>Identity Data</il></td>
+                            <td class="grid" style="font-size:small;">Registration; Profiles; Surveys; Communications; Automatic Collection; Cookies/Similar Tech</td>
+                            <td class="grid" style="font-size:small;">Providing the Services; Creating Aggregate Data; Communicating with You; Profiling/Personalization; Improving the Services; Advertising; Security and Fraud Prevention; Compliance; Consent</td>
+                            <td class="grid" style="font-size:small;">Clients; Service Providers; Affiliates; Marketers; Partners; Corporate Events; Legal Disclosures</td>
+                        </tr>
+                        <tr class="grid">
+                            <td class="grid" style="font-size:small;">Contact Data</td>
+                            <td class="grid" style="font-size:small;">Registration; Profiles; Surveys; Communications; Cookies/Similar Tech</td>
+                            <td class="grid" style="font-size:small;">Providing the Services; Creating Aggregate Data; Communicating with You; Profiling/Personalization; Improving the Services; Advertising; Security and Fraud Prevention; Compliance; Consent</td>
+                            <td class="grid" style="font-size:small;">Service Providers; Affiliates; Marketers; Partners; Corporate Events; Legal Disclosures</td>
+                        </tr>
+                        <tr class="grid">
+                            <td class="grid" style="font-size:small;">Commercial Data</td>
+                            <td class="grid" style="font-size:small;">Surveys; Automatic Collection; Cookies/Similar Tech</td>
+                            <td class="grid" style="font-size:small;">Providing the Services; Creating Aggregate Data; Communicating with You; Profiling/Personalization; Improving the Services; Advertising; Security and Fraud Prevention; Compliance; Consent</td>
+                            <td class="grid" style="font-size:small;">Clients; Service Providers; Affiliates; Marketers; Partners; Corporate Events; Legal Disclosures</td>
+                        </tr>
+                        <tr class="grid">
+                            <td class="grid" style="font-size:small;">Device/Network Data</td>
+                            <td class="grid" style="font-size:small;">Surveys; Communications; Automatic Collection; Cookies/Similar Tech</td>
+                            <td class="grid" style="font-size:small;">Providing the Services; Creating Aggregate Data; Communicating with You; Profiling/Personalization; Improving the Services; Advertising; Security and Fraud Prevention; Compliance; Consent</td>
+                            <td class="grid" style="font-size:small;">Clients; Service Providers; Affiliates; Marketers; Partners; Corporate Events; Legal Disclosures</td>
+                        </tr>
+                        <tr class="grid">
+                            <td class="grid" style="font-size:small;">Compensation Data</td>
+                            <td class="grid" style="font-size:small;">Registration; Surveys</td>
+                            <td class="grid" style="font-size:small;">Providing the Services; Creating Aggregate Data; Communicating with You; Profiling/Personalization; Improving the Services; Advertising; Security and Fraud Prevention; Compliance; Consent</td>
+                            <td class="grid" style="font-size:small;">Service Providers; Affiliates; Partners; Corporate Events; Legal Disclosures</td>
+                        </tr>
+                        <tr class="grid">
+                            <td class="grid" style="font-size:small;">Inference Data</td>
+                            <td class="grid" style="font-size:small;">Profiles; Surveys; Automatic Collection; Cookies/Similar Tech</td>
+                            <td class="grid" style="font-size:small;">Providing the Services; Creating Aggregate Data; Communicating with You; Profiling/Personalization; Improving the Services; Advertising; Security and Fraud Prevention; Compliance; Consent</td>
+                            <td class="grid" style="font-size:small;">Clients; Service Providers; Affiliates; Marketers; Partners; Corporate Events; Legal Disclosures</td>
+                        </tr>
+                        <tr class="grid">
+                            <td class="grid" style="font-size:small;">Biographical Data</td>
+                            <td class="grid" style="font-size:small;">Registration; Profiles; Surveys</td>
+                            <td class="grid" style="font-size:small;">Providing the Services; Creating Aggregate Data; Communicating with You; Profiling/Personalization; Improving the Services; Advertising; Security and Fraud Prevention; Compliance; Consent</td>
+                            <td class="grid" style="font-size:small;">Clients; Service Providers; Affiliates; Marketers; Partners; Corporate Events; Legal Disclosures</td>
+                        </tr>
+                        <tr class="grid">
+                            <td class="grid" style="font-size:small;">Protected Category Data</td>
+                            <td class="grid" style="font-size:small;">Profiles; Surveys</td>
+                            <td class="grid" style="font-size:small;">Providing the Services; Creating Aggregate Data; Communicating with You; Profiling/Personalization; Improving the Services; Advertising; Security and Fraud Prevention; Compliance; Consent</td>
+                            <td class="grid" style="font-size:small;">Clients; Service Providers; Affiliates; Marketers; Partners; Corporate Events; Legal Disclosures</td>
+                        </tr>
+                        <tr class="grid">
+                            <td class="grid" style="font-size:small;">Special Category Data</td>
+                            <td class="grid" style="font-size:small;">Profiles; Surveys</td>
+                            <td class="grid" style="font-size:small;">Providing the Services; Creating Aggregate Data; Communicating with You; Security and Fraud Prevention; Compliance; Consent</td>
+                            <td class="grid" style="font-size:small;">Clients; Service Providers; Affiliates; Partners; Corporate Events; Legal Disclosures</td>
+                        </tr>
+                        <tr class="grid">
+                            <td class="grid" style="font-size:small;">User Content</td>
+                            <td class="grid" style="font-size:small;">Registration; Profiles; Surveys; Communications</td>
+                            <td class="grid" style="font-size:small;">Providing the Services; Creating Aggregate Data; Communicating with You; Profiling/Personalization; Improving the Services; Advertising; Security and Fraud Prevention; Compliance; Consent</td>
+                            <td class="grid" style="font-size:small;">Clients; Service Providers; Affiliates; Marketers; Partners; Corporate Events; Legal Disclosures</td>
+                        </tr>
+                    </table>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>10.&nbsp;&nbsp;Your rights</b>
+                    <br />
+                    <br />
+                    <img src="~/Images/privacy_rights.png" style="width:100%" />
+                    <br />
+                    <p>You can submit these requests by email to support@Reachcollective.com or our postal address provided at the end of the Privacy Notice. Please note if you are a Panellist, you can sign into your account, go to your profile, and access, alter or delete certain Personal Data yourself.</p>
+                    <p>We may request specific information from you to help us confirm your identity and process your request.</p>
+                    <p>Applicable law may require or permit us to decline your request. If we decline your request, we will tell you why, subject to legal restrictions.</p>
+                    <p>You are always entitled to file a complaint with a data protection supervisory authority if you believe that we are not processing your Personal Data in accordance with the GDPR.</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>11.&nbsp;&nbsp;Changes to the Privacy Notice</b>
+                    <br />
+                    <p>We may change this Privacy Notice from time to time. If we make changes, we will post them and will indicate on this page when the Privacy Notice has been last updated. If we make material changes to this Privacy Notice, we will notify you by email or through a notice on the Websites/Platform.</p>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>12.&nbsp;&nbsp;Contact Us</b>
+                    <p>We welcomes your comments regarding this Privacy Policy. If you have any questions or if you believe that we have not adhered to this Privacy Notice, please contact Reach Collective at <a href="mailto:support@Reachcollective.com">support@Reachcollective.com</a>.</p>
+                    <p>
+                        <b>Reach Collective Inc.</b><br />
+                        3461 Ringsby Ct.<br />
+                        Suite 240<br />
+                        Denver, CO 80216<br />
+                        Tel:+1 720-766-5106 <br />
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script src="~/Scripts/pages/footer/tc.js" type="text/javascript"></script>
+</body>

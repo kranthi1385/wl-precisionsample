@@ -1,0 +1,385 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/main/hmResponsive.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/Content/rzslider.min.css" />
+<link href="~/Content/prequestion.css" rel="stylesheet" />
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+    google.charts.load('current', { packages: ['corechart'] });
+</script>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    }
+    <div ng-if="pgLoad">
+        <div id="dvHome" ng-controller="homeController">
+            <div id="interiortop" ng-if="user.OrgId!=38">
+                <h1 class="col-md-12">
+                    <span>{{'hi' | translate}}</span>
+                    <span id="lblFirstName">{{user.FirstName}}</span>&nbsp;(<span id="lblEmail">{{user.EmailAddress}}</span>)
+                </h1>
+                <p class="col-md-offset-2 col-md-10 col-sm-12" ng-if="user.OrgId!=38">
+                    {{'welcomeText' | translate}}
+                </p>
+                <p class="col-md-offset-2 col-md-10 col-sm-12" ng-if="user.OrgId==38">
+                    {{'welcomeGM' | translate}}
+                </p>
+                <div id="history" class="">
+                    <div id="history">
+                        <div id="takesurveys_col" style="background: none;margin-left: 350px;" ng-if="user.OrgId==38">
+                            <h2>
+                                <div>
+                                    <span class="take-survey">{{'takeSurveys'| translate}}</span>
+                                </div>
+                                <img class="take-survey-img" src="/images/main/takesurveys1.jpg" alt="">
+                            </h2>
+                            <p id="expand">{{'youHave' | translate}} {{totalRewCount}}  {{'awatingSurveys' | translate}}</p>
+                            <p id="p1">{{'rewardText' | translate}} $ {{avaliableReward| number:2}}</p>
+                            <br>
+                            <h3 style="margin-top:20px;">
+                                <a href="/ms/Surveys" class="new-survey-btn"><span class="spnBtn">{{'viewNewSurveys' | translate}}</span></a>
+                            </h3>
+                        </div>
+                        <div id="takesurveys_col" ng-if="user.OrgId!=38">
+                            <h2>
+                                <div>
+                                    <span class="take-survey">{{'takeSurveys'| translate}}</span>
+                                </div>
+                                <img class="take-survey-img" src="/images/main/takesurveys1.jpg" alt="">
+                            </h2>
+                            <p id="expand">{{'youHave' | translate}} {{totalRewCount}}  {{'awatingSurveys' | translate}}</p>
+                            <p id="p1">{{'rewardText' | translate}} $ {{avaliableReward| number:2}}</p>
+                            <br>
+                            <h3 style="margin-top:20px;">
+                                <a href="/ms/Surveys" class="new-survey-btn"><span class="spnBtn">{{'viewNewSurveys' | translate}}</span></a>
+                            </h3>
+                        </div>
+                        <div id="build_col" ng-if="user.OrgId!=38">
+                            <h2>
+                                <div>
+                                    <span class="build-downline">{{'buildDownline' | translate}}</span>
+                                    <div>
+                                        <img class="build-downline-img" src="/images/main/build1.jpg" alt="">
+                                    </div>
+                                </div>
+                            </h2>
+                            <p>
+                                {{'downlineCurrently' | translate}}
+                                <br>&nbsp;&nbsp;&nbsp;{{referrals.SecondReferrals}} {{'secondReferrals' | translate}}
+                                <br>&nbsp;&nbsp;&nbsp; {{referrals.ThirdReferrals}} {{'thirdReferrals' | translate}}
+                            </p>
+                            <p>
+                            </p>
+                            <p> {{'youHave' | translate}}  {{'earned' | translate}} $ {{referralsReward | number:2}} from your referrals so far. </p>
+                            <br>
+                            <h3>
+                                <a href="/rf/downline" class="buld-downline-btn">
+                                    <span class="spnBtn">{{'buildDownline' | translate}}</span>
+                                </a>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*INTERIORTOP*@
+            <div id="col2-sm" class="col-md-12" ng-if="user.OrgId!=38">
+                <h1>
+                    <span class="newsurver-text">{{'maximizeIncomeHeader' | translate}}</span>
+                </h1>
+                <h2>
+                    <span class="newsurver-text">{{'newSurvey' | translate}}</span>
+                </h2>
+                <p>
+                    {{'newSurveyText' | translate}}
+                </p>
+
+                <div class="div-profile-text1">
+                    <h2>
+                        <span class="profile-text">{{'profiles' | translate}}</span>
+                    </h2>
+                    <p>
+                        {{'profilesText' | translate}} {{'profilesTextMore'| translate}}
+                    </p>
+                    <p>
+                        {{'practiceText' | translate}}
+                    </p>
+                </div>
+
+            </div>
+            <div id="interiorbottom" ng-if="user.OrgId!=38">
+                <div id="col1">
+                    <div class="boxleft">
+                        <h1 class="newsurvey-h1">
+                            <div class="newsurvey-dv">
+                                <span class="newsurvey-span">{{'newSurvey' | translate}}</span>
+                            </div>
+                        </h1>
+                        <div id="surveys">
+                            <div ng-if="!showSurveys">
+                                {{'noSurveys' | translate}}
+                            </div>
+                            <ul id='arrow' ng-repeat="survey in surveys track by survey.ProjectId" ng-if="showSurveys">
+                                <li id='l1'>
+                                    <table style="width:100%;">
+                                        <tr style="display:inline-block">
+                                            <td>
+                                                <img src='/Images/main/arrow_gray.gif' />
+                                            </td>
+                                            <td>
+                                                <div style="display: inline-flex;">
+                                                    <a href="" id="lblSurveyName" style="margin-left: 5px;" class="a-t-r" ng-click="popup(survey.SurveyUrl)">{{survey.SurveyName}}</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-profile-text2 col-sm-12">
+                    <h2>
+                        <span class="profile-content ">{{'profiles' | translate}}</span>
+                    </h2>
+                    <p>
+                        {{'profilesText' | translate}} <a ng-click="expand(!isexpand)" ng-show="isexpand">{{'ProfileAnchorMoreSM' | translate}}</a>
+                        <span ng-hide="isexpand">{{'profilesTextMore' | translate}}</span>
+                    </p>
+
+                    <p ng-hide="isexpand">
+                        {{'practiceTextSM' | translate}} <a ng-click="expand(!isexpand)">{{'practiceanchorLessSM' | translate}}</a>
+                    </p>
+
+                </div>
+                <div id="col2">
+                    <h1>
+                        <span class="newsurver-text">{{'maximizeIncomeHeader' | translate}}</span>
+                    </h1>
+                    <h2>
+                        <span class="newsurver-text">{{'newSurvey' | translate}}</span>
+                    </h2>
+                    <p>
+                        {{'newSurveyText' | translate}}
+                    </p>
+                    <h2>
+                        <span class="profile-text" ng-if="user.OrgId!=38">{{'profiles' | translate}}</span>
+                    </h2>
+                    <p ng-if="user.OrgId!=38">
+                        {{'profilesText' | translate}} {{'profilesTextMore'| translate}}
+                    </p>
+                    <p ng-if="user.OrgId!=38">
+                        {{'practiceText' | translate}}
+                    </p>
+                </div>
+                <div class="dv-profile-main-box" ng-if="user.OrgId!=38">
+                    <div class="div-profile-box">
+                        <div class="boxleft">
+                            <h1 class="profile-h1">
+                                <div class="profile-dv">
+                                    <span class="profile-span">{{'profiles' | translate}}</span>
+                                </div>
+
+                            </h1>
+                            <ul id="check">
+                                <li>
+                                    <table style="width:100%;">
+                                        <tr ng-repeat="profile in profiles">
+                                            <td>
+                                                <div class="profile-tb-dv">
+                                                    <label class="custom-control custom-checkbox" style="margin:0;">
+                                                        <input type="checkbox" class="custom-control-input" disabled ng-model="profile.IsChecked" value="{{profile.IsChecked}}" />
+                                                        <span class="custom-control-indicator"></span>
+                                                        <a style="cursor:pointer; margin:0;" ng-click="popup(profile.ProfileUrl)">{{profile.ProfileName}}</a>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="interiortop" ng-if="user.OrgId==38">
+                <div class="col-md-12" style="padding: 0 50px;">
+                    <h4 style="color: #005d7b;">
+                        <span>{{'hi' | translate}}</span>
+                        <span id="lblFirstName">{{user.FirstName}}</span>&nbsp;(<span id="lblEmail">{{user.EmailAddress}}</span>)
+                    </h4>
+                    <div class="row">
+                        <div class="form-group col-lg-7">
+                            <div class="panel survey-panels AvailableSurveys">
+                                <div class="panel-heading portlet-header">
+                                    <div class="panel-title">
+                                        Available Surveys
+                                    </div>
+                                </div>
+                                <div class="panel-body portlet-body" style="height: 100px;overflow: auto;">
+                                    <div class="panel-hyperlinks">
+                                        <div id="surveys">
+                                            <div ng-if="!showSurveys">
+                                                {{'noSurveys' | translate}}
+                                            </div>
+                                            <ul ng-repeat="survey in surveys" ng-if="showSurveys" style="margin:0; padding:0;">
+                                                <li id='l1'>
+                                                    <table style="width:100%;">
+                                                        <tr>
+                                                            <td valign="top" width="15">
+                                                                <img src='https://image.flaticon.com/icons/png/512/8/8740.png' width="10" style="height:auto; opacity: .5; vertical-align:top;" />
+                                                            </td>
+                                                            <td valign="top">
+                                                                <div>
+                                                                    <a href="" id="lblSurveyName" style="margin-left: 5px; margin-top:1px;" class="a-t-r" ng-click="popup(survey.SurveyUrl)">{{survey.SurveyName}}</a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-5">
+                            <div class="panel survey-panels ProfilesPanel">
+                                <div class="panel-heading portlet-header">
+                                    <div class="panel-title">
+                                        Profiles
+                                    </div>
+                                </div>
+                                <div class="panel-body portlet-body">
+                                    <div class="panel-hyperlinks">
+                                        <ul id="check">
+                                            <li>
+                                                <table style="width:50%;">
+                                                    <tr ng-repeat="profile in profiles">
+                                                        <td>
+                                                            <div class="profile-tb-dv">
+                                                                <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                                                                    <input type="checkbox" class="custom-control-input" disabled ng-model="profile.IsChecked" value="{{profile.IsChecked}}" />
+                                                                    <span class="custom-control-indicator"></span>
+                                                                    <a style="cursor:pointer;" ng-click="popup(profile.ProfileUrl)">{{profile.ProfileName}}</a>
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="panel survey-panels">
+                            <div class="panel-heading portlet-header">
+                                <div class="panel-title">
+                                    Daily Poll
+                                </div>
+                            </div>
+                            <div class="panel-body portlet-body" style="height:auto">
+                                <div class="panel-hyperlinks">
+                                    <div id="dailypoll">
+                                        <div ng-if="questions.length==0">
+                                            <span class="question poll-question">That's all for today!</span>
+                                        </div>
+                                        <form name="formValidation" novalidate>
+                                            <div id="surveyQuestion" ng-if="questions.length>0">
+
+                                                <div id="dvQuestions" class="pre-question-list poll-list" style="font-size:13px;">
+                                                    <div class="body1" ng-if="isShowQst">
+                                                        <div id="tmpTable" ng-repeat="question in questions">
+                                                            @*   <div template-directive question_typeid="{{question.QuestionTypeId}}" ></div>*@
+                                                            <div ng-if="question.ChildQuestionList == null">
+                                                                <template-directive question-type-id="{{question.QuestionTypeId}}"></template-directive>
+                                                            </div>
+                                                            <div ng-if="question.ChildQuestionList.length !=null ">
+                                                                <div ng-if="question.QuestionTypeId != 13 ">
+                                                                    <template-directive question-type-id="{{question.ChildQuestionList[0].QuestionTypeId}}"></template-directive>
+                                                                </div>
+                                                                <div ng-if="question.QuestionTypeId == 13 ">
+                                                                    <template-directive question-type-id="{{question.QuestionTypeId}}"></template-directive>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="footerblock" style="height:auto">
+                                                        <div style="text-align: center; padding: 10px;">
+                                                            <span id="spnErrorMessage" align="left" style="color: Red; display: none; font-size: 15px"></span>
+                                                        </div>
+                                                        <div class="pre-question-btn" ng-if="isShowQst">
+                                                            <button id="btnSubmit" class="button" type="button" value="Continue"
+                                                                    ng-click="save(formValidation.$valid)">
+                                                                Continue
+                                                            </button>
+
+                                                        </div>
+
+                                                        <br />
+
+                                                    </div>
+                                                    <div id="polldv" style="position:relative;height:auto;float:left">
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        @*<div class="form-group col-md-6 col-lg-4">
+                                <div class="panel panel-bordered portlet-panel">
+                                    <div class="panel-heading portlet-header">
+                                        <div class="panel-title">
+                                            Research Findings
+                                        </div>
+                                    </div>
+                                    <div class="panel-body portlet-body">
+                                        <div class="panel-hyperlinks">
+                                            <div id="chart" style="width: 200px; height: 140px; margin: 0 auto">
+                                            </div>
+                                            <script language="JavaScript">
+                                                function drawChart() {
+                                                    // Define the chart to be drawn.
+                                                    var data = google.visualization.arrayToDataTable([
+                                                       ['Year', 'Count'],
+                                                       ['Yes', 900],
+                                                       ['No', 1000]
+                                                    ]);
+                                                    var options = { title: 'Married' };
+                                                    // Instantiate and draw the chart.
+                                                    var chart = new google.visualization.ColumnChart(document.getElementById('chart'));
+                                                    chart.draw(data, options);
+                                                }
+                                                google.charts.setOnLoadCallback(drawChart);
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>*@
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

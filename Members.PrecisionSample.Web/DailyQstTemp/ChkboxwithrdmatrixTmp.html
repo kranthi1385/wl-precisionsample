@@ -1,0 +1,87 @@
+﻿<script type="text/ng-template" id="CheckboxWithRdMatrix">
+    <div>
+        <span ng-show="submitValidations && counter==0" style="color: red;width:100%;float:left;font-size:12px;">Please Answer the queston</span>
+    </div>
+    <div align="left" class="questionback" style="clear: both;">
+        <span class="question" id="lblQuestiontext" ng-bind-html="question.QuestionText | unsafe"></span>
+    </div>
+    <div class="grid_floating_header" width="100%">
+        <div class="question_martix" style="min-height: 30px;">
+            <div style="width: 35%;" class="grid_question">
+            </div>
+            <div ng-repeat="chq in question.ChildQuestionList" style="font-size: 14px;">
+
+                <div style="width: 16%;" class="grid_column">{{chq.QuestionText}}</div>
+
+            </div>
+        </div>
+    </div>
+    <div class="question_martix">
+        <div ng-repeat="chq in question.ChildQuestionList">
+            <div ng-if="$index == 0">
+                <div ng-repeat="op in chq.OptionList" style="width: 100%;">
+                    <div style="width: 100%; overflow: hidden;">
+                        <div class="optiontext grid_question_opt" style="text-align: left;" ng-attr-id="{{op.QuestionId + '_optnc'}}">
+                            {{op.OptionText}}
+                        </div>
+                        <div>
+                            <div class="optiontext" ng-repeat="spop in question.SpecialOptinLst[$index]">
+                                <div style="width: 15%;" class="grid_column" ng-attr-id="{{spop.QuestionId+'_'+spop.OptionId+'_dvmain'}}" ng-class="{input_onm:spop.IsChecked == true}">
+                                    <div ng-if="(spop.OptionText | lowercase) == 'prefer not to answer'  || (spop.OptionText | lowercase) == 'none of the above'">
+                                        <div style="min-height: 21px;">
+                                            <div class="grid_radio" ng-attr-id="{{spop.QuestionId+'_'+spop.OptionId+'_dvradio'}}" ng-class="{input_on:spop.IsChecked == true}" ng-click="rdClick(question,spop,$parent.$parent.$index)">
+                                            </div>
+                                            <div class="grid_span_holder">
+                                                <span class="grid_span" ng-attr-id="{{spop.QuestionId+'_'+spop.OptionId+'_rdDiv'}}" ng-click="rdClick(question,spop,$parent.$parent.$index)">{{spop.QuesitonText}}</span>
+                                            </div>
+                                            <input type="checkbox" style="display: none;" ng-attr-id="{{spop.QuestionId+'_'+spop.OptionId +'_radio'}}"
+                                                   ng-model="spop.IsChecked" name="{{spop.SpecialGroupingId+'_checkbox'}}" value="{{spop.optionId}}" />
+                                        </div>
+                                    </div>
+                                    <div ng-if="(spop.OptionText | lowercase) != 'prefer not to answer'  && (spop.OptionText | lowercase) != 'none of the above'">
+
+                                        <div class="grid_matrix_checkbox" ng-attr-id="{{spop.QuestionId+'_'+spop.OptionId+'_dvcheckbox'}}" ng-class="{input_on:spop.IsChecked == true}" ng-click="checkboxClick(question,spop,$parent.$parent.$index)">
+                                        </div>
+
+                                        <div class="grid_span_holder">
+                                            <span class="grid_span" ng-attr-id="{{spop.QuestionId+'_'+spop.OptionId+'_chkDiv'}}" ng-click="checkboxClick(question,spop,$parent.$parent.$index)">{{spop.QuesitonText}}</span>
+                                        </div>
+                                        <input type="checkbox" style="display: none; float: left" ng-attr-id="{{spop.QuestionId+'_'+spop.OptionId+'_checkbox'}}"
+                                               ng-model="spop.IsChecked" name="{{spop.SpecialGroupingId+ '_checkbox'}}" value="{{spop.optionId}}" />
+
+                                        <!--<input type="checkbox" style="display: none; float: left" ng-attr-id="{{spop.QuestionId+'_'+spop.OptionId+'_checkbox'}}"
+                                          ng-model="spop.IsChecked" name="{{spop.SpecialGroupingId+ '_checkbox'}}" value="{{spop.optionId}}"  ng-required="question.SpecialOptinLst[$parent.$parent.$index].OptidsLst.length==0"/>-->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <span ng-show="submitValidations && formValidation[($index+1)+'_checkbox'].$error.required" style="color: red;width:100%;float:left;font-size:12px;">Please Answer the queston</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</script>
+
+<div style="width: 100%;">
+    <div>
+        <div ng-controller="checkboxwithrdmatrixController">
+            <ng-include src="'CheckboxWithRdMatrix'"></ng-include>
+        </div>
+    </div>
+</div>
+
+<!--<div class="grid_floating_header" width="100%">
+    <div class="question_martix" style="min-height: 30px;">
+        <div style="width: 35%;" class="grid_question">
+        </div>
+        <div ng-repeat="chq in question.ChildQuestionList" style="font-size: 14px;">
+            <div style="width: 16%;" class="grid_column" data-bind="text: chq.QuestionText"></div>
+
+        </div>
+    </div>
+</div>-->

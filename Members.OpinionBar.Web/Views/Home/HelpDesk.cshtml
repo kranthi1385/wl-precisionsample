@@ -1,0 +1,439 @@
+﻿@{
+    Layout = null;
+}
+
+<style>
+    .helpdesk, .helpdeskcat a {
+    font-size: 20px;
+    color: #454545;
+    font-family: arial;
+    font-weight: 400;
+    text-decoration: none;
+    padding-bottom: 5px;
+    display: block;
+}
+.helpdesk> li {
+    list-style: none;
+    margin-top: 15px;
+    position: relative;
+    padding-left: 16px;
+}
+li.question, .question>a {
+    font-size: 15px;
+    color: #3762c3;
+    font-family: arial;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 5px 0 5px;
+    list-style: disc;
+}
+.answer {
+    font-size: 14px;
+    color: #6a7079;
+    line-height: 1.4;
+    padding-bottom: 15px;
+    list-style: none;
+}
+
+li.helpdeskcat:before {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+    font-family: cursive;
+    line-height: 1;
+    color: #999;
+}
+
+
+
+</style>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+
+        })(window, document, 'script', 'dataLayer', 'GTM-N9DDS62');</script>
+    <!-- End Google Tag Manager -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script src="~/Scripts/translate-pluggable-loader.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+</head>
+<body>
+    @Html.AntiForgeryToken()
+    <div ng-if="pgLoad">
+        <div ng-controller="contactUsController">
+            <!-- Google Tag Manager (noscript) -->
+            <noscript>
+                <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9DDS62"
+                        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+            </noscript>
+            <!-- End Google Tag Manager (noscript) -->
+            <ul class="helpdesk" id="helpdesk">
+                <li class="helpdeskcat">
+                    <a href="#">
+                        {{'regmem'|translate}}
+                    </a>
+                </li>
+                <li class="catquestions">
+                    <ul class="helpdeskcatcontent">
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'whattojoinOpinionBar'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'almostSubscriptionOlder'|translate}}
+
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'willThirdParties'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'noRentOrganizations'|translate}}
+
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'howInvitationsSurveys'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'makeProfileSurveys'|translate}}
+
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'canHouseholdParticipate'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'yesHouseholdPersonalDetails'|translate}}
+
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'canEmailAddress'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'myDetails'|translate}}
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'problemsLogging'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                           {{'ifForgetPasswordRegistration'|translate}}
+
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'birthorCountry'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'changeDuringYourMembership'|translate}}<a href="mailto:helpdesk@opinionbar.com">Helpdesk@opinionbar.com</a>.
+
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'personalDetails'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'recognizablePersonalInformation'|translate}}
+
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'opinionBarPrivacy'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'yourPrivacyExtremely'|translate}}
+
+                        </li>
+
+                        @*<li class="question">
+                            <a href="#">
+
+                                {{'receiveSpamOpinionBarSafe'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'newsletterYourEmailAccount'|translate}}
+
+                        </li>*@
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'unsubscribeOpinionBar'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'pleasePossibleRecoverAccountAfterwards'|translate}} 
+                            <a href="/Home/Unsub">{{'accountremovalform'|translate}}</a>
+                           
+
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="helpdeskcat">
+                    <a href="#" class="" />
+                    {{'participationSurvey'|translate}}</a>
+                </li>
+                <li class="catquestions">
+                    <ul class="helpdeskcatcontent">
+
+                        @*<li class="question">
+                            <a href="#">
+
+                                {{'howParticipate'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'weLeastOnceMonth'|translate}}
+
+                        </li>*@
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'howSurveyParticipate'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+                            {{'youReceiveEmailInvitingpParticipateSurvey'|translate}}
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'howAverageSurveyTake'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'mostSurveysCompletedTenMinutes'|translate}}
+
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'whatParticipatingSurvey'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'dependingLengthSurvey'|translate}}
+                           
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'whyTotalReward'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'specificTargetGroup'|translate}}<br /><br />
+                            {{'pleaseParticipateProfileSurveys'|translate}}
+
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'anySurveyinvitations'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                        {{'websitParticipateProfileSurvey'|translate}} 
+                            @*<a href="mailto:helpdesk@opinionbar.com">helpdesk@opinionbar.com</a>*@
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="helpdeskcat">
+                    <a href="#">
+                    {{'paymentshead'|translate}}</a>
+                </li>
+                <li class="catquestions">
+                    <ul class="helpdeskcatcontent">
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'howPaid'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+                            {{'myDetailsBankInformation'|translate}}
+                        </li>
+
+                        @*<li class="question">
+                            <a href="#">
+
+                                {{'howRequestPayment'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'personalAccount'|translate}}
+
+                        </li>*@
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'whenPayment'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'paymentsProcessedFirstWeekEveryMonth'|translate}}
+                            
+                        </li>
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'recivedmessage'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'paymentListedFailedPending'|translate}}
+                             <a href="mailto:helpdesk@opinionbar.com">helpdesk@opinionbar.com</a>
+                        </li>
+
+                        @*<li class="question">
+                            <a href="#">
+
+                                {{'wherFindIBANBICCode'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'IBANBICBankStatement'|translate}}
+
+                        </li>*@
+
+                        @*<li class="question">
+                            <a href="#">
+
+                                {{'whatIBANnumber'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'IBANBankAccountNumber'|translate}}
+
+                        </li>*@
+
+                        @*<li class="question">
+                            <a href="#">
+
+                                {{'whatBICCode'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                            {{'bICCodeIdentifiesBankBranch'|translate}}
+
+                        </li>*@
+                        <li class="question">
+                            <a href="#">
+                                {{'palPayaccount'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+                          
+                                {{'palPayaccountinstructions'|translate}}
+                            
+                        </li>
+                    </ul>
+                </li>
+                <li class="helpdeskcat">
+                    <a href="#Other">
+                        {{'otherQuestions'|translate}}
+                    </a>
+                </li>
+                <li class="catquestions">
+                    <ul class="helpdeskcatcontent">
+
+                        <li class="question">
+                            <a href="#">
+
+                                {{'relationshipOpinionBarUKopinion'|translate}}
+                            </a>
+                        </li>
+                        <li class="answer">
+
+                         {{'opinionhead'|translate}}
+
+                        </li>
+
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    @*<script src="~/Scripts/services/translationService.js" type="text/javascript"></script>*@
+    <script>document.write("<script  type='text/javascript' src='/Scripts/require.js'  data-main='/Scripts/services/config.js?v=" + 4 + "' ><\/script>");</script>
+</body>

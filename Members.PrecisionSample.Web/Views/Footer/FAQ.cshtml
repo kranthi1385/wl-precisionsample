@@ -1,0 +1,198 @@
+﻿
+@{
+    Layout = null;
+}
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+</head>
+<body ng-app="footerApp">
+    @Html.AntiForgeryToken()
+    <div ng-controller="faqController">
+        <table style="font-family: Verdana; font-size: small;">
+            <tr>
+                <td align="left">
+                    <b style="font-size: large;">
+                        {{'title' | translate}} {{orgDetails.OrgName}}
+                        <label class="orgname">
+                        </label>
+                    </b>
+                    <br />
+                    <br/>
+                </td>
+            </tr>
+           
+            <tr>
+                <td align="left">
+                    <b>
+                        {{'qreward' | translate}} {{orgDetails.OrgName}} {{'qreward1' | translate}}
+                    </b>
+                    <br />
+                    <br />
+                    {{'ansreward1' | translate}}
+                    <br />
+                    <br/>
+                    {{'payPalPayments' | translate}}
+                    <br />
+                    <br />
+                    @*{{'rewardByCountry' | translate}}
+                    <br />
+                    <br />
+                    {{'usa' | translate}}<br />
+                    {{'magazineSub' | translate}}<br />
+                    {{'ansreward15' | translate}}<br />
+                    {{'ansreward12' | translate}}<br />
+                    <br />
+                    {{'ansreward15' | translate}}<br />
+                    {{'ansreward12' | translate}}<br />
+                    <br />*@
+                    @*{{'title' | translate}}
+                    <br />
+                    <br />*@
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'question2' | translate}}</b>
+                    <br />
+                    {{'answer2' | translate}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'question3' | translate}}</b>
+                    <br />
+                    {{'answer31' | translate}}{{orgDetails.OrgName}}{{'answer32' | translate}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'question4' | translate}}</b>
+                    <br />
+                    {{'answer41' | translate}}{{orgDetails.OrgName}}{{'answer42' | translate}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>
+                        {{'question51' | translate}}{{orgDetails.OrgName}}{{'question52' | translate}}
+                    </b>
+                    <br />
+                    {{'answer5' | translate}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>
+                        {{'question6' | translate}} {{orgDetails.OrgName}}?
+                    </b>
+                    <br />
+                    {{'answer62' | translate}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'question7' | translate}}<span data-bind="html:faqViewModel.Body.question7"></span></b>
+                    <br />
+                    {{'answer71' | translate}}{{orgDetails.OrgName}}{{'answer72' | translate}}
+                    <br />
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>
+                        {{'question8' | translate}} {{orgDetails.OrgName}}?
+                    </b>
+                    <br />
+                    {{'answer8' | translate}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            @*<tr>
+                <td align="left">
+                    <b>{{'question9' | translate}}</b>
+                    <br />
+                    {{'answer9' | translate}}
+                    <br />
+                    <br />
+                </td>
+            </tr>*@
+            <tr>
+                <td align="left">
+                    <b>{{'question10' | translate}}</b>
+                    <br />
+                    {{'answer101' | translate}}{{orgDetails.OrgName}}{{'answer102' | translate}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>
+                        {{'question111' | translate}}
+                    </b>
+                    <br />
+                    {{'answer111' | translate}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>
+                        {{'question121' | translate}} {{orgDetails.OrgName}}
+                        ?
+                    </b>
+                    <br />
+                    {{'answer121' | translate}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <div id="divdownline">
+                        <b>
+                            {{'question131' | translate}} {{orgDetails.OrgName}} {{'question132' | translate}}
+                        </b>
+                        <br />
+                        {{'answer131' | translate}}
+                        <a href="{{orgDetails.MemberUrl}}" ng-click="aboutus()" style="color: Blue; text-decoration: underline;"><span style="color: Blue;">{{orgDetails.MemberUrl}}.</span></a>{{'answer132' | translate}}
+                        <br />
+                        <br />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>{{'question14' | translate}}</b>
+                    <br />
+                    {{'answer14' | translate}}
+                    <br />
+                    <br />
+                </td>
+            </tr>
+        </table>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script src="~/Scripts/pages/footer/tc.js" type="text/javascript"></script>
+</body>

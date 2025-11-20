@@ -1,0 +1,495 @@
+﻿@model Members.OpinionBar.Components.Entities.User
+
+@{
+    Layout = "~/Views/Shared/OPLayout.cshtml";
+}
+<style>
+    .subshow {
+        display: block;
+    }
+</style>
+<html>
+<body ng-app="loginApp" ng-controller="loginCtrl">
+    <div style="width: 100%;
+    background: #f9f2f2;
+    position: fixed;
+    top: 0;
+    padding: 1px;
+    z-index: 99999;" ng-if="nomNomCookie">
+        <center>
+            <div id="divcookie" style="margin-left: auto;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    display: table;">
+                <div>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td style="vertical-align: top;" align="left">
+                                <h1 style="color: #920025; font-size: 24px; margin-bottom:7px;" data-bind="text: ViewModel.BodyMenu.CookeisHeader">{{'cookeisHeader'|translate}}</h1>
+                            </td>
+                            <td style="vertical-align: bottom;" align="left">
+                                <img src="/images/cookie_image.png" alt="cookie_img" style="margin-left: 5px; width: 50px;
+                                        height: 32px;" />
+                            </td>
+                            <td style="vertical-align: bottom;" align="left">
+                                <span data-bind="text: ViewModel.BodyMenu.CookiesText">{{'cookiesText'|translate}}</span>&nbsp;<a href="/c.htm"
+                                    <u data-bind="text: ViewModel.BodyMenu.CookiePolicy">{{'cookiePolicy'|translate}}</u>
+                                </a><br />
+                                <span data-bind="text: ViewModel.BodyMenu.CookiesText">If you prefer that we not place cookies please &nbsp;<a href="" ng-click="delCookie()" style="color: #1E91CB;">Click here</a> to opt out. This will reduce your survey opportunities.</span>
+                            </td>
+                            <td style="vertical-align: bottom;" align="left">
+                                &nbsp;&nbsp;&nbsp;<input type="button" id="btncookieok" value="OK" ng-click="okCookie()" style="width: 57px !important;
+    height: 30px;
+    background: #77767b;
+    border: 1px solid;
+    color: #fff;" />
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </center>
+    </div>
+    <div id="sign_up_div_bg" class="sign_up_div_bg row" ng-class="{'subshow':leadshow == 'showlead'}">
+        <div class="sign_up_div" style="display:block;">
+            <h2>{{'createaccount' | translate}}</h2>
+            <div style="height:auto !important">
+                @Html.AntiForgeryToken()
+                <form name="loginForm" class="form-horizontal register-form" novalidate>
+                    <div>
+                        <input type="text" id="txtFirstName" class="form-control" ng-model="user.FirstName" placeholder="{{'firstName'|translate}}" name="firstName" ng-change="checkname(user.firstname)" required>
+                        <span ng-show="loginForm.firstName.$invalid && isRegErrMsg" class="error" style="font-style: italic;">{{'Required'|translate}}</span>
+                        <span ng-if="nameMsg" class="error" style="font-style: italic;">{{'Please enter only letters'|translate}}</span>
+                    </div>
+                    <div>
+                        <div class="col-sm-8">
+                            <input type="text" id="txtLastName" class="form-control" ng-model="user.LastName" placeholder="{{'lastName'|translate}}" name="lastName" ng-change="checklname(user.LastName)" required>
+                            <span ng-show="loginForm.lastName.$invalid && isRegErrMsg" class="error" style="font-style: italic;">{{'Required'|translate}}</span>
+                            <span ng-if="lnameMsg" class="error" style="font-style: italic;">{{'Please enter only letters'|translate}}</span>
+                        </div>
+                    </div>
+                    <div class="padding_mobile">
+                        <input type="email" id="txtEmailAddress1" class="form-control" placeholder="E-mail" ng-model="user.EmailAddress" name="email" ng-blur="validateEmail()" required>
+                        <span class="error text-danger" ng-show="loginForm.email.$error.email">{{'notValidEmail'|translate}}</span>
+                        <span ng-show="loginForm.email.$error.required && isRegErrMsg" class="error" style="font-style: italic;">{{'Required'|translate}}</span>
+                        <span ng-if="emailnotexist" class="error" style="font-style: italic;">{{'emailnotexist'|translate}}</span>
+                        <span ng-if="xVerifyMessageexist" class="error" style="font-style: italic;">{{'emailAddressAlreadyExist'|translate}}</span>
+                        <span ng-if="xVerifyMessage" style="font-style: italic;color:green">{{'emailVerify'|translate}}</span>
+                    </div>
+                    <div>
+                        <div class="col-sm-8">
+                            <input type="text" id="txtAddress1" name="address1" placeholder="{{'address1'|translate}}" ng-model="user.Address1" required>
+                            <span class="error" ng-show="loginForm.address1.$invalid &&isRegErrMsg" style="font-style: italic;">{{'Required'|translate}}</span>
+                        </div>
+                    </div>
+                    <div>
+                        <input data-val="true" id="address2" name="address2" placeholder="{{'address2'|translate}}" type="text" ng-model="user.Address2">
+                    </div>
+                    <div>
+                        <select class="form-control" id="CountryId" style="width: 270px;" ng-model="user.CountryId" name="country" ng-change="countryByStates(user.CountryId)" ng-options="con.CId as con.CN for con in countries" ng-required="true">
+                            <option value="">{{'country'|translate}}</option>
+                        </select>
+                        <span class="error" ng-show="loginForm.country.$invalid && isRegErrMsg" style="font-style: italic;">{{'Required'|translate}}</span>
+                    </div>
+                    <div ng-if="states.length != 0">
+                        <select class="form-control" style="width: 270px;" id="ddlStates" ng-model="user.StateId" name="state" ng-options="st.SId as st.SN for st in states" required>
+                            <option value="">{{'stateProvince'|translate}}</option>
+                        </select>
+                        <span class="error" ng-show="loginForm.state.$invalid && isRegErrMsg">{{'Required'|translate}}</span>
+                        <span class="error" ng-show="loginForm.StateId ==0 && isRegErrMsg" style="font-style: italic;">{{'Required'|translate}}</span>
+                    </div>
+                    <div>
+                        <input type="text" id="txtCity" class="form-control" name="city" ng-model="user.City" placeholder="{{'city'|translate}}" required />
+                        <span class="error" ng-show="loginForm.city.$invalid && isRegErrMsg" style="font-style: italic;">{{'Required'|translate}}</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtZipCode" placeholder="{{'zipPostalCode'|translate}}" class="form-control" ng-model="user.ZipCode" name="zipCode" required>
+                        <span class="error" ng-show="loginForm.zipCode.$invalid && isRegErrMsg" style="font-style: italic;">{{'Required'|translate}}</span>
+                    </div>
+                    @*<div>
+                            <input data-val="true" id="zip" name="zipcode" placeholder="ZIP Code" type="text" ng-model="user.zipcode">
+                            <span class="error" ng-show="loginForm.zipCode.$invalid && isRegErrMsg">Required</span>
+                        </div>*@
+                    @*<div>
+                            <input data-val="true" id="phone" class="form-control" name="phone" placeholder="Mobile" type="number" maxlength = "10" ng-model="user.mobile">
+                        </div>*@
+                    <div>
+                        <input data-val="true" id="phone" name="phone" placeholder="{{'phoneNumber'|translate}}" type="text" maxlength="15" ng-model="user.PhoneNumber">
+                    </div>
+                    <div>
+                        <select id="ddlGender" class="form-control" style="width: 270px;" ng-model="user.Gender" name="gender" placeholder="{{'gender'|translate}}" required ng-change="optIntelligenceCheck()">
+                            <option value="">{{'gender'|translate}}</option>
+                            <option value="M">{{'male'|translate}}</option>
+                            <option value="F">{{'female'|translate}}</option>
+                        </select>
+                        <span class="error" ng-show="loginForm.gender.$invalid && isRegErrMsg" style="font-style: italic;">{{'Required'|translate}}</span>
+                    </div>
+                    <div>
+                        <select id="ddlMonth" class="form-control" ng-model="user.Month" style="width: 102px;height: 34px;display: inline-block;" name="month" required ng-click="optIntelligenceCheck()">
+                            <option value="">{{'month'|translate}}</option>
+                            <option value="01">{{'jan'|translate}}</option>
+                            <option value="02">{{'feb'|translate}}</option>
+                            <option value="03">{{'mar'|translate}}</option>
+                            <option value="04">{{'apr'|translate}}</option>
+                            <option value="05">{{'may'|translate}}</option>
+                            <option value="06">{{'jun'|translate}}</option>
+                            <option value="07">{{'jul'|translate}}</option>
+                            <option value="08">{{'aug'|translate}}</option>
+                            <option value="09">{{'sep'|translate}}</option>
+                            <option value="10">{{'oct'|translate}}</option>
+                            <option value="11">{{'nov'|translate}}</option>
+                            <option value="12">{{'dec'|translate}}</option>
+                        </select>
+                        <select id="ddlDay" class="form-control" ng-model="user.Day" style="width: 80px;border-radius: 30px;height: 34px;margin-top: 2px;display: inline-block;" name="day" required ng-click="optIntelligenceCheck()">
+                            <option value="">{{'day'|translate}}</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+                        <select class="form-control" id="ddlYear" ng-model="user.Year" name="year" style="width: 80px;display: inline-block;border-radius: 30px;height: 34px;margin-top: 2px;" required ng-click="optIntelligenceCheck()">
+                            <option value="-1">{{'year'|translate}}</option>
+                            <option ng-repeat="y in year" value="{{y.key}}">{{y.value}}</option>
+                        </select>
+                        <span class="error" ng-show="(loginForm.month.$invalid ||loginForm.day.$invalid||loginForm.year.$invalid)  && isRegErrMsg" style="font-style: italic;">{{'Required'|translate}}</span>
+                    </div>
+                    <div>
+                        <select class="form-control" style="width: 270px;" id="ddlEthnicity" ng-model="user.EthnicityId" name="ethnicity" placeholder="Ethnicity" ng-options="{{'ec.EthnicityId as ec.EthnicityType for ec in ethnicityLst' | translate}}" required>
+                            <option value="">{{'ethnicity'|translate}}</option>
+                        </select>
+                        <span class="error" ng-show="loginForm.ethnicity.$invalid  && isRegErrMsg" style="font-style: italic;">{{'Required'|translate}}</span>
+                        <span class="error" ng-show="loginForm.EthnicityId ==0 && isRegErrMsg" style="font-style: italic;">{{'Required'|translate}}</span>
+                    </div>
+                    <div>
+                        <select class="form-control" style="width: 270px;" id="ddlLanguage" ng-model="user.LanguageId" name="planguage" placeholder="Preferred Language" ng-options="ec.LanguageId as ec.LanguageName for ec in langLst" required>
+                            <option value="">{{'preferredLanguage'|translate}}</option>
+                        </select>
+                        <span class="error" ng-show="loginForm.planguage.$invalid  && isRegErrMsg" style="font-style: italic;">{{'Required'|translate}}</span>
+                        <span class="error" ng-show="loginForm.LanguageId ==0 && isRegErrMsg" style="font-style: italic;">{{'Required'|translate}}</span>
+                    </div>
+                    @*<div class="form-group">
+                        <input type="password" id="txtPassword" placeholder="{{'password'|translate}}" class="form-control" ng-model="user.password" name="password" pattern=".{8,}" autocomplete="off" required title={{'eightchar'|translate}}>
+                        <span class="error text-danger" ng-show="loginForm.password.$invalid && isRegErrMsg" style="font-style: italic;">{{'eightchar'|translate}}</span>
+                    </div>*@
+                    <div class="form-group">
+                        <input type="password"
+                               id="txtPassword"
+                               placeholder="{{'password'|translate}}"
+                               class="form-control"
+                               ng-model="user.password"
+                               name="password"
+                               pattern="^[^|]{8,}$"
+                               autocomplete="off"
+                               required
+                               title="{{'eightchar'|translate}}">
+
+                        <span class="error text-danger"
+                              ng-show="loginForm.password.$invalid && isRegErrMsg"
+                              style="font-style: italic;">
+                            {{'eightchar'|translate}}
+                        </span>
+                    </div>
+
+                    @*<div>
+                            <input data-val="true" id="verificationPassword" name="Password" placeholder="Password Verification" type="password" ng-model="user.cpassword">
+                            <span class="error" ng-show="loginForm.password.$invalid && isRegErrMsg">Required</span>
+                            <div>at least 6 characters</div>
+                        </div>*@
+                    <div class="email2-row" style="display:table; width:100%;">
+                        <div>
+                            <div vc-recaptcha key="'6LdOScMUAAAAAN37B5hXC_48jRl54XaCG2t9iJQ_'" on-success="setResponse(response)" size="normal"></div>
+                            <label id="lblResult" style="float: left; display: none;color:red;">Invalid Captcha</label>
+                            <div class="dvTc" style="padding: 6px;">
+                                <input style="display: inline-block; height: 10px; padding: 0; vertical-align: top; width: 10px;margin-top: 5px;" name="agree" type="checkbox" value="agre" ng-model="user.agree" required>
+                                <label style="display: inline-block; line-height: normal; margin: 0; padding-top: 2px; text-align: left; width: 33%; font-size: 12px; cursor: default;" class="ng-binding">
+                                    {{'iagree' | translate}} <a href="" style="color: black;text-decoration: underline;" ng-click="termsClick()" class="ng-binding">{{'termsofuse' | translate}}</a> {{'and' | translate}} <a href="" style="color: black;text-decoration: underline;" ng-click="privacyClick()" class="ng-binding">{{'privacyPolicy' | translate}} </a>{{'additionalSurvays' | translate}}
+                                </label>
+                                <span ng-show="loginForm.agree.$invalid && isRegErrMsg" class="error text-danger">{{'Required'|translate}}</span>
+                            </div>
+                            <div class="sign_up_now_btn" ng-click="submit(loginForm.$valid,$event)">
+                                <img src="/images/icon_signup_btn.png" style="float:left; margin-top: -1px;" width="22">
+                                {{'createaccount' | translate}}
+                            </div>
+                        </div>
+                        <div class="column1">
+
+                        </div>
+                        <div class="column1">
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        @*<div class="centerwrapper2">
+                <div class="line">
+                    <div class="h5">
+                        <span>Or</span>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_wrapper_fb">
+                <div class="centerwrapper3">
+                    <a href="@Url.Action("Facebook", "Account")">
+                        <div class="fb_btn font_bold sign_up_fb">
+                            <div class="sign_up_fb_icon"></div>@Opinionbar.Language.Resource.signin_facebook
+                        </div>
+                    </a>
+                </div>
+            </div>*@
+    </div>
+
+
+    <div class="sign_in_div_bg">
+        <div class="sign_up_div sign_in_div" style="overflow-x:hidden;">
+
+            <h2>{{'signacc'|translate}}</h2>
+            <div class="sign_in_email">
+                <form name="userLoginForm" novalidate>
+                    @Html.AntiForgeryToken()
+                    <div class="column1">
+                        <input type="email" name="userEmail" class="form-control" placeholder="{{'Email' | translate}}" tabindex="1" ng-model="loginDetails.EmailAddress" ng-required="true">
+                        <span class="error text-danger" ng-show="userLoginForm.userEmail.$error.email">{{'Not Valid Email' | translate}}!</span>
+                        <span class="error text-danger" ng-show="userLoginForm.userEmail.$error.required&&showLoginError" style="font-style: italic;display: block;">{{'Required' | translate}}</span>
+                        <span ng-if="emailnotexist" class="error" style="font-style: italic;">{{'emailnotexist'|translate}}</span>
+                        @*<div class="sign_in_options input_change">
+                                <input name="keep" tabindex="3" type="checkbox"><label>Remember Me</label>
+                            </div>*@
+                        @*<input type="password" id="txtPassword" placeholder="Choose Password" class="form-control" ng-model="loginDetails.Password" name="password" required>
+                            <span class="error text-danger" ng-show="userLoginForm.password.$invalid && isRegErrMsg" style="font-style: italic;">Required</span>*@
+                        @*<input class="input_change" name="choose password" placeholder="Password" style="display: none" tabindex="12" type="password" ng-model="loginDetails.Password">
+                            <span class="error text-danger" ng-show="userLoginForm.password.$invalid && isRegErrMsg" style="font-style: italic;">Required</span>*@
+                    </div>
+                    <div class="column1">
+                        <input class="form-control" name="userPsw" placeholder="{{'password'|translate}}" tabindex="2" type="password" ng-model="loginDetails.Password" ng-required="true">
+                        <span class="error" ng-show="userLoginForm.userPsw.$error.required&&showLoginError" style="font-style: italic;display: block;">{{'Required'|translate}}</span>
+                        <div class="sign_in_options input_change">
+                            <div class="forgot">
+                                {{'frgtpwd'|translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column1">
+                        <button type="submit" style="border:none;background:none;padding:0px;outline:none; margin-bottom: 15px;" tabindex="3" ng-click="userLoginClick(userLoginForm.$valid)">
+                            <div class="sign_up_now_btn sign_in_btn">
+                                <img src="/images/icon_signup_btn.png" style="float:left; margin-top: -1px;" width="22">{{'signin'|translate}}
+                            </div>
+                        </button>
+                        <span class="error" style="font-style: italic;" ng-if="isShowLoginFailErrmsg">{{'wrongPassword'|translate}}.</span>
+                        @*<div class="sign_in_options input_change" style="display: none">
+                                <input name="keep" type="checkbox">
+                                <label>Remember Me</label>
+                            </div>*@
+                        <div class="sign_in_options input_change" style="display: none;">
+                            <div class="forgot">
+                                {{'frgtpwd'|translate}}?
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            @*<div class="centerwrapper2">
+                    <div class="line">
+                        <div class="h5">
+                            <span>Or</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn_wrapper_fb">
+                    <div class="centerwrapper3">
+                        <div class="fb_btn font_bold sign_up_fb">
+                            <div class="sign_up_fb_icon"></div>@Opinionbar.Language.Resource.signin_facebook
+                        </div>
+                    </div>
+                </div>*@
+        </div>
+        <div class="forgot_div sign_up_div">
+            <h2>{{'frgtpwd'|translate}}?</h2>
+            <div class="sign_in_email">
+                <form novalidate name="forgotPswdForm">
+                    @ViewBag.Name
+                    <div class="column1 sign_in_options">
+                        {{'frgtpwd_msg'|translate}}
+                    </div>
+                    <div class="column1">
+                        <input type="email" id="txtEmailAddress" class="form-control" placeholder="E-mail" ng-model="getUserData.EmailAddress" ng-change="validationFlag()" name="email" required>
+                        <span class="error text-danger" ng-show="forgotPswdForm.email.$error.email">{{'Not Valid Email'|translate}}</span>
+                        <span ng-show="forgotPswdForm.email.$error.required && forgotPswdErrMsg" class="error" style="font-style: italic;">{{'Required'|translate}}</span>
+                        <span ng-show="saveref" style="color:green;">{{'forgetPswd' | translate}}</span>
+                        <span ng-if="emailnotexist" class="error" style="font-style: italic;">{{'emailnotexist'|translate}}</span>
+                        <span ng-if="xVerifyMessageexist" class="error" style="font-style: italic;">{{'emailAddressAlreadyExist'|translate}}</span>
+                        <span ng-if="xVerifyMessage" style="font-style: italic;color:green">{{'emailVerify'|translate}}</span>
+                        @*<input name="e-mail" placeholder="E-mail" type="email" ng-model="getUserData.EmailAddress"><br>
+                            <span ng-show="forgotPswdForm.email1.$invalid && forgotPswdErrMsg" class="span-err-msg">Required</span>*@
+                        <div class="input_change back sign_in_options">
+                            <div class="forgot">
+                                {{'bcktosign'|translate}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column1">
+                        <button type="submit" style="border:none;background:none;padding:0px;" ng-click="forgotPasswordClick(forgotPswdForm.$valid)">
+                            <div class="sign_up_now_btn sign_in_btn">
+                                <img src="/images/icon_signup_btn.png" style="float:left; margin-top: -1px;" width="22">{{'reqLink'|translate}}
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper_content">
+        <div class="column_wrapper">
+            <div style="display:flex;">
+                <h2>{{'howItWorks' | translate}}</h2>
+                @*<div style="float: right;margin-left: auto;margin-top: 30px;margin-right: 70px;"><button style="padding: 10px 20px;margin: auto;border:none;background: #b7d968;color: #55851d;border-radius: 30px;outline: 0 !important;cursor:pointer;" ng-click="newSiteclick()">{{'newSite'|translate}}...</button></div>*@
+            </div>
+            <div class="column1">
+                <div class="icon_howitworks icon_howitworks_signup"><img src="/images/icon_signup.png" width="33"></div>
+                <div class="text-wrapper">
+                    <div class="text-howitworks margin-howitworks">
+                        <h4>{{'seeHowitWorks'|translate}}</h4>
+                    </div>
+                    <p class="text-howitworks">
+                        {{'signup_free_msg' | translate}}
+                    </p>
+                </div>
+            </div>
+            <div class="column1">
+                <div class="icon_howitworks icon_howitworks_giveopinion">
+                    <img src="/images/icon_giveopinion.png" width="33">
+                </div>
+                <div class="text-wrapper">
+                    <div class="text-howitworks margin-howitworks">
+                        <h4>{{'giveop'|translate}}</h4>
+                    </div>
+                    <p class="text-howitworks">
+                        {{'givepinionmsg'|translate}}
+                    </p>
+                </div>
+            </div>
+            <div class="column1">
+                <div class="icon_howitworks icon_howitworks_getpaid"><img src="/images/icon_getpaid.png" width="33"></div>
+                <div class="text-wrapper">
+                    <div class="text-howitworks margin-howitworks">
+                        <h4>{{'getpaid'|translate}}</h4>
+                    </div>
+                    <p class="text-howitworks">
+                        {{'get_paidmsg'|translate}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="hr"></div>
+        <div class="column_wrapper">
+            <h2>@Opinionbar.Language.Resource.opinionbar</h2>
+            <div class="column1">
+                <div class="icon_howitworks icon_about"><img src="/images/icon_about.png" width="33"></div>
+                <div>
+                    <div class="text-howitworks margin-howitworks">
+                        <h4>{{'opbar_make_your_voice'|translate}}</h4>
+                    </div>
+                    <p class="about_text">
+                        {{'opbar_make_your_voice_msg'|translate}}
+                    </p>
+                </div>
+            </div>
+            <div class="column1">
+                <div class="icon_howitworks icon_about"><img src="/images/icon_privacy.png" width="33"></div>
+                <div>
+                    <div class="text-howitworks margin-howitworks">
+                        <h4>{{'opbar_privacy'|translate}}</h4>
+                    </div>
+                    <p class="about_text">
+                        {{'opbar_privacy_msg'|translate}}
+                    </p><br />
+                    <p class="about_text">
+                        {{'opbar_privacy_msg1'|translate}}
+                    </p>
+                    <p class="about_text" style="margin-left:80px;">
+                        {{'opbar_privacy_msg2'|translate}}
+                    </p>
+                    <p class="about_text" style="margin-left:80px;">
+                        {{'opbar_privacy_msg3'|translate}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="column1">
+                <div class="icon_howitworks icon_about"><img src="/images/icon_fortune.png" width="33"></div>
+                <div>
+                    <div class="text-howitworks margin-howitworks">
+                        <h4>{{'opbar_fortune__companies'|translate}}</h4>
+                    </div>
+                    <p class="about_text">
+                        {{'opbar_fortune__companies_msg'|translate}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="hr"></div>
+        <div class="column_wrapper">
+            <div class="companies">
+                <h2>{{'about_msg'|translate}}</h2>
+                <div class="company_wrapper">
+                    <div class="centerwrapper2">
+                        <div class="company_logo"><img src="/images/company1.png"></div>
+                        <div class="company_logo"><img src="/images/company2.png"></div>
+                        <div class="company_logo"><img src="/images/company3.png"></div>
+                        <div class="company_logo"><img src="/images/company4.png"></div>
+                        <div class="company_logo"><img src="/images/company5.png"></div>
+                        <div class="company_logo"><img src="/images/company6.png"></div>
+                        <div class="company_logo"><img src="/images/company7.png"></div>
+                        <div class="company_logo"><img src="/images/company8.png"></div>
+                        <div class="company_logo"><img src="/images/company9.png"></div>
+                        <div class="company_logo"><img src="/images/company10.png"></div>
+                        <div class="company_logo"><img src="/images/company11.png"></div>
+                        <div class="company_logo"><img src="/images/company12.png"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script type="text/javascript" src="~/Scripts/services/translationService.js?v=5"></script>
+    <script type="text/javascript" src="~/Scripts/main/s1.js?v=5"></script>
+</body>
+</html>
+
+

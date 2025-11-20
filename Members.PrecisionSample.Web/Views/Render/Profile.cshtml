@@ -1,0 +1,1244 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/knockout-2.3.0.js"></script>
+    <script src="~/Scripts/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/knockout.mapping-latest.debug.js" type="text/javascript"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/questionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/frquestionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/esquestionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/dequestionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/ptquestionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/ruquestionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/itquestionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/nlquestionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/jpquestionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/chquestionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/koquestionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/Pages/rg/qs.js" type="text/javascript"></script>
+    <link type="text/css" href="~/Content/rg/sdl-style.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/rg/top10.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/custom.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    }
+    <div id="container">
+        <div id="topborder">
+        </div>
+        @*<img class="logo" src="~/Images/logo.gif" alt="paid surveys online" style="padding-left: 30px;padding-bottom:10px;" />*@
+
+
+        <script type="text/x-jquery-tmpl" id="SurveyQuestionList">
+            <div data-bind="visible: !QuestionHide,attr: {id:QuestionId+'_Show'}" style="width: 100%;">
+                <div align="left" class="questionback" style="margin-bottom: 10px; clear: both;">
+                    <span class="question" id="lblQuestiontext" data-bind="html:QuestionText" style="padding-bottom: 10px;"></span>
+                </div>
+
+                <!-- ko if: QuestionTypeId == 3 -->
+                <div class="optiontext" style="clear: both; overflow: hidden">
+                    <div class="wrapper">
+                        <div data-bind="foreach: OptionList">
+                            <div class="left">
+                                <span data-bind="if: ($index())%2 ==0">
+                                    <div class="dvChkbox">
+                                        <div class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                            <div class="grid_checkbox" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_checkbox',name: QuestionId+'_checkbox'},event: {click:chkClick.bind($root,$parent)}">
+                                            </div>
+                                            <div class="grid_span_holder">
+                                                <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_chkDiv'},event: {click:chkClick.bind($root,$parent)}"></span>
+                                            </div>
+                                            <input type="checkbox" style="display: none;" data-bind="attr: { id:OptionId+'_checkbox',value:OptionId,name: QuestionId+'_checkbox'}, checked:IsChecked " />
+                                        </div>
+                                        <div style="text-align: left;">
+                                            <span class="single_radio" data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_checkbox'}"></span>
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+
+                            <div class="right">
+                                <span data-bind="if: ($index())%2 ==1">
+                                    <div class="dvChkbox">
+                                        <div class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                            <div class="grid_checkbox" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_checkbox',name: QuestionId+'_checkbox'},event: {click:chkClick.bind($root,$parent)}">
+                                            </div>
+                                            <div class="grid_span_holder">
+                                                <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_chkDiv'},event: {click:chkClick.bind($root,$parent)}"></span>
+                                            </div>
+                                            <input type="checkbox" style="display: none;" data-bind="attr: { id:OptionId+'_checkbox',value:OptionId,name: QuestionId+'_checkbox'}, checked:IsChecked " />
+                                        </div>
+                                        <div style="text-align: left;">
+                                            <span class="single_radio" data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_checkbox'}"></span>
+                                        </div>
+
+                                    </div>
+
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <span align="left" style="color: Red; display: none; float: left; text-align: left; width: 100%; padding-bottom: 10px;" data-bind="validator: QuestionId+'_checkbox',attr:{ id: QuestionId+'_spn'}" />
+                </div>
+                <!-- /ko -->
+                <!-- ko if: QuestionTypeId == 4 -->
+                <div class="optiontext" style="clear: both; overflow: hidden">
+                    <div class="wrapper">
+                        <div data-bind="foreach: OptionList">
+                            <div class="left">
+                                <span data-bind="if: ($index())%2 ==0">
+                                    <div style="min-height: 21px;">
+                                        <div class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                            <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}">
+                                            </div>
+                                            <div class="grid_span_holder">
+                                                <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                                            </div>
+                                            <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd'}, checked:$parent.OptionId" />
+                                        </div>
+                                        <span class="single_radio spnopttxt" data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_radio'}"></span>
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="right">
+                                <span data-bind="if: ($index())%2 ==1">
+                                    <div style="min-height: 21px;">
+                                        <div class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                            <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}">
+                                            </div>
+                                            <div class="grid_span_holder">
+                                                <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                                            </div>
+                                            <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd'}, checked:$parent.OptionId" />
+                                        </div>
+                                        <span class="single_radio spnopttxt" data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_radio'}"></span>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <span style="color: Red; display: none; margin-left: `10px; width: 100%; text-align: left; float: left; padding-bottom: 10px; float: left; font-size: 13px;" data-bind="validator: QuestionId+'_rd',attr:{ id: QuestionId+'_spn'}" />
+                </div>
+
+                <!-- /ko -->
+                <!-- ko if: QuestionTypeId == 13 -->
+                <div>
+                    <div class="Table optiontext" data-bind="template: {name:'matrixwithChkboxRadio'}" style="width: 100%">
+                    </div>
+
+                </div>
+                <!-- /ko -->
+                <!-- ko if: QuestionTypeId == 14 -->
+                <div class="optiontext" style="clear: both; overflow: hidden">
+                    <div class="wrapper">
+                        <div>
+                            <div data-bind="foreach: OptionList">
+                                <div style="min-height: 21px; padding-bottom: 10px;">
+                                    <div class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                        <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}" style="margin-bottom: 14px;">
+                                        </div>
+                                        <div class="grid_span_holder">
+                                            <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                                        </div>
+                                        <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd'}, checked:$parent.OptionId" />
+                                    </div>
+                                    <div>
+                                        <span class="single_radio" data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_radio'}"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span style="color: Red; display: none; margin-left: 10px; width: 100%; text-align: left; float: left; padding-bottom: 10px; float: left; font-size: 13px;" data-bind="validator: QuestionId+'_rd',attr:{ id: QuestionId+'_spn'}" />
+                </div>
+                <!-- /ko -->
+                <!-- ko if: QuestionTypeId == 2 -->
+                <!-- ko if:AutoPostBack == 1 -->
+                <div>
+                    <div align="left" style="padding-top: 9px; padding-bottom: 10px;">
+                        <select class="selectdropdown" id="ddlQuestion" data-bind="options: OptionList, optionsText: 'OptionText',optionsValue: 'OptionId',value:OptionId, optionsCaption: '-- Select --',attr: {id:QuestionId },event: { change:selectionChanged }"></select>
+                    </div>
+                    <span align="left" style="color: red; display: none; float: left; width: 100%; padding-bottom: 10px; text-align: left;" data-bind="validator:$parent.OptionId, attr:{ id: QuestionId+'_spn'}">Please answer the question.</span>
+                </div>
+                <!-- /ko -->
+                <!-- ko if:AutoPostBack == 0 -->
+                <div>
+                    <div align="left" style="padding-top: 9px; padding-bottom: 10px;">
+                        <select class="selectdropdown" id="Select1" data-bind="options: OptionList, optionsText: 'OptionText',optionsValue: 'OptionId',value:OptionId, optionsCaption: '-- Select --',attr: {id:QuestionId },event: { change:selectionChanged }"></select>
+                    </div>
+                    <span align="left" style="color: red; display: none; float: left; width: 100%; padding-bottom: 10px; text-align: left;" data-bind="validator:$parent.OptionId, attr:{ id: QuestionId+'_spn'}">Please answer the question.</span>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko if: OptionDisplay == 'V' -->
+                <div data-bind="template: {name:'SurveyQuestionList', foreach: SelectedChildQuestionList}, attr: {id:QuestionId+'_trChildQuestionId'}">
+                </div>
+                <!-- /ko -->
+                <!-- ko if: OptionDisplay == 'H' -->
+                <div data-bind="template: {name:'SurveyQuestionListhorizental'}, attr: {id:QuestionId+'_trChildQuestionId'}">
+                </div>
+                <!-- /ko -->
+                <div data-bind="foreach: ChildQuestionList">
+                    <!-- ko 'if': QuestionTypeId == 5 -->
+                    <div class="Table optiontext" data-bind="template: {name:'matrixTemp'}" style="width: 100%">
+                    </div>
+                    <div width="100%">
+                        <span align="left" style="color: Red; display: none; float: left; width: 100%; font-size: 13px; text-align: left;" data-bind="validator: QuestionId+'_checkbox',attr:{ id: QuestionId+'_spn'}" />
+                    </div>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </script>
+
+        <script type="text/x-jquery-tmpl" id="matrixTemp">
+            <!-- ko 'if': ParentQuestionId != 649-->
+            <!-- ko 'if': $index() == 0-->
+            <div class="grid_floating_header" width="100%">
+                <div class="question_martix" style="min-height: 30px;">
+                    <!-- ko 'if': ParentQuestionId != 898-->
+                    <div style="width: 34%;" class="grid_question">
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko 'if': ParentQuestionId == 898-->
+                    <div style="width: 60%;" class="grid_question">
+                    </div>
+                    <!-- /ko -->
+                    <div data-bind="foreach: OptionList" style="font-size: 14px;">
+                        <div style="width: 15%;" class="grid_column" data-bind="text: OptionText"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+            <div class="question_martix">
+                <!-- ko 'if': ParentQuestionId != 898-->
+                <!-- ko 'if': langId == 35-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>Technology</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Marketing</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>Finance</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Supply Chain/ Logistics</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Operations</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 44-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>La technologie</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Commercialisation</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>La finance</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Chaîne d'approvisionnement / logistique</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Opérations</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 140-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>Tecnología</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Márketing</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>Finanzas</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Logística en la cadena de suministros</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Operaciones</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 51-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>Technologie</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Marketing</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>Finanzen</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Lieferkettenlogistik</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Operationen</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 111-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>Tecnologia</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Marketing</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>Finança</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Cadeia de suprimentos / logística</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Operações</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 120-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>Технологии</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Маркетинг</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>Финансы</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Цепочка поставок / логистика</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Операции</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 69-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>Tecnologia</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Marketing</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>Finanza</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Catena di fornitura / logistica</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Operazioni</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 36-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>Technologie</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Marketing</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>Financiën</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Toeleveringsketen / logistiek</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Operaties</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 70-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>技術</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>マーケティング</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>ファイナンス</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>サプライチェーン/ロジスティクス</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>オペレーション</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 27-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>技术</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>市场行销</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>金融</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>供应链/物流</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>运作方式</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 80-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>과학 기술</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>마케팅</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>재원</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>공급망 / 물류</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>운영</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 7-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>تقنية</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>تسويق</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>المالية</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>سلسلة الإمداد اللوجستية</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>عمليات</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 144-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>Teknologi</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Marknadsföring</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>Finansiera</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Supply Chain / Logistics</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Operationer</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 110-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>Technologia</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Marketing</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>Finanse</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Łańcuch dostaw / logistyka</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Operacje</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 152-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>เทคโนโลยี</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>การตลาด</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>การเงิน</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>ซัพพลายเชน / โลจิสติกส์</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>การดำเนินงาน</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 61-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>Teknologi</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Pemasaran</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>Keuangan</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Rantai Suplai / Logistik</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Operasi</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 168-->
+                <!-- ko 'if': QuestionId == 355-->
+                <p style="text-align: left;"><b>Công nghệ</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 363-->
+                <p style="text-align: left;"><b>Tiếp thị</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 374-->
+                <p style="text-align: left;"><b>Tài chính</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 373-->
+                <p style="text-align: left;"><b>Hậu cần chuỗi cung ứng</b></p>
+                <!-- /ko -->
+                <!-- ko 'if': QuestionId == 365-->
+                <p style="text-align: left;"><b>Hoạt động</b></p>
+                <!-- /ko -->
+                <!-- /ko -->
+                <div class="optiontext grid_question_optmatrix" style="text-align: left;" data-bind="html: QuestionText,attr: {id:QuestionId+'_optnc'}">
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': ParentQuestionId == 898-->
+                <div class="optiontext grid_question_optmatrix_new" style="text-align: left;" data-bind="html: QuestionText,attr: {id:QuestionId+'_optnc'}">
+                </div>
+                <!-- /ko -->
+                <div class="optiontext mobileradiobutton" data-bind="foreach: OptionList">
+                    <div style="width: 15%;" class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                        <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}">
+                        </div>
+                        <div class="grid_span_holder">
+                            <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                        </div>
+                        <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd','class':QuestionId+'_selectrdb'}, checked:$parent.OptionId" />
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+            <!-- ko 'if': ParentQuestionId == 649-->
+            <!-- ko 'if': $index() == 0-->
+            <div class="grid_floating_header" width="100%">
+                <div class="question_martix" style="min-height: 30px;">
+                    <div style="width: 40%;" class="grid_question">
+                    </div>
+                    <div data-bind="foreach: OptionList" style="font-size: 14px;">
+                        <div style="width: 6%;" class="grid_column" data-bind="text: OptionText"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+            <div class="question_martix">
+                <div class="optiontext grid_question_opt" style="text-align: left;" data-bind="html: QuestionText,attr: {id:QuestionId+'_optnc'}">
+                </div>
+                <div class="optiontext" data-bind="foreach: OptionList">
+                    <div style="width: 6%;" class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                        <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}">
+                        </div>
+                        <div class="grid_span_holder">
+                            <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                        </div>
+                        <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd','class':QuestionId+'_selectrdb'}, checked:$parent.OptionId" />
+                    </div>
+                </div>
+            </div>
+            <!-- /ko -->
+        </script>
+
+        <script type="text/x-jquery-tmpl" id="matrixwithChkboxRadio">
+
+            <div class="grid_floating_header" width="100%">
+                <div class="question_martix" style="min-height: 30px;">
+                    <div style="width: 38%;" class="grid_question">
+                    </div>
+                    <div data-bind="foreach:ChildQuestionList" style="font-size: 14px;">
+
+                        <div style="width: 16%;" class="grid_column" data-bind="text: QuestionText"></div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="question_martix">
+                <div data-bind="foreach:ChildQuestionList">
+
+                    <!-- ko 'if': $index() == 0-->
+                    <div data-bind="foreach:OptionList" style="width: 100%;">
+                        <div style="width: 100%; overflow: hidden;">
+                            <div class="optiontext grid_question_opt" style="text-align: left;" data-bind="html: OptionText,attr: {id:QuestionId+'_optnc'}">
+                            </div>
+                            <div>
+                                <div class="optiontext" data-bind="foreach:ViewModel.Questions()[$parentContext.$parentContext.$index()].SpecialOptinLst[$index()]">
+                                    <div style="width: 15%;" class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                        <!--ko if: OptionText == 'Prefer not to answer' || OptionText == 'None of the above' -->
+                                        <div class="grid_radio" data-bind="attr: {id:QuestionId+'_'+OptionId+'_radio'},event: {click:chkwithradioclick.bind($root,$parent)}">
+                                        </div>
+                                        <div class="grid_span_holder">
+                                            <span class="grid_span" data-bind="text:QuesitonText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:chkwithradioclick.bind($root,$parent)}"></span>
+                                        </div>
+                                        <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd','class':QuestionId+'_selectrdb'}, checked:SpeicalOptionId" />
+                                        <!-- /ko -->
+                                        <!--ko if: OptionText != 'Prefer not to answer' && OptionText != 'None of the above' -->
+                                        <div class="grid_matrix_checkbox" data-bind="attr: {id:QuestionId+'_'+OptionId+'_checkbox',name: QuestionId+'_checkbox'},event: {click:chkwithradioclick.bind($root,$parent)}">
+                                        </div>
+                                        <div class="grid_span_holder">
+                                            <span class="grid_span" data-bind="text:QuesitonText,attr: {id:QuestionId+'_'+OptionId+'_chkDiv'},event: {click:chkwithradioclick.bind($root,$parent)}"></span>
+                                        </div>
+                                        <input type="checkbox" style="display: none;" data-bind="attr: { id:OptionId+'_checkbox',value:OptionId,name: QuestionId+'_checkbox'}, checked:IsChecked " />
+                                        <!-- /ko -->
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div>
+                            <span class="error" align="left" style="color: Red; display: none; float: left; width: 100%; font-size: 13px; text-align: left;" data-bind="attr:{ id: $parentContext.$parentContext.$index()+'_'+$index()+'_spn'}" />
+                        </div>
+                    </div>
+
+                    <!-- /ko -->
+
+                </div>
+            </div>
+            <div class="question_martix" style="min-height: 30px;">
+                <div class="validationspqs">
+                    <div style="width: 38%;" class="grid_question">
+                    </div>
+                    <div data-bind="foreach:ChildQuestionList" style="font-size: 14px;">
+                        <div style="width: 16%;" class="grid_column">
+                            <span class="error" align="left" style="color: Red; float: left; width: 100%; font-size: 13px; text-align: left; display: none" data-bind="attr:{ id: QuestionId+'_spn'}" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </script>
+
+        <script type="text/x-jquery-tmpl" id="ChildRadioTemplate">
+            <td>
+                <table>
+                    <tr>
+                        <td style="padding-top: 5px; padding-bottom: 5px;">
+                            <label class="matrixchildquestion" id="lblChildQuestion" data-bind="text:QuestionText , attr: {id:QuestionId+'_optnc'}">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top: 5px; padding-bottom: 5px;">
+                            <table>
+                                <tr data-bind=" foreach:OptionList">
+                                    <td style="padding-left: 5px;">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    <input type="radio" data-bind="attr: { id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd','class':QuestionId+'_selectrdb'},checked:$parent.OptionId" />
+                                                    <label id="lblChildOption" data-bind="text:OptionText , attr: {id:OptionId+'_optnc','for':OptionId+'_radio','if': $index()== 0}">
+                                                    </label>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </script>
+
+        <script type="text/x-jquery-tmpl" id="SurveyQuestionListhorizental">
+
+            <table>
+                <tr data-bind="foreach: SelectedChildQuestionList">
+                    <td class="tdwidth">
+                        <table>
+                            <tr>
+                                <td align="left;">
+                                    <label class="question" id="Label1" data-bind="text:QuestionText">
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left">
+                                    <select class="selectdropdownH" id="ddlChild" data-bind="options: OptionList, optionsText: 'OptionText',optionsValue: 'OptionId',value:OptionId, optionsCaption: '-- Select--',attr: {id:QuestionId },event: { change: selectionChanged }"></select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="left" style="padding-top: 10px;">
+                                    <span align="left" style="color: red; display: none; float: left;" data-bind="validator:$parent.OptionId, attr:{ id: QuestionId+'_spn'}">Please answer the question.</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+        </script>
+
+        <div id="dvImageLoading">
+        </div>
+        <div class="container" id="dvQuestions">
+            <div class="progressbarblock">
+            </div>
+            <div style="padding-left: 10px;padding-top:15px;">
+                <img id="imgLogo" />
+            </div>
+            <div class="body" style="margin:0px;" id="gdprtermsandconditions">
+                <table id="tmpTable" style="padding:24px 10px 0px 10px">
+                    <tbody data-bind="template: {name:'SurveyQuestionList', foreach: ViewModel.Questions}"></tbody>
+                </table>
+                <!-- ko 'if': conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706-->
+                <!-- ko 'if': langId == 35-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">I understand that my Household Income, Home Value, Investable Assets, Pregnancy Status & Sexual Orientation, when voluntarily provided, will be used by Precision Sample to invite me to surveys which are relevant to my background.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">I understand that my Household Ailments, when voluntarily provided, will be used by Precision Sample to invite me to surveys which are relevant to my background.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 44-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">Je comprends que mon revenu familial, la valeur de la maison, les actifs investissables, le statut de grossesse et l'orientation sexuelle, lorsqu'ils sont fournis volontairement, seront utilisés par Precision Sample pour m'inviter à des enquêtes pertinentes pour mon parcours.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">Je comprends que mes affections ménagères, lorsqu'elles sont fournies volontairement, seront utilisées par Precision Sample pour m'inviter à des enquêtes pertinentes pour mon parcours.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 140-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">Entiendo que mis ingresos familiares, el valor de la vivienda, los activos invertibles, el estado de embarazo y la orientación sexual, cuando se proporcionen voluntariamente, serán utilizados por Precision Sample para invitarme a encuestas que sean relevantes para mis antecedentes.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">Entiendo que mis Dolencias Domésticas, cuando se proporcionen voluntariamente, serán utilizadas por Precision Sample para invitarme a encuestas que sean relevantes para mis antecedentes.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 51-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">Ich verstehe, dass mein Haushaltseinkommen, mein Eigenheimwert, mein investierbares Vermögen, mein Schwangerschaftsstatus und meine sexuelle Orientierung, sofern freiwillig angegeben, von Precision Sample verwendet werden, um mich zu Umfragen einzuladen, die für meinen Hintergrund relevant sind.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">Ich verstehe, dass meine Haushaltskrankheiten, wenn sie freiwillig angegeben werden, von Precision Sample verwendet werden, um mich zu Umfragen einzuladen, die für meinen Hintergrund relevant sind.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 111-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">Entendo que minha renda familiar, valor da casa, bens para investimento, estado de gravidez e orientação sexual, quando fornecidos voluntariamente, serão usados pela Precision Sample para me convidar para pesquisas que sejam relevantes para minha formação.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">Entendo que minhas Doenças Domésticas, quando fornecidas voluntariamente, serão usadas pela Precision Sample para me convidar para pesquisas que sejam relevantes ao meu histórico.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 120-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">Я понимаю, что мой доход семьи, стоимость дома, активы для инвестирования, статус беременности и сексуальная ориентация, если они будут предоставлены добровольно, будут использоваться Precision Sample для приглашения меня к участию в опросах, имеющих отношение к моему опыту.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">Я понимаю, что данные о моих домашних заболеваниях, если они будут предоставлены добровольно, будут использоваться Precision Sample для приглашения меня к участию в опросах, имеющих отношение к моему опыту.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 69-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">Comprendo che il mio reddito familiare, il valore della casa, i beni investibili, lo stato di gravidanza e l'orientamento sessuale, se forniti volontariamente, verranno utilizzati da Precision Sample per invitarmi a sondaggi rilevanti per il mio background.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">Comprendo che i miei disturbi domestici, se forniti volontariamente, verranno utilizzati da Precision Sample per invitarmi a sondaggi rilevanti per il mio background.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 36-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">Ik begrijp dat mijn gezinsinkomen, woningwaarde, belegbare activa, zwangerschapsstatus en seksuele geaardheid, indien vrijwillig verstrekt, door Precision Sample zullen worden gebruikt om mij uit te nodigen voor enquêtes die relevant zijn voor mijn achtergrond.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">Ik begrijp dat mijn huishoudelijke aandoeningen, indien vrijwillig verstrekt, door Precision Sample zullen worden gebruikt om mij uit te nodigen voor enquêtes die relevant zijn voor mijn achtergrond.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 70-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">私の世帯収入、住宅価値、投資可能な資産、妊娠状況、性的指向は、自発的に提供された場合、私の経歴に関連する調査に私を招待するためにPrecisionSampleによって使用されることを理解しています。</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">私の家庭病は、自発的に提供された場合、私の経歴に関連する調査に私を招待するために、PrecisionSampleによって使用されることを理解しています。</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 27-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">我了解，我的家庭收入、房屋价值、可投资资产、怀孕状况和性取向在自愿提供时将被 Precision Sample 用于邀请我参加与我的背景相关的调查。</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">我了解我的家庭疾病自愿提供时，Precision Sample 将使用它来邀请我参加与我的背景相关的调查。</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 80-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">본인은 가계 소득, 주택 가치, 투자 가능 자산, 임신 상태 및 성적 취향이 자발적으로 제공되는 경우 Precision Sample에서 내 배경과 관련된 설문 조사에 나를 초대하는 데 사용된다는 것을 이해합니다.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">본인은 본인의 가족 질병이 자발적으로 제공된 경우 Precision Sample에서 본인의 배경과 관련된 설문조사에 나를 초대하는 데 사용된다는 것을 이해합니다.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 7-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">أفهم أن بيانات دخل أسرتي وقيمة منزلي والأصول القابلة للاستثمار وحالة الحمل والتوجه الجنسي، عندما يتم تقديمها طواعية، سوف تستخدمها شركة Precision Sample لدعوتي إلى استطلاعات الرأي ذات الصلة بخلفيتي.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">أفهم أن بيانات أمراض أسرتي، عندما يتم تقديمها طواعية، سوف تستخدمها شركة Precision Sample لدعوتي إلى استطلاعات الرأي ذات الصلة بخلفيتي.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 144-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">Jag förstår att min hushållsinkomst, hemvärde, investeringsbara tillgångar, graviditetsstatus och sexuell läggning, när de frivilligt tillhandahålls, kommer att användas av Precision Sample för att bjuda in mig till undersökningar som är relevanta för min bakgrund.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">Jag förstår att mina hushållssjukdomar, när de frivilligt tillhandahålls, kommer att användas av Precision Sample för att bjuda in mig till undersökningar som är relevanta för min bakgrund.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 110-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">Rozumiem, że mój dochód gospodarstwa domowego, wartość domu, aktywa inwestycyjne, status ciążowy i orientacja seksualna, gdy zostaną dobrowolnie podane, zostaną wykorzystane przez Precision Sample do zaproszenia mnie do ankiet, które są istotne dla mojego pochodzenia.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">Rozumiem, że moje dolegliwości gospodarstwa domowego, gdy zostaną dobrowolnie podane, zostaną wykorzystane przez Precision Sample do zaproszenia mnie do ankiet, które są istotne dla mojego pochodzenia.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 152-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">ฉันเข้าใจว่ารายได้ครัวเรือน มูลค่าบ้าน สินทรัพย์ที่ลงทุนได้ สถานะการตั้งครรภ์ และรสนิยมทางเพศของฉัน หากฉันให้ข้อมูลโดยสมัครใจ Precision Sample จะใช้ข้อมูลดังกล่าวเพื่อเชิญฉันเข้าร่วมการสำรวจที่เกี่ยวข้องกับภูมิหลังของฉัน</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">ฉันเข้าใจว่าอาการเจ็บป่วยในครัวเรือนของฉัน หากฉันให้ข้อมูลโดยสมัครใจ Precision Sample จะใช้ข้อมูลดังกล่าวเพื่อเชิญฉันเข้าร่วมการสำรวจที่เกี่ยวข้องกับภูมิหลังของฉัน</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 61-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">Saya memahami bahwa Pendapatan Rumah Tangga, Nilai Rumah, Aset yang Dapat Diinvestasikan, Status Kehamilan & Orientasi Seksual saya, jika diberikan secara sukarela, akan digunakan oleh Precision Sample untuk mengundang saya ke survei yang relevan dengan latar belakang saya.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">Saya memahami bahwa Penyakit Rumah Tangga saya, jika diberikan secara sukarela, akan digunakan oleh Precision Sample untuk mengundang saya ke survei yang relevan dengan latar belakang saya.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 168-->
+                <!-- ko 'if': pid == '2e6b8ae2-32b6-45a3-a65b-fc748d397e51'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" name="gdprterms">
+                    <label style="position:absolute;">Tôi hiểu rằng Thu nhập hộ gia đình, Giá trị nhà ở, Tài sản có thể đầu tư, Tình trạng mang thai và Xu hướng tình dục của tôi, khi được cung cấp một cách tự nguyện, sẽ được Precision Sample sử dụng để mời tôi tham gia các cuộc khảo sát có liên quan đến lý lịch của tôi.</label>
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': pid == '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94'-->
+                <div style="padding:18px;">
+                    <input type="checkbox" id="gdprterms" value="1" name="gdprterms">
+                    <label style="position:absolute;">Tôi hiểu rằng Bệnh tật hộ gia đình của tôi, khi được cung cấp một cách tự nguyện, sẽ được Precision Sample sử dụng để mời tôi tham gia các cuộc khảo sát có liên quan đến lý lịch của tôi.</label>
+                </div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- /ko -->
+            </div>
+            <div class="footerblock" id="buttonSaveandCancel">
+                <div style="text-align: center; padding: 10px;">
+                    <!-- ko 'if': conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706-->
+                    <span id="spnErrorMessage" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px"></span>
+                    <!-- ko 'if': langId == 35-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Please confirm your consent for the collection of your personal data.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 44-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Veuillez confirmer que vous acceptez la collecte de vos données personnelles.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 140-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Por favor, confirme su consentimiento en relación a la recopilación de sus datos personales.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 51-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Bitte bestätigen Sie Ihr Einverständnis mit der Erfassung Ihrer persönlichen Daten.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 111-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Confirme seu consentimento para a coleta de seus dados pessoais.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 120-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Пожалуйста, подтвердите свое согласие на сбор ваших персональных данных.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 69-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Si prega di confermare il consenso alla raccolta dei dati personali.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 36-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Bevestig dat u akkoord gaat dat uw persoonsgegevens worden verzameld.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 70-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">個人データの収集について同意を確認してください。</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 27-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">请确认您同意我们收集您的个人数据。</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 80-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">개인정보 수집에 대한 동의를 확인해주세요.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 7-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">يرجى تأكيد موافقتك على جمع بياناتك الشخصية.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 144-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Vänligen bekräfta ditt samtycke för insamling av dina personuppgifter.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 110-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Potwierdź zgodę na zbieranie Twoich danych osobowych.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 152-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">กรุณายืนยันความยินยอมของคุณในการรวบรวมข้อมูลส่วนบุคคลของคุณ</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 61-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Harap konfirmasikan persetujuan Anda untuk pengumpulan data pribadi Anda.</span>
+                    <!-- /ko -->
+                    <!-- ko 'if': langId == 168-->
+                    <span id="gdprErrorMsg" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px">Vui lòng xác nhận sự đồng ý của bạn đối với việc thu thập dữ liệu cá nhân của bạn.</span>
+                    <!-- /ko -->
+                    <!-- /ko -->
+                </div>
+                <!-- ko 'if': langId == 35-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Save" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Cancel" style="width: auto;"
+                           data-bind="click:Cancel" />61
+                </div>
+                <!-- ko 'if': pid != '2e6b8ae2-32b6-45a3-a65b-fc748d397e51' && pid != '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94' && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706)-->
+                <div style="font-size: 14px;font-family: Arial, Sans-Serif;font-weight: bold;">By answering these questions, I understand that my response will be stored by Precision Sample and used to invite me to surveys in the future that are relevant to my background.</div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 44-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Sauver" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Annuler" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- ko 'if': pid != '2e6b8ae2-32b6-45a3-a65b-fc748d397e51' && pid != '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94' && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706)-->
+                <div style="font-size: 14px;font-family: Arial, Sans-Serif;font-weight: bold;">En répondant à ces questions, je comprends que ma réponse sera stockée par Precision Sample et utilisée pour m’inviter à participer à de futures enquêtes en rapport avec ces informations.</div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 140-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Salvar" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Cancelar" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- ko 'if': pid != '2e6b8ae2-32b6-45a3-a65b-fc748d397e51' && pid != '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94' && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706)-->
+                <div style="font-size: 14px;font-family: Arial, Sans-Serif;font-weight: bold;">Al responder a estas preguntas, comprendo que mi respuesta será almacenada por Precision Sample y utilizada para invitarme a participar en futuras encuestas que se ajusten a mi perfil.</div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 51-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Sparen" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Stornieren" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- ko 'if': pid != '2e6b8ae2-32b6-45a3-a65b-fc748d397e51' && pid != '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94' && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706)-->
+                <div style="font-size: 14px;font-family: Arial, Sans-Serif;font-weight: bold;">Mit der Beantwortung dieser Fragen erkläre ich mich damit einverstanden, dass meine Antworten von Precision Sample gespeichert und dazu verwendet werden, mich in Zukunft zu Umfragen einzuladen, die für mich relevant sind.</div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 111-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Salve" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Cancelar" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- ko 'if': pid != '2e6b8ae2-32b6-45a3-a65b-fc748d397e51' && pid != '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94' && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706)-->
+                <div style="font-size: 14px;font-family: Arial, Sans-Serif;font-weight: bold;">Ao responder a essas perguntas, entendo que minhas respostas serão armazenadas pela Precision Sample e usadas para me convidar para pesquisas no futuro, que sejam relevantes para meu perfil.</div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 120-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Сохранить" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Отмена" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- ko 'if': pid != '2e6b8ae2-32b6-45a3-a65b-fc748d397e51' && pid != '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94' && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706)-->
+                <div style="font-size: 14px;font-family: Arial, Sans-Serif;font-weight: bold;">Отвечая на эти вопросы, я понимаю, что мой ответ будет храниться в Precision Sample и использоваться для приглашения меня в будущем к опросам, имеющим отношение к моему опыту.</div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 69-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Salva" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Annulla" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- ko 'if': pid != '2e6b8ae2-32b6-45a3-a65b-fc748d397e51' && pid != '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94' && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706)-->
+                <div style="font-size: 14px;font-family: Arial, Sans-Serif;font-weight: bold;">Rispondendo a queste domande, dichiaro di comprendere che le mie risposte verranno conservate e utilizzate da Precision Sample per invitarmi a sondaggi pertinenti per il mio profilo.</div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 36-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Sparen" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Annuleer" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- ko 'if': pid != '2e6b8ae2-32b6-45a3-a65b-fc748d397e51' && pid != '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94' && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706)-->
+                <div style="font-size: 14px;font-family: Arial, Sans-Serif;font-weight: bold;">Door deze vragen te beantwoorden, begrijp ik dat mijn antwoorden door Precision Sample zullen worden bewaard en gebruikt om me uit te nodigen om deel te nemen aan enquêtes die relevant zijn voor personen met mijn achtergrond.</div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 70-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="保存する" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="キャンセル" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- ko 'if': pid != '2e6b8ae2-32b6-45a3-a65b-fc748d397e51' && pid != '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94' && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706)-->
+                <div style="font-size: 14px;font-family: Arial, Sans-Serif;font-weight: bold;">これらの質問に答えることで、Opinionbar が、私の背景に関連する今後のアンケート調査に招待するために、Precision Sample が回答を保存することに同意します。</div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 27-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="保存" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="取消" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- ko 'if': pid != '2e6b8ae2-32b6-45a3-a65b-fc748d397e51' && pid != '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94' && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706)-->
+                <div style="font-size: 14px;font-family: Arial, Sans-Serif;font-weight: bold;">我了解，回答这些问题，即表示我的回答将被 Precision Sample 保存，并用于邀请我参加与我的背景有关的未来调查。</div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 80-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="저장" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="취소" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- ko 'if': pid != '2e6b8ae2-32b6-45a3-a65b-fc748d397e51' && pid != '75a7b204-f92c-4e2e-bd04-5dafcd0d9b94' && (conid == 505 || conid == 512 || conid == 525 || conid == 545 || conid == 548 || conid == 549 || conid == 550 || conid == 559 ||
+                    conid == 564 || conid == 565 || conid == 572 || conid == 575 || conid == 590 || conid == 596 || conid == 599 || conid == 613 ||
+                    conid == 618 || conid == 619 || conid == 620 || conid == 628 || conid == 647 || conid == 657 || conid == 668 || conid == 669 ||
+                    conid == 673 || conid == 693 || conid == 694 || conid == 700 || conid == 706)-->
+                <div style="font-size: 14px;font-family: Arial, Sans-Serif;font-weight: bold;">이러한 질문에 응답함으로써, Precision Sample 에서 답변을 보관하고 향후 응답자 배경과 관련된 설문조사에 응답자를 초대할 수 있도록 해당 정보를 사용하는 것을 이해합니다.</div>
+                <!-- /ko -->
+                <!-- /ko -->
+                <!-- ko 'if': langId == 7-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="حفظ" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="إلغاء" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': langId == 144-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Spara" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Annullera" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': langId == 110-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Zapisać" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Anuluj" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': langId == 152-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="บันทึก" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="ยกเลิก" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': langId == 61-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Menyimpan" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Membatalkan" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- /ko -->
+                <!-- ko 'if': langId == 168-->
+                <div style="text-align: center; padding: 10px;">
+                    <input id="btnSubmit" class="button" type="button" value="Tiết kiệm" style="width: auto;"
+                           data-bind="click:Save" />
+                    <input id="btnCancel" class="button" type="button" value="Huỷ bỏ" style="width: auto;"
+                           data-bind="click:Cancel" />
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+
+
+        @*Footer*@
+        @*<div style="width:94%;margin:auto;" ng-controller="footerController">
+            <center>
+                <p id="text" class="footer" style="width:100%;float:left;">
+                    &copy; <span>copyRights </span>
+                    <label>
+                        2017
+                    </label>-<label>2022</label>
+                    <label class="orgname">
+                    </label>
+                    | <a href="javascript: void(0)" onclick="popup('/Misc/t.htm')" id="ancsurveysonline"
+                         ng-class="">
+                        Terms
+                    </a>| <a href="javascript: void(0)" onclick="popup('/Misc/p.htm')" id="ancsurveyspolicy">
+                        Privacy
+                    </a>| <a href="javascript: void(0)" onclick="popup('/Misc/Cu.aspx')" id="ancsurveycontact">
+                        Contact Us
+                    </a>| <a href="javascript: void(0)" onclick="popup('/Misc/abt.htm')" id="ancsurveyAbout">
+                        About Us
+                    </a>| <a href="javascript: void(0)" onclick="popup('/Misc/faq.aspx')" id="a1">
+                        FAQ
+                    </a>
+                </p>
+            </center>
+        </div>*@
+    </div>
+</body>
+</html>
+

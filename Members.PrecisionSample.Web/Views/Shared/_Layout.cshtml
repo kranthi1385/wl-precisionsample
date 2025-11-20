@@ -1,0 +1,158 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.OrgName</title>
+    <link type="text/css" href="~/Content/reset.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/default.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link type="text/css" href="~/Content/app.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/custom.css" rel="stylesheet" />
+    @*<script data-main="/Scripts/services/config" src="/Scripts/require.js"></script>*@
+    <link ng-href="~/Content/loading-bar.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <center>
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+        }
+        <div id="container" ng-cloak>
+            <div id="header">
+                <div id="topborder"></div>
+            </div>
+            <!--TOPBORDER-->
+            <div id="dvMenu" ng-controller="menuController">
+                <nav class="navbar">
+                    <p id="logout-sm">
+                        <a id="aLogoutMb"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                    </p>
+                    <p id="logout">
+                        <a id="aLogoutW" style="cursor:pointer" ng-click="submit()">{{'logout' | translate}}</a>
+                    </p>
+                    @*<div class="col-md-1 col-sm-1 padding-zero language-box">
+                            <div ng-click="languageChange()">
+                                <a href="javascript:;" class="item language toolbox-trigger" id="language-selector" rel="nofollow" data-toolbox-type="language">
+                                    <img ng-src="{{selectedImg}}" width="44" height="32" alt="us" class="flag">
+                                </a>
+                                <span class="caret"></span>
+                            </div>
+
+                            <div class="toolbox language-list toolbox-langualge" ng-class="{'toolbox-hide':languageSelected}">
+                                <h2>In Your Language</h2>
+                                <nav class="menu stacked">
+                                    <ul>
+                                        <li ng-repeat="lang in languageCodes" ng-hide="selectedLangCode == $index" ng-click="selectLanaguage($index,lang)">
+                                            <a href="javascript:;" rel="nofollow">
+                                                <img class="flag" ng-src="{{lang.Img}}"> {{lang.LangName}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>*@
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a>
+                                <img id="logo" class="logo" ng-src="{{orgDetails.OrgLogo}}" style="border: 0;" />
+                            </a>
+
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav sdl_nav " id="menu">
+                                <li>
+                                    <a id="home_nav" href="/hm/Home" ng-if="orgDetails.ClientId!=383" class="aspan" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                        <img src="~/Images/Menu/home.png" alt="" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="surveys_nav" href="/Ms/Surveys" class="aspan" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                        <span class="aspan" ng-if="orgDetails.ClientId!=383">{{'surveys' | translate}}</span>
+                                        <span class="aspan" ng-if="orgDetails.ClientId==383">{{'HOME' | translate}}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="awards_nav" ng-if="orgDetails.ClientId==383" href="/Sh/SurveyHistory" class="aspan" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                        <span class="aspan">{{'SURVEY HISTORY'|translate}}</span>
+                                    </a>
+                                    <a id="awards_nav" ng-if="orgDetails.ClientId != 383" href="/mr/rewards" class="aspan" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                        <span class="aspan">{{'rewards'|translate}}</span>
+                                    </a>
+
+                                </li>
+                                <li id="down_nav">
+                                    <a id="downline_nav" ng-if="orgDetails.ClientId!=383" href="/rf/downline" class="aspan" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                        <span class="aspan">{{'downline' | translate }}</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a id="myaccount_nav" href="/Ep/Account" class="aspan" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                        <span class="aspan">{{'myAccount' | translate}}</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="myaccount_nav" href="" class="aspan" ng-if="orgDetails.ClientId==383" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                        <span class="aspan"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a id="myaccount_nav" href="" class="aspan" ng-if="orgDetails.ClientId==383" ng-style="{'background-color': bgColor}" style="text-decoration: none;">
+                                        <span class="aspan"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="container1" id="body">
+                @RenderBody()
+            </div>
+            <div id="footer" ng-controller="footerController">
+                <center>
+                    <p id="text" class="footer">
+                        &copy; <span>{{'Copyright' | translate}}</span>
+                        <label>
+                            {{currentYear}}
+                        </label>-<label>{{nextYear}}</label>
+                        <label class="orgname">
+                        </label>
+                        | <a href="javascript: void(0)" ng-click="termsClick('/WidgetTerms.html')" id="ancsurveysonline"
+                             ng-class="">
+                            {{'Terms' | translate}}
+                        </a>| <a href="javascript: void(0)" ng-click="privacyClick()" id="ancsurveyspolicy">
+                            {{'Privacy' | translate}}
+                        </a>| <a href="javascript: void(0)" ng-click="contactClick()" id="ancsurveycontact">
+                            {{'Contact Us' | translate}}
+                        </a>| <a href="javascript: void(0)" ng-click="aboutClick()" id="ancsurveyAbout">
+                            {{'AboutUs' | translate}}
+
+                        </a>| <a href="javascript: void(0)" ng-click="faqClick()" id="a1" ng-if="orgDetails.ClientId != 383">
+                            {{'FAQ' | translate}}
+                        </a>| <a href="javascript: void(0)" ng-click="doNotSellMyInfo()" id="doNotSellMyInfo">
+                            {{'Do Not Sell My Info' | translate}}
+                        </a>
+                        @*<a href="/Misc/sm.aspx" id="ancSurveySitemap" data-bind="html:ViewModelFooter.Footer.SiteMap"
+                            style="color: #b2b2b2; display: none;"></a>*@
+                    </p>
+                </center>
+            </div>
+        </div>
+        <div class="preloader" loader>
+            <div class="loader"></div>
+        </div>
+    </center>
+    <script>document.write("<script  type='text/javascript' src='/Scripts/require.js'  data-main='/Scripts/services/config.js?v=" + 2 + "' ><\/script>");</script>
+</body>
+</html>

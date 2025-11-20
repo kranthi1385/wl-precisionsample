@@ -1,0 +1,264 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_WlLayout.cshtml";
+}
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
+<link href="~/Content/vilanding/viapp.css" rel="stylesheet" />
+<html>
+<head>
+    <script src="https://www.offerfwd.net/oi/joi.js"></script>
+    <style type="text/css">
+        .oiInputBox label {
+            font: 12px/30px Verdana, Geneva, sans-serif;
+            float: none !important;
+            color: white;
+            padding: 0 0 0 0 !important;
+            width: 30px !important;
+            text-align: right;
+            display: inline-block !important;
+            margin: 0 0 0 0 !important;
+        }
+
+        .cqtable_internal, .cqtable_internal b, .validInput, .cqtable span, .cqtable font {
+            color: white !important;
+            font-size: 12px !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header-top">
+        <div class="survey-promo">
+            <div class="container">
+                <div class="login-panel">
+                    <label>Login</label>
+                    <form class="loginform" novalidate name="userLoginValidations">
+                        <div class="survey-form-group">
+                            <!-- <input type="text" class="survey-form-control" ng-required="true" />-->
+                            <input type="email" class="survey-form-control" name="userName" ng-pattern="EmailAddress" placeholder="Email Address*" ng-model="loginDetails.EmailAddress" required>
+                            <span ng-show="userLoginValidations.userName.$error.required && showLoginError" class="span-err-msg">Required</span>
+                            <span class="span-err-msg" ng-show="userLoginValidations.userName.$error.email">Invalid Email Formate</span>
+                        </div>
+                        <div class="survey-form-group">
+                            <input type="password" class="survey-form-control" name="uPassword" placeholder="Password*" ng-model="loginDetails.Password" required />
+                            <span ng-show="userLoginValidations.uPassword.$invalid && showLoginError" class="span-err-msg">Required</span>
+                        </div>
+                    </form>
+                    <span class="error text-danger" ng-show="isShowLoginFailErrmsg" style="display: inline-block;float:left;color: #f10d08;">Wrong username/password. Try again.</span>
+                    <a href="/login/ForgotPsw" class="forgotpwd">Forgot Password?</a><br />
+                    <p style="color: red;" ng-class="{'danger':emailIdflag == false,'success':emailIdflag == true}">{{loginFailMessage}}</p>
+                    <button class="survey-login-btn" type="submit" ng-click="userLoginClick(userLoginValidations.$valid)">Login</button>
+                </div>
+            </div>
+        </div>
+        <div class="survey-rewards" style="margin-bottom: 5px;">
+            <div class="container">
+                <div class="survey-rewards-link">
+                    <a href="#">
+                        Survey Rewards
+                        <img src="~/Images/ViLanding/arrow-icon.png" />
+                    </a>
+                </div>
+                <div class="survey-rewards-places">
+                    <img src="~/Images/ViLanding/paypal.png" />
+                    <img src="~/Images/ViLanding/fc-credits.png" />
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="survey-body">
+        <div class="container">
+            <div class="survey-extracash">
+                <img src="~/Images/ViLanding/need-extra-cash.png" />
+            </div>
+            <div class="survey-signup-body">
+                <div class="signup-header">
+                    <span>Make Some Cash</span>
+                    <a href="#">Sign Up Here</a>
+                </div>
+                <form class="survey-signup-form" novalidate name="userInput">
+                    <div class="survey-form-group">
+                        <input type="text" class="survey-form-control" name="fName" id="fName" ng-model="user.FirstName" placeholder="First Name" ng-required="true">
+                        <span ng-show="userInput.fName.$invalid && isRegErrMsg" class="text-danger txt-req">{{'required'|translate}}</span>
+                    </div>
+                    <div class="survey-form-group">
+                        <input type="text" class="survey-form-control" name="lname" id="lName" ng-model="user.LastName" placeholder="Last Name" ng-required="true">
+                        <span ng-show="userInput.lname.$invalid && isRegErrMsg" class="text-danger txt-req">{{'required'|translate}}</span>
+                    </div>
+                    <div class="survey-form-group">
+                        <input type="email" class="survey-form-control" name="emailId" id="emailId" ng-model="user.EmailAddress" ng-blur="validateEmail()" placeholder="Email Address" ng-required="true">
+                        <span ng-show="userInput.emailId.$error.required && isRegErrMsg" class="text-danger">{{'required' | translate}}</span>
+                        <span class="error text-danger txt-req" ng-show="userInput.emailId.$error.email">{{'notValidEmail'|translate}}</span>
+                        <span ng-show="emailXVerify==1 ||emailXVerify==0 " ng-class="{'text-danger':emailXVerify==0,'text-success':emailXVerify==1}">{{xVerifyMessage}}</span>
+                    </div>
+                    <div class="survey-form-group">
+                        <input type="text" class="survey-form-control" name="addres1" id="address1" ng-model="user.Address1" placeholder="Address 1" ng-required="true">
+                        <span ng-show="userInput.addres1.$invalid && isRegErrMsg" class="text-danger txt-req">{{'required'|translate}}</span>
+                    </div>
+                    <div class="survey-form-group">
+                        <input type="text" class="survey-form-control" name="address2" id="address2" ng-model="user.Address2" placeholder="Address 2">
+                    </div>
+                    <div class="survey-form-group">
+                        <select class="survey-form-control" id="ddlCountry" ng-model="user.CountryId" placeholder="Country" name="country" ng-options="con.CountryId as con.CountryName for con in countries" ng-change="countryByStates(user.CountryId)" required>
+                            <option value="">Country</option>
+                        </select>
+                        <span ng-show="userInput.country.$invalid && isRegErrMsg" class="text-danger txt-req">{{'required'|translate}}</span>
+                        <span class="error text-danger" ng-show="user.CountryId ==0 && isRegErrMsg">{{'required'|translate}}</span>
+                    </div>
+                    <div class="survey-form-group" ng-if="states.length != 0">
+                        <select class="survey-form-control" name="state" id="state" ng-options="st.StateId as st.StateName for st in states" ng-model="user.StateId" required>
+                            <option value="">State</option>
+                        </select>
+                        <span ng-show="userInput.state.$invalid && isRegErrMsg" class="text-danger txt-req">{{'required'|translate}}</span>
+                        <span class="error text-danger" ng-show="user.StateId ==0 && isRegErrMsg">{{'required'|translate}}</span>
+                    </div>
+                    <div class="survey-form-group">
+                        <input type="text" class="survey-form-control" placeholder="City" name="city" id="city" ng-model="user.City" ng-required="true">
+                        <span ng-show="userInput.city.$invalid && isRegErrMsg" class="text-danger txt-req">{{'required'|translate}}</span>
+                    </div>
+                    <div class="survey-form-group">
+                        <input type="text" class="survey-form-control" placeholder="Zip/Postal Code" name="zipCode" id="Zip" ng-model="user.ZipCode" ng-required="true">
+                        <span ng-show="userInput.zipCode.$invalid && isRegErrMsg" class="text-danger txt-req">{{'required'|translate}}</span>
+                    </div>
+                    <div class="survey-form-group">
+                        <input type="text" class="survey-form-control" placeholder="Mobile Phone (optional)" name="mobileNumber" id="mobileNumber" ng-model="user.PhoneNumber">
+                    </div>
+                    <div class="survey-form-group">
+                        <select class="survey-form-control" name="gender" id="gender" ng-model="user.Gender" ng-required="true" ng-change="optIntelligenceCheck()">
+                            <option value="">Gender</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="N">Non-Binary</option>
+                        </select>
+                        <span ng-show="userInput.gender.$invalid && isRegErrMsg" class="text-danger txt-req">{{'required'|translate}}</span>
+                    </div>
+                    <div class="survey-form-group datepicker">
+                        <label>Birth Date</label>
+                        <select class="survey-form-control date" name="month" ng-model="user.Month" ng-required="true" ng-click="optIntelligenceCheck()">
+                            <option value="">MM</option>
+                            <option value="01">Jan</option>
+                            <option value="02">Feb</option>
+                            <option value="03">Mar</option>
+                            <option value="04">Apr</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="07">July</option>
+                            <option value="08">Aug</option>
+                            <option value="09">Sep</option>
+                            <option value="10">Oct</option>
+                            <option value="11">Nov</option>
+                            <option value="12">Dec</option>
+                        </select>
+                        <select class="survey-form-control month" name="day" ng-model="user.Day" ng-required="true" ng-click="optIntelligenceCheck()">
+                            <option value="">DD</option>
+                            <option value="01">1</option>
+                            <option value="02">2</option>
+                            <option value="03">3</option>
+                            <option value="04">4</option>
+                            <option value="05">5</option>
+                            <option value="06">6</option>
+                            <option value="07">7</option>
+                            <option value="08">8</option>
+                            <option value="09">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+                        <select class="survey-form-control year" id="ddlYear" ng-model="user.Year" name="year" ng-options="y.key as y.value for y in year" ng-click="optIntelligenceCheck()" required>
+                            <option value="">YY</option>
+                        </select>
+                        <span class="text-danger  txt-req spn-yy-err" ng-show="(userInput.month.$invalid ||userInput.day.$invalid||userInput.year.$invalid)  && isRegErrMsg">{{'required'|translate}}</span>
+                    </div>
+                    <div class="survey-form-group"  ng-if="user.CountryId != 505 && user.CountryId != 512 && user.CountryId != 525 && user.CountryId != 545 && user.CountryId != 548 && user.CountryId != 549 && user.CountryId !=550 && user.CountryId !=559 && user.CountryId !=564 && user.CountryId !=565 && user.CountryId !=572 && user.CountryId !=575 && user.CountryId !=590 && user.CountryId !=596 && user.CountryId !=599 && user.CountryId !=613 && user.CountryId !=618 && user.CountryId !=619 && user.CountryId !=620 && user.CountryId !=628 && user.CountryId != 647 && user.CountryId != 657 && user.CountryId != 668 && user.CountryId != 669 &&
+                         user.CountryId !=673 && user.CountryId !=693 && user.CountryId !=694 && user.CountryId !=700 && user.CountryId !=706">
+                        <select class="survey-form-control" id="ddlEthnicity" ng-model="user.EthnicityId" ng-options="ec.EthnicityId as ec.EthnicityType for ec in ethnicityLst" name="ethnicity" placeholder="Ethnicity" required>
+                            <option value="">Ethnicity</option>
+                        </select>
+                        <span class="text-danger txt-req" ng-show="userInput.ethnicity.$invalid  && isRegErrMsg">{{'required'|translate}}</span>
+                        <span class="error text-danger" ng-show="user.EthnicityId ==0 && isRegErrMsg">{{'required'|translate}}</span>
+                    </div>
+                    <div class="survey-form-group">
+                        <input type="password" class="survey-form-control" placeholder="Password" name="password" id="password" ng-model="user.Password" ng-required="true">
+                        <span class="text-danger txt-req" ng-show="userInput.password.$invalid  && isRegErrMsg">{{'required'|translate}}</span>
+                        <span class="text-danger" ng-show="userInput.password.$error.minlength">Minimum of 6 Characters</span>
+                    </div>
+                    <div class="recaptcha">
+                        <div vc-recaptcha key="'6LetblorAAAAAMH3OWFI3rtURCyE4SGpXp9gkfk1'" on-success="setResponse(response)" size="normal"></div>
+                        <span class="text-danger" ng-show="captchaErr">Invalid captcha selection.</span>
+                    </div>
+                    <div id="divShow" class="form-group" style="display:none;font-size:12px;color:white;">
+                        <div style="margin-left: 10px; padding-left: 10px; text-align:justify;">
+
+                            <b>{{'goodnews'|translate}}! </b>{{'basenonDemographics'| translate}}.<br /><br />
+                            <div id="offers" oi-pid="14376727" class="form-group" style="vertical-align:left;">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="dvTc" style="padding: 6px;color:white">
+                        <input style="display: inline-block; height: 10px; padding: 0; vertical-align: top; width: 10px;margin-top: 5px;" name="agree" type="checkbox" value="agre" ng-model="user.agree" required>
+                        <label style="display: inline-block; line-height: normal; margin: 0; padding-top: 2px; text-align: left; width: 89%; font-size: 12px; cursor: default;" class="ng-binding">
+                            I agree to the <a href="" style="color: white;text-decoration: underline;" ng-click="termsClick()" class="ng-binding">Terms & Conditions</a> and to receive additional survey, market research and other relevant emails from Precision Sample.<br /> 
+                            I understand that my personal data will be processed as described in the <a href="" style="color: white;text-decoration: underline;" ng-click="privacyClick()" class="ng-binding">Privacy Notice</a>
+                        </label>
+                        <span ng-show="userInput.agree.$invalid && isRegErrMsg" class="text-danger">{{'required'|translate}}</span>
+                    </div>
+                    <p ng-show="isResgistationErr" class="danger">{{resgistationErrMsg}}</p>
+                    <button class="survey-start-btn" type="button" ng-click="submit(userInput.$valid)">Start Now</button>
+                </form>
+                @*<p class="form-decription">By signing up, I agree to the Terms of Use and Privacy Policy and agree to recive additional survey, market research and other relevant offers form Voterlnsight.com</p>*@
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="survey-security">
+                <p>
+                    <img src="~/Images/ViLanding/lock.png" />
+                    Your privacy and security are protected. <a href="#" ng-click="privacyClick()" class="learnmore-link" style="color:white;text-decoration:underline;">Learn More</a>
+                    <a style="cursor: pointer;color:white;" ng-click="termsClick('/WidgetTerms.html')">Terms</a>
+
+                    <a style="cursor: pointer;color:white;" ng-click="privacyClick()">Privacy</a>
+
+                    <a style="cursor: pointer;color:white;" ng-click="contactClick()">Contact Us</a>
+
+                    <a style="cursor: pointer;color:white;" ng-click="doNotSellMyInfo()">Do Not Sell My Info</a>
+                </p>
+            </div>
+
+            <div class="copyrights">
+
+                <p>© 2009-2022 Voterlnsight. All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src='https://www.google.com/recaptcha/api.js' type="text/javascript"></script>
+    <script src="/Scripts/angular.min.js" type="text/javascript"></script>
+
+    <!--build:js assets/js/main.min.js -->
+    <script type="text/javascript" src="~/Scripts/pages/login.js"></script>
+    <!-- endbuild -->
+</body>
+</html>

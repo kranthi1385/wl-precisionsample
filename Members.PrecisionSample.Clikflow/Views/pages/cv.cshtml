@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "cv";
+    Layout = "~/Views/shared/_layout.cshtml";
+}
+
+<div ng-if="pgLoad" class="inner-container" ng-cloak>
+    <div ng-controller="cvController" >
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+        }
+    </div>
+</div>
+

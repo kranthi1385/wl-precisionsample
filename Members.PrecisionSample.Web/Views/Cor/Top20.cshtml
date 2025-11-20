@@ -1,0 +1,831 @@
+﻿@{
+    ViewBag.Title = "Profile";
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+
+        })(window, document, 'script', 'dataLayer', 'GTM-KS869WC');</script>
+    <!-- End Google Tag Manager -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/knockout-2.3.0.js"></script>
+    <script src="~/Scripts/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/knockout.mapping-latest.debug.js" type="text/javascript"></script>
+    <script src="~/Scripts/knockout.mapping-latest.js" type="text/javascript"></script>
+    <script src="~/Scripts/pages/rg/questionandoptionsobj.js" type="text/javascript"></script>
+    <script src="~/Scripts/pages/e/top20.js?v=1" type="text/javascript"></script>
+    <link href="~/Content/main/s1.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/rg/sdl-style.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/rg/top10.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/custom.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style type="text/css">
+        .validation-summary-errors {
+            color: red !important;
+        }
+
+            .validation-summary-errors ul {
+                clear: both;
+                list-style: none;
+                padding: 0px 0px 0px 12px;
+            }
+
+        .padding-zero {
+            padding: 6px 3px;
+        }
+
+
+        *, html, body {
+            font-weight: 300;
+            font-family: Roboto, Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        .banner-header {
+            min-height: 350px;
+        }
+
+        .cardbg {
+            background-color: #F7F7F7;
+        }
+
+        .sharebox-header {
+            background-color: #A71718;
+            padding: 25px;
+            text-align: center;
+            font: normal normal bold 24px/1.3 Roboto;
+            letter-spacing: 0px;
+            color: #FFFFFF;
+            padding-bottom: 40px;
+        }
+
+        .sharebox {
+            max-width: 500px;
+            margin: auto;
+            margin-top: -80px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .share-paid {
+            background-color: #A71718;
+            height: 70px;
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            border-radius: 100%;
+            margin: auto;
+            margin-top: -45px;
+        }
+
+        .btn-success {
+            background-color: #34BB7B;
+            border-color: #34BB7B;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: Roboto, Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            position: relative;
+            z-index: 2;
+        }
+
+        .sharebox2 {
+            margin: 0;
+            margin-top: -90px;
+        }
+
+        .keepreward-banner {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .keepreward {
+            position: relative;
+            z-index: 99;
+        }
+      
+    </style>
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        leadguid = getUrlVars()["leadid"] //user status guid added 06/13/2016
+        debugger;
+        if (leadguid == undefined) {
+            leadguid = '';
+        }
+        pg = getUrlVars()["pg"] //user status guid added 06/13/2016
+        debugger;
+        if (pg == undefined) {
+            pg = '';
+        }
+        if (pg.toLowerCase() == '9EE17B1A-6882-4CAE-9AED-3C4D4A92DFA9'.toLowerCase()) {
+            $(document).ready(function () {
+                $("div#conversantimg").hide();
+                $("div#conversantbutton").hide();
+            });
+        }
+        else if (pg.toLowerCase() == '71CC02CD-B8A5-4A5A-AF4D-9988B2F21761'.toLowerCase()) {
+            $(document).ready(function () {
+                $("div#obimg").hide();
+                $("div#obbutton").hide();
+            });
+        }
+    </script>
+</head>
+
+<body style="background-image:none !important;">
+    <header class="py-3 shadow bg-white" style="min-height: 75px;z-index: -1;">
+        <div class="container" style="box-shadow:0 0 0 #fff">
+            <a href="#" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                @*<span style="padding-left:10px;" id="conversantimg" class="imglogo">
+                    <img src="/images/conversant.png" style="width:211px;height:58px;">
+                </span>
+                <span style="padding-left:10px;" id="obimg" class="imglogo">
+                    <img src="/images/logo_opinionbar2x.png" style="width:211px;height:58px;">
+                </span>*@
+            </a>
+        </div>
+    </header>
+    <div class="banner-header w-100 d-flex flex-wrap align-items-center keepreward-banner" style="background: #555 url(https://members.precisionsample.com/images/Opinion-Header.png) no-repeat center/cover;z-index:-1;">
+    </div>
+
+    <div class="keepreward" style="position: inherit;">
+        <div class="container" style="background: transparent!important;box-shadow: 0 0 0 #fff;position: inherit;">
+            <div class="d-flex justify-content-end">
+                <div class="sharebox sharebox2">
+                    <div class="">
+                        @*<div class="sharebox-header" id="obimg">
+                            <div class="s-title mt-2">Keep going! <br> You’re almost to your $5 reward! </div>
+                        </div>*@
+                        @*<div class="sharebox-header" id="conversantimg" style="background-color: #40a764;">
+                            <div class="s-title mt-2">Keep going! <br> You’re almost to your $20 reward! </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="sharebox-body p-4 cardbg">
+                <div class="share-form text-center">
+                    <div class="formrow pt-3 pb-5">
+                    
+
+
+
+
+                        <div id="container" style="background:transparent;box-shadow:0 0 0 #fff;">
+                            <div id="topborder">
+                            </div>
+                            @*<img class="logo" src="~/Images/logo.gif" alt="paid surveys online" style="padding-left: 30px;padding-bottom:10px;" />*@
+
+
+                            <script type="text/x-jquery-tmpl" id="SurveyQuestionList">
+                                <div data-bind="visible: !QuestionHide,attr: {id:QuestionId+'_Show'}" style="width: 100%;">
+                                    <div align="left" class="questionback" style="margin-bottom: 10px; clear: both;background: rgba(0, 0, 0,0);">
+                                        <span class="question" id="lblQuestiontext" data-bind="html:QuestionText" style="padding-bottom: 10px;"></span>
+                                    </div>
+
+                                    <!-- ko if: QuestionTypeId == 3 -->
+                                    <div class="optiontext" style="clear: both; overflow: hidden">
+                                        <div class="wrapper">
+                                            <div data-bind="foreach: OptionList">
+                                                <div class="left">
+                                                    <span data-bind="if: ($index())%2 ==0">
+                                                        <div class="dvChkbox">
+                                                            <!--ko if: OptionText == 'Prefer not to answer' || OptionText == 'None of the above' || OptionText == 'None' || OptionText == 'I dont own a smart phone' -->
+                                                            <div style=" " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                                                <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_checkbox',name: QuestionId+'_checkbox'},event: {click:chkClick.bind($root,$parent)}">
+                                                                </div>
+                                                                <div class="grid_span_holder">
+                                                                    <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_chkDiv'},event: {click:chkClick.bind($root,$parent)}"></span>
+                                                                </div>
+                                                                <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_checkbox',value:OptionId, name: QuestionId+'_checkbox'}, checked:IsChecked" checked />
+                                                            </div>
+                                                            <div style="text-align: left;">
+                                                                <span class="single_radio" style=" " data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_checkbox'}"></span>
+                                                            </div>
+                                                            <!-- /ko -->
+                                                            <!--ko if: OptionText != 'Prefer not to answer' && OptionText != 'None of the above' && OptionText != 'None' && OptionText != 'I dont own a smart phone'-->
+                                                            <div style=" " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                                                <div class="grid_checkbox" data-bind="css:{input_on : OptionId == $parent.OptionId}, attr: {id:$parent.QuestionId+'_'+OptionId+'_checkbox',name: QuestionId+'_checkbox'},event: {click:chkClick.bind($root,$parent)}">
+                                                                </div>
+                                                                <div class="grid_span_holder">
+                                                                    <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_chkDiv'},event: {click:chkClick.bind($root,$parent)}"></span>
+                                                                </div>
+                                                                <input type="checkbox" style="display: none;" data-bind="attr: { id:OptionId+'_checkbox',value:OptionId,name: QuestionId+'_checkbox'}" checked />
+                                                            </div>
+                                                            <div style="text-align: left;">
+                                                                <span class="single_radio" style=" " data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_checkbox'}"></span>
+                                                            </div>
+                                                            <!-- /ko -->
+                                                        </div>
+                                                    </span>
+                                                </div>
+
+                                                <div class="right">
+                                                    <span data-bind="if: ($index())%2 ==1">
+                                                        <div class="dvChkbox">
+                                                            <!--ko if: OptionText == 'Prefer not to answer' || OptionText == 'None of the above' || OptionText == 'None' || OptionText == 'I dont own a smart phone' -->
+                                                            <div style=" " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                                                <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_checkbox',name: QuestionId+'_checkbox'},event: {click:chkClick.bind($root,$parent)}">
+                                                                </div>
+                                                                <div class="grid_span_holder">
+                                                                    <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_chkDiv'},event: {click:chkClick.bind($root,$parent)}"></span>
+                                                                </div>
+                                                                <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_checkbox',value:OptionId, name: QuestionId+'_checkbox'}, checked:IsChecked" />
+                                                            </div>
+                                                            <div style="text-align: left;">
+                                                                <span class="single_radio" style=" " data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_checkbox'}"></span>
+                                                            </div>
+                                                            <!-- /ko -->
+                                                            <!--ko if: OptionText != 'Prefer not to answer' && OptionText != 'None of the above' && OptionText != 'None' && OptionText != 'I dont own a smart phone' -->
+                                                            <div style=" " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                                                <div class="grid_checkbox" data-bind="css:{input_on : OptionId == $parent.OptionId}, attr: {id:QuestionId+'_'+OptionId+'_checkbox',name: QuestionId+'_checkbox'},event: {click:chkClick.bind($root,$parent)}">
+                                                                </div>
+                                                                <div class="grid_span_holder">
+                                                                    <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_chkDiv'},event: {click:chkClick.bind($root,$parent)}"></span>
+                                                                </div>
+                                                                <input type="checkbox" style="display: none;" data-bind="attr: { id:OptionId+'_checkbox',value:OptionId,name: QuestionId+'_checkbox'}, checked:IsChecked " />
+                                                            </div>
+                                                            <div style="text-align: left;">
+                                                                <span class="single_radio" style=" " data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_checkbox'}"></span>
+                                                            </div>
+                                                            <!-- /ko -->
+                                                        </div>
+
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span align="left" style="color: Red; display: none; float: left; text-align: left; width: 100%; padding-bottom: 10px;" data-bind="validator: QuestionId+'_checkbox',attr:{ id: QuestionId+'_spn'}" />
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko if: QuestionTypeId == 4 -->
+                                    <div class="optiontext" style="clear: both; overflow: hidden">
+                                        <div class="wrapper">
+                                            <div data-bind="foreach: OptionList">
+                                                <div class="left">
+                                                    <span data-bind="if: ($index())%2 ==0">
+                                                        <div style="min-height: 21px;display: flex;align-items: center;">
+                                                            <div style=" " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                                                <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}">
+                                                                </div>
+                                                                <div class="grid_span_holder">
+                                                                    <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                                                                </div>
+                                                                <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd'}, checked:$parent.OptionId" />
+                                                            </div>
+                                                            <span class="single_radio spnopttxt1" style=" " data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_radio'}"></span>
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                                <div class="right">
+                                                    <span data-bind="if: ($index())%2 ==1">
+                                                        <div style="min-height: 21px;display: flex;align-items: center;">
+                                                            <div style=" " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                                                <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}">
+                                                                </div>
+                                                                <div class="grid_span_holder">
+                                                                    <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                                                                </div>
+                                                                <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd'}, checked:$parent.OptionId" />
+                                                            </div>
+                                                            <span class="single_radio spnopttxt1" style=" " data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_radio'}"></span>
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span style="color: Red; display: none; margin-left: `10px; width: 100%; text-align: left; float: left; padding-bottom: 10px; float: left; font-size: 13px;" data-bind="validator: QuestionId+'_rd',attr:{ id: QuestionId+'_spn'}" />
+                                    </div>
+
+                                    <!-- /ko -->
+                                    <!-- ko if: QuestionTypeId == 13 -->
+                                    <div>
+                                        <div class="Table optiontext" data-bind="template: {name:'matrixwithChkboxRadio'}" style="width: 100%">
+                                        </div>
+
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko if: QuestionTypeId == 14 -->
+                                    <div class="optiontext" style="clear: both; overflow: hidden">
+                                        <div class="wrapper">
+                                            <div>
+                                                <div data-bind="foreach: OptionList">
+                                                    <div style="min-height: 21px; padding-bottom: 10px;">
+                                                        <div style=" " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                                            <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}" style="margin-bottom: 14px;">
+                                                            </div>
+                                                            <div class="grid_span_holder">
+                                                                <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                                                            </div>
+                                                            <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd'}, checked:$parent.OptionId" />
+                                                        </div>
+                                                        <div>
+                                                            <span class="single_radio" style=" " data-bind="text:OptionText , attr: {id:OptionId+'_optn','for':OptionId +'_radio'}"></span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span style="color: Red; display: none; margin-left: 10px; width: 100%; text-align: left; float: left; padding-bottom: 10px; float: left; font-size: 13px;" data-bind="validator: QuestionId+'_rd',attr:{ id: QuestionId+'_spn'}" />
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko if: QuestionTypeId == 2 -->
+                                    <!-- ko if:AutoPostBack == 1 -->
+                                    <div>
+                                        <div align="left" style="padding-top: 9px; padding-bottom: 10px;">
+                                            <select class="selectdropdown form-select" id="ddlQuestion" data-bind="options: OptionList, optionsText: 'OptionText',optionsValue: 'OptionId',value:OptionId, optionsCaption: '-- Select --',attr: {id:QuestionId },event: { change:selectionChanged }"></select>
+                                        </div>
+                                        <span align="left" style="color: red; display: none; float: left; width: 100%; padding-bottom: 10px; text-align: left;" data-bind="validator:$parent.OptionId, attr:{ id: QuestionId+'_spn'}">Please answer the question.</span>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko if:AutoPostBack == 0 -->
+                                    <div>
+                                        <div align="left" style="padding-top: 9px; padding-bottom: 10px;">
+                                            <select class="selectdropdown form-select" id="Select1" data-bind="options: OptionList, optionsText: 'OptionText',optionsValue: 'OptionId',value:OptionId, optionsCaption: '-- Select --',attr: {id:QuestionId },event: { change:selectionChanged }"></select>
+                                        </div>
+                                        <span align="left" style="color: red; display: none; float: left; width: 100%; padding-bottom: 10px; text-align: left;" data-bind="validator:$parent.OptionId, attr:{ id: QuestionId+'_spn'}">Please answer the question.</span>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- /ko -->
+                                    <!-- ko if: OptionDisplay == 'V' -->
+                                    <div data-bind="template: {name:'SurveyQuestionList', foreach: SelectedChildQuestionList}, attr: {id:QuestionId+'_trChildQuestionId'}">
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko if: OptionDisplay == 'H' -->
+                                    <div data-bind="template: {name:'SurveyQuestionListhorizental'}, attr: {id:QuestionId+'_trChildQuestionId'}">
+                                    </div>
+                                    <!-- /ko -->
+                                    <div data-bind="foreach: ChildQuestionList" class="table-responsive restable">
+                                        <!-- ko 'if': QuestionTypeId == 5 -->
+                                        <div class="Table optiontext" data-bind="template: {name:'matrixTemp'}" style="width: 100%">
+                                        </div>
+                                        <div width="100%">
+                                            <span align="left" style="color: Red; display: none; float: left; width: 100%; font-size: 13px; text-align: left;" data-bind="validator: QuestionId+'_checkbox',attr:{ id: QuestionId+'_spn'}" />
+                                        </div>
+                                        <!-- /ko -->
+                                    </div>
+                                </div>
+                            </script>
+
+                            <script type="text/x-jquery-tmpl" id="matrixTemp">
+                                <!-- ko 'if': ParentQuestionId != 649-->
+                                <!-- ko 'if': $index() == 0-->
+                                <div class="grid_floating_header" width="100%">
+                                    <div class="question_martix" style="min-height: 30px;">
+                                        <!-- ko 'if': ParentQuestionId == 5156 || ParentQuestionId == 5186-->
+                                        <div style="width: 20%;" class="grid_question">
+                                        </div>
+                                        <!-- /ko -->
+                                        <!-- ko 'if': ParentQuestionId == 5025-->
+                                        <div style="width: 16%;" class="grid_question">
+                                        </div>
+                                        <!-- /ko -->
+                                        <!-- ko 'if': ParentQuestionId == 169 || ParentQuestionId == 1420 || ParentQuestionId == 5131 || ParentQuestionId == 5212 || ParentQuestionId == 5235 || ParentQuestionId == 5035 || ParentQuestionId == 5055 || ParentQuestionId == 5222-->
+                                        <div style="width: 34%;" class="grid_question">
+                                        </div>
+                                        <!-- /ko -->
+                                        <!-- ko 'if': ParentQuestionId == 898-->
+                                        <div style="width: 60%;" class="grid_question">
+                                        </div>
+                                        <!-- /ko -->
+                                        <div data-bind="foreach: OptionList" style="font-size: 14px;">
+                                            <div style="width: 15%;" class="grid_column" data-bind="text: OptionText"></div>
+                                        </div>
+                                        <!-- ko 'if': ParentQuestionId == 169 || ParentQuestionId == 1420 || ParentQuestionId == 5131 || ParentQuestionId == 5235 || ParentQuestionId == 5035 || ParentQuestionId == 5055 || ParentQuestionId == 5222-->
+                                        <!-- /ko -->
+                                        <!-- ko 'if': ParentQuestionId == 5156 || ParentQuestionId == 5186-->
+                                        <div data-bind="foreach: OptionList" style="font-size: 14px;">
+                                            <div style="width: 10%;" class="grid_column" data-bind="text: OptionText"></div>
+                                        </div>
+                                        <!-- /ko -->
+                                        <!-- ko 'if': ParentQuestionId == 5025 || ParentQuestionId == 5212-->
+                                        <div data-bind="foreach: OptionList" style="font-size: 14px;">
+                                            <div style="width: 7%; " class="grid_column" data-bind="text: OptionText"></div>
+                                        </div>
+                                        <!-- /ko -->
+                                    </div>
+                                </div>
+                                <!-- /ko -->
+                                <div class="question_martix">
+                                    <!-- ko 'if': ParentQuestionId != 898-->
+                                    <!-- ko 'if': QuestionId == 355-->
+                                    <p style="text-align: left; "><b style="font-weight:bold;">Technology</b></p>
+                                    <!-- /ko -->
+                                    <!-- ko 'if': QuestionId == 363-->
+                                    <p style="text-align: left; "><b style="font-weight:bold;">Marketing</b></p>
+                                    <!-- /ko -->
+                                    <!-- ko 'if': QuestionId == 374-->
+                                    <p style="text-align: left; "><b style="font-weight:bold;">Finance</b></p>
+                                    <!-- /ko -->
+                                    <!-- ko 'if': QuestionId == 373-->
+                                    <p style="text-align: left; "><b style="font-weight:bold;">Supply Chain/ Logistics</b></p>
+                                    <!-- /ko -->
+                                    <!-- ko 'if': QuestionId == 365-->
+                                    <p style="text-align: left; "><b style="font-weight:bold;">Operations</b></p>
+                                    <!-- /ko -->
+                                    <!-- ko 'if': ParentQuestionId == 169 || ParentQuestionId == 1420 || ParentQuestionId == 5131 || ParentQuestionId == 5212 || ParentQuestionId == 5235 || ParentQuestionId == 5035 || ParentQuestionId == 5055 || ParentQuestionId == 5222-->
+                                    <div class="optiontext grid_question_optmatrix" style="text-align: left;width:34%; " data-bind="html: QuestionText,attr: {id:QuestionId+'_optnc'}">
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko 'if': ParentQuestionId == 5156 || ParentQuestionId == 5186-->
+                                    <div class="optiontext grid_question_optmatrix" style="text-align: left;width:20%; " data-bind="html: QuestionText,attr: {id:QuestionId+'_optnc'}">
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko 'if': ParentQuestionId == 5025-->
+                                    <div class="optiontext grid_question_optmatrix" style="text-align: left;width:16%; " data-bind="html: QuestionText,attr: {id:QuestionId+'_optnc'}">
+                                    </div>
+                                    <!-- /ko -->
+                                    @*<div class="optiontext grid_question_optmatrix" style="text-align: left;" data-bind="html: QuestionText,attr: {id:QuestionId+'_optnc'}">
+                    </div>*@
+                                    <!-- /ko -->
+                                    <!-- ko 'if': ParentQuestionId == 898-->
+                                    <div class="optiontext grid_question_optmatrix_new" style="text-align: left;font-weight:100;; " data-bind="html: QuestionText,attr: {id:QuestionId+'_optnc'}">
+                                    </div>
+                                    <div class="optiontext" data-bind="foreach: OptionList">
+                                        <div style="width: 15%;margin-top:30px; " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                            <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}">
+                                            </div>
+                                            <div class="grid_span_holder">
+                                                <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                                            </div>
+                                            <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd','class':QuestionId+'_selectrdb'}, checked:$parent.OptionId" />
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko 'if': ParentQuestionId == 169 || ParentQuestionId == 1420 || ParentQuestionId == 5131 || ParentQuestionId == 5035 || ParentQuestionId == 5055 || ParentQuestionId == 5222 || ParentQuestionId == 5235-->
+                                    <div class="optiontext" data-bind="foreach: OptionList">
+                                        <div style="width: 15%; " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                            <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}">
+                                            </div>
+                                            <div class="grid_span_holder">
+                                                <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                                            </div>
+                                            <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd','class':QuestionId+'_selectrdb'}, checked:$parent.OptionId" />
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko 'if': ParentQuestionId == 5156 || ParentQuestionId == 5186-->
+                                    <div class="optiontext" data-bind="foreach: OptionList">
+                                        <div style="width: 10%; " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                            <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}">
+                                            </div>
+                                            <div class="grid_span_holder">
+                                                <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                                            </div>
+                                            <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd','class':QuestionId+'_selectrdb'}, checked:$parent.OptionId" />
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                    <!-- ko 'if': ParentQuestionId == 5025 || ParentQuestionId == 5212-->
+                                    <div class="optiontext" data-bind="foreach: OptionList">
+                                        <div style="width: 7%; " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                            <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}">
+                                            </div>
+                                            <div class="grid_span_holder">
+                                                <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                                            </div>
+                                            <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd','class':QuestionId+'_selectrdb'}, checked:$parent.OptionId" />
+                                        </div>
+                                    </div>
+                                    <!-- /ko -->
+                                </div>
+                                <!-- /ko -->
+                                <!-- ko 'if': ParentQuestionId == 649-->
+                                <!-- ko 'if': $index() == 0-->
+                                <div class="grid_floating_header" width="100%">
+                                    <div class="question_martix" style="min-height: 30px;">
+                                        <div style="width: 40%;" class="grid_question">
+                                        </div>
+                                        <div data-bind="foreach: OptionList" style="font-size: 14px;">
+                                            <div style="width: 6%; " class="grid_column" data-bind="text: OptionText"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /ko -->
+                                <div class="question_martix">
+                                    <div class="optiontext grid_question_opt" style="text-align: left;" data-bind="html: QuestionText,attr: {id:QuestionId+'_optnc'}">
+                                    </div>
+                                    <div class="optiontext" data-bind="foreach: OptionList">
+                                        <div style="width: 6%; " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                            <div class="grid_radio" data-bind="attr: {id:$parent.QuestionId+'_'+OptionId+'_radio'},event: {click:rdClick.bind($root,$parent)}">
+                                            </div>
+                                            <div class="grid_span_holder">
+                                                <span class="grid_span" data-bind="text:OptionText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:rdClick.bind($root,$parent)}"></span>
+                                            </div>
+                                            <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd','class':QuestionId+'_selectrdb'}, checked:$parent.OptionId" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /ko -->
+                            </script>
+
+                            <script type="text/x-jquery-tmpl" id="matrixwithChkboxRadio">
+
+                                <div class="grid_floating_header" width="100%">
+                                    <div class="question_martix" style="min-height: 30px;">
+                                        <div style="width: 38%;" class="grid_question">
+                                        </div>
+                                        <div data-bind="foreach:ChildQuestionList" style="font-size: 14px;">
+
+                                            <div style="width: 16%; " class="grid_column" data-bind="text: QuestionText"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="question_martix">
+                                    <div data-bind="foreach:ChildQuestionList">
+
+                                        <!-- ko 'if': $index() == 0-->
+                                        <div data-bind="foreach:OptionList" style="width: 100%;">
+                                            <div style="width: 100%; overflow: hidden;">
+                                                <div class="optiontext grid_question_opt" style="text-align: left;" data-bind="html: OptionText,attr: {id:QuestionId+'_optnc'}">
+                                                </div>
+                                                <div>
+                                                    <div class="optiontext" data-bind="foreach:ViewModel.Questions()[$parentContext.$parentContext.$index()].SpecialOptinLst[$index()]">
+                                                        <div style="width: 15%; " class="grid_column" data-bind="attr: {id:QuestionId+'_'+OptionId+'_dvmain'}">
+                                                            <!--ko if: OptionText == 'Prefer not to answer' || OptionText == 'None of the above' -->
+                                                            <div class="grid_radio" data-bind="attr: {id:QuestionId+'_'+OptionId+'_radio'},event: {click:chkwithradioclick.bind($root,$parent)}">
+                                                            </div>
+                                                            <div class="grid_span_holder">
+                                                                <span class="grid_span" data-bind="text:QuesitonText,attr: {id:QuestionId+'_'+OptionId+'_rdDiv'},event: {click:chkwithradioclick.bind($root,$parent)}"></span>
+                                                            </div>
+                                                            <input type="radio" style="display: none;" data-bind="attr: {id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd','class':QuestionId+'_selectrdb'}, checked:SpeicalOptionId" />
+                                                            <!-- /ko -->
+                                                            <!--ko if: OptionText != 'Prefer not to answer' && OptionText != 'None of the above' -->
+                                                            <div class="grid_matrix_checkbox" data-bind="attr: {id:QuestionId+'_'+OptionId+'_checkbox',name: QuestionId+'_checkbox'},event: {click:chkwithradioclick.bind($root,$parent)}">
+                                                            </div>
+                                                            <div class="grid_span_holder">
+                                                                <span class="grid_span" data-bind="text:QuesitonText,attr: {id:QuestionId+'_'+OptionId+'_chkDiv'},event: {click:chkwithradioclick.bind($root,$parent)}"></span>
+                                                            </div>
+                                                            <input type="checkbox" style="display: none;" data-bind="attr: { id:OptionId+'_checkbox',value:OptionId,name: QuestionId+'_checkbox'}, checked:IsChecked " />
+                                                            <!-- /ko -->
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span class="error" align="left" style="color: Red; display: none; float: left; width: 100%; font-size: 13px; text-align: left;" data-bind="attr:{ id: $parentContext.$parentContext.$index()+'_'+$index()+'_spn'}" />
+                                            </div>
+                                        </div>
+
+                                        <!-- /ko -->
+
+                                    </div>
+                                </div>
+                                <div class="question_martix" style="min-height: 30px;">
+                                    <div class="validationspqs">
+                                        <div style="width: 38%;" class="grid_question">
+                                        </div>
+                                        <div data-bind="foreach:ChildQuestionList" style="font-size: 14px;">
+                                            <div style="width: 16%; " class="grid_column">
+                                                <span class="error" align="left" style="color: Red; float: left; width: 100%; font-size: 13px; text-align: left; display: none" data-bind="attr:{ id: QuestionId+'_spn'}" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </script>
+
+                            <script type="text/x-jquery-tmpl" id="ChildRadioTemplate">
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td style="padding-top: 5px; padding-bottom: 5px; ">
+                                                <label class="matrixchildquestion" id="lblChildQuestion" data-bind="text:QuestionText , attr: {id:QuestionId+'_optnc'}">
+                                                </label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-top: 5px; padding-bottom: 5px; ">
+                                                <table>
+                                                    <tr data-bind=" foreach:OptionList">
+                                                        <td style="padding-left: 5px;">
+                                                            <table>
+                                                                <tr>
+                                                                    <td>
+                                                                        <input type="radio" data-bind="attr: { id:OptionId +'_radio',value:OptionId, name: QuestionId+'_rd','class':QuestionId+'_selectrdb'},checked:$parent.OptionId" />
+                                                                        <label id="lblChildOption" data-bind="text:OptionText , attr: {id:OptionId+'_optnc','for':OptionId+'_radio','if': $index()== 0}">
+                                                                        </label>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </script>
+
+                            <script type="text/x-jquery-tmpl" id="SurveyQuestionListhorizental">
+
+                                <table>
+                                    <tr data-bind="foreach: SelectedChildQuestionList">
+                                        <td class="tdwidth">
+                                            <table>
+                                                <tr>
+                                                    <td align="left;">
+                                                        <label class="question" id="Label1" data-bind="text:QuestionText" style=" ">
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left">
+                                                        <select class="selectdropdown form-selectH" id="ddlChild" data-bind="options: OptionList, optionsText: 'OptionText',optionsValue: 'OptionId',value:OptionId, optionsCaption: '-- Select--',attr: {id:QuestionId },event: { change: selectionChanged }"></select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" style="padding-top: 10px;">
+                                                        <span align="left" style="color: red; display: none; float: left;" data-bind="validator:$parent.OptionId, attr:{ id: QuestionId+'_spn'}">Please answer the question.</span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                            </script>
+
+                            <div id="dvImageLoading">
+                            </div>
+                            <div class="container1" id="dvQuestions" style="background: transparent;border-radius: 5px;padding-left: 10px;">
+                                <div class="progressbarblock">
+                                </div>
+                                <div style="padding-left:10px;background: none;position: absolute;top: 0;z-index: 99;width: auto;" id="conversantimg" class="imglogo">
+                                    <img src="/images/conversant.png" style="width:211px;height:58px;">
+                                </div>
+                                <div style="padding-left:10px;background: none;position: absolute;top: 0;z-index: 99;width: auto;" id="obimg" class="imglogo">
+                                    <img src="/images/logo_opinionbar2x.png" style="width:211px;height:58px;">
+                                </div>
+                                <div class="body" style="margin:0px;">
+                                    <table id="tmpTable" style="padding:24px 10px 0px 10px">
+                                        <tbody data-bind="template: {name:'SurveyQuestionList', foreach: ViewModel.Questions}"></tbody>
+                                    </table>
+                                </div>
+                                <div class="footerblock" id="buttonSaveandCancel">
+                                    <div style="text-align: center; padding: 10px;">
+                                        <span id="spnErrorMessage" align="left" style="color: Red; display: none; font-family: helvetica, arial; font-size: 14px"></span>
+                                    </div>
+                                    <div style="text-align: center; padding: 10px;" id="conversantbutton">
+                                        <input id="btnSubmit" class="button" type="button" value="Continue" style="width: 100px;background-color: #40a764;"
+                                               data-bind="click:Save" />
+                                    </div>
+                                    <div style="text-align: center; padding: 10px;" id="obbutton">
+                                        <input id="btnSubmit" class="button" type="button" value="Continue" style="width: 100px;background-color: #b9240c;"
+                                               data-bind="click:Save" />
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                                <nav class="navbar1 fixed-bottom1 navbar-expand-sm1 navbar-dark bg-dark px-3">
+                                    <div class="container1">
+                                        <div id="obbutton">
+                                            <div class="d-flex py-3 w-100 align-items-center">
+                                                <span class="small text-white me-5 pe-5">
+                                                    <a href="http://www.metrixlab.com" target="_blank" style="color:#fff!important;cursor:pointer;text-decoration:none"> ©2021 MetrixLab</a>
+                                                </span>
+                                                <a class="nav-link text-muted" aria-current="page" onClick="window.open('https://www.opinionbar.com/Footer/Privacy')" style="cursor:pointer;text-decoration:none">Privacy Policy</a>
+                                                <a class="nav-link text-muted" onClick="window.open('https://www.opinionbar.com/Footer/TC')" style="cursor:pointer;text-decoration:none">Terms & Conditions</a>
+                                            </div>
+                                        </div>
+                                       <div id="conversantbutton">
+                                           <div class="d-flex py-3 w-100 align-items-center">
+                                               <span class="small text-white me-5 pe-5">
+                                                   <a href="https://precisionsample.com" target="_blank" style="color:#fff!important;cursor:pointer;text-decoration:none"> ©2021 Precision Sample, LLC</a>
+                                               </span>
+                                               <a class="nav-link text-muted" aria-current="page" onClick="window.open('https://wl.conversant.pro/login/p')" style="cursor:pointer;text-decoration:none">Privacy Policy</a>
+                                               <a class="nav-link text-muted" onClick="window.open('https://wl.conversant.pro/login/t')" style="cursor:pointer;text-decoration:none">Terms & Conditions</a>
+                                           </div>
+                                       </div>
+                                       
+                                        @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>*@
+
+                                        @*<div class="collapse navbar-collapse" id="navbarCollapse" style="font-size: 12px;">
+                    <ul class="navbar-nav">
+                        <li class="nav-item me-5">
+                            <a class="nav-link" aria-current="page" href="#">Privacy Policy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Terms & Conditions</a>
+                        </li>
+
+                    </ul>
+                </div>*@
+                                    </div>
+                                </nav>
+
+
+
+
+
+                            </div>
+
+                       
+                            @*Footer*@
+                            @*<div style="width:94%;margin:auto;" ng-controller="footerController">
+                <center>
+                    <p id="text" class="footer" style="width:100%;float:left;">
+                        &copy; <span>CopyRights </span>
+                        <label>
+                            2017
+                        </label>-<label>2020</label>
+                        <label class="orgname">
+                        </label>
+                        | <a href="javascript: void(0)" onclick="popup('/Footer/TC')" id="ancsurveysonline"
+                             ng-class="">
+                            Terms
+                        </a>| <a href="javascript: void(0)" onclick="popup('/Footer/Privacy')" id="ancsurveyspolicy">
+                            Privacy
+                        </a>| <a href="javascript: void(0)" onclick="popup('/home/contact')" id="ancsurveycontact">
+                            Contact Us
+                        </a>| <a href="javascript: void(0)" onclick="popup('/home/About')" id="ancsurveyAbout">
+                            About Us
+                        </a>@*| <a href="javascript: void(0)" onclick="popup('/Misc/faq.aspx')" id="a1">
+                            FAQ
+                        </a>*
+                    </p>
+                </center>
+            </div>*@
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    }
+
+    <!-- Google Tag Manager (noscript) -->
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KS869WC"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <!-- End Google Tag Manager (noscript) -->
+  
+</body>
+</html>

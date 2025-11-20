@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_RegLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    <link type="text/css" rel="stylesheet" href="/Showmefiles/styles_700.css">
+    <style>
+        .mboxDefault {
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+<body>
+    @using (Html.BeginForm())
+            {
+        @Html.AntiForgeryToken()
+    }
+    <div style="width:100%;" ng-controller="smController">
+        <form name="smForm">
+            <div id="content_wrapper">
+                <div class="module_wrapper" style="font-family: Verdana, Helvetica, 'sans serif';">
+                    <div class="module fully_extended">
+                        <h2>
+                            <span>
+                                @ViewBag.FirstName
+                            </span>, Complete the Survey Below.
+                        </h2>
+                        Please take a few moments to respond to our optional survey, filled with Free Stuff
+                        and Special Offers! All Offers are optional – Sign up if you are interested.<br />
+                        <br />
+                        <div style="font-size:12px;width:99%;">
+                            <div align="left" style="font-size: 12px; background-color: #FFFFFF;
+                            padding: 10px; overflow: hidden; border: solid 1px #CACACA;">
+                                <div style="padding-top:10px;">
+                                </div>
+                                <div class="offer" ng-repeat="perk in perks">
+                                    <div class="row">
+                                        <div align="left" class="col-lg-2">
+                                            <input id="{{$index}}_rbtnShow" name="{{$index}}_rbtnOffers" type="radio" value="rbtnShow" ng-model="perk.IsAllowed" ng-click="showMeSurveys($index,perk,'showme')">
+                                            <label for="{{$index}}_rbtnShow" style="color:#FF9966;">Show Me!</label>
+                                        </div>
+                                        <div align="left" class="col-lg-2">
+                                            <input id="{{$index}}_rbtnno" name="{{$index}}_rbtnOffers" type="radio" value="rbtnno" ng-model="perk.IsAllowed" ng-click="showMeSurveys($index,'','no')">
+                                            <label for="{{$index}}_rbtnno">No</label>&nbsp;<br>
+                                        </div>
+                                        <div align="left" class="col-lg-8">
+                                            <span style="font-family:verdana;" ng-bind-html="perk.PerkDescription"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div style="width:100%;margin:10px 0px 10px 0px">
+                            <div class="col-md-10">
+                                <div ng-if="!showErrFileds">
+                                    <span class="invalid-feedback" style="color:red;">
+                                        Please select Yes or No
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-right">
+                                @*<input type="image" id="img1" ImageUrl="/Images/continue.jpg" />*@
+                                <input type="button" class="btn btn-primary" ng-click="submit(smForm.$valid)" value="Continue" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-11440811-1");
+            pageTracker._trackPageview();
+        } catch (err) { }</script>
+</body>
+</html>

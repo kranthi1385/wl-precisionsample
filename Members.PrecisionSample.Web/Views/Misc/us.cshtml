@@ -1,0 +1,132 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta name="description" content="Opinionetwork: market research technology, data collection" />
+    <meta name="author" content="Opinionetwork" />
+    <meta name="copyright" content="copyright 2010 - Federated Sample, LLC" />
+    <style type="text/css">
+        #btnUnsubscribe {
+            background: rgb(219,200,254);
+            background: -moz-linear-gradient(top, rgba(219,200,254,1) 0%, rgba(212,181,253,1) 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(219,200,254,1)), color-stop(100%,rgba(212,181,253,1)));
+            background: -webkit-linear-gradient(top, rgba(219,200,254,1) 0%,rgba(212,181,253,1) 100%);
+            background: -o-linear-gradient(top, rgba(219,200,254,1) 0%,rgba(212,181,253,1) 100%);
+            background: -ms-linear-gradient(top, rgba(219,200,254,1) 0%,rgba(212,181,253,1) 100%);
+            background: linear-gradient(to bottom, rgba(219,200,254,1) 0%,rgba(212,181,253,1) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dbc8fe', endColorstr='#d4b5fd',GradientType=0 );
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px; /* future proofing */
+            -khtml-border-radius: 3px; /* for old konqueror browsers */
+            padding: 8px 18px;
+            border: 1px solid #999999;
+            font-size: 18px;
+            font-weight: bold;
+            color: #52085E;
+            text-decoration: none;
+            width: 150px;
+            font-family: 'Trebuchet MS',Arial,Helvetica,sans-serif;
+        }
+    </style>
+    <link href="~/Content/Unsub/960.css" rel="stylesheet" />
+    <link href="~/Content/Unsub/main.css" rel="stylesheet" />
+    <link href="~/Content/Unsub/reset.css" rel="stylesheet" />
+    <link href="~/Content/Unsub/slide.css" rel="stylesheet" />
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+          rel="stylesheet" type="text/css" />
+
+</head>
+<body style="background-image: url('../../Images/bg1.jpg');background-repeat: no-repeat;background-color: #fff;background-position: center top;">
+    <div class="container_12" ng-app="unsubApp" ng-controller="unsubController">
+        @Html.AntiForgeryToken()
+        <div id="masthead">
+            <h1 id="logo">
+                <a href="index.html">precision sample</a>
+            </h1>
+            <h1 id="logo2">
+                <a href="index.html">sample partner</a>
+            </h1>
+        </div>
+        <div class="clear" style="margin-bottom: -52px;">
+        </div>
+        <div id="survey" style="margin-left: 18px;">
+            <h3 class="surveyHeader"></h3>
+            <div ng-if="showMsg" style="margin-top:30px;">
+                <span style="color:green;margin:25px;">You have been Unsubscribed Successfully.</span>
+            </div>
+            <div id="surveyQuestionContainer" ng-if="!showMsg" style="margin-top: 30px;">
+                <p class="surveyQuestion" style="font-size: 33px;">
+                    By clicking on Unsubscribe button, you will be unsubscribed from our list.
+                </p>
+                <p class="surveyInstruction" style="font-size: 14px;">
+                    You will no longer receive any mails from opinionetwork to this Email Address.
+                </p>
+            </div>
+            <div id="surveyAnswerContainer" ng-if="!showMsg" style="margin-top: 30px;margin-left: 22px;">
+                <form name="unsubForm" novalidate=novalidate>
+                    <p style="font-size: 15px;">
+                        Enter your Email Address *
+                        <input type="email" id="txtEmailAddress" ng-model="userDetails.EmailAddress" name="email" style="width: 300px" required=required />
+                        <span class="error text-danger txt-req" style="color:red;" ng-show="unsubForm.email.$error.email">{{'Not Valid Email'|translate}}</span>
+                        <span ng-show="unsubForm.email.$error.required && isRegErrMsg" style="color:red;" class="text-danger">{{'Required' | translate}}</span>
+                    </p>
+                </form>
+                <p>
+                    <input type="button" id="btnUnsubscribe" ng-click="unsubClick(unsubForm.$valid)" value="Unsubscribe" style="margin-top: 10px;margin-left:6px;" />
+                </p>
+                <p>
+                    <label id="lbMessage" style="color: Green;">
+                    </label>
+                </p>
+            </div>
+            <p>
+                <label id="lblMessage" style="color: Green; padding-left: 15px;">
+                </label>
+            </p>
+            <div class="clear">
+            </div>
+            <div id="surveyControlsContainer">
+                <div id="surveyControlsInnerContainer">
+                    <!--<a href="survey-02.html" id="buttonNext"></a>-->
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div id="footer">
+            <p>
+            </p>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angularval")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="~/Scripts/pages/us.js"></script>
+</body>
+</html>
+
+@*<div class="body-bg dv-account">
+        <div>
+            <form class="form-horizontal" name="unsubForm">
+                <div class="form-group text-box">
+                    <div  style="float:left">
+                        {{'emailAddress'|translate}} *
+                    </div>
+                    <input type="email" id="txtEmailAddress" class="form-control" ng-model="user.EmailAddress" name="email" required>
+                    <span class="error text-danger txt-req" ng-show="unsubForm.$error.email">{{'notValidEmail'|translate}}</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-10  col-sm-8">
+                        <div class="col-md-offset-4 dv-buttons">
+                            <button type="submit" id="imgbutton" class="btn btn-default" ng-disabled="unsubForm.$invalid" ImageAlign="Middle" ng-click="submit(user)">{{'submit'|translate}}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>*@

@@ -1,0 +1,118 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Reach Collective</title>
+    <script src="~/Scripts/iframresizer.js" type="text/javascript"></script>
+    @Styles.Render("~/Content/css")
+
+    <style type="text/css">
+        body {
+            color: black !important;
+            font-family: Lucida Sans Console, Verdana, Tahoma, Arial, Verdana, sans-serif;
+            font-size: 13px;
+            line-height: 1.42857143; /* background-color: #abd7fe; */
+        }
+
+        #dvContent {
+            padding: 26px;
+            overflow: hidden;
+            max-width: 770px;
+            background-color: White;
+            margin: auto;
+            text-align: justify;
+            -webkit-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+            -moz-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+            box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+        }
+
+        h1.hidden {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div style="margin-top:15px;width:100%;">
+            <div ng-controller="tasController" id="dvContent">
+                <div class="form-group col-md-12 col-lg-12">
+                    <img src="@ViewBag.PartnerLogo" />
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12 col-lg-12">
+                        <p>
+                            <label id="msg">@ViewBag.Message<br /></label>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12 col-lg-12 text-center">
+                        <input type="button" class="btn btn-primary" id="btnTakeAnotherSurvey" onclick="takeme();" value="Continue" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angularval")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript">
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        usg = getUrlVars()["usg"];
+        uig = getUrlVars()["uig"];
+        ug = getUrlVars()["ug"];
+        cid = getUrlVars()["cid"];
+
+        if (usg == undefined) {
+            usg = '';
+        }
+
+        if (usg.toLowerCase() == "6ac169c6-df47-4cd1-8f4d-1311f5c5f163") {
+            document.getElementById("msg").style.color = "green";
+        }
+        else if (usg.toLowerCase() == "2BC664BA-94DD-41E8-B7E1-251A90105119") {
+            document.getElementById("msg").style.color = "green";
+        }
+        else {
+            document.getElementById("msg").style.color = "red";
+        }
+
+        function takeme() {
+            $.ajax({
+                url: '/partner/Redirections?ug=' + ug + '&usg=' + usg + '&uig=' + uig + '&cid=' + cid,
+                timeout: 50000,
+                datatype: 'json',
+                type: 'POST',
+                success: function (data) {
+                    if (data == 'popup') {
+                        opener.location.reload(); // or opener.location.href = opener.location.href;
+                        window.close(); // or self.close();
+                    }
+                    else {
+                        window.location.href = data;
+                    }
+                },
+                error: function (data) {
+                    $('#history').html('error occured while loading, please <a href="#" onclick="RetryHistory();" >click here</a> to try again.....');
+                }
+            });
+        }
+
+    </script>
+</body>
+</html>

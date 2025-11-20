@@ -1,0 +1,232 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Opinionetwork";
+}
+<head>
+
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+
+        })(window, document, 'script', 'dataLayer', 'GTM-KS869WC');</script>
+    <!-- End Google Tag Manager -->
+
+    @*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <script type="text/javascript">
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        var ug = getUrlVars()["ug"]; //user Guid
+        if (ug == undefined) {
+            ug = '';
+        }
+        var is_sim = getUrlVars()["is_sim"]; // this is not needed now.
+        if (is_sim == undefined) {
+            is_sim = 'f';
+        }
+        var extid = getUrlVars()["extid"]; //external Member ID
+        if (extid == undefined) {
+            extid = '';
+        }
+
+        var is_t = getUrlVars()["is_t"]; // to show profiles after registrioan.
+        if (is_t == undefined) {
+            is_t = 's';
+        }
+
+        var pg = getUrlVars()["pg"] //user status guid added 06/13/2016
+        debugger;
+        if (pg == undefined) {
+            pg = '';
+        }
+        var rid = getUrlVars()["rid"] //user status guid added 06/13/2016
+        debugger;
+        if (rid == undefined) {
+            rid = '';
+        }
+        var prjid = getUrlVars()["prjid"] //user status guid added 06/13/2016
+        if (prjid == undefined) {
+            prjid = '0';
+        }
+        var into = getUrlVars()["into"] //user status guid added 06/13/2016
+        debugger;
+        if (into == undefined) {
+            into = '';
+        }
+        if (window.location.href.indexOf("conversant") > -1) {
+            //$scope.authkey = '71CC02CD-B8A5-4A5A-AF4D-9988B2F21761';
+            $(document).ready(function () {
+                $("div#obform").hide();
+                $("div#obformbutton").hide();
+                $("div#obimg").hide();
+            });
+        }
+        else {
+            //$scope.authkey = '9EE17B1A-6882-4CAE-9AED-3C4D4A92DFA9';
+            $(document).ready(function () {
+                $("div#conversentform").hide();
+                $("div#conversentbutton").hide();
+                $("div#conversantimg").hide();
+            });
+        }
+        //if (window.location.href) {
+        //    $(document).ready(function () {
+        //        $("div#conversentform").hide();
+        //        $("div#conversentbutton").hide();
+        //        $("div#conversantimg").hide();
+        //    });
+        //}
+        //else if (rid == '20907') {
+        //    $(document).ready(function () {
+        //        $("div#obform").hide();
+        //        $("div#obformbutton").hide();
+        //        $("div#obimg").hide();
+        //    });
+        //}
+
+        var pc = getUrlVars()["pc"];//Project cost .
+        if (pc == undefined) {
+            pc = '';
+        }
+        else {
+            pc = pc.replace(ug, "");
+        }
+
+
+        function takeme() {
+            window.location.href = '/cor/ps2?rid=' + rid + '&extid=' + extid + '&prjid=' + prjid;
+        }
+
+      
+    </script>
+
+
+
+
+    <style type="text/css">
+        body {
+            color: black !important;
+            font-family: Lucida Sans Console, Verdana, Tahoma, Arial, Verdana, sans-serif;
+            font-size: 13px;
+            line-height: 1.42857143; /* background-color: #abd7fe; */
+        }
+
+        #dvContent {
+            padding: 26px;
+            overflow: hidden;
+            max-width: 770px;
+            background-color: White;
+            margin: auto;
+            text-align: justify;
+            /*-webkit-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+            -moz-box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);
+            box-shadow: 0px 10px 23px 0px rgba(0,0,0,0.54);*/
+        }
+
+        h1.hidden {
+            visibility: hidden;
+        }
+    </style>
+
+</head>
+<body ng-app="lbMsgApp">
+    @using (Html.BeginForm())
+            {
+        @Html.AntiForgeryToken()
+    }
+    <!-- Google Tag Manager (noscript) -->
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KS869WC"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <!-- End Google Tag Manager (noscript) -->
+    <div style="margin-top:15px;width:100%;" ng-controller="lbmsgController">
+
+        <div id="dvContent">
+            <div class="form-group col-md-12 col-lg-12">
+                <img src="@ViewBag.PartnerLogo" />
+            </div>
+            <div style="padding-left:10px;" id="conversantimg">
+                <img id="imgLogo" src="/images/conversant.png" style="width:213px;height:50px;">
+            </div>
+            <div style="padding-left:10px;" id="obimg">
+                <img id="imgLogo" src="/images/logo_opinionbar2x.png" style="width:213px;height:50px;">
+            </div>
+            <br />
+
+          
+            <div style="border: 2px solid #666;padding: 25px; border-radius: 10px;width:520px;margin-left: 85px;">
+                <div class="row" id="obform">
+                    <div class="form-group col-md-12 col-lg-12">
+                        <p>Welcome and thank you for agreeing to participate in our survey today! Your responses will be used for market reearch purposes only and reported only in aggregate with the rest of the responses we receive<br />After completing this survey, you will have the opportunity to register to participate in additional surveys for compensation. <u>Once registered, we will deposit $5.00 into your account.</u><br /> We will never sell, rent or share your personal information.<br /><br />This survey  is available to participate 13 years of age or older.</p>
+                    </div>
+                </div>
+                <div class="row" id="conversentform">
+                    <div class="form-group col-md-12 col-lg-12">
+                        <p style="font-weight:bolder;"><b>Welcome and thank you for agreeing to participate in our</b> survey! Your responses will be used for market research purpose only and reported in agrregate with other participants of the survey. We will never sell, rent or share your personal information.<br>
+                        <br />
+                        Please do not share  any non-public or confedential information about your company in this or any Conversant.pro survey.</p>
+                    </div>
+                </div>
+            </div>
+           
+            <br />
+            <div class="row1 text-right" style="width: 100%;text-align: right;">
+                <div class="form-group" id="obformbutton">
+                    @*<input type="button" class="btn btn-primary" id="btnTakeAnotherSurvey" onclick="takeme();" value="{{'tas6'|translate}}" />*@
+                    <input class="btn btn-danger" type="button" id="obformbutton" ng-click="thankyou();" style="margin-top:30px;margin-bottom:40px" value="Continue">
+                </div>
+                <div class="form-group col-md-12 col-lg-6" id="conversentbutton">
+                    @*<input type="button" class="btn btn-primary" id="btnTakeAnotherSurvey" onclick="takeme();" value="{{'tas6'|translate}}" />*@
+                    <input class="btn btn-success" type="button" id="conversentbutton" onclick="takeme();" style="margin-top:30px;margin-bottom:40px;margin-right:120px;" value="Continue">
+                </div>
+                @*<div class="form-group col-md-12 col-lg-6">
+                        <button class="pull-right btn btn-dark" type="submit" onclick="thankyou();" style="margin-top:0px;">No! Thank You!</button>
+                    </div>*@
+            </div>
+            <center>
+                <div class="row1 text-right"  id="obform" style="text-align: end;">
+                 
+                    <a href="" class="benefits" style="margin-left:10px;color:black;" ng-click="privacyClickOB()">Privacy</a>
+                    <a href="" class="benefits" style="margin-left:10px;color:black;" ng-click="termsClickOB()">Terms & Conditions</a>
+                </div>
+                <div class="row" style="display:inline-flex;" id="conversentform">
+                  
+                    <a href="" class="benefits" style="margin-left:10px;color:black;" ng-click="privacyClickCon()">Privacy Policy</a>
+                    <a href="" class="benefits" style="margin-left:10px;color:black;" ng-click="termsClickCon()">Terms & Conditions</a>
+                </div>
+            </center>
+        </div>
+
+
+    </div>
+    <script type="text/javascript" src="~/Scripts/pages/e/msglb.js?v=2"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/angularval")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>

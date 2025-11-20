@@ -1,0 +1,5 @@
+version: 0.0
+os: windows
+files:
+  - source: \
+    destination: C:\Users\Administrator\Documents\sites\members-newopinionbar-web

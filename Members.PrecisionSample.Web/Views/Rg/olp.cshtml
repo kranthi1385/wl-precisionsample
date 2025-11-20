@@ -1,0 +1,142 @@
+﻿
+@{
+    Layout = null;
+}
+
+@{
+    AjaxOptions ContactOptions = new AjaxOptions()
+    {
+        OnBegin = "OnloginFormBegin()",
+        OnSuccess = "OnloginFormSuccess()",
+        OnFailure = "OnloginFormFailure()"
+    };
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Survey Downline: Paid Surveys, Paid Survey, Offers, Rewards </title>
+    <meta name="description" content="Survey Downline, Take Paid Surveys online and get paid cash for surveys with No Membership Fee. Make money with Survey Downline! Join our Free Paid Surveys DownLine and get instant access to the best paid online surveys. Earn Money Online. It is FREE and anyone can make easy money online, learn how to earn money online from Survey Downline. earn online, earn money from home tips." />
+    <meta name="keywords" content="earn money online,paid surveys, online surveys, paid survey, paid online surveys, paid surveys online, paid online survey, free surveys, free paid surveys, surveys for money, get paid for surveys,how to earn money online, earn money from home, earn extra money, earn money from internet," />
+    <meta name="ROBOTS" content="INDEX, FOLLOW" />
+    <meta name="revisit-after" content="1 days" />
+    <meta http-equiv="content-type" content="text/javascript; charset=iso-8859-1" />
+    <title>@ViewBag.ErrorType </title>
+    @Styles.Render("~/Content/css")
+    <link type="text/css" href="/Content/default.css" rel="stylesheet">
+
+    <script src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <style type="text/css">
+        .validation-summary-errors {
+            color: red !important;
+        }
+
+            .validation-summary-errors ul {
+                clear: both;
+                list-style: none;
+                padding: 0px 0px 0px 12px;
+            }
+
+        .padding-zero {
+            padding: 6px 3px;
+        }
+    </style>
+</head>
+<body class="body-bg" ng-cloak ng-app="olpApp">
+    @Html.AntiForgeryToken()
+    <div class="container main-wraper" ng-controller="olpCtrl">
+        <div class="col-md-3">
+            <div class="brand logo">
+                <img src="/Images/logo.gif" />
+            </div>
+        </div>
+        <div class="form-group">
+            <table style="width: 100%; font-size: 11pt;" cellpadding="1" cellspacing="1">
+                <tr>
+                    <td align="center">
+                        <Label ID="lblmessage1" ng-bind="msg" Font-Bold="true" style="color:#326696"></Label> <br />
+                        <br />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="left" style="padding-left: 45px; margin-left: 45px;">
+                        <Label ID="lblSDLMessage" ng-bind="sdlmsg" style="color:#326696;font-weight:100"></Label><br />
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <div class="form-group" style="float: right;margin-right:10px">
+                <u>
+                    <a Style="color: #0000FF; text-decoration: underline;
+                        font-family: Arial, Helvetica, sans-serif; font-size: 15px;" ID="hlAddQuota">Tell Me More About SurveyDownline</a>
+                </u>
+            </div>
+        </div>
+        <div class="rewards-cont row">
+            <img src="/Images/rewards.jpg" />
+        </div>
+        <div>
+            <h2 style="color: #000000; font-size: 28px; font-weight: normal; text-align: center;
+                margin-top: 5px; padding-bottom: 5px;">
+                <br />
+                Create Your <b>FREE Membership</b> and Start Getting Paid!
+            </h2>
+        </div>
+        <div class="col-md-10">
+
+            <br />
+            <form class="form-horizontal login-form" name="olpForm">
+
+                <ng-include src="step2"></ng-include>
+                <div class="form-group">
+                    <div class="col-md-10 pull-right">
+                        <div vc-recaptcha key="'6LetblorAAAAAMH3OWFI3rtURCyE4SGpXp9gkfk1'" on-success="setResponse(response)" size="normal"></div>
+                        <span class="text-danger" ng-show="captchaErr">{{'invalidCaptcha'|translate}}.</span>
+                        <span class="text-danger" ng-show="isRegErrMsg">{{'errorOccured'|translate}}.</span>
+                    </div>
+                </div>
+                <div id="divShow" class="form-group" style="display:none;">
+                    <div style="color: Black; margin-left: 10px; padding-left: 10px;">
+                        <div>
+                            <b>{{'goodnews'|translate}}!</b>{{'basenonDemographics'}}.<br />
+                            <input type="hidden" name="oi_sid" id="hfoi_sid" />
+                            <input type="hidden" name="OI_FORM_IDENTIFIER" value="" />
+                            <input type="hidden" name="OI_button" value="0" />
+                            <script type="text/javascript" src="https://www.clear-request.com/oi/a/14376727.js"></script>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 text-center">
+                        <button type="submit" id="imgNext" class="btn btn-default reg-btn" onclick="Delay()" ng-click="submit(olpForm.$valid)"></button>
+                        <input type="hidden" id="hfvalue" value="0" />
+                    </div>
+                </div>
+                <small style="display:inline-block">{{'agreetoTermsandConditions'|translate}}</small>
+            </form>
+        </div>
+        <div id="footer">
+
+
+        </div>
+    </div>
+    <!-- /container -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    @*<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>*@
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script type="text/javascript" src="~/Scripts/pages/rg/olp.js"></script>
+
+</body>
+</html>
+

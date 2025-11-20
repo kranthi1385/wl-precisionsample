@@ -1,0 +1,265 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: helvetica, arial;
+    font-size: 14px;
+    line-height: 130%;
+    color: #444;
+}
+
+.body {
+    margin-top: 106px;
+}
+
+.chkboxalign {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 786px;
+    min-height: 100%;
+    margin: 0 auto;
+}
+/*.header
+{
+	border-bottom: 1px solid #dcddde;
+}
+*/
+
+.progressbarblock {
+    float: right;
+    margin-right: 36px;
+}
+/*.footer
+{
+	border-top: 1px solid #DCDDDE;
+}
+*/
+.footerblock {
+    margin-bottom: 0px;
+    bottom: 0;
+    display: table;
+    font-size: 10px;
+    width: 100%;
+}
+
+/*.button {
+    background-color: #387E9D;
+    color: White;
+    width: 120px;
+    height: 35px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: Arial, Sans-Serif;
+    border-radius: 4px;
+}*/
+
+.questionback {
+    background-color: #F0F0F0;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.question {
+    padding-top: 0px;
+    font-size: 14px;
+    font-family: Arial, Sans-Serif;
+    font-weight: bold;
+}
+
+.textbox {
+    background: #FFF url(http://www.cssportal.com/form-elements/images/search.png) no-repeat 4px 4px;
+    border: 1px solid #999;
+    outline: 0;
+    padding-left: 25px;
+    height: 25px;
+    width: 275px;
+}
+
+.textarea1 {
+    border: 1px solid gray;
+    outline: 0;
+    height: 60px;
+    width: 500px;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 2px #ECECEC;
+}
+
+.textarea {
+    height: 60px;
+    width: 500px;
+    border: solid 1px #E5E5E5;
+    outline: 0;
+    font: normal 15px/100% Arial, Sans-Serif;
+    background: #FFFFFF url( 'bg_form.png' ) left top repeat-x;
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;
+}
+
+    .textarea :focus {
+        border-color: #C9C9C9;
+        -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;
+    }
+
+.selectdropdown {
+    -webkit-appearance: button;
+    -webkit-border-radius: 2px;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: none;
+    background-image:  -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+    background-position: center right;
+    background-repeat: no-repeat;
+    border: 1px solid #AAA;
+    color: #555;
+    font-size: inherit;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.selectdropdownH {
+    -webkit-appearance: button;
+    -webkit-border-radius: 2px;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: none;
+    background-image:  -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+    background-position: center right;
+    background-repeat: no-repeat;
+    border: 1px solid #AAA;
+    color: #555;
+    font-size: inherit;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: Arial, Sans-Serif;
+}
+
+.matrixrc, .matrixrc {
+    display: none;
+}
+
+    .matrixrc + label, .matrixrc + label {
+        border-left: 1px solid #DCDCDC;
+        border-right: 1px solid #DCDCDC;
+        border-top: 1px solid #DCDCDC;
+        border-bottom: 1px solid #b3b3b3;
+        display: inline-block;
+        padding: 5px;
+        margin-bottom: 0;
+        font-size: 11px;
+        line-height: 20px;
+        color: #000;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background-color: #f5f5f5;
+        background-repeat: repeat-x;
+        -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        border-radius: 0px;
+        background-image: linear-gradient(to bottom,#fff,#DCDCDC);
+        margin-left: -2px;
+        margin-right: -2px;
+        margin-top: -2px;
+    }
+
+    .matrixrc:checked + label, .matrixrc:checked + label {
+        background-image: none;
+        outline: 0;
+        -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+        -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+        box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+        background-color: #444444;
+        color: white;
+        background-image: -moz-linear-gradient(top,#ececec,#444444);
+        background-image: -webkit-gradient(linear,0 0,0 100%,from(#ececec),to(#444444));
+        background-image: -webkit-linear-gradient(top,#ececec,#444444);
+        background-image: -o-linear-gradient(top,#ececec,#444444);
+        background-image: linear-gradient(to bottom,#ececec,#444444);
+        background-repeat: repeat-x;
+    }
+
+
+#dvImageLoading {
+    background: url(/Images/loadericon.gif) no-repeat center center;
+    height: 90px;
+    width: 90px;
+    position: fixed;
+    z-index: 1000;
+    left: 45%;
+    top: 45%;
+    padding-top: 10px;
+    vertical-align: middle;
+    font-size: 12pt;
+    align: center;
+}
+
+.progress-label {
+    position: absolute;
+    font-weight: bold;
+    left: 50%;
+}
+
+.ui-progressbar {
+    position: relative;
+}
+
+.matrixchildquestion {
+    padding-top: 0px;
+    font-size: 14px;
+    font-family: Arial, Sans-Serif;
+    font-weight: bold;
+}
+
+.matrixpadding {
+    padding: 10px;
+}
+
+.matrixradio {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    background: url(/images/grey.png) no-repeat;
+    border: none;
+    cursor: pointer;
+    background-position: -168px 0;
+    background-position: -120px 0;
+}
+
+.button1 {
+    color: white;
+    background: #5357c1;
+    border-radius: 5px;
+    padding: 8px 40px;
+    border: 0px;
+    float: none;
+    margin-left: 40%;
+    margin-bottom: 10px;
+    width: auto;
+    display: inline-block;
+}
+
+    .button:hover {
+        background: #3c3fa0;
+    }

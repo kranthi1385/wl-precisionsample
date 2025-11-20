@@ -1,0 +1,53 @@
+﻿<script type="text/ng-template" id="CheckboxTemplate">
+    <div align="left" class="questionback" style="clear: both;">
+        <span class="question" id="lblQuestiontext" ng-bind-html="question.QuestionText | unsafe"></span>
+    </div>
+
+    <div ng-if="question.QuestionTypeId == '3'">
+        <div class="optiontext" style="clear: both; overflow: hidden" class="form-group" ng-class="{true: 'error'}[submitValidations && formValidation.txtboxlist.$invalid]">
+            <div class="wrapper">
+                <div ng-repeat="op in question.OptionList">
+                    <div class="col-md-6 col-lg-4" style="width:65%">
+                        <div class="dvChkbox dvstyle" style="width: 100%;float: left;padding-bottom: 4px;">
+                            <div ng-if="op.OptionId != 125642 && op.OptionId != 125703 && op.OptionId != 125746 && op.OptionId != 125765">
+                                <div class="grid_column" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_dvmain'}}" style="width: 100%;" ng-class="{input_onm:op.IsChecked == true}">
+                                    <label for="{{op.QuestionId +'_'+op.OptionId+'_checklbl'}}" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_lblchk' }}" ng-click="checkboxClick(question,op,$index)" style="display: inline-flex;">
+                                        <div class="grid_checkbox" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_dvcheckbox'}}" ng-class="{input_on:op.IsChecked == true}" style="float: left;">
+                                        </div>
+                                        <div class="grid_span_holder">
+                                            <span class="grid_span" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_chkDiv'}}">{{op.OptionText}}</span>
+                                        </div>
+                                        <input type="checkbox" style="float: left" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_checkbox'}}" ng-model="op.IsChecked" name="{{question.QuestionId+ '_'+'chkbox'}}" value="{{op.optionId}}" ng-required="chekboxValidation.length==0" />
+                                        <div style="text-align: left;margin-left: 5px;">
+                                            <span class="single_radio" ng-attr-id="{{op.OptionId+'_optn'}}">{{op.OptionText}}</span>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <div ng-if="op.OptionId == 125642 || op.OptionId == 125703 || op.OptionId == 125746 || op.OptionId == 125765">
+                                <div style="min-height: 21px;">
+                                    <div style="float: left;" class="grid_radio" ng-attr-id="{{op.QuestionId+'_'+op.OptionId+'_dvradio'}}" ng-class="{input_on:op.IsChecked == true}" ng-click="checkboxClick(question,op,$index)">
+                                    </div>
+                                    <input type="checkbox" style="display: none;" ng-attr-id="{{op.QuestionId+'_'+op.OptionId +'_radio'}}"
+                                           ng-model="op.IsChecked" name="{{op.SpecialGroupingId+'_checkbox'}}" value="{{op.optionId}}" />
+                                    <div style="text-align: left;">
+                                        <span class="single_radio" ng-attr-id="{{op.OptionId+'_optn'}}">{{op.OptionText}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <span ng-show="submitValidations && formValidation[question.QuestionId+ '_'+'chkbox'].$error.required" style="color: red;">Please Answer the queston</span>
+        </div>
+</script>
+
+<div style="width: 100%;">
+    <div>
+        <div ng-controller="chkBoxController" style="padding:20px;">
+            <ng-include src="'CheckboxTemplate'"></ng-include>
+        </div>
+    </div>
+</div>

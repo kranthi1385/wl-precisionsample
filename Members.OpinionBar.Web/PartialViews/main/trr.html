@@ -1,0 +1,334 @@
+﻿<div class="#border div" ng-controller="redeemController">
+        <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+    <script type="text/x-jquery-tmpl" id="TotalRewards">
+    </script>
+
+    <script type="text/x-jquery-tmpl" id="CatalougeDetails">
+        <div id="dvImg">
+            <!-- ko if:RewardName == '150 Facebook Credits'-->
+            <!-- /ko -->
+            <!-- ko if:RewardName == 'PayPal Cash Reward'-->
+            <img class="img" src="/Images/Uploads/10241e69-a630-4fe4-9e88-4379b14d40e1paypal_logo.gif"
+                 alt="#" />
+            <!-- /ko -->
+            <!-- ko if:RewardName == 'Magazine Subscription'-->
+            <img class="img"src="/Images/Uploads/magazinegoldcard.gif" alt="#" />
+            <!-- /ko -->
+        </div>
+        <div class="dvlinegap">
+        </div>
+        <div>
+            <div style="width: 100%">
+                <div class="dvrnst">
+                    <label class="lblrn">
+                        RewardName:&nbsp;
+                    </label>
+                </div>
+                <div class="dvrn">
+                    <label class="lblrt" data-bind="text:RewardName">
+                    </label>
+                </div>
+            </div>
+            <div style="width: 100%">
+                <div class="dvrdescription">
+                    <label class="lblrn">
+                        Description:
+                    </label>
+                </div>
+                <div class="dvrn">
+                    <!-- ko if:RewardName == '150 Facebook Credits'-->
+                    <span class="lblrt" data-bind="text:RewardDescription"></span>
+                    <!-- /ko -->
+                    <!-- ko if:RewardName == 'PayPal Cash Reward'-->
+
+                    <span class="lblrt" data-bind="text:RewardDescription"></span>&nbsp;<a style="color: #1E91CB; float: left;"
+                                                                                           href="#" data-bind="click:apaypal">https://www.paypal.com</a>
+                    <!-- /ko -->
+                    <!-- ko if:RewardName == 'Magazine Subscription'-->
+                    <span class="lblrt" data-bind="text:RewardDescription"></span>&nbsp;<a class="amggc" style="color: #1E91CB; float: left;"
+                                                                                           href="#" data-bind="click:amagazine">https://magazinegoldcard.com/browse/</a>
+                    <!-- /ko -->
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <center>
+        <div id="dvImageLoading">
+        </div>
+        <div id="border" style="display: none;">
+            <div style="padding-top: 10px;">
+            </div>
+            <div id="tblDetails">
+                <div style="width: 100%;">
+                    <div style="width: 100%;">
+                        <!-- data-bind="template: {name:'TotalRewards', foreach:TotalRewardsHistory}"-->
+                        <div id="dvTac">
+                            <div class="dvacb">
+                                <label id="lblBalance">
+                                    Your Current Account Balance:
+                                </label>
+                            </div>
+                            <div class="dvtab">
+                                <span class="spnd" style="color: #6195b2">
+                                    <span class="spntab" id="spnAccountBalance"
+                                          style="color: #6195b2" data-bind="text:TotalAccountBalance"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div style="width: 100%;">
+                    <div style="width: 100%;">
+                        <!--data-bind="template: {name:'CatalougeDetails', foreach:RewardCatalog}"-->
+                        <div id="dvImg">
+                            <img id="imgRewardLogo" style="float: left;" border="0" src="" alt="#" />
+                        </div>
+                        <div class="dvlinegap">
+                        </div>
+                        <div>
+                            <div style="width: 100%">
+                                <div class="dvrnst">
+                                    <label class="lblrn">
+                                        Reward Name:&nbsp;
+                                    </label>
+                                </div>
+                                <div class="dvrn">
+                                    <label class="lblrt" id="lblRewardName">
+                                    </label>
+                                </div>
+                            </div>
+                            <div style="width: 100%;">
+                                <div class="dvrdescription">
+                                    <label class="lblrn">
+                                    </label>
+                                </div>
+                                <div class="dvrn">
+                                    <span class="lblrt" id="spnDisclaimer"></span>
+                                </div>
+                            </div>
+                            <div style="width: 100%; display: none;">
+                                <div class="dvrdescription">
+                                    <label class="lblrn">
+                                        Description:
+                                    </label>
+                                </div>
+                                <div class="dvrn">
+                                    <span class="lblrt" data-bind="text:RewardDescription"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div style="width: 100%; position: relative; display: inline-block;">
+                        <div class="dvracc">
+                            <label class="lblrn">
+                                Access Code:&nbsp;
+                            </label>
+                        </div>
+                        <div class="dvcaptcha">
+                            <div style="width: 100%;">
+                                <div class="g-recaptcha" data-sitekey="6LfVcForAAAAAHCQH_OWJRVYCXlvU0KlMm2u6B2i"></div>
+                            </div>
+                            <div id="dvErrorMsg" style="width: 55%">
+                                <span id="spnCatchaMessage" class="spnCaptchaErrMsg error" style="display: none;" align="center">Invalid Captcha</span>
+                            </div>
+                        </div>
+                        <!-- <div style="width: 100%">
+                            <div class="dvrec">
+                                <label class="lblrn">
+                                    Enter Code:
+                                </label>
+                            </div>
+                            <div class="dvrn">
+                               <input type="text" id="txtEntercode" data-bind="value:AccessToken" />
+                            </div>
+                        </div>-->
+                        <div class="dvlinegap">
+                        </div>
+                        <div style="width: 100%">
+                            <div class="dvrredeem">
+                                <label class="lblrn">
+                                    Amount $:&nbsp;
+                                </label>
+                            </div>
+                            <div class="dvrddl">
+                                <!--  <select id="ddlRedeemAmount" data-bind="value:RedeemAmount">
+                                </select>-->
+                                <input type="text" id="txtRedeemAmount" style="float: left;" disabled />
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label id="lblMessage">
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <br />
+                    </div>
+                    <div class="dvbuttons">
+                        <div class="dvredbtn">
+                            <input type="button" id="btnRedeem" class="myButton" value="Redeem" ng-click="Redeem()"/>
+                        </div>
+                        <div class="dvcanbtn">
+                            <input type="button" id="btnCancel" class="myButton" value="Cancel" ng-click="Cancel()"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+</div>
+<div>
+    <content ContentPlaceHolderID="cphMain" id="conten1">
+        <table style="border-collapse: inherit;">
+            <tr>
+                <td>
+                    <br />
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td style="padding-left: 75px;">
+                    <table border="0" cellspacing="0" cellpadding="0" style="padding-left: 60px; font-size: 12px;
+                    background-color: #FFFFFF; padding: 10px; overflow: hidden; border: solid 1px #CACACA;
+                    border-collapse: inherit;">
+                        <tr>
+                            <td colspan="2">
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="right" style="font-size: 14px; font-family: Arial;">
+                                <b>
+                                    <label id="lblbalance" Text="Your current Account balance:"></label>
+                                </b><label Font-Bold="true" ForeColor="#1E91CB" Text="$"></label>
+                                <label id="lblAccountBalance" Font-Bold="true" ForeColor="#1E91CB"></label>&nbsp;&nbsp;
+                            </td>
+                        </tr>
+                        <tr id="trshow">
+                            <td colspan="2" align="center">
+                                <br />
+                                <div style="width: 650px; border: dashed 1px green;">
+                                    <br />
+                                    To redeem survey rewards, your account must first be confirmed.&nbsp;
+                                    <linkbutton id="lnkclcik" Text="Click Here" ForeColor="#1E91CB"
+                                                onclick="lnkclick_OnClick" CausesValidation="false"></linkbutton>&nbsp;to
+                                    confirm your account.
+                                    <br />
+                                    <br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr id="trshowmessage">
+                            <td colspan="2" align="center">
+                                <br />
+                                <div style="width: 650px; border: dashed 1px green; text-align: left;">
+                                    <br />
+                                    We sent an Email to your Account&nbsp;
+                                    <label id="lblEmail" ForeColor="Green"></label>,&nbsp; please
+                                    open that email and click on the link to activate your account.
+                                    <br />
+                                    <br />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="left">
+                                <image id="imglogo" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width: 30%; color: #1E91CB;">
+                                Reward Name:&nbsp;
+                            </td>
+                            <td align="left">
+                                <label id="name"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width: 30%; color: #1E91CB;">
+                                Description:&nbsp;
+                            </td>
+                            <td align="left">
+                                <label id="lbldesc"></label>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width: 30%; color: #1E91CB;">
+                                Access Code:&nbsp;
+                            </td>
+                            <td align="left">
+                                <image id="imgCp" ImageUrl="/Rg/cp.aspx" Width="195px" Height="20px" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width: 30%; color: #1E91CB;">
+                                Enter Code:&nbsp;
+                            </td>
+                            <td align="left">
+                                <textBox tooltiptext="To prevent fraud, please enter the access code you see top into this box."
+                                         id="txtAccessCode" TabIndex="21" MaxLength="20"></textBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td align="left" style="padding-left: 5px;">
+                                <RequiredFieldValidator id="rfvAccessCode" ControlToValidate="txtAccessCode"
+                                                        ErrorMessage="Required" SetFocusOnError="true"></RequiredFieldValidator><br />
+                                <label id="lblAccessCode" Text="Invalid AccessCode"
+                                       ForeColor="Red"></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" style="width: 30%; color: #1E91CB;">
+                                Select Amount to Redeem:&nbsp;
+                            </td>
+                            <td align="left">
+                                $<dropDownList id="ddlAmount">
+                                </dropDownList>
+                                <requiredFieldValidator id="rfvReward" ControlToValidate="ddlAmount"
+                                                        Display="Dynamic" ErrorMessage="Required" SetFocusOnError="true" InitialValue="-1"></requiredFieldValidator><br />
+                                <customValidator id="cus1" Display="Dynamic" OnServerValidate="AccountBalance_Validate"
+                                                 ErrorMessage="Redeemed Amount should not be more then your current Account Balance"></customValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td align="left">
+                                <label id="lblMessage"></label><br />
+                                <button id="btnRedeem1" ImageUrl="/Images/redeem.png" Text="Redeem"
+                                        OnClick="btnRedeem1_Click" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <br />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </content>
+</div>

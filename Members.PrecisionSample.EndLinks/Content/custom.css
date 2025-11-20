@@ -1,0 +1,165 @@
+﻿
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.toolbox {
+    position: relative;
+    padding: 8px;
+    border-radius: 4px;
+    background: rgba(26,26,26,0.9);
+    max-width: 240px;
+    color: #fff;
+    -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    z-index: 500;
+    text-align: left;
+    line-height: 1.4em;
+    font-size: 12px;
+    top: 11px;
+    /* left: 0px; */
+    right: 47px;
+    min-width: 148px;
+}
+
+.toolbox-hide {
+    display: none;
+}
+
+.toolbox:before {
+    position: absolute;
+    border: 8px solid transparent;
+    content: '';
+    top: -16px;
+    left: 50%;
+    bottom: auto;
+    margin-left: -8px;
+    border-bottom-color: #002e4d;
+}
+
+.toolbox h2 {
+    font-size: 99.99749999999999%;
+    margin: 0px 0px 10px 0px;
+}
+
+.language-list nav.menu li {
+    margin-bottom: 4px;
+}
+
+nav.menu.stacked li {
+    display: block;
+    padding: 0;
+}
+
+nav.menu li {
+    list-style-type: none;
+    margin: 0;
+    display: inline-block;
+    padding: 0 8px;
+}
+
+.language-list nav.menu li a {
+    line-height: 24px;
+}
+
+nav.menu.stacked a {
+    display: block;
+}
+
+.toolbox a:not(.button), .toolbox h1, .toolbox h2, .toolbox h3, .toolbox h4, .toolbox h5, .toolbox h6 {
+    color: #fff;
+}
+
+nav.menu li a {
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.language-list nav.menu .flag {
+    border: 0;
+    height: 24px;
+    width: 34px;
+}
+
+.toolbox img {
+    border-radius: 4px;
+    border: 2px solid #fff;
+    background: #fff;
+    max-width: 50px;
+    float: left;
+    margin-right: 8px;
+}
+
+nav.menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+.padding-zero {
+    padding: 0px !important;
+}
+
+.header-tags {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.div-share {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 10px;
+}
+
+.pull-left {
+    float: left;
+}
+
+
+.loader {
+    border: 16px solid #fff;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    background: transparent;
+    top: 50%;
+    margin: -60px auto 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.preloader {
+    background: #454545;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 1001;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

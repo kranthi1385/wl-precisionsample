@@ -1,0 +1,403 @@
+﻿@{
+    Layout = null;
+}
+
+
+@{
+    AjaxOptions ContactOptions = new AjaxOptions()
+    {
+        OnBegin = "OnloginFormBegin()",
+        OnSuccess = "OnloginFormSuccess()",
+        OnFailure = "OnloginFormFailure()"
+    };
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+
+        })(window, document, 'script', 'dataLayer', 'GTM-KS869WC');</script>
+    <!-- End Google Tag Manager -->
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="facebook-domain-verification" content="as8t7k3pxomodbcpqohi7paky7mf8v" />
+    <title>@ViewBag.OrgName</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/main/s1.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://www.offerfwd.net/oi/joi.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script src="~/Scripts/translate-pluggable-loader.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <link ng-href="~/Content/loading-bar.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .validation-summary-errors {
+            color: red !important;
+        }
+
+            .validation-summary-errors ul {
+                clear: both;
+                list-style: none;
+                padding: 0px 0px 0px 12px;
+            }
+
+        .padding-zero {
+            padding: 6px 3px;
+        }
+
+
+        *, html, body {
+            font-weight: 300;
+            font-family: Roboto, Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        .banner-header {
+            min-height: 350px;
+        }
+
+        .cardbg {
+            background-color: #F7F7F7;
+        }
+
+        .sharebox-header {
+            background-color: #A71718;
+            padding: 25px;
+            text-align: center;
+            font: normal normal bold 24px/1.3 Roboto;
+            letter-spacing: 0px;
+            color: #FFFFFF;
+            padding-bottom: 40px;
+        }
+
+        .sharebox {
+            max-width: 500px;
+            margin: auto;
+            margin-top: -80px;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .share-paid {
+            background-color: #A71718;
+            height: 70px;
+            width: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            border-radius: 100%;
+            margin: auto;
+            margin-top: -45px;
+        }
+
+        .btn-success {
+            background-color: #34BB7B !important;
+            border-color: #34BB7B !important;
+        }
+         .btn-danger {
+            background-color: #b9240c !important;
+            border-color: #b9240c !important;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: Roboto, Arial, Helvetica, sans-serif;
+        }
+        .g-recaptcha iframe, .g-recaptcha >div{
+            /*width:100% !important;*/
+
+        }
+    </style>
+
+</head>
+
+<body style="background-image:none !important;" ng-cloak ng-app="extregApp" ng-controller="extregCtrl">
+    @Html.AntiForgeryToken()
+    <!-- Google Tag Manager (noscript) -->
+
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KS869WC"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="py-3 shadow bg-white">
+        <div class="container">
+            <a href="#" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                <img src="https://psr.opinionbar.com/Images/opinionbar_logo.png" alt="" height="50">
+            </a>
+        </div>
+    </header>
+
+    <div class="banner-header w-100 d-flex flex-wrap align-items-center" style="background: #555 url(https://psr.opinionbar.com/Images/Opinion-Header.png) no-repeat center/cover;">
+        <div class="container">
+            <div class="row mb-0">
+                <div class="col-md-12 col-lg-6 d-flex align-items-center py-4">
+                    <div>
+                        <h2 class="text-white" ng-if="showButton">Welcome to Conversant.pro! </h2>
+                        <h2 class="text-white" ng-if="!showButton">Welcome to Opinionbar! </h2>
+                        <p class="text-white" ng-if="!showButton">
+                            Companies around the world need your input to improve the products and services you use every day.
+                            Once you complete our introductory survey and join; we’ll deposit $5.00 into your account.
+                            You’ll have the opportunity to participate in multiple surveys per day that pay $2-$5 per survey.
+                        </p>
+                        <p class="text-white" ng-if="showButton">
+                            A community of professionals who are the go-to resource for Fortune 1000 firms looking to gather expert opinion
+                            on business critical decisions. Once joined, you’ll have the opportunity to participate in paid surveys and interviews with our
+                            clients while connecting with fellow community members to solve your challenges and stay a step ahead of the competition.
+                        </p>
+                    </div>
+                </div>
+                <div class="d-none d-lg-block col-lg-1"></div>
+                <div class="col-md-12 col-lg-5">
+                    <div class="sharebox cardbg">
+                        <div class="sharebox-header" ng-if="!showButton">
+                            <h3 class="s-title mt-4">Share your opinion and get paid… <br> simple as that. And no spam… Promise!</h3>
+                        </div>
+                        <div class="sharebox-header" style="background-color:#34BB7B;" ng-if="showButton">
+                            <h3 class="s-title mt-4">You've got answers and we've got a<br> lot of questions, so let's get started</h3>
+                        </div>
+                        <div>
+                            <div class="share-paid" ng-if="!showButton">
+                                <img src="https://psr.opinionbar.com/Images/Path298.svg" alt="">
+                            </div>
+                            <div class="share-paid" style="background-color:#34BB7B;" ng-if="showButton">
+                                <img src="https://psr.conversant.pro/Images/Path298.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="sharebox-body p-4">
+
+                            <p ng-if="!showButton">Once you’ve completed our introductory survey and joined, we’ll deposit $5 into your account. <b style="font-weight:bold">All fields are required.</b></p>
+                            <p ng-if="showButton">Once you’ve completed our introductory survey and joined, we’ll deposit $20 into your account. <b style="font-weight:bold">All fields are required.</b></p>
+                            <form name="cagForm" novalidate>
+                                <div class="share-form">
+                                    <div class="row mb-0">
+                                        <div class="col-md-8 mb-3">
+                                            <select class="form-select" id="countryid" style="font-weight:bold;" ng-model="user.CountryId" name="country" required>
+                                                <option value="" >{{'Select your country '|translate}}</option>
+                                                <option value="231">UNITED STATES OF AMERICA</option>
+                                                <option value="229">UNITED KINGDOM</option>
+                                                <option value="38">CANADA</option>
+                                                <option value="15">AUSTRALIA</option>
+                                            </select>
+                                            <div class="error text-danger txt-req" ng-show="cagForm.country.$invalid && isRegErrMsg">{{'required'|translate}}</div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <select class="form-select" id="ddlGender" style="font-weight:bold;" ng-model="user.Gender" name="gender" required>
+                                                <option value="">{{'gender'|translate}}</option>
+                                                <option value="M">Male</option>
+                                                <option value="F">Female</option>
+                                                <option value="N">Non-Binary</option>
+                                            </select>
+                                            <span class="error text-danger txt-req" ng-show="cagForm.gender.$invalid && isRegErrMsg">{{'required'|translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-0"><label class="form-label">Enter your date of birth:</label></div>
+                                    <div class="row">
+                                        <div class="col-3 mb-3">
+                                            <select class="form-select" id="ddlMonth" style="font-weight:bold" ng-model="user.Month" name="month" required>
+                                                <option value="" >-MM-</option>
+                                                <option value="01">{{'jan'|translate}}</option>
+                                                <option value="02">{{'feb'|translate}}</option>
+                                                <option value="03">{{'mar'|translate}}</option>
+                                                <option value="04">{{'apr'|translate}}</option>
+                                                <option value="05">{{'may'|translate}}</option>
+                                                <option value="06">{{'jun'|translate}}</option>
+                                                <option value="07">{{'july'|translate}}</option>
+                                                <option value="08">{{'aug'|translate}}</option>
+                                                <option value="09">{{'sept'|translate}}</option>
+                                                <option value="10">{{'oct'|translate}}</option>
+                                                <option value="11">{{'nov'|translate}}</option>
+                                                <option value="12">{{'dec'|translate}}</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-3 mb-3">
+                                            <select class="form-select" id="ddlDay" style="font-weight:bold" ng-model="user.Day" name="day" required>
+                                                <option value="" >-DD-</option>
+                                                <option value="01">1</option>
+                                                <option value="02">2</option>
+                                                <option value="03">3</option>
+                                                <option value="04">4</option>
+                                                <option value="05">5</option>
+                                                <option value="06">6</option>
+                                                <option value="07">7</option>
+                                                <option value="08">8</option>
+                                                <option value="09">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                                <option value="24">24</option>
+                                                <option value="25">25</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+                                                <option value="28">28</option>
+                                                <option value="29">29</option>
+                                                <option value="30">30</option>
+                                                <option value="31">31</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-6 mb-3" style="font-weight:bold">
+                                            <select class="form-select" id="ddlYear" style="font-weight:bold" ng-model="user.Year" name="year" required>
+                                                <option value="">-Year-</option>
+                                                <option ng-repeat="y in year" value="{{y.key}}">{{y.value}}</option>
+                                            </select>
+                                            <span class="error text-danger  txt-req spn-yy-err" ng-show="(cagForm.month.$invalid ||cagForm.day.$invalid||cagForm.year.$invalid)  && isRegErrMsg">{{'required'|translate}}</span>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <input type="text" id="txtZipCode" class="form-control" placeholder="Enter your zip code" ng-model="user.ZipCode" name="zipCod" ng-blur="ZipValidate(user.ZipCode)" required>
+                                            <div class="error text-danger txt-req" ng-show="cagForm.zipCod.$invalid && isRegErrMsg">{{'required'|translate}}</div>
+                                            <div class="error text-danger txt-req" ng-show="isZiprMsg">{{'Invalid Zipcode'|translate}}</div>
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+                                            <select class="form-select" id="ddlEthnicity" style="font-weight:bold" ng-model="user.EthnicityId" name="ethnicity" required>
+                                                <option value="" >{{'Select your ethnicity'|translate}}</option>
+                                                <option ng-repeat="ec in ethnicityLst" value="{{ec.EthnicityId}}">{{ec.EthnicityType}}</option>
+                                            </select>
+                                            <span class="error text-danger txt-req" ng-show="cagForm.ethnicity.$invalid  && isRegErrMsg">{{'required'|translate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <div class="g-recaptcha" vc-recaptcha key="'6LetblorAAAAAMH3OWFI3rtURCyE4SGpXp9gkfk1'" on-success="setResponse(response)" size="normal"></div>
+                                            <div class="text-danger" ng-show="captchaErr">{{'invalidCaptcha'|translate}}.</div>
+                                        </div>
+                                        <div class="col-md-12 mb-3 mt-3">
+                                            <input type="submit" class="btn btn-success" id="imgButton" ng-if="showButton" value="Continue" ng-click="submit(cagForm.$valid)" style="width: 130px;" />
+                                            <input type="submit" class="btn btn-danger" id="imgButton" ng-if="!showButton" value="Continue" ng-click="submit(cagForm.$valid)" style="width: 130px;" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="py-5 contentbody">
+        <div class="container justify-content-center" style="max-width: 900px;" ng-if="!showButton">
+            <div class="d-flex text-muted pt-3 align-items-center mb-3">
+                <img src="https://psr.opinionbar.com/Images/noun_achievement_2960591.svg" class="bd-placeholder-img flex-shrink-0 me-4 rounded" alt="">
+                <p class="mb-0 lh-md">
+                    We will never sell, share or rent your information. Responses you provide are anonymous to the survey sponsors and used for market research purposes only.
+                    You will never be marketed to as a result of Joining Opinionbar or participating in one of our surveys or client interviews.
+                </p>
+            </div>
+            <div class="d-flex text-muted pt-3 align-items-center mb-3">
+                <img src="https://psr.opinionbar.com/Images/noun_achievement_2960591.svg" class="bd-placeholder-img flex-shrink-0 me-4 rounded" alt="">
+                <p class="mb-0 lh-md">
+                    You must be at least 13 years old to participate in our surveys and join.
+                </p>
+            </div>
+        </div>
+        <div class="container justify-content-center" style="max-width: 900px;" ng-if="showButton">
+            <div class="d-flex text-muted pt-3 align-items-center mb-3">
+                <img src="https://psr.conversant.pro/Images/band.svg" class="bd-placeholder-img flex-shrink-0 me-4 rounded" alt="">
+                <p class="mb-0 lh-md">
+                    We will never sell, share or rent your information. Responses you provide are anonymous to the survey sponsors and used for market research purposes only.
+                    You will never be marketed to as a result of joining Conversant.pro or participating in one of our surveys or client interviews.
+                </p>
+            </div>
+            <div class="d-flex text-muted pt-3 align-items-center mb-3">
+                <img src="https://psr.conversant.pro/Images/band.svg" class="bd-placeholder-img flex-shrink-0 me-4 rounded" alt="">
+                <p class="mb-0 lh-md">
+                    Do not share any confidential/non-public information about your company in any Conversant.pro survey or client interview.
+                </p>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar1 fixed-bottom1 navbar-expand-sm1 navbar-dark bg-dark">
+        <div class="container">
+            <div class="d-flex py-3 w-100 align-items-center" ng-if="!showButton">
+                <span class="small text-white me-5 pe-5">
+                    <a href="http://www.metrixlab.com" target="_blank" style="color:#6c757d!important;cursor:pointer;text-decoration:none"> ©2021 MetrixLab</a>
+                </span>
+                <a class="nav-link text-muted" aria-current="page" ng-click="privacyClickOB()" style="cursor:pointer;text-decoration:none">Privacy Policy</a>
+                <a class="nav-link text-muted" ng-click="termsClickOB()" style="cursor:pointer;text-decoration:none">Terms & Conditions</a>
+            </div>
+            <div class="d-flex py-3 w-100 align-items-center" ng-if="showButton">
+                <span class="small text-white me-5 pe-5">
+                    <a href="https://precisionsample.com" target="_blank" style="color:#6c757d!important;cursor:pointer;text-decoration:none"> ©2021 Precision Sample, LLC</a>
+                </span>
+                <a class="nav-link text-muted" aria-current="page" ng-click="privacyClickCon()" style="cursor:pointer;text-decoration:none">Privacy Policy</a>
+                <a class="nav-link text-muted" ng-click="termsClickCon()" style="cursor:pointer;text-decoration:none">Terms & Conditions</a>
+            </div>
+            @*<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>*@
+
+            @*<div class="collapse navbar-collapse" id="navbarCollapse" style="font-size: 12px;">
+                    <ul class="navbar-nav">
+                        <li class="nav-item me-5">
+                            <a class="nav-link" aria-current="page" href="#">Privacy Policy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Terms & Conditions</a>
+                        </li>
+
+                    </ul>
+                </div>*@
+        </div>
+    </nav>
+    @*old*@
+    @*<div class="container_12" style="clear: both;">
+            <div class="clearfix"></div>
+            <div class="preloader" ng-if="imgloading">
+                <div class="dvImageLoading"></div>
+            </div>
+        </div>*@
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/bundles/bootstrap")
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script type="text/javascript" src="~/Scripts/pages/e/extreg.js?v=1"></script>
+    <script>
+        $(document).ready(function () {
+            $(".login-user a").click(function () {
+                $(".login-form").slideToggle();
+            })
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿{
+  "yourCurrentAccountBalance": "Solde de votre compte actuel",
+  "rewardName": "Nom de la récompense",
+  "disclaimer": "Avertissement",
+  "rewardDis": "n'est pas un sponsor des récompenses ni autrement affilié à Opinionetwork. Les logos et autres marques d'identification ci-joints sont des marques déposées appartenant à chaque société représentée et / ou ses filiales. Veuillez visiter le site Web de chaque entreprise pour connaître les conditions générales supplémentaires.",
+  "invalidCap": "Sélection de captcha non valide",
+  "errorPlstryagain": "Erreur est survenue. Veuillez réessayer",
+  "amount": "Montant",
+  "redeem": "Racheter",
+  "cancel": "Annuler",
+  "rewardNote": "Remarque : Si vous ne recevez pas d'e-mail de confirmation de votre échange ou si vous voyez votre échange dans l'historique ci-dessous dans les 2 prochaines heures, veuillez contacter notre service d'assistance pour obtenir de l'aide.",
+  "rewardNote1": "Remarque : Dans les 2 prochaines heures, vous verrez votre échange dans votre historique ci-dessous. Si ce n'est pas le cas, veuillez contacter (support@opinionetwork.com).",
+  "paypalrequest1": "Les demandes faites entre le 1er et le 15 du mois (EST) seront payées le 16..",
+  "paypalrequest2": " Les demandes faites entre le 16 et le 31 du mois (EST) seront payées le 1er.",
+  "paypalrequest3": " Lorsque le 1er ou le 16 tombe les week-ends et les jours fériés, les paiements sont traités le premier jour ouvrable suivant immédiatement.",
+  "paypalrequest4": "Les récompenses PayPal sont déposées en utilisant l'adresse e-mail que vous utilisez pour accéder à votre compte OpinionBar.com.",
+  "paypalrequest5": "Si votre adresse e-mail n'est pas associée à votre compte PayPal, veuillez l'ajouter pour garantir que le dépôt sera effectué. Vous pouvez associer plusieurs adresses e-mail à chaque compte PayPal."
+}

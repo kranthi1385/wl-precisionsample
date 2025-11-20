@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    @*<link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />*@
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/loadingbar.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/gmquestions.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .error {
+            color: red;
+            margin: 7px 0px 0px 4px;
+            /* padding-top: 55px; */
+            display: inline-block;
+        }
+    </style>
+</head>
+<body ng-cloak>
+    <div id="dvSurveyQuestions">
+        <div class="header" ng-if="isShowOrgLogo">
+            <img src="~/Images/gm_logo.png" />
+            @*<img  src="~/Images/General-Motors-Signature.jpg" />*@
+            @*<img alt="" id="ctl00_supplierImage" class="header-logo" ng-src="{{orgLogo}}" />*@
+        </div>
+        @RenderBody()
+    </div>
+    <div class="dvFooter" ng-show="isShowFooter" style="max-width: 800px;font-size:14px;" ng-controller="footerController">
+        <div class="pre-footer">
+            <div class="copyright-img">
+                <div style="font-size: 12px;line-height: 1;">Powered By</div>
+                <img src="/images/opinionnetwork_logo.png" alt="" style="width: 150px; padding: 5px;" />
+            </div>
+            <div class="copyright-block">
+                <p>Copyright &#169; Precision Sample, LLC. All rights reserved. <a href="#" ng-click="privacyClick()">Privacy Policy</a> | <a href="#" ng-click="termsClick()">Terms</a></p>
+                @*<div class="pre-powerd-byimg"><img src="~/Images/powered-by-img.png" /></div>*@
+            </div>
+        </div>
+    </div>
+    <div class="preloader" loader>
+        <loading-directive>
+        </loading-directive>
+    </div>
+    <script data-main="/Scripts/lead/leadConfig" src="/Scripts/require.js"></script>
+</body>
+</html>

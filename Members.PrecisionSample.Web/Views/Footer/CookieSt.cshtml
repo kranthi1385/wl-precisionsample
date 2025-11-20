@@ -1,0 +1,183 @@
+﻿
+@{
+    Layout = null;
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="~/Scripts/angular-cookies.min.js"></script>
+    <script src="~/Scripts/angular-translate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/angular-translate-loader-partial.js" type="text/javascript"></script>
+    <script src="~/Scripts/translate-pluggable-loader.js" type="text/javascript"></script>
+    <script type="text/javascript" src="~/Scripts/services/customServices.js"></script>
+    <title>Cookie Statement</title>
+</head>
+<body ng-app="footerApp">
+    @Html.AntiForgeryToken()
+    <div id="dvprivacy" ng-controller="cookiestController">
+        <table style="font-family: Verdana; font-size: small;">
+            <tr>
+                <td align="center">
+                    <b style="font-size: large;">
+                        Cookie Statement {{orgDetails.OrgName}}
+                    </b><br />
+                    <span>Precision Sample Inc. and Metrixlab B.V.</span><br />
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>What are cookies?</b>
+                    <p>
+                        Cookies are little (text) files which are stored on your computer. Your web browser stores these cookies when you visit our <b>Website:</b> <a href="{{orgDetails.MemberUrl}}">{{orgDetails.MemberUrl}}</a>. These cookies will be retrieved when you visit our Website again. This allows us to recognise you as a previous visitor.
+                    </p><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>Why do we use cookies?</b>
+                    <p>
+                        By using cookies, we can see how our Website is used and how we can optimise our Website and services. Cookies are also helpful to make the Website quick and safe. In addition, cookies by us or by third parties can be used to show you relevant advertisement based on your interests. See the table below for the specific purposes of each cookie we use.
+                    </p><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>Which cookies do we use?</b><br /><br />
+                    <b style="text-decoration:underline">
+                        FUNCTIONAL COOKIES
+                    </b><br />
+                    <p>We have a legitimate interest to use the personal data collected via these cookies, namely to make our Website work properly.</p><br />
+                    <style>
+                        .grid {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                    </style>
+                    <table class="grid">
+                        <tr class="grid">
+                            <th class="grid">PARTY</th>
+                            <th class="grid">NAME(S)</th>
+                            <th class="grid">FUNCTION/PURPOSE</th>
+                            <th class="grid">RETENTION PERIOD</th>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="grid" style="font-size:small;">__cf_bm</td>
+                            <td class="grid" style="font-size:small;">Used to detect & block malicious bots on the Website via Cloudflare Bot Management.</td>
+                            <td class="grid" style="font-size:small;">30 minutes</td>
+                        </tr>
+                        <tr>
+                            <td style="font-size:small;"><b>{{orgDetails.OrgName}}</b></td>
+                            <td class="grid" style="font-size:small;">ASP.NET_SessionId</td>
+                            <td class="grid" style="font-size:small;">Used to store cookie session data during a user's Website visit.</td>
+                            <td class="grid" style="font-size:small;">Session</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="grid" style="font-size:small;">__RequestVerificationToken</td>
+                            <td class="grid" style="font-size:small;">This is an anti-forgery cookie used for preventing cross site request forgery attacks.</td>
+                            <td class="grid" style="font-size:small;">Session</td>
+                        </tr>
+                    </table><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b style="text-decoration:underline">
+                        ANALYTICAL/STATISTICAL COOKIES
+                    </b><br />
+                    <p>We ask for consent to use these cookies. You may always withdraw your consent. You can do this via <a href="#" onclick="window.open('/Login/cookiesettings', 'Cookie Settings', 'height=800,width=800,scrollbars=yes'); return false">Cookie Settings</a></p><br />
+                    <style>
+                        .grid {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                    </style>
+                    <table class="grid">
+                        <tr class="grid">
+                            <th class="grid">PARTY</th>
+                            <th class="grid">NAME</th>
+                            <th class="grid">FUNCTION/PURPOSE</th>
+                            <th class="grid">RETENTION PERIOD</th>
+                        </tr>
+                        <tr class="grid">
+                            <td style="font-size:small;"><b>{{orgDetails.OrgName}}</b></td>
+                            <td class="grid" style="font-size:small;">_gcl_au <br />_ga_16KTRLFVQ3 <br />_ga</td>
+                            <td class="grid" style="font-size:small;">Used for website analytics via Google Analytics (calculates visitor, session and campaign data and also keeps track of Website usage for the Website's analytics report).</td>
+                            <td class="grid" style="font-size:small;">2 years</td>
+                        </tr>
+                    </table><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b style="text-decoration:underline">
+                        TRACKING COOKIES
+                    </b><br />
+                    <p>We ask for consent to use these cookies. You may always withdraw your consent. You can do this <a href="#" onclick="window.open('/Login/cookiesettings', 'Cookie Settings', 'height=800,width=800,scrollbars=yes'); return false">Cookie Settings</a></p><br />
+                    <style>
+                        .grid {
+                            border: 1px solid black;
+                            border-collapse: collapse;
+                        }
+                    </style>
+                    <table class="grid">
+                        <tr class="grid">
+                            <th class="grid">PARTY</th>
+                            <th class="grid">NAME(S)</th>
+                            <th class="grid">FUNCTION/PURPOSE</th>
+                            <th class="grid">RETENTION PERIOD</th>
+                        </tr>
+                        <tr class="grid">
+                            <td style="font-size:small;"><b>{{orgDetails.OrgName}}</b></td>
+                            <td class="grid" style="font-size:small;">_fbp</td>
+                            <td class="grid" style="font-size:small;">Used to display advertisements either on Facebook or on a digital platform powered by Facebook advertising, after visiting the Website.</td>
+                            <td class="grid" style="font-size:small;">3 months</td>
+                        </tr>
+                        <tr class="grid">
+                            <td style="font-size:small;"><b>Facebook</b> (please consult this Facebook Policy for more information)</td>
+                            <td class="grid" style="font-size:small;">fr</td>
+                            <td class="grid" style="font-size:small;">Facebook sets this cookie to show relevant advertisements to users by tracking user behaviour across the web, on sites that have Facebook pixel or Facebook social plugin.</td>
+                            <td class="grid" style="font-size:small;">3 months</td>
+                        </tr>
+                    </table><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>Can I delete the cookies?</b>
+                    <p>
+                        Yes, you may delete the cookies yourself in your internet browser.
+                    </p>
+                    <p>If you don’t want cookies to be send to your device at all, you may change this via the cookie settings in your internet browser. Please keep in mind that some of the functions and services on the Website might not function (as good) without cookies.</p><br />
+                </td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <b>Amendments to this Cookie Statement</b>
+                    <p>
+                        This Cookie Statement may be amended from time to time. The most recent version of this Cookie Statement applies. We advise you to read this Cookie Statement regularly to see if there are any changes.
+                    </p><br />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>
+                        <div><b>Precision Sample Inc. (the main contact point)</b><br /></div>
+                        <div>3461 Ringsby Ct.<br /></div>
+                        <div>Suite 240<br /></div>
+                        Denver, CO 80216<br />
+                        <div>Tel:+1 720-766-5106<br /></div>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/services/CookieTranslation.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-recaptcha/4.1.1/angular-recaptcha.min.js"> </script>
+    <script src="~/Scripts/pages/footer/tc.js" type="text/javascript"></script>
+</body>
